@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Area : MonoBehaviour
+[System.Serializable]
+public class Area
 {
     [SerializeField]
-    public Structure Structure { get; set; } 
-    public bool IsBuilt()
-    {
-        return Structure.Type != StructureType.FreeArea;
-    }
+    public Structure structure;
+    [SerializeField]
+    public int constructionProgress; // 0 -> 100 percent 
 
 }

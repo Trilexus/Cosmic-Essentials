@@ -10,7 +10,7 @@ public class Structure
     public Resource Resource;
     public int EcoImpactFactor;
     public List<AllowedLocation> AllowedLocations;
-
+    
     // Konstruktor
     public Structure(string name, StructureType type, Resource resource, int ecoImpactFactor, List<AllowedLocation> allowedLocations)
     {

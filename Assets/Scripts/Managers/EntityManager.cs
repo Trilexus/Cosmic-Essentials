@@ -7,6 +7,7 @@ using UnityEngine;
 public class EntityManager : MonoBehaviour
 {
     public List<StructureScriptableObject> structureScriptableObjects;
+    [SerializeField]
     public List<Structure> AllStructures = new List<Structure>();
     public static EntityManager Instance { get; private set; }
 
