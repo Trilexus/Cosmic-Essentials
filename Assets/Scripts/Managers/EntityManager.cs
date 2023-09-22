@@ -9,6 +9,8 @@ public class EntityManager : MonoBehaviour
     public List<StructureScriptableObject> structureScriptableObjects;
     [SerializeField]
     public List<Structure> AllStructures = new List<Structure>();
+    public Dictionary<StructureScriptableObject, Structure> structureDictionary = new Dictionary<StructureScriptableObject, Structure>();
+
     public static EntityManager Instance { get; private set; }
 
     private void Awake()
@@ -27,16 +29,17 @@ public class EntityManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void BuildStructure(StructureScriptableObject structureScriptableObject)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Build Structure");
+        Structure structureToBuild = structureDictionary[structureScriptableObject];
+        Debug.Log("Structure to build: " + structureToBuild.Name);
+        CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
+        Debug.Log("Celestial Body: " + celestialBody.name);
+        if (structureToBuild != null)
+        {
+            celestialBody.InitiateConstructionStructure(structureToBuild);
+        }
     }
 
     private void CreateStructures()
@@ -44,7 +47,7 @@ public class EntityManager : MonoBehaviour
         foreach (var scriptableObject in structureScriptableObjects)
         {
             Structure newStructure = new Structure(scriptableObject);
-            AllStructures.Add(newStructure);
+            structureDictionary[scriptableObject] = newStructure;
         }
     }
 }

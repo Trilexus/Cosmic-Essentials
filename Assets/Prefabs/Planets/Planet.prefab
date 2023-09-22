@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 3553431215775858356}
   - component: {fileID: 839999930465024810}
   - component: {fileID: 5281886848863563929}
+  - component: {fileID: 5272761293592083797}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -270,6 +271,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdf07794bd1fea47a2c0a95e677d88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: 0
-  areas: []
+  area: 5
+  interval: 5
+  ProductivityRate: 1
+  Areas: []
   allowedLocation: 0
+--- !u!58 &5272761293592083797
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7514443899264742639}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Farm
   Type: 2
+  Resource: {fileID: 2877031959262065529, guid: d86e90837f13f4541afb3f3c58f6f633, type: 3}
   EcoImpactFactor: 3
   AllowedLocations: 00000000

@@ -9,6 +9,7 @@ abstract public class CelestialBody : MonoBehaviour
     public int area;
     public float interval = 5f;
     public float ProductivityRate = 1f; //smaler = faster
+    public float ConstructionRate = 0.2f; //bigger = faster
     [SerializeField]
     public List<Area> Areas = new List<Area>();
     public AllowedLocation allowedLocation;
@@ -30,15 +31,15 @@ abstract public class CelestialBody : MonoBehaviour
 
     private void Tick()
     {
-        Debug.Log("Tick: " + gameObject.name + " - "+ Time.time);
+        //Debug.Log("Tick: " + gameObject.name + " - "+ Time.time);
         ExecuteConstructionProgress();
         ManageResourceProduction();
     }
 
-    public void BuildFarm()
+    public void OnMouseDown()
     {
-        Debug.Log("Build Farm");
-        InitiateConstructionStructure(EntityManager.Instance.AllStructures.Take(1).First());
+        Debug.Log("Clicked: " + gameObject.name);
+        GUIManager.Instance.ShowCelestialBodyMenu(gameObject);
     }
     public void InitiateConstructionStructure(Structure structure)
     {
@@ -53,6 +54,14 @@ abstract public class CelestialBody : MonoBehaviour
     }
     private void ExecuteConstructionProgress()
     {
+        int countOfConstructingAreas = Areas.Count(x => x.constructionProgress < 100);
+        if (countOfConstructingAreas > 0)
+        {
+            float individualConstructionRate = ConstructionRate / countOfConstructingAreas;
+            Areas.Where(x => x.constructionProgress < 100)
+                 .ToList()
+                 .ForEach(x => x.constructionProgress += (int)(individualConstructionRate * 100));
+        }
         //Executes building projects over time (farm, power plant, mine, research center).
     }
 
