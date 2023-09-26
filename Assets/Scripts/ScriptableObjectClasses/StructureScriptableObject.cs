@@ -7,7 +7,7 @@ public class StructureScriptableObject : ScriptableObject
 {
     public string Name;
     public StructureType Type;
-    public Resource Resource;
-    public int EcoImpactFactor;
+    public List<Resource> Resources;
+    public float EcoImpactFactor;
     public List<AllowedLocation> AllowedLocations;
 }

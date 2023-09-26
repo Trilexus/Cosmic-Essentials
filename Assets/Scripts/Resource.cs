@@ -9,4 +9,10 @@ public class Resource : MonoBehaviour
     public string Name;
     [SerializeField]
     public int Quantity;
+
+    public Resource(string name, int quantity)
+    {
+        this.Name = name;
+        this.Quantity = quantity;
+    }
 }

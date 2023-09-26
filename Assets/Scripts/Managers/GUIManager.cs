@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GUIManager : MonoBehaviour
@@ -23,17 +24,26 @@ public class GUIManager : MonoBehaviour
         }
     }
 
-    public void ShowCelestialBodyMenu(GameObject selectedCelestialBody)
+    public void MoveCelestialBodyMenu(GameObject selectedCelestialBody)
     {
         this.selectedCelestialBody = selectedCelestialBody;
         RectTransform rect = CelestialBodyMenu.GetComponent<RectTransform>();
-        celestialBodyMenuOffset = new Vector3(rect.rect.width / 2 * rect.localScale.x, rect.rect.height / -2 * rect.localScale.y, 0);
-        Vector3 newPosition = selectedCelestialBody.transform.position + celestialBodyMenuOffset;
-        //rect.position = newPosition;
-        CelestialBodyMenu.transform.position = newPosition;
-        Debug.Log("Celestial Body Position: " + selectedCelestialBody.transform.position);
-        Debug.Log("Menu Offset: " + celestialBodyMenuOffset);
-        Debug.Log("New Menu Position: " + newPosition);
+        celestialBodyMenuOffset = new Vector3(rect.rect.width / 2, rect.rect.height / -2, 0);
+        Vector3 newPosition = selectedCelestialBody.transform.position;
+        newPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, newPosition);
+        Vector3 newPositionWithOffset = newPosition + celestialBodyMenuOffset;
+        rect.transform.position = newPositionWithOffset;
+        ShowCelestialBodyMenu();
+    }
+
+
+    public void HideCelestialBodyMenu()
+    {
+        CelestialBodyMenu.SetActive(false);
+    }
+    public void ShowCelestialBodyMenu()
+    {
+        CelestialBodyMenu.SetActive(true);
     }
 
 

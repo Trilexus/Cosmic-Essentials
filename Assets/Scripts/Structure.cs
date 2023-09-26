@@ -7,16 +7,16 @@ public class Structure
 {
     public string Name;
     public StructureType Type;
-    public Resource Resource;
-    public int EcoImpactFactor;
+    public List <Resource> Resources;
+    public float EcoImpactFactor;
     public List<AllowedLocation> AllowedLocations;
     
     // Konstruktor
-    public Structure(string name, StructureType type, Resource resource, int ecoImpactFactor, List<AllowedLocation> allowedLocations)
+    public Structure(string name, StructureType type, List<Resource> resources, int ecoImpactFactor, List<AllowedLocation> allowedLocations)
     {
         this.Name = name;   
         this.Type = type;
-        this.Resource = resource;
+        this.Resources = resources;
         this.EcoImpactFactor = ecoImpactFactor;
         this.AllowedLocations = allowedLocations ?? new List<AllowedLocation>(); // Verhindert NullReferenceException
     }
@@ -25,7 +25,7 @@ public class Structure
     {
         this.Name = data.Name;
         this.Type = data.Type;
-        this.Resource = data.Resource;
+        this.Resources = data.Resources;
         this.EcoImpactFactor = data.EcoImpactFactor;
         this.AllowedLocations = data.AllowedLocations ?? new List<AllowedLocation>(); // Verhindert NullReferenceException
     }

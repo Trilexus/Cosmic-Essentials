@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Mine
   Type: 4
-  Resource: {fileID: 2877031959262065529, guid: 76dd4c5af60b4674cbd17336bd37d33a, type: 3}
-  EcoImpactFactor: 10
+  Resources:
+  - {fileID: 2877031959262065529, guid: 76dd4c5af60b4674cbd17336bd37d33a, type: 3}
+  - {fileID: 2877031959262065529, guid: 7bcaffba1407c364c8c6b66f37243670, type: 3}
+  EcoImpactFactor: 0.03
   AllowedLocations: 00000000
