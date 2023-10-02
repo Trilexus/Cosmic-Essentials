@@ -6,10 +6,16 @@ public class StructureButton : MonoBehaviour
 {
     public StructureScriptableObject structureData; // Dein ScriptableObject
 
-    public void OnButtonClick()
+    public void Build()
     {
         // Dein Code, z.B. den EntityManager ansprechen
         Debug.Log("Button Clicked");
         EntityManager.Instance.BuildStructure(structureData);
+    }
+    public void Demolish()
+    {
+        // Dein Code, z.B. den EntityManager ansprechen
+        Debug.Log("Button Clicked");
+        EntityManager.Instance.DemolishStructure(structureData);
     }
 }

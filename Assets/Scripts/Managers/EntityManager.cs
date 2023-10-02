@@ -31,14 +31,21 @@ public class EntityManager : MonoBehaviour
 
     public void BuildStructure(StructureScriptableObject structureScriptableObject)
     {
-        Debug.Log("Build Structure");
         Structure structureToBuild = structureDictionary[structureScriptableObject];
-        Debug.Log("Structure to build: " + structureToBuild.Name);
         CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
-        Debug.Log("Celestial Body: " + celestialBody.name);
         if (structureToBuild != null)
         {
             celestialBody.InitiateConstructionStructure(structureToBuild);
+        }
+    }
+
+    public void DemolishStructure(StructureScriptableObject structureScriptableObject)
+    {
+        Structure structureToDemolish = structureDictionary[structureScriptableObject];
+        CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
+        if (structureToDemolish != null)
+        {
+            celestialBody.InitiateDemolishStructure(structureToDemolish);
         }
     }
 

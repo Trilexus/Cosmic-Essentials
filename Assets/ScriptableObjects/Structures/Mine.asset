@@ -16,6 +16,7 @@ MonoBehaviour:
   Type: 4
   Resources:
   - {fileID: 2877031959262065529, guid: 76dd4c5af60b4674cbd17336bd37d33a, type: 3}
-  - {fileID: 2877031959262065529, guid: 7bcaffba1407c364c8c6b66f37243670, type: 3}
+  - {fileID: 2877031959262065529, guid: 944de76aa92bf6a4b83a34c1d4fdcc55, type: 3}
   EcoImpactFactor: 0.03
   AllowedLocations: 00000000
+  Symbol: {fileID: 6999325608662012467, guid: c4cfab604ee928548828989542662b90, type: 3}

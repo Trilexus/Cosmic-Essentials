@@ -129,3 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa658c6630459d42b5a66d2372f6352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  celestialBodies: []
+  neighbors: []
+  planetarySystemCenterStar: {fileID: 7428254604738707947}

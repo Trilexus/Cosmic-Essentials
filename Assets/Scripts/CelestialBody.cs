@@ -4,17 +4,19 @@ using System.Linq;
 using TMPro;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
-using TMPro;
 
 abstract public class CelestialBody : MonoBehaviour
 {
     [SerializeField]
     protected int maxAreas;
     [SerializeField]
-    protected float population;
+    protected Population population;
     
-    public float interval = 5f;
+    public float interval = 5f; // Zeit zwischen zwei Ticks, wird durch ProductivityRate beeinflusst
+    public float ProductivityRateBasicValue = 1f;
     public float ProductivityRate = 1f; //smaler = faster
+    public float MaxProductivityRate = 3f;
+    public float MinProductivityRate = 0.3f;
     private float nextTickTime; // Zeitpunkt des nächsten Ticks
     private float timeUntilNextTick; // Verbleibende Zeit bis zum nächsten Tick
     public TextMeshProUGUI TimeToTick;
@@ -33,7 +35,6 @@ abstract public class CelestialBody : MonoBehaviour
     public virtual void Start()
     {
         nextTickTime = Time.time + interval * ProductivityRate;
-        
         StartCoroutine(TickCoroutine());
     }
 
@@ -42,15 +43,15 @@ abstract public class CelestialBody : MonoBehaviour
         // Aktualisiere die verbleibende Zeit
         timeUntilNextTick = nextTickTime - Time.time;
         // Aktualisiere die Anzeige
-        TimeToTick.SetText(timeUntilNextTick.ToString("0.0"));
+        TimeToTick.SetText(timeUntilNextTick.ToString("0.0") + "/" + interval * ProductivityRate);
     }
 
     private IEnumerator TickCoroutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(interval * ProductivityRate);
             nextTickTime = Time.time + interval * ProductivityRate; // Setze den Zeitpunkt des nächsten Ticks
+            yield return new WaitForSeconds(interval * ProductivityRate);
             Tick();
         }
     }
@@ -61,10 +62,12 @@ abstract public class CelestialBody : MonoBehaviour
         ManageResourceProduction();
     }
 
+
     public void OnMouseDown()
     {
         Debug.Log("Clicked: " + gameObject.name);
-        GUIManager.Instance.MoveCelestialBodyMenu(gameObject);
+        //GetComponentInParent<PlanetarySystem>().IsActivePlanetarySystem = true;
+        GUIManager.Instance.SetActiveCelestialBody(gameObject);
     }
     public void InitiateConstructionStructure(Structure structure)
     {
@@ -75,6 +78,17 @@ abstract public class CelestialBody : MonoBehaviour
         }
 
     }
+    public void InitiateDemolishStructure(Structure structure)
+    {
+        //demolish structure instantly
+        var areaToRemove = Areas.FirstOrDefault(x => x.structure == structure);
+        if (areaToRemove != null)
+        {
+            Areas.Remove(areaToRemove);
+        }
+
+    }
+
     private void ExecuteConstructionProgress()
     {
         int countOfConstructingAreas = Areas.Count(x => x.constructionProgress < 100);
@@ -88,10 +102,6 @@ abstract public class CelestialBody : MonoBehaviour
         //Executes building projects over time (farm, power plant, mine, research center).
     }
 
-    public void DemolishStructure()
-    {
-        //Start demolish structure
-    }
 
     private void ManageResourceProduction()
     {
@@ -107,6 +117,8 @@ abstract public class CelestialBody : MonoBehaviour
                 }
             }
         }
+        //Population consumes food
+        ResourceStorage.Where(x => x.Name == "Food").First().Quantity -= population.CurrentPopulation;
     }
 
     private void ResetResourceStorage()

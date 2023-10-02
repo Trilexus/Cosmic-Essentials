@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0ea2a14cb502343b86b717293febe2, type: 3}
+  m_Name: Reactor
+  m_EditorClassIdentifier: 
+  Name: Reactor
+  Type: 3
+  Resources:
+  - {fileID: 2877031959262065529, guid: 8969410831c2b5545bd22b0599f68819, type: 3}
+  - {fileID: 2877031959262065529, guid: cac883f4bb8daa04cbec89e8c80856cb, type: 3}
+  EcoImpactFactor: 0.02
+  AllowedLocations: 00000000
+  Symbol: {fileID: 6999325608662012467, guid: 596c4a9e0e31bf54ca0b1066eb1f26e6, type: 3}

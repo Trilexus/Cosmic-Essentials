@@ -30,7 +30,6 @@ public class Universe :MonoBehaviour
 
     public void CollectAllSpaceSystems()
     {
-        //planetarySystems = GameObject.FindGameObjectsWithTag("PlanetarySystem").ToList<GameObject>();
         planetarySystems = GameObject.FindObjectsOfType<PlanetarySystem>().ToList();
 
     }
@@ -38,7 +37,6 @@ public class Universe :MonoBehaviour
     private void OnTick()
     {
         // Deine Tick-Berechnungen hier
-//        Debug.Log("Tick occurred");
+        // Debug.Log("Tick occurred");
     }
-
 }
