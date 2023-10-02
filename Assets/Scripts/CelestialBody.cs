@@ -60,6 +60,7 @@ abstract public class CelestialBody : MonoBehaviour
     {
         ExecuteConstructionProgress();
         ManageResourceProduction();
+        GUIManager.Instance.UpdateCelestialBodyInfos();
     }
 
 
@@ -98,6 +99,7 @@ abstract public class CelestialBody : MonoBehaviour
             Areas.Where(x => x.constructionProgress < 100)
                  .ToList()
                  .ForEach(x => x.constructionProgress += (int)(individualConstructionRate * 100));
+            Areas.Where(x => x.constructionProgress < 100).ToList().ForEach(x => x.constructionProgress = Mathf.Clamp(x.constructionProgress, 1, 100));
         }
         //Executes building projects over time (farm, power plant, mine, research center).
     }

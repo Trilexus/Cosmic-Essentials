@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.Search;
+using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GUIManager : MonoBehaviour
 {
     public static GUIManager Instance;
     public GameObject CelestialBodyMenu;
     public GameObject CelestialBodyInfo;
+    public CelestialBodyInfo CelestialBodyInfoScript;
 
     public Vector3 celestialBodyMenuOffset;
     public Vector3 celestialBodyInfoOffset;
@@ -24,6 +27,7 @@ public class GUIManager : MonoBehaviour
         {
             Instance = this; // Singleton
             DontDestroyOnLoad(this.gameObject); // Singleton
+            CelestialBodyInfoScript = CelestialBodyInfo.GetComponent<CelestialBodyInfo>();
             
         }
         else
@@ -37,7 +41,7 @@ public class GUIManager : MonoBehaviour
         this.selectedCelestialBody = selectedCelestialBody;
         SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
         MoveCelestialBodyMenu(selectedCelestialBody);
-        ShowCelestialBodyInfos();
+        UpdateCelestialBodyInfos();
     }
 
     private void SetActivePlanetarySystem(GameObject selectedPlanetarySystem)
@@ -66,20 +70,30 @@ public class GUIManager : MonoBehaviour
         newPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, newPosition);
         Vector3 newPositionWithOffset = newPosition + celestialBodyMenuOffset;
         rect.transform.position = newPositionWithOffset;
-        ShowCelestialBodyMenu();
+        CelestialBodyMenu.SetActive(true);
+        UpdateCelestialBodyInfos();
     }
     
+    public void UpdateCelestialBodyInfos()
+    {
+        CelestialBodyInfoScript.UpdateCelestialBodyInfos();
+    }
     public void ShowCelestialBodyInfos()
     {
-        Vector3 CelestialBodyInfoSymbolOffset = new Vector3(35, -35, 0);
+        foreach (Transform child in CelestialBodyInfo.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        Vector3 CelestialBodyInfoSymbolOffset = new Vector3(50, 0, 0);
         RectTransform InfoRect = CelestialBodyInfo.GetComponent<RectTransform>();
-        Vector3 SymbolPosition = new Vector3(InfoRect.position.x + CelestialBodyInfoSymbolOffset.x, InfoRect.position.y + CelestialBodyInfoSymbolOffset.y,0);
+        Vector3 SymbolPosition = new Vector3(InfoRect.position.x, InfoRect.position.y,0);
         foreach (Area area in selectedCelestialBody.GetComponent<CelestialBody>().Areas)
         {
-
             GameObject Symbol = Instantiate(area.structure.Symbol);
             Symbol.transform.SetParent(CelestialBodyInfo.transform);
             Symbol.transform.position = SymbolPosition;
+            Symbol.GetComponent<RectMask2D>().padding = new Vector4(45 - (0.45f * area.constructionProgress), 0, 0, 0);
+            SymbolPosition = new Vector3(SymbolPosition.x + CelestialBodyInfoSymbolOffset.x, SymbolPosition.y, 0);
                     
         }
     }
