@@ -10,6 +10,7 @@ using Unity.VisualScripting;
 
 public class Planet : CelestialBody
 {
+
     [SerializeField]
     protected float ecoIndex = 1;
     protected float minEcoIndex = 0;
@@ -46,20 +47,19 @@ public class Planet : CelestialBody
     }
     public void CalculateProductivityRate()
     {
-        const float EcoIndexFactorBase = 1.9f;
-        const float NegativeResourceFactorDivisor = -10;
+        // Mehr Einwohner pro Area = bessere ProductivityRate
+        float ProductivityPopulationFactor = (float)population.CurrentPopulation / Areas.Count;
+        ProductivityPopulationFactor = Mathf.Clamp(ProductivityPopulationFactor, MinProductivityRate, MaxProductivityRate);
+        // Besserer EcoIndex = bessere ProductivityRate
+        float ProductivityEcoIndexFactor = ecoIndex;
+        // Zu wenig Ressourcen = schlechtere ProductivityRate. Ausreichende Ressourcen = normale ProductivityRate
+        float ProductivityresourceFactor1 = (ResourceStorageCelestialBody[1].Quantity < 0 ? 0.15f : 0.5f);
+        float ProductivityresourceFactor2 = (ResourceStorageCelestialBody[2].Quantity < 0 ? 0.15f : 0.5f);
+        float ProductivityresourceFactor = 1 + ProductivityresourceFactor1 + ProductivityresourceFactor2;
 
-        float populationFactor = Areas.Count / (float)population.CurrentPopulation;
-        populationFactor = Mathf.Clamp(populationFactor, MinProductivityRate, MaxProductivityRate);
-
-        float ecoIndexFactor = EcoIndexFactorBase - ecoIndex;
-        float resourceFactor1 = (ResourceStorage[1].Quantity < 0 ? ResourceStorage[1].Quantity / NegativeResourceFactorDivisor : 0);
-        float resourceFactor2 = (ResourceStorage[2].Quantity < 0 ? ResourceStorage[2].Quantity / NegativeResourceFactorDivisor : 0);
-        float resourceFactor = 1 + resourceFactor1 + resourceFactor2;
-
-        ProductivityRate = ProductivityRateBasicValue * ecoIndexFactor * populationFactor * resourceFactor;
-        ProductivityRate = Mathf.Clamp(ProductivityRate, MinProductivityRate, MaxProductivityRate);
-        
+        int factorCount = 3;
+        ProductivityRate = (ProductivityPopulationFactor + ProductivityEcoIndexFactor + ProductivityresourceFactor) / factorCount;
+        ProductivityRate = Mathf.Clamp(ProductivityRate, MinProductivityRate, MaxProductivityRate);        
     }
 
     //UpdateInfoText is called from Update() in CelestialBody and is used to update the text in the child gameobjetc CelestialBodyInfos
@@ -76,7 +76,7 @@ public class Planet : CelestialBody
         int ecoIndexChangeValueInt = (int)(ecoIndexChangeValue * 100f);
         int DevelopedAreas = Areas.Count();
         sb.Clear();
-        sb.AppendFormat("{7}\uf06c: {11}%({14:+0.##;-0.##;0})</color> \n\uf0ac: {13}/{12} \ue533: {6}\n \uf722: {0}/{1} \uf275: {2}/{3} \uf7ba: {4}/{5}\n\ue2cd: {8} \uf468: {9} \uf0e7: {10}", farms, farmInConstruction, mines, minesInConstruction, reactors, reactorsInConstruction, population.CurrentPopulation,ecoColor, ResourceStorage[0].Quantity, ResourceStorage[1].Quantity, ResourceStorage[2].Quantity, ecoIndexInt,maxAreas,DevelopedAreas, ecoIndexChangeValueInt);
+        sb.AppendFormat("{7}\uf06c: {11}%({14:+0.##;-0.##;0})</color> \n\uf0ac: {13}/{12} \ue533: {6}\n \uf722: {0}/{1} \uf275: {2}/{3} \uf7ba: {4}/{5}\n\ue2cd: {8} \uf468: {9} \uf0e7: {10}", farms, farmInConstruction, mines, minesInConstruction, reactors, reactorsInConstruction, population.CurrentPopulation,ecoColor, ResourceStorageCelestialBody[0].Quantity, ResourceStorageCelestialBody[1].Quantity, ResourceStorageCelestialBody[2].Quantity, ecoIndexInt,maxAreas,DevelopedAreas, ecoIndexChangeValueInt);
         celestialBodyInfo.SetText(sb.ToString());
     }
 
@@ -114,7 +114,7 @@ public class Planet : CelestialBody
     }
     public void CalculatePopulation()
     {
-        population.UpdatePopulation(ResourceStorage[0].Quantity, ecoIndex);
+        population.UpdatePopulation(ResourceStorageCelestialBody[0].Quantity, ecoIndex);
     }
 
 }

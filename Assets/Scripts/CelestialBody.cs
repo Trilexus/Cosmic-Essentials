@@ -15,8 +15,10 @@ abstract public class CelestialBody : MonoBehaviour
     public float interval = 5f; // Zeit zwischen zwei Ticks, wird durch ProductivityRate beeinflusst
     public float ProductivityRateBasicValue = 1f;
     public float ProductivityRate = 1f; //smaler = faster
-    public float MaxProductivityRate = 3f;
+    //Minimalwerte für die ProductivityRate
     public float MinProductivityRate = 0.3f;
+    //Maximalwerte für die ProductivityRate
+    public float MaxProductivityRate = 3f;
     private float nextTickTime; // Zeitpunkt des nächsten Ticks
     private float timeUntilNextTick; // Verbleibende Zeit bis zum nächsten Tick
     public TextMeshProUGUI TimeToTick;
@@ -24,17 +26,17 @@ abstract public class CelestialBody : MonoBehaviour
     [SerializeField]
     public List<Area> Areas = new List<Area>();
     public AllowedLocation allowedLocation;
-    protected List<Resource> ResourceStorage = new List<Resource>
+    protected List<ResourceStorage> ResourceStorageCelestialBody = new List<ResourceStorage>
     {
-        new Resource("Food", 0),
-        new Resource("Metal", 0),
-        new Resource("Energy", 0)
+        new ResourceStorage("Food", 0),
+        new ResourceStorage("Metal", 0),
+        new ResourceStorage("Energy", 0)
     };
     protected TextMeshProUGUI celestialBodyInfo;
 
     public virtual void Start()
     {
-        nextTickTime = Time.time + interval * ProductivityRate;
+        nextTickTime = Time.time + interval;
         StartCoroutine(TickCoroutine());
     }
 
@@ -43,15 +45,15 @@ abstract public class CelestialBody : MonoBehaviour
         // Aktualisiere die verbleibende Zeit
         timeUntilNextTick = nextTickTime - Time.time;
         // Aktualisiere die Anzeige
-        TimeToTick.SetText(timeUntilNextTick.ToString("0.0") + "/" + interval * ProductivityRate);
+        TimeToTick.SetText(timeUntilNextTick.ToString("0.0") + "/" + interval);
     }
 
     private IEnumerator TickCoroutine()
     {
         while (true)
         {
-            nextTickTime = Time.time + interval * ProductivityRate; // Setze den Zeitpunkt des nächsten Ticks
-            yield return new WaitForSeconds(interval * ProductivityRate);
+            nextTickTime = Time.time + interval; // Setze den Zeitpunkt des nächsten Ticks
+            yield return new WaitForSeconds(interval);
             Tick();
         }
     }
@@ -115,17 +117,17 @@ abstract public class CelestialBody : MonoBehaviour
             {
                 foreach (var resource in area.structure.Resources)
                 {
-                    ResourceStorage.Where(x => x.Name == resource.Name).First().Quantity += resource.Quantity;
+                    ResourceStorageCelestialBody.Where(x => x.Name == resource.Name).First().Quantity += resource.Quantity;
                 }
             }
         }
         //Population consumes food
-        ResourceStorage.Where(x => x.Name == "Food").First().Quantity -= population.CurrentPopulation;
+        ResourceStorageCelestialBody.Where(x => x.Name == "Food").First().Quantity -= population.CurrentPopulation;
     }
 
     private void ResetResourceStorage()
     {
-        foreach (var resource in ResourceStorage)
+        foreach (var resource in ResourceStorageCelestialBody)
         {
             resource.Quantity = 0;
         }

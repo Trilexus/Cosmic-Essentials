@@ -1,16 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Resource : MonoBehaviour
+public class ResourceStorage
 {
     [SerializeField]
     public string Name;
     [SerializeField]
     public int Quantity;
 
-    public void Initialize(string name, int quantity)
+    public ResourceStorage(string name, int quantity)
     {
         this.Name = name;
         this.Quantity = quantity;

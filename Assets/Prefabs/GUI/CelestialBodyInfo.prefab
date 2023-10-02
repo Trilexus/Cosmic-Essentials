@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 695738667995618407}
   - component: {fileID: 695738667995618404}
   - component: {fileID: -242458253615223140}
+  - component: {fileID: 8182534284593317037}
   m_Layer: 5
   m_Name: CelestialBodyInfo
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 17.500038, y: -60}
+  m_AnchoredPosition: {x: 17.500061, y: -60}
   m_SizeDelta: {x: 226.9279, y: 45}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &695738667995618405
@@ -105,3 +106,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4a5ea8f2f9fb942afdcc3df58b9f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8182534284593317037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695738667995618424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}

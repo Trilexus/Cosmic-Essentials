@@ -78,26 +78,6 @@ public class GUIManager : MonoBehaviour
     {
         CelestialBodyInfoScript.UpdateCelestialBodyInfos();
     }
-    public void ShowCelestialBodyInfos()
-    {
-        foreach (Transform child in CelestialBodyInfo.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        Vector3 CelestialBodyInfoSymbolOffset = new Vector3(50, 0, 0);
-        RectTransform InfoRect = CelestialBodyInfo.GetComponent<RectTransform>();
-        Vector3 SymbolPosition = new Vector3(InfoRect.position.x, InfoRect.position.y,0);
-        foreach (Area area in selectedCelestialBody.GetComponent<CelestialBody>().Areas)
-        {
-            GameObject Symbol = Instantiate(area.structure.Symbol);
-            Symbol.transform.SetParent(CelestialBodyInfo.transform);
-            Symbol.transform.position = SymbolPosition;
-            Symbol.GetComponent<RectMask2D>().padding = new Vector4(45 - (0.45f * area.constructionProgress), 0, 0, 0);
-            SymbolPosition = new Vector3(SymbolPosition.x + CelestialBodyInfoSymbolOffset.x, SymbolPosition.y, 0);
-                    
-        }
-    }
-
 
     public void HideCelestialBodyMenu()
     {
