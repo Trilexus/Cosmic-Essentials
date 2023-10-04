@@ -313,8 +313,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.0146, y: 1.2004}
-  m_SizeDelta: {x: 2.3437, y: 1.2619}
+  m_AnchoredPosition: {x: 0.0885, y: 1.2226}
+  m_SizeDelta: {x: 3.0535, y: 1.3063}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5698671826181361108
 Canvas:
@@ -484,8 +484,12 @@ MonoBehaviour:
     _populationGrowthCounter: 0
     _growthThresholdTicks: 5
     RED_THRESHOLD: 0.3
-    _ecoImpactFactor: 0.01
+    _ecoImpactFactor: -2
   interval: 2
+  BaseResourceProduction:
+  - {fileID: 2877031959262065529, guid: fab607621c2031047acdef3d16ce16ef, type: 3}
+  - {fileID: 2877031959262065529, guid: 0b083b64b9a5c2f4a8b19cf884a9c8a3, type: 3}
+  - {fileID: 2877031959262065529, guid: 0dc281bd14c4c184e97c15097ce77dab, type: 3}
   ProductivityRateBasicValue: 1
   ProductivityRate: 1
   MinProductivityRate: 0.5
@@ -494,11 +498,8 @@ MonoBehaviour:
   ConstructionRate: 0.25
   Areas: []
   allowedLocation: 0
-  ResourceStorage:
-  - {fileID: 2877031959262065529, guid: d86e90837f13f4541afb3f3c58f6f633, type: 3}
-  - {fileID: 2877031959262065529, guid: 76dd4c5af60b4674cbd17336bd37d33a, type: 3}
-  - {fileID: 2877031959262065529, guid: 8969410831c2b5545bd22b0599f68819, type: 3}
-  ecoIndex: 1
+  celestialBodyInfo: {fileID: 7518784984302729522}
+  ecoIndex: 100
 --- !u!58 &5272761293592083797
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -17,8 +17,8 @@ public class Population {
     private int _growthThresholdTicks = 10;
     public float RED_THRESHOLD;
     [SerializeField]
-    private float _ecoImpactFactor = 0.05f;
-    public float EcoImpactFactor => (float)Math.Round(_ecoImpactFactor * CurrentPopulation,2,MidpointRounding.AwayFromZero);
+    private int _ecoImpactFactor = -1;
+    public int EcoImpactFactor => _ecoImpactFactor * CurrentPopulation;
 
     public Population(int CurrentPopulation, int maxPopulation, int growthThresholdTicks, float RED_THRESHOLD)
     {

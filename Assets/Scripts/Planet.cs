@@ -7,25 +7,26 @@ using System.Linq;
 using System.Text;
 using System;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using UnityEngine.SocialPlatforms;
 
 public class Planet : CelestialBody
 {
 
     [SerializeField]
-    protected float ecoIndex = 1;
+    protected int ecoIndex = 100;
     protected float minEcoIndex = 0;
-    protected float maxEcoIndex = 1;
-    float ecoIndexChangeValue = 0f;
+    protected float maxEcoIndex = 100;
+    int ecoIndexChangeValue = 0;
     private StringBuilder sb = new StringBuilder();
-    const float RED_THRESHOLD = 0.3f;
-    const float YELLOW_THRESHOLD = 0.7f;
-    const float MAX_ECOINDEX = 1f;
-    const float FREE_AREA_ECOIMPACTFACTOR = 0.05f;
+    const int RED_THRESHOLD = 30;
+    const int YELLOW_THRESHOLD = 70;
+    const int FREE_AREA_ECOIMPACTFACTOR = 5;
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
-        celestialBodyInfo = transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        //celestialBodyInfo = transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         SetupPopulation();
         CalculateEcoIndex();
         UpdateInfoText();
@@ -68,27 +69,61 @@ public class Planet : CelestialBody
         int farms = Areas.Count(I => I.structure.Name == "Farm" && I.constructionProgress >= 100);
         int mines = Areas.Count(I => I.structure.Name == "Mine" && I.constructionProgress >= 100);
         int reactors = Areas.Count(I => I.structure.Name == "Reactor" && I.constructionProgress >= 100);
-        int farmInConstruction = Areas.Count(I => I.structure.Name == "Farm" && I.constructionProgress < 100);
+        int farmsInConstruction = Areas.Count(I => I.structure.Name == "Farm" && I.constructionProgress < 100);
         int minesInConstruction = Areas.Count(I => I.structure.Name == "Mine" && I.constructionProgress < 100);
         int reactorsInConstruction = Areas.Count(I => I.structure.Name == "Reactor" && I.constructionProgress < 100);
-        string ecoColor = CalculateEcoIndexColor();
-        int ecoIndexInt = (int)(ecoIndex * 100);
-        int ecoIndexChangeValueInt = (int)(ecoIndexChangeValue * 100f);
+        string ecoColor = CalculateEcoIndexColor();        
         int DevelopedAreas = Areas.Count();
         sb.Clear();
-        sb.AppendFormat("{7}\uf06c: {11}%({14:+0.##;-0.##;0})</color> \n\uf0ac: {13}/{12} \ue533: {6}\n \uf722: {0}/{1} \uf275: {2}/{3} \uf7ba: {4}/{5}\n\ue2cd: {8} \uf468: {9} \uf0e7: {10}", farms, farmInConstruction, mines, minesInConstruction, reactors, reactorsInConstruction, population.CurrentPopulation,ecoColor, ResourceStorageCelestialBody[0].Quantity, ResourceStorageCelestialBody[1].Quantity, ResourceStorageCelestialBody[2].Quantity, ecoIndexInt,maxAreas,DevelopedAreas, ecoIndexChangeValueInt);
-        celestialBodyInfo.SetText(sb.ToString());
+        
+        // Eco Index and Population and productivity rate info
+        string ecoInfo = $"{ecoColor}\uf06c: {ecoIndex}%({ecoIndexChangeValue:+0.##;-0.##;0})</color>";
+        string populationInfo = $"\ue533: {population.CurrentPopulation}";
+        string productivityInfo = $"\uf201: {ProductivityRate}";
+
+
+        // Farm, Mine, and Reactor info
+        string areaInfo = $"\uf0ac: {DevelopedAreas}/{maxAreas}";
+        string farmInfo = $"\uf722: {farms}/{farmsInConstruction}";
+        string mineInfo = $"\uf275: {mines}/{minesInConstruction}";
+        string reactorInfo = $"\uf7ba: {reactors}/{reactorsInConstruction}";
+
+        // Resource Info
+        string resource1 = $"\ue2cd: {ResourceStorageCelestialBody[0].Quantity}";
+        string resource2 = $"\uf468: {ResourceStorageCelestialBody[1].Quantity}";
+        string resource3 = $"\uf0e7: {ResourceStorageCelestialBody[2].Quantity}";
+
+        sb.AppendLine($"{populationInfo} {ecoInfo} {productivityInfo}");
+        sb.AppendLine($"{areaInfo} {farmInfo} {mineInfo} {reactorInfo}");
+        sb.AppendLine($"{resource1} {resource2} {resource3}");
+
+        string finalString = sb.ToString();
+
+        //sb.AppendFormat("{7}\uf06c: {11}%({14:+0.##;-0.##;0})</color> \n\uf0ac: {13}/{12} \ue533: {6}\n \uf722: {0}/{1} \uf275: {2}/{3} \uf7ba: {4}/{5}\n\ue2cd: {8} \uf468: {9} \uf0e7: {10}", farms, farmInConstruction, mines, minesInConstruction, reactors, reactorsInConstruction, population.CurrentPopulation,ecoColor, ResourceStorageCelestialBody[0].Quantity, ResourceStorageCelestialBody[1].Quantity, ResourceStorageCelestialBody[2].Quantity, ecoIndex,maxAreas,DevelopedAreas, ecoIndexChangeValue);
+        celestialBodyInfo.SetText(finalString);
     }
 
     private void CalculateEcoIndex()
     {
-        float sumOfEcoImpactFactorsForStructures = Areas.Sum(area => area.structure.EcoImpactFactor);
-        float sumOfEcoImpactFactorsForFreeAreas = (maxAreas - Areas.Count()) * FREE_AREA_ECOIMPACTFACTOR;
-        float sumOfEcoImpactFactorsForPopulation = population.EcoImpactFactor;
-        ecoIndexChangeValue = sumOfEcoImpactFactorsForFreeAreas - (sumOfEcoImpactFactorsForStructures + sumOfEcoImpactFactorsForPopulation);    
-        ecoIndexChangeValue = (float)Math.Round(ecoIndexChangeValue, 2, MidpointRounding.AwayFromZero);
-        ecoIndex = ecoIndex + ecoIndexChangeValue;
-        ecoIndex = Math.Clamp(ecoIndex,minEcoIndex,maxEcoIndex);
+        // Most structures have a negative impact on the ecoIndex
+        int sumOfEcoImpactFactorsForStructures = Areas.Sum(area => area.structure.EcoImpactFactor);
+        // Population has a negative impact on the ecoIndex
+        int sumOfEcoImpactFactorsForPopulation = population.EcoImpactFactor;
+        // Free areas have a positive impact on the ecoIndex
+        int sumOfEcoImpactFactorsForFreeAreas = (maxAreas - Areas.Count()) * FREE_AREA_ECOIMPACTFACTOR;
+        ecoIndexChangeValue = sumOfEcoImpactFactorsForFreeAreas + sumOfEcoImpactFactorsForStructures + sumOfEcoImpactFactorsForPopulation;
+
+        // If EcoIndex is in the yellow or red range, there is a bonus to allow Eco Index to settle into a range
+        if (ecoIndex < YELLOW_THRESHOLD)
+        {
+            int reducerDampingFactor = 5; // Used to moderate the impact of the dampingFactor
+            int dampingFactor = (YELLOW_THRESHOLD - ecoIndex) / reducerDampingFactor;
+            ecoIndexChangeValue += dampingFactor; // Ensure ecoIndexChangeValue is not negative
+            //ecoIndexChangeValue = Math.Clamp(ecoIndexChangeValue, 0, YELLOW_THRESHOLD);
+        }
+        ecoIndex += ecoIndexChangeValue;
+        ecoIndex = (int)Math.Clamp(ecoIndex, minEcoIndex, maxEcoIndex);
+
     }
 
     private string CalculateEcoIndexColor()

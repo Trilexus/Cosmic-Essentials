@@ -13,12 +13,16 @@ abstract public class CelestialBody : MonoBehaviour
     protected Population population;
     
     public float interval = 5f; // Zeit zwischen zwei Ticks, wird durch ProductivityRate beeinflusst
+    // Every Celestial Body have a default production of ressources.
+    [SerializeField]
+    private List<Resource> BaseResourceProduction;
+
     public float ProductivityRateBasicValue = 1f;
-    public float ProductivityRate = 1f; //smaler = faster
+    public float ProductivityRate = 1f; 
     //Minimalwerte für die ProductivityRate
-    public float MinProductivityRate = 0.3f;
+    public float MinProductivityRate = 0.5f;
     //Maximalwerte für die ProductivityRate
-    public float MaxProductivityRate = 3f;
+    public float MaxProductivityRate = 2f;
     private float nextTickTime; // Zeitpunkt des nächsten Ticks
     private float timeUntilNextTick; // Verbleibende Zeit bis zum nächsten Tick
     public TextMeshProUGUI TimeToTick;
@@ -26,12 +30,13 @@ abstract public class CelestialBody : MonoBehaviour
     [SerializeField]
     public List<Area> Areas = new List<Area>();
     public AllowedLocation allowedLocation;
-    protected List<ResourceStorage> ResourceStorageCelestialBody = new List<ResourceStorage>
+    public List<ResourceStorage> ResourceStorageCelestialBody = new List<ResourceStorage>
     {
         new ResourceStorage("Food", 0),
         new ResourceStorage("Metal", 0),
         new ResourceStorage("Energy", 0)
     };
+    [SerializeField]
     protected TextMeshProUGUI celestialBodyInfo;
 
     public virtual void Start()
@@ -110,6 +115,11 @@ abstract public class CelestialBody : MonoBehaviour
     private void ManageResourceProduction()
     {
         ResetResourceStorage();
+        // Add the base production of resources to the resource storage. Base production is the production of resources without buildings and other factors. It isn't affected by the productivity rate.
+        foreach ( Resource resource in BaseResourceProduction)
+        {
+            ResourceStorageCelestialBody.Where(x => x.Name == resource.Name).First().Quantity += resource.Quantity;
+        }
         // Combine buildings and other factors and calculate the production of resources.
         foreach (var area in Areas)
         {
@@ -117,11 +127,11 @@ abstract public class CelestialBody : MonoBehaviour
             {
                 foreach (var resource in area.structure.Resources)
                 {
-                    ResourceStorageCelestialBody.Where(x => x.Name == resource.Name).First().Quantity += resource.Quantity;
+                    ResourceStorageCelestialBody.Where(x => x.Name == resource.Name).First().Quantity += (int)(resource.Quantity * ProductivityRate);
                 }
             }
         }
-        //Population consumes food
+        //Population consumes food and increase the productivity rate.
         ResourceStorageCelestialBody.Where(x => x.Name == "Food").First().Quantity -= population.CurrentPopulation;
     }
 
