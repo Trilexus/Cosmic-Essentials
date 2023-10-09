@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   structureData: {fileID: 11400000, guid: b982e262bd894b94fb44a0398d4649a3, type: 2}
+  structureName: 
 --- !u!1 &6966379876322910033
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   structureData: {fileID: 11400000, guid: a8180ab54e3a97644a5175e68b320a69, type: 2}
+  structureName: 
 --- !u!1 &8364736949902845362
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,6 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   structureData: {fileID: 11400000, guid: 8e1ed4865f886194c8d8748bebe615a6, type: 2}
+  structureName: 
 --- !u!1 &8364736950332541021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   structureData: {fileID: 11400000, guid: 7c4de5953007a31479f89fdacee345a6, type: 2}
+  structureName: 
 --- !u!1 &8364736950363780351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,6 +1555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   structureData: {fileID: 11400000, guid: 7c4de5953007a31479f89fdacee345a6, type: 2}
+  structureName: 
 --- !u!1 &8364736950664377894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,6 +1704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   structureData: {fileID: 11400000, guid: a8180ab54e3a97644a5175e68b320a69, type: 2}
+  structureName: 
 --- !u!1 &8364736950721873185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2467,6 +2473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   structureData: {fileID: 11400000, guid: b982e262bd894b94fb44a0398d4649a3, type: 2}
+  structureName: 
 --- !u!1 &8364736951047304073
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,6 +2622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   structureData: {fileID: 11400000, guid: 8e1ed4865f886194c8d8748bebe615a6, type: 2}
+  structureName: 
 --- !u!1 &8364736951095373367
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,6 +2998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   structureData: {fileID: 11400000, guid: b982e262bd894b94fb44a0398d4649a3, type: 2}
+  structureName: 
 --- !u!1 &8364736951857682400
 GameObject:
   m_ObjectHideFlags: 0
@@ -3407,7 +3416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f74652a552826d40b9fa98ac4b60695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  structureData: {fileID: 11400000, guid: b982e262bd894b94fb44a0398d4649a3, type: 2}
+  structureData: {fileID: 0}
+  structureName: SpaceStation
 --- !u!1001 &1758513120864559317
 PrefabInstance:
   m_ObjectHideFlags: 0

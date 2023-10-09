@@ -22,11 +22,12 @@ public class SpaceStation : CelestialBody
 
     public override void UpdateInfoText()
     {
-        Debug.Log("UpdateInfoText: " + constructionProgress);
+        //Debug.Log("UpdateInfoText: " + constructionProgress);
     }
 
     public void startBuilding()
     {
+        Debug.Log("startBuilding");
         constructionProgress = 1;
     }
 }

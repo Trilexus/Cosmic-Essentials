@@ -62,6 +62,7 @@ public class EntityManager : MonoBehaviour
     public void BuildSpaceStation()
     {
         PlanetarySystem planetarySystem = GUIManager.Instance.selectedPlanetarySystem.GetComponent<PlanetarySystem>();
+        Debug.Log("BuildSpaceStation in " + planetarySystem.Name);
         planetarySystem.BuildSpaceStation();
     }
 }

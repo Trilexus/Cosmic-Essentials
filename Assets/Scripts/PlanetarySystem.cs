@@ -99,13 +99,13 @@ public class PlanetarySystem : MonoBehaviour
 
     public void BuildSpaceStation()
     {
-        SpaceStation spacestation = celestialBodies.FirstOrDefault(cb => cb.name == "Spacestation") as SpaceStation;
+        SpaceStation spacestation = celestialBodies.FirstOrDefault(cb => cb.name == "SpaceStation") as SpaceStation;
         if (spacestation != null) // Überprüfen Sie, ob spacestation nicht null ist
         {
             Transform spacestationTransform = spacestation.gameObject.transform;
             // Jetzt können Sie mit spacestationTransform arbeiten
-            spacestationTransform.SetParent(GUIManager.Instance.selectedCelestialBody.transform);
             spacestationTransform.gameObject.SetActive(true);
+            spacestationTransform.SetParent(GUIManager.Instance.selectedCelestialBody.transform,false);
             spacestation.startBuilding();
         }
     }
