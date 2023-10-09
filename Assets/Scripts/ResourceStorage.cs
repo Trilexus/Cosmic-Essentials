@@ -8,10 +8,13 @@ public class ResourceStorage
     public string Name;
     [SerializeField]
     public int Quantity;
+    [SerializeField]
+    public int MaxQuantity;
 
-    public ResourceStorage(string name, int quantity)
+    public ResourceStorage(string name, int quantity, int maxQuantity)
     {
         this.Name = name;
         this.Quantity = quantity;
+        this.MaxQuantity = maxQuantity;
     }
 }

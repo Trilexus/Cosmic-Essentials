@@ -31,10 +31,12 @@ public class Population {
 
     public void UpdatePopulation(int foodAvailable, float ecoecoIndex)
     {
+        float ecoecoIndexOneHundredth = ecoecoIndex / 100f;
+        
         bool isfoodAvailable = foodAvailable > 0;
         if (isfoodAvailable && ecoecoIndex > RED_THRESHOLD)
         {
-            _populationGrowthCounter = _populationGrowthCounter + (ecoecoIndex);
+            _populationGrowthCounter = _populationGrowthCounter + (ecoecoIndexOneHundredth);
             if (_populationGrowthCounter >= _growthThresholdTicks)
             {
                 if (CurrentPopulation < _maxPopulation)

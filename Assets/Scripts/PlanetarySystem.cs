@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ public class PlanetarySystem : MonoBehaviour
     private bool isActivePlanetarySystem = false;
     public bool IsActivePlanetarySystem
     {
-          get { return isActivePlanetarySystem; }
+        get { return isActivePlanetarySystem; }
         set
         {
             if (value == false)
@@ -93,6 +94,19 @@ public class PlanetarySystem : MonoBehaviour
         if (isActivePlanetarySystem)
         {
             UpdateAffiliationLines();
+        }
+    }
+
+    public void BuildSpaceStation()
+    {
+        SpaceStation spacestation = celestialBodies.FirstOrDefault(cb => cb.name == "Spacestation") as SpaceStation;
+        if (spacestation != null) // Überprüfen Sie, ob spacestation nicht null ist
+        {
+            Transform spacestationTransform = spacestation.gameObject.transform;
+            // Jetzt können Sie mit spacestationTransform arbeiten
+            spacestationTransform.SetParent(GUIManager.Instance.selectedCelestialBody.transform);
+            spacestationTransform.gameObject.SetActive(true);
+            spacestation.startBuilding();
         }
     }
 }

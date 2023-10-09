@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,5 +57,11 @@ public class EntityManager : MonoBehaviour
             Structure newStructure = new Structure(scriptableObject);
             structureDictionary[scriptableObject] = newStructure;
         }
+    }
+
+    public void BuildSpaceStation()
+    {
+        PlanetarySystem planetarySystem = GUIManager.Instance.selectedPlanetarySystem.GetComponent<PlanetarySystem>();
+        planetarySystem.BuildSpaceStation();
     }
 }

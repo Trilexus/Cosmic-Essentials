@@ -1,3 +1,5 @@
+using Mono.Cecil;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +24,7 @@ abstract public class CelestialBody : MonoBehaviour
     //Minimalwerte für die ProductivityRate
     public float MinProductivityRate = 0.5f;
     //Maximalwerte für die ProductivityRate
-    public float MaxProductivityRate = 2f;
+    public float MaxProductivityRate = 3f;
     private float nextTickTime; // Zeitpunkt des nächsten Ticks
     private float timeUntilNextTick; // Verbleibende Zeit bis zum nächsten Tick
     public TextMeshProUGUI TimeToTick;
@@ -30,14 +32,28 @@ abstract public class CelestialBody : MonoBehaviour
     [SerializeField]
     public List<Area> Areas = new List<Area>();
     public AllowedLocation allowedLocation;
+    int minimalResourceStorageQuantity = -1;
+    [SerializeField]
     public List<ResourceStorage> ResourceStorageCelestialBody = new List<ResourceStorage>
     {
-        new ResourceStorage("Food", 0),
-        new ResourceStorage("Metal", 0),
-        new ResourceStorage("Energy", 0)
+        new ResourceStorage("Food", 0, 1000),
+        new ResourceStorage("Metal", 0, 1000),
+        new ResourceStorage("Energy", 0, 1000),
+        new ResourceStorage("SpacePoints", 0, 1000)
+    };
+    public List<ResourceStorage> ResourceProductionCelestialBody = new List<ResourceStorage>
+    {
+        new ResourceStorage("Food", 0, 10000),
+        new ResourceStorage("Metal", 0, 10000),
+        new ResourceStorage("Energy", 0, 10000),
+        new ResourceStorage("SpacePoints", 0, 10000)
     };
     [SerializeField]
-    protected TextMeshProUGUI celestialBodyInfo;
+    protected TextMeshProUGUI celestialBodyInfoTop;
+    [SerializeField]
+    protected TextMeshProUGUI celestialBodyInfoLeft;
+    [SerializeField]
+    protected TextMeshProUGUI celestialBodyInfoRight;
 
     public virtual void Start()
     {
@@ -89,7 +105,7 @@ abstract public class CelestialBody : MonoBehaviour
     public void InitiateDemolishStructure(Structure structure)
     {
         //demolish structure instantly
-        var areaToRemove = Areas.FirstOrDefault(x => x.structure == structure);
+        var areaToRemove = Areas.LastOrDefault(x => x.structure == structure);
         if (areaToRemove != null)
         {
             Areas.Remove(areaToRemove);
@@ -114,12 +130,14 @@ abstract public class CelestialBody : MonoBehaviour
 
     private void ManageResourceProduction()
     {
-        ResetResourceStorage();
+        ResetResourceProduction();
         // Add the base production of resources to the resource storage. Base production is the production of resources without buildings and other factors. It isn't affected by the productivity rate.
         foreach ( Resource resource in BaseResourceProduction)
         {
             ResourceStorageCelestialBody.Where(x => x.Name == resource.Name).First().Quantity += resource.Quantity;
+            ResourceProductionCelestialBody.Where(x => x.Name == resource.Name).First().Quantity += resource.Quantity;
         }
+
         // Combine buildings and other factors and calculate the production of resources.
         foreach (var area in Areas)
         {
@@ -127,17 +145,35 @@ abstract public class CelestialBody : MonoBehaviour
             {
                 foreach (var resource in area.structure.Resources)
                 {
-                    ResourceStorageCelestialBody.Where(x => x.Name == resource.Name).First().Quantity += (int)(resource.Quantity * ProductivityRate);
+                    int newProduction;
+                    if (resource.Quantity > 0)
+                    {
+                        newProduction = (int)(resource.Quantity * ProductivityRate);
+                    } else
+                    {
+                        newProduction = resource.Quantity;
+                    }
+                    ResourceProductionCelestialBody.Where(x => x.Name == resource.Name).First().Quantity += newProduction;
+                    var targetResource = ResourceStorageCelestialBody.Where(x => x.Name == resource.Name).First();
+                    targetResource.Quantity = targetResource.Quantity + newProduction;
+
                 }
             }
         }
+
         //Population consumes food and increase the productivity rate.
         ResourceStorageCelestialBody.Where(x => x.Name == "Food").First().Quantity -= population.CurrentPopulation;
+
+        foreach (var resourceStorage in ResourceStorageCelestialBody)
+        {
+            resourceStorage.Quantity = Math.Clamp(resourceStorage.Quantity, minimalResourceStorageQuantity, resourceStorage.MaxQuantity);
+        }
+
     }
 
-    private void ResetResourceStorage()
+    private void ResetResourceProduction()
     {
-        foreach (var resource in ResourceStorageCelestialBody)
+        foreach (var resource in ResourceProductionCelestialBody)
         {
             resource.Quantity = 0;
         }

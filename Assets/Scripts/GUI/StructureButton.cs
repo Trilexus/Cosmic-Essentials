@@ -5,17 +5,22 @@ using UnityEngine;
 public class StructureButton : MonoBehaviour
 {
     public StructureScriptableObject structureData; // Dein ScriptableObject
+    public string structureName;
 
     public void Build()
     {
         // Dein Code, z.B. den EntityManager ansprechen
-        Debug.Log("Button Clicked");
-        EntityManager.Instance.BuildStructure(structureData);
+        if (structureData != null)
+        {
+            EntityManager.Instance.BuildStructure(structureData);
+        } else if (structureName.Equals("Spacestation"))
+        {
+            EntityManager.Instance.BuildSpaceStation();
+        }
     }
     public void Demolish()
     {
         // Dein Code, z.B. den EntityManager ansprechen
-        Debug.Log("Button Clicked");
         EntityManager.Instance.DemolishStructure(structureData);
     }
 }
