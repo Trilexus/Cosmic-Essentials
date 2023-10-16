@@ -9,6 +9,7 @@ using System;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine.SocialPlatforms;
+using UnityEngine.Android;
 
 public class Planet : CelestialBody
 {
@@ -21,6 +22,7 @@ public class Planet : CelestialBody
     const int RED_THRESHOLD = 30;
     const int YELLOW_THRESHOLD = 70;
     const int FREE_AREA_ECOIMPACTFACTOR = 5;
+    const int OneHundredPercent = 100;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -53,8 +55,8 @@ public class Planet : CelestialBody
         // Besserer EcoIndex = bessere ProductivityRate
         float ProductivityEcoIndexFactor = ecoIndex / 50;
         // Zu wenig Ressourcen = schlechtere ProductivityRate. Ausreichende Ressourcen = normale ProductivityRate
-        float ProductivityresourceFactor1 = (ResourceStorageCelestialBody[1].Quantity < 0 ? 0.15f : 0.5f);
-        float ProductivityresourceFactor2 = (ResourceStorageCelestialBody[2].Quantity < 0 ? 0.15f : 0.5f);
+        float ProductivityresourceFactor1 = (ResourceStorageCelestialBody[ResourceType.Metal].StorageQuantity < 0 ? 0.15f : 0.5f); //TODO: Magic Number
+        float ProductivityresourceFactor2 = (ResourceStorageCelestialBody[ResourceType.Energy].StorageQuantity < 0 ? 0.15f : 0.5f); //TODO: Magic Number
         float ProductivityresourceFactor = 1 + ProductivityresourceFactor1 + ProductivityresourceFactor2;
 
         int factorCount = 3;
@@ -65,14 +67,14 @@ public class Planet : CelestialBody
     //UpdateInfoText is called from Update() in CelestialBody and is used to update the text in the child gameobjetc CelestialBodyInfos
     public override void UpdateInfoText()
     {
-        int farms = Areas.Count(I => I.structure.Name == "Farm" && I.constructionProgress >= 100);
-        int mines = Areas.Count(I => I.structure.Name == "Mine" && I.constructionProgress >= 100);
-        int reactors = Areas.Count(I => I.structure.Name == "Reactor" && I.constructionProgress >= 100);
-        int spaceports = Areas.Count(I => I.structure.Name == "Spaceport" && I.constructionProgress >= 100);
-        int farmsInConstruction = Areas.Count(I => I.structure.Name == "Farm" && I.constructionProgress < 100);
-        int minesInConstruction = Areas.Count(I => I.structure.Name == "Mine" && I.constructionProgress < 100);
-        int reactorsInConstruction = Areas.Count(I => I.structure.Name == "Reactor" && I.constructionProgress < 100);
-        int spaceportsInConstruction = Areas.Count(I => I.structure.Name == "Spaceport" && I.constructionProgress < 100);
+        int farms = Areas.Count(I => I.structure.Name == "Farm" && I.constructionProgress >= OneHundredPercent);
+        int mines = Areas.Count(I => I.structure.Name == "Mine" && I.constructionProgress >= OneHundredPercent);
+        int reactors = Areas.Count(I => I.structure.Name == "Reactor" && I.constructionProgress >= OneHundredPercent);
+        int spaceports = Areas.Count(I => I.structure.Name == "Spaceport" && I.constructionProgress >= OneHundredPercent);
+        int farmsInConstruction = Areas.Count(I => I.structure.Name == "Farm" && I.constructionProgress < OneHundredPercent);
+        int minesInConstruction = Areas.Count(I => I.structure.Name == "Mine" && I.constructionProgress < OneHundredPercent);
+        int reactorsInConstruction = Areas.Count(I => I.structure.Name == "Reactor" && I.constructionProgress < OneHundredPercent);
+        int spaceportsInConstruction = Areas.Count(I => I.structure.Name == "Spaceport" && I.constructionProgress < OneHundredPercent);
         string ecoColor = CalculateEcoIndexColor();        
         int DevelopedAreas = Areas.Count();
         sb.Clear();
@@ -91,15 +93,20 @@ public class Planet : CelestialBody
         string spaceportInfo = $"\uf135: {spaceports}/{spaceportsInConstruction}";
 
         // Resource Info
-        string resourceStorageFood = $"\ue2cd: {ResourceStorageCelestialBody[0].Quantity}";
-        string resourceStorageMetal = $"\uf468: {ResourceStorageCelestialBody[1].Quantity}";
-        string resourceStorageEnergy = $"\uf0e7: {ResourceStorageCelestialBody[2].Quantity}";
-        string resourceStorageSpacePoint = $"\uf7bf: {ResourceStorageCelestialBody[3].Quantity}";
+        string resourceStorageFood = $"\ue2cd: {ResourceStorageCelestialBody[ResourceType.Food].StorageQuantity}";
+        string resourceStorageMetal = $"\uf468: {ResourceStorageCelestialBody[ResourceType.Metal].StorageQuantity}";
+        string resourceStorageEnergy = $"\uf0e7: {ResourceStorageCelestialBody[ResourceType.Energy].StorageQuantity}";
+        string resourceStorageSpacePoint = $"\uf7bf: {ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity}";
 
-        string resourceFoodProduction = $"({ResourceProductionCelestialBody[0].Quantity})";
-        string resourceMetalProduction = $"({ResourceProductionCelestialBody[1].Quantity})";
-        string resourceEnergyProduction = $"({ResourceProductionCelestialBody[2].Quantity})";
-        string resourceSpacePointProduction = $"({ResourceProductionCelestialBody[3].Quantity})";
+        string resourceFoodProduction = $"({ResourceStorageCelestialBody[ResourceType.Food].ProductionQuantity})";
+        string resourceMetalProduction = $"({ResourceStorageCelestialBody[ResourceType.Metal].ProductionQuantity})";
+        string resourceEnergyProduction = $"({ResourceStorageCelestialBody[ResourceType.Energy].ProductionQuantity})";
+        string resourceSpacePointProduction = $"({ResourceStorageCelestialBody[ResourceType.SpacePoints].ProductionQuantity})";
+        
+        string resourceFoodConsumption = $"({ResourceStorageCelestialBody[0].ConsumptionQuantity})";
+        string resourceMetalConsumption = $"({ResourceStorageCelestialBody[ResourceType.Metal].ConsumptionQuantity})";
+        string resourceEnergyConsumption = $"({ResourceStorageCelestialBody[ResourceType.Energy].ConsumptionQuantity})";
+        string resourceSpacePointConsumption = $"({ResourceStorageCelestialBody[ResourceType.SpacePoints].ConsumptionQuantity})";
 
         sb.AppendLine($"{areaInfo} {populationInfo}");
         sb.AppendLine($"{ecoInfo} {productivityInfo}");
@@ -107,10 +114,10 @@ public class Planet : CelestialBody
         celestialBodyInfoTop.SetText(finalString);
 
         sb.Clear();
-        sb.AppendLine($"{farmInfo} {resourceStorageFood}{resourceFoodProduction}");
-        sb.AppendLine($"{mineInfo} {resourceStorageMetal}{resourceMetalProduction}");
-        sb.AppendLine($"{reactorInfo} {resourceStorageEnergy}{resourceEnergyProduction}");
-        sb.AppendLine($"{spaceportInfo} {resourceStorageSpacePoint}{resourceSpacePointProduction}");
+        sb.AppendLine($"{farmInfo} {resourceStorageFood}{resourceFoodProduction}{resourceFoodConsumption}");
+        sb.AppendLine($"{mineInfo} {resourceStorageMetal}{resourceMetalProduction}{resourceMetalConsumption}");
+        sb.AppendLine($"{reactorInfo} {resourceStorageEnergy}{resourceEnergyProduction}{resourceEnergyConsumption}");
+        sb.AppendLine($"{spaceportInfo} {resourceStorageSpacePoint}{resourceSpacePointProduction}{resourceSpacePointConsumption}");
 
         finalString = sb.ToString();
         celestialBodyInfoRight.SetText(finalString);
@@ -174,7 +181,7 @@ public class Planet : CelestialBody
     }
     public void CalculatePopulation()
     {
-        population.UpdatePopulation(ResourceStorageCelestialBody[0].Quantity, ecoIndex);
+        population.UpdatePopulation(ResourceStorageCelestialBody[0].StorageQuantity, ecoIndex);
     }
 
 }

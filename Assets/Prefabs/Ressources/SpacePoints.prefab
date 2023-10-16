@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: SpacePoints
   Quantity: 1
+  ResourceType: 3

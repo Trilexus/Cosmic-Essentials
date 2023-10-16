@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Metal
   Quantity: -4
+  ResourceType: 1

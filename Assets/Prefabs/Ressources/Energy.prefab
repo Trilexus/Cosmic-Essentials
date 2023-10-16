@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Energy
   Quantity: 5
+  ResourceType: 2

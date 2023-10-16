@@ -56,7 +56,7 @@ public class PlanetarySystem : MonoBehaviour
     public void ActivateAffiliationLines()
     {
         Debug.Log("ActivateAffiliationLines");
-        foreach (CelestialBody celestialBody in celestialBodies)
+        foreach (CelestialBody celestialBody in celestialBodies.Where(i => i.isActiveAndEnabled))
         {
             Debug.Log("CelestialBody: " + celestialBody);
             GameObject LineRenderer = LinePool.Instance.GetPooledLine();
@@ -105,8 +105,9 @@ public class PlanetarySystem : MonoBehaviour
             Transform spacestationTransform = spacestation.gameObject.transform;
             // Jetzt können Sie mit spacestationTransform arbeiten
             spacestationTransform.gameObject.SetActive(true);
-            spacestationTransform.SetParent(GUIManager.Instance.selectedCelestialBody.transform,false);
-            spacestation.startBuilding();
+            spacestation.setPositionNearCelestialObject(GUIManager.Instance.selectedCelestialBody);
+            //spacestationTransform.SetParent(GUIManager.Instance.selectedCelestialBody.transform,false);
+            spacestation.StartBuilding();
         }
     }
 }
