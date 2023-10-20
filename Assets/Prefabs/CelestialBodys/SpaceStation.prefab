@@ -425,7 +425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1274216005819231150
 RectTransform:
   m_ObjectHideFlags: 0
@@ -443,7 +443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.4117, y: 0.0088}
+  m_AnchoredPosition: {x: 1.31, y: -1.224}
   m_SizeDelta: {x: 9, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6705950132734050729
@@ -870,11 +870,22 @@ MonoBehaviour:
   Areas: []
   allowedLocation: 0
   ResourceTransferOrders: []
+  SpaceShipTransporterAvailable: 0
+  SpacecraftReadyForUnloading: []
   celestialBodyInfoTop: {fileID: 111318443053578247}
   celestialBodyInfoLeft: {fileID: 4106568969049320356}
   celestialBodyInfoRight: {fileID: 5887700817034507441}
   constructionProgress: 70
   spriteMask: {fileID: 3807478316897754989}
+  orderSpacePoints:
+  - Name: SpacePoints
+    MinQuantity: 0
+    MaxQuantity: 0
+    BaseQuantity: 0
+    StorageQuantity: 100
+    ProductionQuantity: 0
+    ConsumptionQuantity: 0
+    ResourceType: 3
 --- !u!1 &8189730950744857472
 GameObject:
   m_ObjectHideFlags: 0

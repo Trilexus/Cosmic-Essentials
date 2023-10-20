@@ -20,7 +20,9 @@ public class ResourceStorage
     public int ProductionQuantity;
     [SerializeField]
     public int ConsumptionQuantity;
-    
+    [SerializeField]
+    public ResourceType ResourceType;
+
 
     public ResourceStorage(string name, int maxQuantity, int storageQuantity, int productionQuantity, int consumptionQuantity)
     {
@@ -29,6 +31,17 @@ public class ResourceStorage
         this.StorageQuantity = storageQuantity;
         this.ProductionQuantity = productionQuantity;
         this.ConsumptionQuantity = consumptionQuantity;
+        this.ResourceType = (ResourceType)Enum.Parse(typeof(ResourceType), name);
+    }
+
+    public ResourceStorage(ResourceType type, int maxQuantity, int storageQuantity, int productionQuantity, int consumptionQuantity)
+    {
+        this.Name = ResourceType.ToString();
+        this.MaxQuantity = maxQuantity;
+        this.StorageQuantity = storageQuantity;
+        this.ProductionQuantity = productionQuantity;
+        this.ConsumptionQuantity = consumptionQuantity;
+        this.ResourceType = type;
     }
 
     public void CalculateResourceStorage()
@@ -43,6 +56,7 @@ public class ResourceStorage
     }
 }
 
+[Serializable]
 public enum ResourceType
 {
     Food = 0,

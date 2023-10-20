@@ -865,7 +865,8 @@ MonoBehaviour:
   ConstructionRate: 0.25
   Areas: []
   allowedLocation: 0
-  celestialResources: []
+  ResourceTransferOrders: []
+  SpaceShipTransporterAvailable: 0
   celestialBodyInfoTop: {fileID: 5941369353734620351}
   celestialBodyInfoLeft: {fileID: 7518784984302729522}
   celestialBodyInfoRight: {fileID: 2296356027699980533}

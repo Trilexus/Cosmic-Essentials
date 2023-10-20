@@ -129,15 +129,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d103a57a82752446af498e64311d098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResourceStorage:
-    Name: 
-    MinQuantity: 0
-    MaxQuantity: 0
-    BaseQuantity: 0
-    StorageQuantity: 0
-    ProductionQuantity: 0
-    ConsumptionQuantity: 0
+  maxStorage: 100
+  FreeStorageSpace: 100
   target: {fileID: 0}
+  origin: {fileID: 0}
   isStarted: 0
   isArrived: 0
-  speed: 0.001
+  isArrivedDistance: 0.001
+  speed: 0.0025
+  SpaceShipCosts: 100

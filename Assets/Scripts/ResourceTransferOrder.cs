@@ -6,17 +6,15 @@ using UnityEngine;
 [Serializable]
 public class ResourceTransferOrder
 {
-    public ResourceType Type;
-    public int Quantity;
-    public int SpacePointCosts;
+
+    //public ResourceStorage ResourceShipmentDetails;
+    public List<ResourceStorage> ResourceShipmentDetails = new List<ResourceStorage>();
     public CelestialBody Origin;
     public CelestialBody Destination;
 
-    public ResourceTransferOrder(ResourceType type, int quantity, int spacePointCosts, CelestialBody origin, CelestialBody destination)
+    public ResourceTransferOrder(List<ResourceStorage> ResourceShipmentDetails, CelestialBody origin, CelestialBody destination)
     {
-        this.Type = type;
-        this.Quantity = quantity;
-        this.SpacePointCosts = spacePointCosts;
+        this.ResourceShipmentDetails = ResourceShipmentDetails;
         this.Origin = origin;
         this.Destination = destination;
     }

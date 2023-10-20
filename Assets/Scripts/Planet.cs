@@ -18,11 +18,11 @@ public class Planet : CelestialBody
     protected float minEcoIndex = 0;
     protected float maxEcoIndex = 100;
     int ecoIndexChangeValue = 0;
-    private StringBuilder sb = new StringBuilder();
+
     const int RED_THRESHOLD = 30;
     const int YELLOW_THRESHOLD = 70;
     const int FREE_AREA_ECOIMPACTFACTOR = 5;
-    const int OneHundredPercent = 100;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -121,18 +121,6 @@ public class Planet : CelestialBody
 
         finalString = sb.ToString();
         celestialBodyInfoRight.SetText(finalString);
-
-        //sb.AppendLine($"{farmInfo} {mineInfo} {reactorInfo}");
-        //sb.AppendLine($"{resourceStorageFood}{resourceFoodProduction} {resourceStorageMetal}{resourceMetalProduction} {resourceStorageEnergy}{resourceEnergyProduction}");
-        //sb.AppendLine($"{resourceStorageSpacePoint}{resourceSpacePointProduction}");
-        
-        
-        //sb.AppendFormat("{7}\uf06c: {11}%({14:+0.##;-0.##;0})</color> \n\uf0ac: {13}/{12} \ue533: {6}\n \uf722: {0}/{1} \uf275: {2}/{3} \uf7ba: {4}/{5}\n\ue2cd: {8} \uf468: {9} \uf0e7: {10}", farms, farmInConstruction, mines, minesInConstruction, reactors, reactorsInConstruction, population.CurrentPopulation,ecoColor, ResourceStorageCelestialBody[0].Quantity, ResourceStorageCelestialBody[1].Quantity, ResourceStorageCelestialBody[2].Quantity, ecoIndex,maxAreas,DevelopedAreas, ecoIndexChangeValue);
-        //sb.AppendLine($"{populationInfo} {ecoInfo} {productivityInfo}");
-        //sb.AppendLine($"{areaInfo} {farmInfo} {mineInfo} {reactorInfo}");
-        //sb.AppendLine($"{resourceStorageFood}{resourceFoodProduction} {resourceStorageMetal}{resourceMetalProduction} {resourceStorageEnergy}{resourceEnergyProduction}");
-        //sb.AppendLine($"{resourceStorageSpacePoint}{resourceSpacePointProduction}");
-
     }
 
     private void CalculateEcoIndex()

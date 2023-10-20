@@ -24,28 +24,32 @@ public class SpaceShip_TransporterMisslePool : MonoBehaviour
         }
     }
 
-    private GameObject CreateNewObjectInPool()
+    private SpaceShip CreateNewObjectInPool()
     {
         GameObject SpaceShip_TransporterMissle = Instantiate(SpaceShip_TransporterMisslePrefab);
         SpaceShip_TransporterMissle.SetActive(false);
-        pooledSpaceShip_TransporterMissle.Add(SpaceShip_TransporterMissle);
-        return SpaceShip_TransporterMissle;
+        pooledSpaceShip_TransporterMissle.Add(SpaceShip_TransporterMissle);        
+        SpaceShip ship = SpaceShip_TransporterMissle.GetComponent<SpaceShip>();
+        ship.ResetResources();
+        return ship;
     }
 
-    public GameObject GetPooledLine()
+    public SpaceShip GetPooledSpaceShip()
     {
         for (int i = 0; i < amountToPool; i++)
         {
             if (!pooledSpaceShip_TransporterMissle[i].activeInHierarchy)
             {
-                return pooledSpaceShip_TransporterMissle[i];
+                SpaceShip ship = pooledSpaceShip_TransporterMissle[i].GetComponent<SpaceShip>();
+                ship.ResetResources();
+                return ship;
             } 
         }
         return CreateNewObjectInPool();
     }
 
-    public void ReturnLineToPool(GameObject line)
+    public void ReturnSpaceShipToPool(GameObject spaceShip)
     {
-        line.SetActive(false);
+        spaceShip.SetActive(false);
     }
 }
