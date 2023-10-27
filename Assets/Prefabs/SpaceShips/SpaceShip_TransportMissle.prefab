@@ -137,4 +137,4 @@ MonoBehaviour:
   isStarted: 0
   isArrived: 0
   isArrivedDistance: 0.001
-  speed: 0.0025
+  speed: 0.005

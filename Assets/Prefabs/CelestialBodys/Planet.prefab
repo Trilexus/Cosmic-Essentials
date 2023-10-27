@@ -819,7 +819,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 92341c7a131fc4640bf3b9cab838797d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -868,6 +868,7 @@ MonoBehaviour:
   ResourceTransferOrders: []
   SpaceShipTransporterAvailable: 0
   SpacecraftReadyForUnloading: []
+  MaxOrderLoops: 5
   celestialBodyInfoTop: {fileID: 5941369353734620351}
   celestialBodyInfoLeft: {fileID: 7518784984302729522}
   celestialBodyInfoRight: {fileID: 2296356027699980533}

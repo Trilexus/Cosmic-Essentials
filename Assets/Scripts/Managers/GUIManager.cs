@@ -19,7 +19,11 @@ public class GUIManager : MonoBehaviour
     public Vector3 celestialBodyInfoOffset;
 
     public GameObject selectedCelestialBody;
+    public GameObject selectedCelestialBodyTarget;
     public GameObject selectedPlanetarySystem;
+    public GameObject ActiveCelestialBodyMarker; // shows the selected celestial body
+    public GameObject ActiveCelestialBodyTarget; // shows the celestial body target for orders
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +42,24 @@ public class GUIManager : MonoBehaviour
 
     public void SetActiveCelestialBody(GameObject selectedCelestialBody)
     {
-        this.selectedCelestialBody = selectedCelestialBody;
-        SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
-        MoveCelestialBodyMenu(selectedCelestialBody);
-        UpdateCelestialBodyInfos();
+        if (this.selectedCelestialBody == null)
+        {
+            this.selectedCelestialBody = selectedCelestialBody;
+            ActiveCelestialBodyMarker.transform.position = selectedCelestialBody.transform.position;
+            ActiveCelestialBodyMarker.SetActive(true);
+            SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
+            //MoveCelestialBodyMenu(selectedCelestialBody);
+            UpdateCelestialBodyInfos();
+        } else if (this.selectedCelestialBody == selectedCelestialBody) {
+            this.selectedCelestialBody = null;
+            ActiveCelestialBodyMarker.SetActive(false);
+            ActiveCelestialBodyTarget.SetActive(false);
+        } else
+        {
+            selectedCelestialBodyTarget = selectedCelestialBody;
+            ActiveCelestialBodyTarget.transform.position = selectedCelestialBody.transform.position;
+            ActiveCelestialBodyTarget.SetActive(true);
+        }
     }
 
     private void SetActivePlanetarySystem(GameObject selectedPlanetarySystem)

@@ -22,7 +22,7 @@ public class SpaceShip : MonoBehaviour
     [SerializeField]
     float isArrivedDistance = 0.001f;
     [SerializeField]
-    float speed = 0.01f;
+    float speed;
     float rotationSpeed = 150f;
     public static int SpaceShipStartSpacePointsCosts = 100;
     [SerializeField]

@@ -20,7 +20,7 @@ abstract public class CelestialBody : MonoBehaviour
     protected int maxAreas;
     [SerializeField]
     protected Population population;
-    
+    [SerializeField]
     public float interval = 2f; // Zeit zwischen zwei Ticks, wird durch ProductivityRate beeinflusst
     // Every Celestial Body have a default production of ressources.
     [SerializeField]
