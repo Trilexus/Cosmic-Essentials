@@ -11,12 +11,20 @@ public class ResourceTransferOrder
     public List<ResourceStorage> ResourceShipmentDetails = new List<ResourceStorage>();
     public CelestialBody Origin;
     public CelestialBody Destination;
+    public int Repetitions;
+    public bool IsPrioritized;
+    public bool FliesBack;
+    public bool OnlyFullShipment;
 
-    public ResourceTransferOrder(List<ResourceStorage> ResourceShipmentDetails, CelestialBody origin, CelestialBody destination)
+    public ResourceTransferOrder(List<ResourceStorage> resourceShipmentDetails, CelestialBody origin, CelestialBody destination, int repetitions, bool isPrioritized, bool onlyFullShipment, bool fliesBack)
     {
-        this.ResourceShipmentDetails = ResourceShipmentDetails;
-        this.Origin = origin;
-        this.Destination = destination;
+        ResourceShipmentDetails = resourceShipmentDetails;
+        Origin = origin;
+        Destination = destination;
+        Repetitions = repetitions;
+        IsPrioritized = isPrioritized;
+        FliesBack = fliesBack;
+        OnlyFullShipment = onlyFullShipment;
     }
-   
+
 }

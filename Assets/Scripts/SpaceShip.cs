@@ -11,9 +11,10 @@ public class SpaceShip : MonoBehaviour
     public int FreeStorageSpace = 100;
 
     [SerializeField]
-    CelestialBody target;
+    public CelestialBody target;
     [SerializeField]
-    CelestialBody origin;
+    public CelestialBody origin;
+    public bool FliesBack = false;
     [SerializeField]
     public bool isStarted = false;
     [SerializeField]
@@ -23,7 +24,12 @@ public class SpaceShip : MonoBehaviour
     [SerializeField]
     float speed = 0.01f;
     float rotationSpeed = 150f;
-    public int SpaceShipCosts = 100;
+    public static int SpaceShipStartSpacePointsCosts = 100;
+    [SerializeField]
+    public static Dictionary<ResourceType, ResourceStorage> SpaceShipCosts = new Dictionary<ResourceType, ResourceStorage> {
+        { ResourceType.Metal, new ResourceStorage(ResourceType.Metal, 100, 0, 0, 0) },
+        { ResourceType.Energy, new ResourceStorage(ResourceType.Energy, 100, 0, 0, 0) },
+    };
 
 
     public void ResetResources()
@@ -58,14 +64,16 @@ public class SpaceShip : MonoBehaviour
         }
     }
 
-    public void StartJourney(CelestialBody origin, CelestialBody target)
+    public void StartJourney(CelestialBody origin, CelestialBody target, bool fliesBack)
     {
         this.target = target;
         this.origin = origin;
         this.transform.position = origin.transform.position;
         RotateToTarget();
         gameObject.SetActive(true);
+        isArrived = false;
         isStarted = true;
+        FliesBack = fliesBack;
     }
 
     private void RotateToTargetOverTime()

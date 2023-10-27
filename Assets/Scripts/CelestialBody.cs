@@ -3,11 +3,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using TMPro;
 using UnityEditor.PackageManager.Requests;
 using UnityEditor.SceneManagement;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.UI.Image;
+using Random = UnityEngine.Random;
 
 abstract public class CelestialBody : MonoBehaviour
 {
@@ -16,7 +21,7 @@ abstract public class CelestialBody : MonoBehaviour
     [SerializeField]
     protected Population population;
     
-    public float interval = 5f; // Zeit zwischen zwei Ticks, wird durch ProductivityRate beeinflusst
+    public float interval = 2f; // Zeit zwischen zwei Ticks, wird durch ProductivityRate beeinflusst
     // Every Celestial Body have a default production of ressources.
     [SerializeField]
     private List<Resource> BaseResourceProduction;
@@ -43,6 +48,8 @@ abstract public class CelestialBody : MonoBehaviour
     public List <SpaceShip> SpacecraftReadyForUnloading = new List<SpaceShip>();
     public const int OneHundredPercent = 100;
 
+    ResourceTransferDispatcher orderDispatcher;
+
     [SerializeField]
     protected TextMeshProUGUI celestialBodyInfoTop;
     [SerializeField]
@@ -52,9 +59,12 @@ abstract public class CelestialBody : MonoBehaviour
 
     public virtual void Start()
     {
+        interval = Random.Range(1.5f, 2.5f);
+        interval = (float)Math.Round(interval, 2);
         InitializeResources();
         nextTickTime = Time.time + interval;
         StartCoroutine(TickCoroutine());
+        orderDispatcher = new ResourceTransferDispatcher(ResourceStorageCelestialBody);
     }
     public void InitializeResources()
     {
@@ -87,7 +97,7 @@ abstract public class CelestialBody : MonoBehaviour
         ExecuteConstructionProgress();
         ManageResourceProduction();
         UnloadTheSpaceShips();
-        DispatchShipsForResourceTransfer();
+        ExecuteNextOrder();
         GUIManager.Instance.UpdateCelestialBodyInfos();
     }
 
@@ -142,13 +152,21 @@ abstract public class CelestialBody : MonoBehaviour
     public virtual void UnloadTheSpaceShips()
     {
         //Unload the SpaceShips
-        foreach (SpaceShip spacehip in SpacecraftReadyForUnloading)
+        foreach (SpaceShip spaceship in SpacecraftReadyForUnloading)
         {
-            foreach (ResourceStorage resource in spacehip.ResourceStorageSpaceShip.Values)
+            foreach (ResourceStorage resource in spaceship.ResourceStorageSpaceShip.Values)
             {
                 ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity += resource.StorageQuantity;
+                resource.StorageQuantity = 0; //SpaceShip ist nun leer.
             }
-            SpaceShip_TransporterMisslePool.Instance.ReturnSpaceShipToPool(spacehip.gameObject);
+            if (spaceship.FliesBack)
+            {
+                spaceship.StartJourney(this, spaceship.origin, false);
+            }else
+            {
+                SpaceShip_TransporterMisslePool.Instance.ReturnSpaceShipToPool(spaceship.gameObject);
+                SpaceShipTransporterAvailable += 1; //SpaceShip ist nun auf diesem CelestialBody verfügbar.
+            }
         }
         SpacecraftReadyForUnloading.Clear();
     }
@@ -205,61 +223,57 @@ abstract public class CelestialBody : MonoBehaviour
         }
     }
     
-    public virtual void DispatchShipsForResourceTransfer()
+    public virtual void ExecuteNextOrder()
     {
-
+        Debug.Log("ExecuteNextOrder" + SpaceShipTransporterAvailable + " - " + ResourceTransferOrders.Count);
         if (SpaceShipTransporterAvailable > 0 && ResourceTransferOrders.Count > 0)
         {
-            Debug.Log("SpaceShip und Order vorhanden");
-            SpaceShip spaceShip = SpaceShip_TransporterMisslePool.Instance.GetPooledSpaceShip().GetComponent<SpaceShip>(); //SpaceShip aus dem Pool holen.
-            if (spaceShip.SpaceShipCosts <= ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity)
+            Debug.Log("ExecuteNextOrder: if");
+            orderDispatcher.Order = ResourceTransferOrders.FirstOrDefault();
+            SpaceShip spaceShip =  orderDispatcher.DispatchOrder();
+            if (spaceShip != null)
             {
-                ResourceTransferOrder firstOrder = ResourceTransferOrders.FirstOrDefault(); // Erste Order aus der Liste holen.
-                CelestialBody targetCelestialBody = firstOrder.Destination; // Ziel des SpaceShips holen.
-                CelestialBody startCelestialBody = firstOrder.Origin; // Start des SpaceShips holen.
-                foreach (ResourceStorage resourceOrder in firstOrder.ResourceShipmentDetails)
+                Debug.Log("ExecuteNextOrder: if: if");
+                SpaceShipTransporterAvailable--; // Ein SpaceShip wird für den Transport genutzt.
+                spaceShip.StartJourney(orderDispatcher.Order.Origin, orderDispatcher.Order.Destination, orderDispatcher.Order.FliesBack); // SpaceShip starten.
+
+                if (orderDispatcher.Order.Repetitions <= 0)
                 {
-                    ResourceType currentType = resourceOrder.ResourceType; // Typ der Order holen.
-                    int orderStorage = resourceOrder.StorageQuantity; // Menge der Order holen.
-
-                    int celestialBodyStorage = ResourceStorageCelestialBody[currentType].StorageQuantity; // Menge der Ressource auf dem Planeten holen.
-                    if (currentType.Equals(ResourceType.SpacePoints)) // SpacePoints werden nicht vom Planeten abgezogen.
-                    {
-                        celestialBodyStorage -= spaceShip.SpaceShipCosts; // Kosten für den Transport werden subtrahiert.
-                    }
-                    int AvailableResourceQuantity = Math.Min(orderStorage, celestialBodyStorage); // Minimale Menge der Ressource berechnen.
-                    AvailableResourceQuantity = Math.Min(AvailableResourceQuantity, spaceShip.maxStorage); // Minimale Menge der Ressource berechnen.
-                    
-                    Debug.Log("Verladen:" + spaceShip.FreeStorageSpace + "/" + spaceShip.maxStorage);
-
-                    if (AvailableResourceQuantity > 0) // 
-                    {
-                        spaceShip.FreeStorageSpace -= AvailableResourceQuantity; // Lagerkapazität des SpaceShips reduzieren.
-                        spaceShip.ResourceStorageSpaceShip[currentType].StorageQuantity = AvailableResourceQuantity; // Menge der Ressource im SpaceShip setzen.
-                        ResourceStorageCelestialBody[currentType].StorageQuantity -= AvailableResourceQuantity; // Menge der Ressource auf dem Planeten reduzieren.
-                    }
-                    if (spaceShip.FreeStorageSpace <= 0) // SpaceShip voll, dann abbrechen.
-                    {
-                        break; // SpaceShip voll, dann abbrechen.
-                    }
-
+                    ResourceTransferOrders.Remove(orderDispatcher.Order); // Order aus der Liste entfernen.
                 }
-                if (spaceShip.FreeStorageSpace < spaceShip.maxStorage) // SpaceShip startet nur, wenn etwas verladen wurde.
+                else if (orderDispatcher.Order.IsPrioritized) //Order ist prioriziert, bleibt in der Liste an erster Stelle und wird erneut ausgeführt.
                 {
-                    Debug.Log("SpaceShip startet");
-                    ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity -= spaceShip.SpaceShipCosts; // Kosten für den Transport werden abgezogen.
-                    SpaceShipTransporterAvailable--; // Ein SpaceShip wird für den Transport genutzt.
-                    ResourceTransferOrders.Remove(firstOrder); // Order aus der Liste entfernen.
-                    spaceShip.StartJourney(startCelestialBody, targetCelestialBody); // SpaceShip starten.
+                    orderDispatcher.Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
                 }
-            } else
-            {
-                SpaceShip_TransporterMisslePool.Instance.ReturnSpaceShipToPool(spaceShip.gameObject);
+                else // Order ist nicht priorisiert, wird hinten an die Liste angehängt und erneut ausgeführt.
+                {
+                    orderDispatcher.Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
+                    ResourceTransferOrders.Remove(orderDispatcher.Order); // Order aus der Liste entfernen.
+                    ResourceTransferOrders.Add(orderDispatcher.Order); // Order wieder hinten an die Liste anhängen.
+                }
             }
-
-        }
+         }
+         
     }
-    
+
+    public bool CanFulfillOrder(ResourceTransferOrder order)
+    {
+        foreach (ResourceStorage shipmentDetail in order.ResourceShipmentDetails)
+        {
+            // Überprüfe, ob der ResourceType im Dictionary existiert
+            if (!ResourceStorageCelestialBody.TryGetValue(shipmentDetail.ResourceType, out var storage))
+            {
+                return false; // ResourceType nicht gefunden, Order kann nicht erfüllt werden
+            }
+            // Überprüfe, ob die Menge im Dictionary größer oder gleich der geforderten Menge ist
+            if (storage.StorageQuantity < shipmentDetail.StorageQuantity)
+            {
+                return false; // Nicht genug Ressourcen, Order kann nicht erfüllt werden
+            }
+        }
+        return true; // Alle Bedingungen erfüllt, Order kann erfüllt werden
+    }
+
 
     public void CheckResourceSurplus()
     {

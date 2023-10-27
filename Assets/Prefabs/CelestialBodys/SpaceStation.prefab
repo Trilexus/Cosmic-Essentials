@@ -859,7 +859,7 @@ MonoBehaviour:
     _growthThresholdTicks: 0
     RED_THRESHOLD: 0
     _ecoImpactFactor: 0
-  interval: 5
+  interval: 2
   BaseResourceProduction: []
   ProductivityRateBasicValue: 1
   ProductivityRate: 1
@@ -875,7 +875,7 @@ MonoBehaviour:
   celestialBodyInfoTop: {fileID: 111318443053578247}
   celestialBodyInfoLeft: {fileID: 4106568969049320356}
   celestialBodyInfoRight: {fileID: 5887700817034507441}
-  constructionProgress: 70
+  constructionProgress: 20
   spriteMask: {fileID: 3807478316897754989}
   orderSpacePoints:
   - Name: SpacePoints

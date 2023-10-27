@@ -399,7 +399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.386, y: -0.091}
+  m_AnchoredPosition: {x: 1.386, y: -0.2}
   m_SizeDelta: {x: 9, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6390010440445781795
@@ -867,6 +867,7 @@ MonoBehaviour:
   allowedLocation: 0
   ResourceTransferOrders: []
   SpaceShipTransporterAvailable: 0
+  SpacecraftReadyForUnloading: []
   celestialBodyInfoTop: {fileID: 5941369353734620351}
   celestialBodyInfoLeft: {fileID: 7518784984302729522}
   celestialBodyInfoRight: {fileID: 2296356027699980533}
