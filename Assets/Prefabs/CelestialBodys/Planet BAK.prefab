@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 5203244836809955569}
   - component: {fileID: 6397849610964009536}
   m_Layer: 0
-  m_Name: PlanetSpriteAnimation
+  m_Name: Wet_Green_Blue_Cloudy_400frames_285594456_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -863,7 +863,7 @@ GameObject:
   - component: {fileID: 5281886848863563929}
   - component: {fileID: 5272761293592083797}
   m_Layer: 0
-  m_Name: Planet
+  m_Name: Planet BAK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

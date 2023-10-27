@@ -24,6 +24,12 @@ public class GUIManager : MonoBehaviour
     public GameObject ActiveCelestialBodyMarker; // shows the selected celestial body
     public GameObject ActiveCelestialBodyTarget; // shows the celestial body target for orders
 
+    [SerializeField]
+    SpriteRenderer selectedCelestialBodySprite;
+    [SerializeField]
+    SpriteRenderer selectedCelestialBodyTargetSprite;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +38,6 @@ public class GUIManager : MonoBehaviour
             Instance = this; // Singleton
             DontDestroyOnLoad(this.gameObject); // Singleton
             CelestialBodyInfoScript = CelestialBodyInfo.GetComponent<CelestialBodyInfo>();
-            
         }
         else
         {
@@ -45,6 +50,7 @@ public class GUIManager : MonoBehaviour
         if (this.selectedCelestialBody == null)
         {
             this.selectedCelestialBody = selectedCelestialBody;
+            selectedCelestialBodySprite = selectedCelestialBody.GetComponent<SpriteRenderer>();
             ActiveCelestialBodyMarker.transform.position = selectedCelestialBody.transform.position;
             ActiveCelestialBodyMarker.SetActive(true);
             SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
@@ -57,6 +63,7 @@ public class GUIManager : MonoBehaviour
         } else
         {
             selectedCelestialBodyTarget = selectedCelestialBody;
+            selectedCelestialBodyTargetSprite = selectedCelestialBodyTarget.GetComponent<SpriteRenderer>();
             ActiveCelestialBodyTarget.transform.position = selectedCelestialBody.transform.position;
             ActiveCelestialBodyTarget.SetActive(true);
         }

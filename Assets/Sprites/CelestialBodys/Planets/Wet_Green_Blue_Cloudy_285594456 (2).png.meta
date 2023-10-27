@@ -1,0 +1,685 @@
+fileFormatVersion: 2
+guid: c5193defaf5012645913d4b52ac6d19d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cdda1f5673b30f4a94e42412dbd46f9
+      internalID: -1350121346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e12e377cb0a049e4483a335610a713d5
+      internalID: -1688245560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e6955703b9a35846805739387bf1081
+      internalID: 875369989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_3
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df55f95e7a954543874ab2946f2ac0d
+      internalID: 1347221338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_4
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6f1002d00267fe4aaa86df2f0c0fdd4
+      internalID: 1228066810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b3d25b4dfacdd342a474b00cf3ef048
+      internalID: 1175190928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_6
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8cf85f1163373f47b92a1302aa99062
+      internalID: 727674894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_7
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c79ab7d6a6893e4b9ecb75f377d6e10
+      internalID: 1178234029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_8
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d190e6f4524ee4997dc85effac949e
+      internalID: -1722643704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_9
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa703179d2721344bb0ae69371562622
+      internalID: -1874288258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758450ef5e324154aab9f85e86f75206
+      internalID: 1301771012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_11
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f882a0df8e167c64387bc6cdb81cb47b
+      internalID: -478162761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_12
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 099ca93a529b91c48bdaec3398bd06f1
+      internalID: -905988804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_13
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c968ea9e23be943b4a0a52adcb58e3
+      internalID: -1150669331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_14
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcc9d2095dd22944b99e911574ddbb36
+      internalID: -95782842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_15
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee9fa4a807dc564aae96c8c97fb236b
+      internalID: 177605216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_16
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bd54670cb60a1044857b7789302937b
+      internalID: 243274049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_17
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b0b29b64be42c45b70845b00338cc8
+      internalID: -628048320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_18
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6436a82f5ae53734eacdb59b747fd5a3
+      internalID: 101981130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_19
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5b0f147d8e2b5f408030ed9e12722e9
+      internalID: 527354967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_20
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87e498ea47520b4faa93d0603c11908
+      internalID: 1735862050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_21
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cbfc1d31a9a4284fa4f45bd3f8c453a
+      internalID: -1680708203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_22
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcbc779429bb8b8429bcce96f7ca6fd8
+      internalID: 544981756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_23
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39faaa284d960ee4bbaa597fc73ae93b
+      internalID: 844873392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wet_Green_Blue_Cloudy_285594456 (2)_24
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aae0eed28f0e24b40b0bb70af003ccd2
+      internalID: 354494645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 9be8c0ff32b77d743941809ff929b92e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Wet_Green_Blue_Cloudy_285594456 (2)_0: -1350121346
+      Wet_Green_Blue_Cloudy_285594456 (2)_1: -1688245560
+      Wet_Green_Blue_Cloudy_285594456 (2)_10: 1301771012
+      Wet_Green_Blue_Cloudy_285594456 (2)_11: -478162761
+      Wet_Green_Blue_Cloudy_285594456 (2)_12: -905988804
+      Wet_Green_Blue_Cloudy_285594456 (2)_13: -1150669331
+      Wet_Green_Blue_Cloudy_285594456 (2)_14: -95782842
+      Wet_Green_Blue_Cloudy_285594456 (2)_15: 177605216
+      Wet_Green_Blue_Cloudy_285594456 (2)_16: 243274049
+      Wet_Green_Blue_Cloudy_285594456 (2)_17: -628048320
+      Wet_Green_Blue_Cloudy_285594456 (2)_18: 101981130
+      Wet_Green_Blue_Cloudy_285594456 (2)_19: 527354967
+      Wet_Green_Blue_Cloudy_285594456 (2)_2: 875369989
+      Wet_Green_Blue_Cloudy_285594456 (2)_20: 1735862050
+      Wet_Green_Blue_Cloudy_285594456 (2)_21: -1680708203
+      Wet_Green_Blue_Cloudy_285594456 (2)_22: 544981756
+      Wet_Green_Blue_Cloudy_285594456 (2)_23: 844873392
+      Wet_Green_Blue_Cloudy_285594456 (2)_24: 354494645
+      Wet_Green_Blue_Cloudy_285594456 (2)_3: 1347221338
+      Wet_Green_Blue_Cloudy_285594456 (2)_4: 1228066810
+      Wet_Green_Blue_Cloudy_285594456 (2)_5: 1175190928
+      Wet_Green_Blue_Cloudy_285594456 (2)_6: 727674894
+      Wet_Green_Blue_Cloudy_285594456 (2)_7: 1178234029
+      Wet_Green_Blue_Cloudy_285594456 (2)_8: -1722643704
+      Wet_Green_Blue_Cloudy_285594456 (2)_9: -1874288258
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,2335 @@
+fileFormatVersion: 2
+guid: e5a8ca7678d10e348a8266adb0aa55fa
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 918
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 663a24064f064b44f8e49a058f5014b3
+      internalID: 825698689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 918
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9565a72c2f34c4cb070be59d0ff19a
+      internalID: -1495015307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 918
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b6f1cd89be08c45b30383f5dbcda1e
+      internalID: -1935120086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_3
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 918
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9a0aa4df7431fd4788f2703eacf7baf
+      internalID: 1545236763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_4
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 918
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab0e549ef59fc6f4bab21027494af5b0
+      internalID: 1531920494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 918
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1875915348f13c46bea5afc87a88347
+      internalID: 1010790451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_6
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 918
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b539753d8b5b0408988f12ebb72698
+      internalID: 202042695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_7
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 918
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7db7843f77ebc47b949274861abc9c
+      internalID: -531178252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_8
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 918
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67ad309085f3cf45898c6741ebbd508
+      internalID: -1582017346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_9
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 918
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a88648b8ed8b9b48abebe0dcf6ad546
+      internalID: -425732561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 816
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029097d9adfafb044b4f633e0c65d953
+      internalID: 1188268814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_11
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 816
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73bf566e43192ea43a9ba66d006a80f4
+      internalID: 1492332048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_12
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 816
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91662385da3bc084fb67bdc36988a504
+      internalID: 1420601757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_13
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 816
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dbf3233adacca949aec362d2234db72
+      internalID: -1097584254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_14
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 816
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f983eeaa836d2854c98a996e01294875
+      internalID: 1828649095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_15
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 816
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2348daaab493c47b89f6661fe07960
+      internalID: 1087185154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_16
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 816
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c2161f65ccc0a4bbed6e6a71b74f66
+      internalID: -804325152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_17
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 816
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fa86bfd1f7e28b48a2dbf5d03c05dc8
+      internalID: -821790447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_18
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 816
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e90cd78aa6155d4baf5ca3d9ac78898
+      internalID: -111373735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_19
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 816
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ffc6d71128e5c64c8116209661d1e41
+      internalID: 55589130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_20
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 714
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e22644fd457a340866027f393511d1
+      internalID: -121281014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_21
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 714
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf5071d5a45738644bbe8f0fa259f3ed
+      internalID: 1555976728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_22
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 714
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2bc21aac183954688a0033bd24bc35
+      internalID: 1789231526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_23
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 714
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f25f10c69711074db7827a7d6393c5a
+      internalID: -174806193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_24
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 714
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea6cd396253a68141b3e44ca26649fe4
+      internalID: 1278272675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_25
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 714
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30b892af35211854fa4178bf90fcdabd
+      internalID: -795083066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_26
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 714
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c30c448f8d113f54f92de42824f6625c
+      internalID: -933747619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_27
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 714
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa1872f7893d4c4b936994d5df30b3a
+      internalID: -1886523529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_28
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 714
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5948047e538e8114f90b4c6352703967
+      internalID: 405314922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_29
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 714
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d58c9ec1d3665541a78b5758ffa06f9
+      internalID: 1052734300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_30
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 612
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afacb8d9ecba11840a46f4bdc9ffd5fa
+      internalID: -568915872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_31
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 612
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5c5971de936f34badd6d80b4c9fe49
+      internalID: -431293040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_32
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 612
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3face446979af73478b5a448c54b034b
+      internalID: 486139073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_33
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 612
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec09e5b1417f3640b7dc49d37b85edc
+      internalID: 1936740720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_34
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 612
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e22afd08e6551c459c966ae4ed98186
+      internalID: 1110346811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_35
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 612
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef1efb628fbaf941adcd882ba368884
+      internalID: -917775453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_36
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 612
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4082162e01e4faa46b84fad8136176e5
+      internalID: -1235395381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_37
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 612
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3954bb2fecd85e547846e1073754740b
+      internalID: -775039479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_38
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 612
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5a73e5c6302d6e4ca22a931c922f7aa
+      internalID: -1525470401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_39
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 612
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac1728564e2ccbc4e8a8fd9a9893b97e
+      internalID: 1709082601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_40
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 510
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7badd00df3d69a24c95146dcff03075f
+      internalID: 408802151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_41
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 510
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e14f67329231862448022dbd709ac48f
+      internalID: 836885308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_42
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 510
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c120196630a57cd40938e16ac8f92693
+      internalID: 1668136475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_43
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 510
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e489e5e9f64c714a9c09bb853150de3
+      internalID: 1451131855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_44
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 510
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f87381fd58eca4bb262304efce050c
+      internalID: -988822559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_45
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 510
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cbc385c1833ae148a250739b7d6283f
+      internalID: -372055916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_46
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 510
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1bd0f3423024841bae3040c91da74e
+      internalID: -1645864320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_47
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 510
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a00df64d4b17014dbaf6ae16f627ffe
+      internalID: 1395012475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_48
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 510
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2819c0cd697c39429e55459faec1cb7
+      internalID: 2082038177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_49
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 510
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c252d299a989c84190886c91cf6af65
+      internalID: -1514184960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_50
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 408
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42cb3a40e7145434787cc77c6ea15e22
+      internalID: 1440644487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_51
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 408
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf435df6e33dd7459d865f005874a22
+      internalID: -1381191981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_52
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 408
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8449b585082d23242b1864f6ce72283d
+      internalID: 1991583134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_53
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 408
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df04952e95c4584f8d5235cf250e613
+      internalID: -1332795006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_54
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 408
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f50a86df02a316f4aa2d14817f0c70bc
+      internalID: 1650702766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_55
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 408
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00fe7706c4f6cf84dbc9c7416ffe730b
+      internalID: -1742794597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_56
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 408
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b8c0cf9e1140c94bacaa995d714ba7e
+      internalID: 399717691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_57
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 408
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f54512b42c6aa814fa0b165057c03277
+      internalID: 1973417407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_58
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 408
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30a95200702c0e642b598f496082a4a8
+      internalID: 1251975020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_59
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 408
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb705e60361922f48b2b04390fec606d
+      internalID: -2054822732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_60
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 306
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a9591c97969c14ab74a5a073a8ef55
+      internalID: 1041722525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_61
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 306
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f907f532407dd1240b24459313910476
+      internalID: 2131069038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_62
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 306
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f44d6d123cb14e46a57bcbda608ca06
+      internalID: 1358509772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_63
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 306
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88605833a0f36274c998c1e3a14fb7a8
+      internalID: 2132019380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_64
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 306
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a1a3244fd5fedf42ad0c10bd162782b
+      internalID: 1791210452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_65
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 306
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d30e0abea00270409a69e3d9448843d
+      internalID: -2010289801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_66
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 306
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7491de8ad508b9c4b92ed1250256d555
+      internalID: 1963485361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_67
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 306
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d83536be21237c84da4de9e868d45d67
+      internalID: 1958135468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_68
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 306
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce2399b29d2baf448a14ef11e0114fa3
+      internalID: 328329147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_69
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 306
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 601d28c93b2980544bb41e8dee9a7f85
+      internalID: 1021641575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_70
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 204
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b483610dbd88a304293b8259409ab252
+      internalID: 606612762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_71
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 204
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a76f2bf1683fc0644a11e289373a2702
+      internalID: 1354481651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_72
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 204
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af3e0be60735eb43a131844a1613f3f
+      internalID: -1010299636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_73
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 204
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605fea5d148cb1d4b82c97785c4892ca
+      internalID: 447822317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_74
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 204
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df72d9cea737ae4687cd1b35581c001
+      internalID: 1706185522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_75
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 204
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd57588a3610dc046b0022365f7b9717
+      internalID: 699427233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_76
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 204
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d449af51a8df864fa6d4d4e94264fde
+      internalID: 1237378318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_77
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 204
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75c2d5f4e5d874147961e1c28529e58c
+      internalID: -210800202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_78
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 204
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d38b59207e6d5034cb20753bdb015db5
+      internalID: -1096486993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_79
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 204
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b386e7a14f6d3da4796f9634dad3e52e
+      internalID: -1094453611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_80
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 102
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b1bdf9b0fdffc1489ed82c685058b9c
+      internalID: 1333933134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_81
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 102
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccff4648510c1084b9b66aec483bcbc7
+      internalID: 608383826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_82
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 102
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41df57a1125473441b2046b5bd29a554
+      internalID: 392773707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_83
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 102
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe654943a67796438fa033d72779e06
+      internalID: 159764985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_84
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 102
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3e7173c48f2bc40938125257d15fca
+      internalID: 52504111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_85
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 102
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 316572e1340f0b5448c82880842d9310
+      internalID: -675792152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_86
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 102
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe4134ffe231884992b6ae74eb0690d
+      internalID: -970420769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_87
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 102
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16927d5bdf9bb4b4f84b5c04a4231d93
+      internalID: 59146393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_88
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 102
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf3fa38bda4a3bb4cb397e7215d7b560
+      internalID: -569233076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_89
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 102
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 907212717fa996b41a9e0854352dcef1
+      internalID: 730498988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_90
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5a1a30aa95cde140ae0d9f03296c2bc
+      internalID: -980825691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_91
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b07e64fbf5c17b4c8e946109aed2762
+      internalID: -258471893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_92
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 0
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5357b0d33f4f3a4cbb8d0fdd42c388a
+      internalID: 453056225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_93
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 0
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf9485bc4baba047a25972d53e50df9
+      internalID: 1624106804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_94
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 0
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c58372ca9c4a14085c5889aa5e058b
+      internalID: 2106995850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_95
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59640d63c261d8843b4a7f519ae8281e
+      internalID: -276201333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_96
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 0
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4a4faadae0aa8d47b4829c77e4260c4
+      internalID: -777372387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_97
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 0
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0155d59908cca4d478cf2e6fa7d96ab3
+      internalID: -794588591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_98
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 0
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1730cf64ef415184dab7385db259ea6a
+      internalID: -472087191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dry_Red_Brown_1031615852_99
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 102
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 100e199e10df71f44827208c7e5db6f4
+      internalID: 753689439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fb5cd77b68ae0264791f12065b09ec90
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Dry_Red_Brown_1031615852_0: 825698689
+      Dry_Red_Brown_1031615852_1: -1495015307
+      Dry_Red_Brown_1031615852_10: 1188268814
+      Dry_Red_Brown_1031615852_11: 1492332048
+      Dry_Red_Brown_1031615852_12: 1420601757
+      Dry_Red_Brown_1031615852_13: -1097584254
+      Dry_Red_Brown_1031615852_14: 1828649095
+      Dry_Red_Brown_1031615852_15: 1087185154
+      Dry_Red_Brown_1031615852_16: -804325152
+      Dry_Red_Brown_1031615852_17: -821790447
+      Dry_Red_Brown_1031615852_18: -111373735
+      Dry_Red_Brown_1031615852_19: 55589130
+      Dry_Red_Brown_1031615852_2: -1935120086
+      Dry_Red_Brown_1031615852_20: -121281014
+      Dry_Red_Brown_1031615852_21: 1555976728
+      Dry_Red_Brown_1031615852_22: 1789231526
+      Dry_Red_Brown_1031615852_23: -174806193
+      Dry_Red_Brown_1031615852_24: 1278272675
+      Dry_Red_Brown_1031615852_25: -795083066
+      Dry_Red_Brown_1031615852_26: -933747619
+      Dry_Red_Brown_1031615852_27: -1886523529
+      Dry_Red_Brown_1031615852_28: 405314922
+      Dry_Red_Brown_1031615852_29: 1052734300
+      Dry_Red_Brown_1031615852_3: 1545236763
+      Dry_Red_Brown_1031615852_30: -568915872
+      Dry_Red_Brown_1031615852_31: -431293040
+      Dry_Red_Brown_1031615852_32: 486139073
+      Dry_Red_Brown_1031615852_33: 1936740720
+      Dry_Red_Brown_1031615852_34: 1110346811
+      Dry_Red_Brown_1031615852_35: -917775453
+      Dry_Red_Brown_1031615852_36: -1235395381
+      Dry_Red_Brown_1031615852_37: -775039479
+      Dry_Red_Brown_1031615852_38: -1525470401
+      Dry_Red_Brown_1031615852_39: 1709082601
+      Dry_Red_Brown_1031615852_4: 1531920494
+      Dry_Red_Brown_1031615852_40: 408802151
+      Dry_Red_Brown_1031615852_41: 836885308
+      Dry_Red_Brown_1031615852_42: 1668136475
+      Dry_Red_Brown_1031615852_43: 1451131855
+      Dry_Red_Brown_1031615852_44: -988822559
+      Dry_Red_Brown_1031615852_45: -372055916
+      Dry_Red_Brown_1031615852_46: -1645864320
+      Dry_Red_Brown_1031615852_47: 1395012475
+      Dry_Red_Brown_1031615852_48: 2082038177
+      Dry_Red_Brown_1031615852_49: -1514184960
+      Dry_Red_Brown_1031615852_5: 1010790451
+      Dry_Red_Brown_1031615852_50: 1440644487
+      Dry_Red_Brown_1031615852_51: -1381191981
+      Dry_Red_Brown_1031615852_52: 1991583134
+      Dry_Red_Brown_1031615852_53: -1332795006
+      Dry_Red_Brown_1031615852_54: 1650702766
+      Dry_Red_Brown_1031615852_55: -1742794597
+      Dry_Red_Brown_1031615852_56: 399717691
+      Dry_Red_Brown_1031615852_57: 1973417407
+      Dry_Red_Brown_1031615852_58: 1251975020
+      Dry_Red_Brown_1031615852_59: -2054822732
+      Dry_Red_Brown_1031615852_6: 202042695
+      Dry_Red_Brown_1031615852_60: 1041722525
+      Dry_Red_Brown_1031615852_61: 2131069038
+      Dry_Red_Brown_1031615852_62: 1358509772
+      Dry_Red_Brown_1031615852_63: 2132019380
+      Dry_Red_Brown_1031615852_64: 1791210452
+      Dry_Red_Brown_1031615852_65: -2010289801
+      Dry_Red_Brown_1031615852_66: 1963485361
+      Dry_Red_Brown_1031615852_67: 1958135468
+      Dry_Red_Brown_1031615852_68: 328329147
+      Dry_Red_Brown_1031615852_69: 1021641575
+      Dry_Red_Brown_1031615852_7: -531178252
+      Dry_Red_Brown_1031615852_70: 606612762
+      Dry_Red_Brown_1031615852_71: 1354481651
+      Dry_Red_Brown_1031615852_72: -1010299636
+      Dry_Red_Brown_1031615852_73: 447822317
+      Dry_Red_Brown_1031615852_74: 1706185522
+      Dry_Red_Brown_1031615852_75: 699427233
+      Dry_Red_Brown_1031615852_76: 1237378318
+      Dry_Red_Brown_1031615852_77: -210800202
+      Dry_Red_Brown_1031615852_78: -1096486993
+      Dry_Red_Brown_1031615852_79: -1094453611
+      Dry_Red_Brown_1031615852_8: -1582017346
+      Dry_Red_Brown_1031615852_80: 1333933134
+      Dry_Red_Brown_1031615852_81: 608383826
+      Dry_Red_Brown_1031615852_82: 392773707
+      Dry_Red_Brown_1031615852_83: 159764985
+      Dry_Red_Brown_1031615852_84: 52504111
+      Dry_Red_Brown_1031615852_85: -675792152
+      Dry_Red_Brown_1031615852_86: -970420769
+      Dry_Red_Brown_1031615852_87: 59146393
+      Dry_Red_Brown_1031615852_88: -569233076
+      Dry_Red_Brown_1031615852_89: 730498988
+      Dry_Red_Brown_1031615852_9: -425732561
+      Dry_Red_Brown_1031615852_90: -980825691
+      Dry_Red_Brown_1031615852_91: -258471893
+      Dry_Red_Brown_1031615852_92: 453056225
+      Dry_Red_Brown_1031615852_93: 1624106804
+      Dry_Red_Brown_1031615852_94: 2106995850
+      Dry_Red_Brown_1031615852_95: -276201333
+      Dry_Red_Brown_1031615852_96: -777372387
+      Dry_Red_Brown_1031615852_97: -794588591
+      Dry_Red_Brown_1031615852_98: -472087191
+      Dry_Red_Brown_1031615852_99: 753689439
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
