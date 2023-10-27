@@ -20,9 +20,7 @@ public class ResourceTransferDispatcher
 
     public SpaceShip DispatchOrder()
     {
-        Debug.Log("DispatchOrder");
         if (!CanFulfillOrder()) return null; // Wenn die Order nicht erfüllt werden kann, ist hier Schluss  
-        Debug.Log("CanFulfillOrder");
         spaceShip = SpaceShip_TransporterMisslePool.Instance.GetPooledSpaceShip().GetComponent<SpaceShip>(); //SpaceShip aus dem Pool holen.
         return LoadSpaceShip(); 
     }
@@ -59,21 +57,17 @@ public class ResourceTransferDispatcher
         var spacePointsResource = Order.ResourceShipmentDetails.FirstOrDefault(resource => resource.Name.Equals("SpacePoints"));
         int SpacePointsOrdered = spacePointsResource?.StorageQuantity ?? 0;
         int SpacePointsAvailable = ResourceStorageCelestialBody.TryGetValue(ResourceType.SpacePoints, out var spacePointsStorage) ? spacePointsStorage.StorageQuantity : 0;
-        Debug.Log("SpacePointsOrdered: " + SpacePointsOrdered + "SpacePointsAvailable: " + SpacePointsAvailable);
         // Überprüfe, ob genug SpacePoints vorhanden sind für Startkosten und Order (Vollständig oder nicht)
         if (Order.OnlyFullShipment && SpacePointsAvailable < SpacePointsOrdered + SpaceShip.SpaceShipStartSpacePointsCosts)
         {
-            Debug.Log("SpacePointsAvailable < SpacePointsOrdered + SpaceShip.SpaceShipStartSpacePointsCosts false");
             return false; // Wenn Order vollständig ausgeführt werden soll und zu wenig SpacePoints für Order und Start vorhanden sind, Order kann nicht erfüllt werden
         }
         else if (SpacePointsAvailable < SpaceShip.SpaceShipStartSpacePointsCosts)
         {
-            Debug.Log("SpacePointsAvailable < SpaceShip.SpaceShipStartSpacePointsCosts false");
             return false; // Nicht genug SpacePoints zum Start vorhanden sind, Order kann nicht erfüllt werden
         }
         else if (!Order.OnlyFullShipment)
         {
-            Debug.Log("!Order.OnlyFullShipment true");
             return true; // Wenn die Order nicht vollständig sein muss, ist sie immer erfüllbar, solange die Startkosten gedeckt sind
         }
         foreach (ResourceStorage shipmentDetail in Order.ResourceShipmentDetails)
@@ -81,13 +75,11 @@ public class ResourceTransferDispatcher
             // Überprüfe, ob der ResourceType im Dictionary existiert
             if (!ResourceStorageCelestialBody.TryGetValue(shipmentDetail.ResourceType, out var storage))
             {
-                Debug.Log("ResourceStorageCelestialBody.TryGetValue(shipmentDetail.ResourceType, out var storage) false");
                 return false; // ResourceType nicht gefunden, Order kann nicht erfüllt werden
             }
             // Überprüfe, ob die Menge im Dictionary größer oder gleich der geforderten Menge ist
             if (storage.StorageQuantity < shipmentDetail.StorageQuantity)
             {
-                Debug.Log("storage.StorageQuantity < shipmentDetail.StorageQuantity false");
                 return false; // Nicht genug Ressourcen, Order kann nicht erfüllt werden
             }
         }

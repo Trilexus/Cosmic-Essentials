@@ -45,10 +45,13 @@ abstract public class CelestialBody : MonoBehaviour
     public Dictionary<ResourceType, ResourceStorage> ResourceStorageCelestialBody = new Dictionary<ResourceType, ResourceStorage>();
     public List<ResourceTransferOrder> ResourceTransferOrders = new List<ResourceTransferOrder>();
     public int SpaceShipTransporterAvailable = 0;
+
     public List <SpaceShip> SpacecraftReadyForUnloading = new List<SpaceShip>();
     public const int OneHundredPercent = 100;
 
     ResourceTransferDispatcher orderDispatcher;
+    public int MaxOrderLoops = 5;
+    
 
     [SerializeField]
     protected TextMeshProUGUI celestialBodyInfoTop;
@@ -97,7 +100,7 @@ abstract public class CelestialBody : MonoBehaviour
         ExecuteConstructionProgress();
         ManageResourceProduction();
         UnloadTheSpaceShips();
-        ExecuteNextOrder();
+        ProcessResourceTransferOrders();
         GUIManager.Instance.UpdateCelestialBodyInfos();
     }
 
@@ -222,39 +225,62 @@ abstract public class CelestialBody : MonoBehaviour
             foodStorage.ConsumptionQuantity -= population.CurrentPopulation;
         }
     }
-    
-    public virtual void ExecuteNextOrder()
+
+    private void ProcessResourceTransferOrders()
     {
-        Debug.Log("ExecuteNextOrder" + SpaceShipTransporterAvailable + " - " + ResourceTransferOrders.Count);
+        if (ResourceTransferOrders.Count > 0)
+        {
+            int CountOrderRepetitions = 0;
+            while (!ExecuteNextOrder() && CountOrderRepetitions++ <= MaxOrderLoops) ;
+        }
+    }
+
+    public virtual bool ExecuteNextOrder()
+    {
         if (SpaceShipTransporterAvailable > 0 && ResourceTransferOrders.Count > 0)
         {
-            Debug.Log("ExecuteNextOrder: if");
             orderDispatcher.Order = ResourceTransferOrders.FirstOrDefault();
             SpaceShip spaceShip =  orderDispatcher.DispatchOrder();
             if (spaceShip != null)
             {
-                Debug.Log("ExecuteNextOrder: if: if");
                 SpaceShipTransporterAvailable--; // Ein SpaceShip wird für den Transport genutzt.
                 spaceShip.StartJourney(orderDispatcher.Order.Origin, orderDispatcher.Order.Destination, orderDispatcher.Order.FliesBack); // SpaceShip starten.
-
-                if (orderDispatcher.Order.Repetitions <= 0)
-                {
-                    ResourceTransferOrders.Remove(orderDispatcher.Order); // Order aus der Liste entfernen.
-                }
-                else if (orderDispatcher.Order.IsPrioritized) //Order ist prioriziert, bleibt in der Liste an erster Stelle und wird erneut ausgeführt.
-                {
-                    orderDispatcher.Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
-                }
-                else // Order ist nicht priorisiert, wird hinten an die Liste angehängt und erneut ausgeführt.
-                {
-                    orderDispatcher.Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
-                    ResourceTransferOrders.Remove(orderDispatcher.Order); // Order aus der Liste entfernen.
-                    ResourceTransferOrders.Add(orderDispatcher.Order); // Order wieder hinten an die Liste anhängen.
-                }
-            }
-         }
-         
+            } else
+            {
+                return UpdateOrderStatus(false);
+            }          
+        }
+        return UpdateOrderStatus(true);
     }
+
+    public bool UpdateOrderStatus(bool isProcessed) // Order wurde bearbeitet, wird aus der Liste entfernt oder hinten angehängt. (true = bearbeitet, false = nicht bearbeitet)
+    {
+        if (isProcessed)
+        {
+            if (orderDispatcher.Order.Repetitions <= 0)
+            {
+                ResourceTransferOrders.Remove(orderDispatcher.Order); // Order aus der Liste entfernen.
+            }
+            else if (orderDispatcher.Order.IsPrioritized) //Order ist prioriziert, bleibt in der Liste an erster Stelle und wird erneut ausgeführt.
+            {
+                orderDispatcher.Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
+            }
+            else // Order ist nicht priorisiert, wird hinten an die Liste angehängt und erneut ausgeführt.
+            {
+                orderDispatcher.Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
+                ResourceTransferOrders.Remove(orderDispatcher.Order); // Order aus der Liste entfernen.
+                ResourceTransferOrders.Add(orderDispatcher.Order); // Order wieder hinten an die Liste anhängen.
+            }
+            return true; // Order ist priorisiert, bleibt in der Liste an erster Stelle und wird erneut ausgeführt.
+        } else if (!orderDispatcher.Order.IsPrioritized) // Order ist nicht priorisiert, wird hinten an die Liste angehängt und erneut ausgeführt.
+        {
+            ResourceTransferOrders.Remove(orderDispatcher.Order); // Order aus der Liste entfernen.
+            ResourceTransferOrders.Add(orderDispatcher.Order); // Order wieder hinten an die Liste anhängen.
+            return false; // Order ist nicht priorisiert, bleibt in der Liste an letzter Stelle und wird erneut ausgeführt.
+        }
+        return true; // Order ist priorisiert, bleibt in der Liste an erster Stelle und wird erneut ausgeführt.
+    }
+
 
     public bool CanFulfillOrder(ResourceTransferOrder order)
     {

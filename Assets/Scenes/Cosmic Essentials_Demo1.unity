@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpaceShip_TransporterMisslePrefab: {fileID: 9193295408811830597, guid: c580b6f6248d5144b9d06871ab92fdd5, type: 3}
-  amountToPool: 0
+  amountToPool: 10
 --- !u!1 &558817709 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8364736951760425285, guid: df2fdfa4b46d3314786198f76248b93d, type: 3}
@@ -670,7 +670,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1480487005}
     - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: ResourceTransferOrders.Array.data[0].IsPrioritized
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
       propertyPath: ResourceTransferOrders.Array.data[1].IsPrioritized
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: ResourceTransferOrders.Array.data[0].OnlyFullShipment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: ResourceTransferOrders.Array.data[1].OnlyFullShipment
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
@@ -691,7 +703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
       propertyPath: ResourceTransferOrders.Array.data[0].ResourceShipmentDetails.Array.data[0].Name
-      value: Food
+      value: Energy
       objectReference: {fileID: 0}
     - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
       propertyPath: ResourceTransferOrders.Array.data[0].ResourceShipmentDetails.Array.data[1].Name
@@ -728,6 +740,10 @@ PrefabInstance:
     - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
       propertyPath: ResourceTransferOrders.Array.data[3].ResourceShipmentDetails.Array.data[3].Name
       value: SpacePoints
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: ResourceTransferOrders.Array.data[0].ResourceShipmentDetails.Array.data[0].ResourceType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
       propertyPath: ResourceTransferOrders.Array.data[0].ResourceShipmentDetails.Array.data[1].ResourceType
