@@ -13,6 +13,10 @@ public class ResourceTransferDispatcher
     private SpaceShip spaceShip;
 
 
+    public ResourceTransferDispatcher()
+    {
+     
+    }
     public ResourceTransferDispatcher(Dictionary<ResourceType, ResourceStorage> resourceStorageCelestialBody)
     {
         ResourceStorageCelestialBody = resourceStorageCelestialBody;
@@ -85,4 +89,17 @@ public class ResourceTransferDispatcher
         }
         return true; // Alle Bedingungen erfüllt, Order kann erfüllt werden
     }
+
+
+    public void CreateOrderOnCelestialBody(ResourceTransferOrder order)
+    {
+        Order = order;
+        Order.Origin.ResourceTransferOrders.Add(Order);
+    }
+
+    public ResourceTransferOrder CreateOrderFromGui(String ResourceType, int ResourceAmount, CelestialBody origin, CelestialBody destination, int repetitions, bool isPrioritized, bool onlyFullShipment, bool ReturnToOrigin)
+    {
+        return new ResourceTransferOrder(new List<ResourceStorage>() { new ResourceStorage(ResourceType, 0, ResourceAmount, 0, 0) }, origin, destination, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin);
+    }
+
 }

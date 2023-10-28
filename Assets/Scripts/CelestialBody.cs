@@ -244,7 +244,7 @@ abstract public class CelestialBody : MonoBehaviour
             if (spaceShip != null)
             {
                 SpaceShipTransporterAvailable--; // Ein SpaceShip wird für den Transport genutzt.
-                spaceShip.StartJourney(orderDispatcher.Order.Origin, orderDispatcher.Order.Destination, orderDispatcher.Order.FliesBack); // SpaceShip starten.
+                spaceShip.StartJourney(orderDispatcher.Order.Origin, orderDispatcher.Order.Destination, orderDispatcher.Order.ReturnToOrigin); // SpaceShip starten.
             } else
             {
                 return UpdateOrderStatus(false);

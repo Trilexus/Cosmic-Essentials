@@ -13,17 +13,17 @@ public class ResourceTransferOrder
     public CelestialBody Destination;
     public int Repetitions;
     public bool IsPrioritized;
-    public bool FliesBack;
+    public bool ReturnToOrigin;
     public bool OnlyFullShipment;
 
-    public ResourceTransferOrder(List<ResourceStorage> resourceShipmentDetails, CelestialBody origin, CelestialBody destination, int repetitions, bool isPrioritized, bool onlyFullShipment, bool fliesBack)
+    public ResourceTransferOrder(List<ResourceStorage> resourceShipmentDetails, CelestialBody origin, CelestialBody destination, int repetitions, bool isPrioritized, bool onlyFullShipment, bool ReturnToOrigin)
     {
         ResourceShipmentDetails = resourceShipmentDetails;
         Origin = origin;
         Destination = destination;
         Repetitions = repetitions;
         IsPrioritized = isPrioritized;
-        FliesBack = fliesBack;
+        this.ReturnToOrigin = ReturnToOrigin;
         OnlyFullShipment = onlyFullShipment;
     }
 

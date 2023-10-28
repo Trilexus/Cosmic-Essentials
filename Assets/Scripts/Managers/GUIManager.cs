@@ -39,6 +39,9 @@ public class GUIManager : MonoBehaviour
     public TMP_InputField orderAmountInputField;
     [SerializeField]
     public Button orderCreateButton;
+    public Toggle ToggleIsPrioritized;
+    public Toggle ToggleOnlyFullShipment;
+    public Toggle ToggleReturnToOrigin;
 
 
     // Start is called before the first frame update
