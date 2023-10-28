@@ -24,7 +24,7 @@ public class SpaceShip : MonoBehaviour
     [SerializeField]
     float speed;
     float rotationSpeed = 150f;
-    public static int SpaceShipStartSpacePointsCosts = 100;
+    public static int SpaceShipStartSpacePointsCosts = 50;
     [SerializeField]
     public static Dictionary<ResourceType, ResourceStorage> SpaceShipCosts = new Dictionary<ResourceType, ResourceStorage> {
         { ResourceType.Metal, new ResourceStorage(ResourceType.Metal, 100, 0, 0, 0) },
@@ -54,7 +54,7 @@ public class SpaceShip : MonoBehaviour
     {
         if (isStarted)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
             if (Vector2.Distance(transform.position, target.transform.position) < isArrivedDistance)
             {
                 isArrived = true;

@@ -129,12 +129,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d103a57a82752446af498e64311d098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStorage: 200
-  FreeStorageSpace: 200
+  maxStorage: 100
+  FreeStorageSpace: 100
   target: {fileID: 0}
   origin: {fileID: 0}
   FliesBack: 0
   isStarted: 0
   isArrived: 0
   isArrivedDistance: 0.001
-  speed: 0.005
+  speed: 1
