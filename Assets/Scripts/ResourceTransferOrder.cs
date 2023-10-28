@@ -10,7 +10,7 @@ public class ResourceTransferOrder
     //public ResourceStorage ResourceShipmentDetails;
     public List<ResourceStorage> ResourceShipmentDetails = new List<ResourceStorage>();
     public CelestialBody Origin;
-    public CelestialBody Destination;
+    public CelestialBody Target;
     public int Repetitions;
     public bool IsPrioritized;
     public bool ReturnToOrigin;
@@ -20,7 +20,7 @@ public class ResourceTransferOrder
     {
         ResourceShipmentDetails = resourceShipmentDetails;
         Origin = origin;
-        Destination = destination;
+        Target = destination;
         Repetitions = repetitions;
         IsPrioritized = isPrioritized;
         this.ReturnToOrigin = ReturnToOrigin;

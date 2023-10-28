@@ -1,10 +1,3 @@
-using Mono.Cecil.Cil;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.Search;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -37,6 +30,7 @@ public class GUIManager : MonoBehaviour
     public Slider orderAmountSlider;
     [SerializeField]
     public TMP_InputField orderAmountInputField;
+    public TMP_InputField InputFieldOrderRepetitions;
     [SerializeField]
     public Button orderCreateButton;
     public Toggle ToggleIsPrioritized;

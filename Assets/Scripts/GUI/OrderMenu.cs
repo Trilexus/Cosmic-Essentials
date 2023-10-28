@@ -39,9 +39,9 @@ public class OrderMenu : MonoBehaviour
     {
         string ResourceType = GUIManager.Instance.orderTypeDropdown.options[GUIManager.Instance.orderTypeDropdown.value].text;
         int ResourceAmount = (int)GUIManager.Instance.orderAmountSlider.value;
+        int repetitions = GUIManager.Instance.InputFieldOrderRepetitions.text == "" ? 1 : int.Parse(GUIManager.Instance.InputFieldOrderRepetitions.text);
         CelestialBody origin = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
         CelestialBody destination = GUIManager.Instance.selectedCelestialBodyTarget.GetComponent<CelestialBody>();
-        int repetitions = GUIManager.Instance.orderAmountInputField.text == "" ? 0 : int.Parse(GUIManager.Instance.orderAmountInputField.text);
         bool isPrioritized = GUIManager.Instance.ToggleIsPrioritized.isOn;
         bool onlyFullShipment = GUIManager.Instance.ToggleOnlyFullShipment.isOn;
         bool ReturnToOrigin = GUIManager.Instance.ToggleReturnToOrigin.isOn;

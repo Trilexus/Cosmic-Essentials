@@ -1,15 +1,14 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
-using UnityEngine.WSA;
 
 public class ResourceTransferDispatcher
 {
     public Dictionary<ResourceType, ResourceStorage> ResourceStorageCelestialBody = new Dictionary<ResourceType, ResourceStorage>();
     public Dictionary<ResourceType, ResourceStorage> ResourceStorageCelestialBodyWithoutStartingCosts;
+    public List<ResourceTransferOrder> ResourceTransferOrders = new List<ResourceTransferOrder>();
     public ResourceTransferOrder Order;
+    public CelestialBody CelestialBody;
     private SpaceShip spaceShip;
 
 
@@ -22,14 +21,61 @@ public class ResourceTransferDispatcher
         ResourceStorageCelestialBody = resourceStorageCelestialBody;
     }
 
-    public SpaceShip DispatchOrder()
+    public void DispatchOrders()
     {
-        if (!CanFulfillOrder()) return null; // Wenn die Order nicht erfüllt werden kann, ist hier Schluss  
-        spaceShip = SpaceShip_TransporterMisslePool.Instance.GetPooledSpaceShip().GetComponent<SpaceShip>(); //SpaceShip aus dem Pool holen.
-        return LoadSpaceShip(); 
+        foreach (var order in ResourceTransferOrders) // Alle Orders durchgehen.
+        {
+            Order = order; // Aktuelle Order setzen.
+            bool canFulfillOrder = CanFulfillOrder(); // Überprüfen, ob die Order erfüllt werden kann.
+            if (canFulfillOrder)
+            {
+                spaceShip = SpaceShip_TransporterMisslePool.Instance.GetPooledSpaceShip().GetComponent<SpaceShip>(); //SpaceShip aus dem Pool holen.
+                LoadSpaceShip(); // SpaceShip beladen.
+                Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
+                spaceShip.StartJourney(Order.Origin,Order.Target,Order.ReturnToOrigin); // SpaceShip starten.
+                CelestialBody.SpaceShipTransporterAvailable--; // SpaceShip auf dem Planeten reduzieren.
+                break; // Order wurde erfüllt, deswegen wird die Schleife abgebrochen.
+            }else if (Order.IsPrioritized)
+            {
+                break; // Order kann nicht erfüllt werden, ist aber priorisiert, deswegen wird die Schleife abgebrochen.
+            }
+        }
+        if (Order.Repetitions <= 0) // Order wurde erfüllt, deswegen wird die Order aus der Liste entfernt.
+        {
+            ResourceTransferOrders.Remove(Order);
+        }
     }
 
-    public SpaceShip LoadSpaceShip()
+    public bool UpdateOrderStatus(bool isProcessed) // Order wurde bearbeitet, wird aus der Liste entfernt oder hinten angehängt. (true = bearbeitet, false = nicht bearbeitet)
+    {
+        if (isProcessed)
+        {
+            if (Order.Repetitions <= 0)
+            {
+                ResourceTransferOrders.Remove(Order); // Order aus der Liste entfernen.
+            }
+            else if (Order.IsPrioritized) //Order ist prioriziert, bleibt in der Liste an erster Stelle und wird erneut ausgeführt.
+            {
+                Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
+            }
+            else // Order ist nicht priorisiert, wird hinten an die Liste angehängt und erneut ausgeführt.
+            {
+                Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
+                ResourceTransferOrders.Remove(Order); // Order aus der Liste entfernen.
+                ResourceTransferOrders.Add(Order); // Order wieder hinten an die Liste anhängen.
+            }
+            return true; // Order ist priorisiert, bleibt in der Liste an erster Stelle und wird erneut ausgeführt.
+        }
+        else if (!Order.IsPrioritized) // Order ist nicht priorisiert, wird hinten an die Liste angehängt und erneut ausgeführt.
+        {
+            ResourceTransferOrders.Remove(Order); // Order aus der Liste entfernen.
+            ResourceTransferOrders.Add(Order); // Order wieder hinten an die Liste anhängen.
+            return false; // Order ist nicht priorisiert, bleibt in der Liste an letzter Stelle und wird erneut ausgeführt.
+        }
+        return true; // Order ist priorisiert, bleibt in der Liste an erster Stelle und wird erneut ausgeführt.
+    }
+
+    public void LoadSpaceShip()
     {
         foreach (var orderResource in Order.ResourceShipmentDetails)
         {
@@ -45,14 +91,6 @@ public class ResourceTransferDispatcher
                 break;
             }
         }
-        if (spaceShip.FreeStorageSpace == spaceShip.maxStorage)
-        {
-            return null; // SpaceShip leer, dann abbrechen.
-        }
-        else
-        {
-            return spaceShip; // SpaceShip nicht leer, dann weitermachen.
-        }
     }
 
 
@@ -61,8 +99,10 @@ public class ResourceTransferDispatcher
         var spacePointsResource = Order.ResourceShipmentDetails.FirstOrDefault(resource => resource.Name.Equals("SpacePoints"));
         int SpacePointsOrdered = spacePointsResource?.StorageQuantity ?? 0;
         int SpacePointsAvailable = ResourceStorageCelestialBody.TryGetValue(ResourceType.SpacePoints, out var spacePointsStorage) ? spacePointsStorage.StorageQuantity : 0;
+
+        bool SpacePointsAvailableForStartAndOrder = SpacePointsAvailable < SpacePointsOrdered + SpaceShip.SpaceShipStartSpacePointsCosts;
         // Überprüfe, ob genug SpacePoints vorhanden sind für Startkosten und Order (Vollständig oder nicht)
-        if (Order.OnlyFullShipment && SpacePointsAvailable < SpacePointsOrdered + SpaceShip.SpaceShipStartSpacePointsCosts)
+        if (Order.OnlyFullShipment && SpacePointsAvailableForStartAndOrder)
         {
             return false; // Wenn Order vollständig ausgeführt werden soll und zu wenig SpacePoints für Order und Start vorhanden sind, Order kann nicht erfüllt werden
         }
