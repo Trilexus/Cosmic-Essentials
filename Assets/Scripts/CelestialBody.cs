@@ -25,7 +25,7 @@ abstract public class CelestialBody : MonoBehaviour
     // Every Celestial Body have a default production of ressources.
     [SerializeField]
     private List<Resource> BaseResourceProduction;
-
+    public SpriteRenderer ChildSpriteRenderer;
     public float ProductivityRateBasicValue = 1f;
     public float ProductivityRate = 1f; 
     //Minimalwerte für die ProductivityRate

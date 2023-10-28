@@ -861,6 +861,7 @@ MonoBehaviour:
     _ecoImpactFactor: 0
   interval: 2
   BaseResourceProduction: []
+  ChildSpriteRenderer: {fileID: 1466320489296811239}
   ProductivityRateBasicValue: 1
   ProductivityRate: 1
   MinProductivityRate: 0.5
@@ -872,6 +873,7 @@ MonoBehaviour:
   ResourceTransferOrders: []
   SpaceShipTransporterAvailable: 0
   SpacecraftReadyForUnloading: []
+  MaxOrderLoops: 5
   celestialBodyInfoTop: {fileID: 111318443053578247}
   celestialBodyInfoLeft: {fileID: 4106568969049320356}
   celestialBodyInfoRight: {fileID: 5887700817034507441}

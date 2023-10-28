@@ -7,6 +7,7 @@ using UnityEditor.Search;
 using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GUIManager : MonoBehaviour
 {
@@ -25,9 +26,19 @@ public class GUIManager : MonoBehaviour
     public GameObject ActiveCelestialBodyTarget; // shows the celestial body target for orders
 
     [SerializeField]
-    SpriteRenderer selectedCelestialBodySprite;
+    public Sprite celestialBodyDefaultImage;
     [SerializeField]
-    SpriteRenderer selectedCelestialBodyTargetSprite;
+    public Image orderOriginImage;
+    [SerializeField]
+    public Image orderTargetImage;
+    [SerializeField]
+    public TMP_Dropdown orderTypeDropdown;
+    [SerializeField]
+    public Slider orderAmountSlider;
+    [SerializeField]
+    public TMP_InputField orderAmountInputField;
+    [SerializeField]
+    public Button orderCreateButton;
 
 
     // Start is called before the first frame update
@@ -50,7 +61,7 @@ public class GUIManager : MonoBehaviour
         if (this.selectedCelestialBody == null)
         {
             this.selectedCelestialBody = selectedCelestialBody;
-            selectedCelestialBodySprite = selectedCelestialBody.GetComponent<SpriteRenderer>();
+            orderOriginImage.sprite = selectedCelestialBody.GetComponent<CelestialBody>().ChildSpriteRenderer.sprite;
             ActiveCelestialBodyMarker.transform.position = selectedCelestialBody.transform.position;
             ActiveCelestialBodyMarker.SetActive(true);
             SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
@@ -58,12 +69,14 @@ public class GUIManager : MonoBehaviour
             UpdateCelestialBodyInfos();
         } else if (this.selectedCelestialBody == selectedCelestialBody) {
             this.selectedCelestialBody = null;
+            orderOriginImage.sprite = celestialBodyDefaultImage;
+            orderTargetImage.sprite = celestialBodyDefaultImage;
             ActiveCelestialBodyMarker.SetActive(false);
             ActiveCelestialBodyTarget.SetActive(false);
         } else
         {
             selectedCelestialBodyTarget = selectedCelestialBody;
-            selectedCelestialBodyTargetSprite = selectedCelestialBodyTarget.GetComponent<SpriteRenderer>();
+            orderTargetImage.sprite = selectedCelestialBodyTarget.GetComponent<CelestialBody>().ChildSpriteRenderer.sprite;
             ActiveCelestialBodyTarget.transform.position = selectedCelestialBody.transform.position;
             ActiveCelestialBodyTarget.SetActive(true);
         }
