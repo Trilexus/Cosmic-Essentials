@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 using static UnityEngine.UI.Image;
 
@@ -45,8 +46,14 @@ public class OrderMenu : MonoBehaviour
         bool isPrioritized = GUIManager.Instance.ToggleIsPrioritized.isOn;
         bool onlyFullShipment = GUIManager.Instance.ToggleOnlyFullShipment.isOn;
         bool ReturnToOrigin = GUIManager.Instance.ToggleReturnToOrigin.isOn;
+        bool isForever = GUIManager.Instance.ToggleIsForever.isOn;
 
-        ResourceTransferOrder order = orderDispatcher.CreateOrderFromGui(ResourceType, ResourceAmount, origin, destination, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin);
+        ResourceTransferOrder order = orderDispatcher.CreateOrderFromGui(ResourceType, ResourceAmount, origin, destination, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin, isForever);
         orderDispatcher.CreateOrderOnCelestialBody(order);
+    }
+
+    public void OnCheckboxIsForeverValueChanged(bool isChecked)
+    {
+        GUIManager.Instance.InputFieldOrderRepetitions.interactable = !isChecked;
     }
 }

@@ -36,6 +36,7 @@ public class GUIManager : MonoBehaviour
     public Toggle ToggleIsPrioritized;
     public Toggle ToggleOnlyFullShipment;
     public Toggle ToggleReturnToOrigin;
+    public Toggle ToggleIsForever;
 
 
     // Start is called before the first frame update

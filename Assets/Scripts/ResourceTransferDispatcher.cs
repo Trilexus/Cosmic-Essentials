@@ -31,7 +31,10 @@ public class ResourceTransferDispatcher
             {
                 spaceShip = SpaceShip_TransporterMisslePool.Instance.GetPooledSpaceShip().GetComponent<SpaceShip>(); //SpaceShip aus dem Pool holen.
                 LoadSpaceShip(); // SpaceShip beladen.
-                Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
+                if (!Order.IsForever)
+                {
+                    Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
+                }
                 spaceShip.StartJourney(Order.Origin,Order.Target,Order.ReturnToOrigin); // SpaceShip starten.
                 CelestialBody.SpaceShipTransporterAvailable--; // SpaceShip auf dem Planeten reduzieren.
                 break; // Order wurde erfüllt, deswegen wird die Schleife abgebrochen.
@@ -43,6 +46,10 @@ public class ResourceTransferDispatcher
         if (Order.Repetitions <= 0) // Order wurde erfüllt, deswegen wird die Order aus der Liste entfernt.
         {
             ResourceTransferOrders.Remove(Order);
+        } else if (!Order.IsPrioritized) // Order an das Ende der Liste anhängen, wenn sie nicht priorisiert ist.
+        {
+            ResourceTransferOrders.Remove(Order); // Order aus der Liste entfernen.
+            ResourceTransferOrders.Add(Order); // Order wieder hinten an die Liste anhängen.
         }
     }
 
@@ -137,9 +144,9 @@ public class ResourceTransferDispatcher
         Order.Origin.ResourceTransferOrders.Add(Order);
     }
 
-    public ResourceTransferOrder CreateOrderFromGui(String ResourceType, int ResourceAmount, CelestialBody origin, CelestialBody destination, int repetitions, bool isPrioritized, bool onlyFullShipment, bool ReturnToOrigin)
+    public ResourceTransferOrder CreateOrderFromGui(String ResourceType, int ResourceAmount, CelestialBody origin, CelestialBody destination, int repetitions, bool isPrioritized, bool onlyFullShipment, bool ReturnToOrigin, bool IsForever)
     {
-        return new ResourceTransferOrder(new List<ResourceStorage>() { new ResourceStorage(ResourceType, 0, ResourceAmount, 0, 0) }, origin, destination, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin);
+        return new ResourceTransferOrder(new List<ResourceStorage>() { new ResourceStorage(ResourceType, 0, ResourceAmount, 0, 0) }, origin, destination, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin, IsForever);
     }
 
 }

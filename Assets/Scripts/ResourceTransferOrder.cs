@@ -15,8 +15,9 @@ public class ResourceTransferOrder
     public bool IsPrioritized;
     public bool ReturnToOrigin;
     public bool OnlyFullShipment;
+    public bool IsForever;
 
-    public ResourceTransferOrder(List<ResourceStorage> resourceShipmentDetails, CelestialBody origin, CelestialBody destination, int repetitions, bool isPrioritized, bool onlyFullShipment, bool ReturnToOrigin)
+    public ResourceTransferOrder(List<ResourceStorage> resourceShipmentDetails, CelestialBody origin, CelestialBody destination, int repetitions, bool isPrioritized, bool onlyFullShipment, bool ReturnToOrigin, bool isForever)
     {
         ResourceShipmentDetails = resourceShipmentDetails;
         Origin = origin;
@@ -25,6 +26,7 @@ public class ResourceTransferOrder
         IsPrioritized = isPrioritized;
         this.ReturnToOrigin = ReturnToOrigin;
         OnlyFullShipment = onlyFullShipment;
+        IsForever = isForever;
     }
 
 }
