@@ -54,7 +54,7 @@ public class SpaceStation : CelestialBody
         belongingtoPlanet = GUIManager.Instance.selectedCelestialBody;
         belongingtoPlanetScript = belongingtoPlanet.GetComponent<Planet>();
         constructionProgress = progressIncrement;
-        buildStationMeterialOrder = new ResourceTransferOrder(orderSpacePoints, belongingtoPlanetScript, this, 3, true, true,true,false);
+        buildStationMeterialOrder = new ResourceTransferOrder(orderSpacePoints, belongingtoPlanetScript, this, 4, true, true,true,false);
         belongingtoPlanetScript.ResourceTransferOrders.Add(buildStationMeterialOrder);
         orderPlaced = true;
     }
@@ -102,18 +102,18 @@ public class SpaceStation : CelestialBody
 
 
         // Farm, Mine, and Reactor info
-        string areaInfo = $"{Symbols.AreaSymbol} {DevelopedAreas}/{maxAreas}";
-        string farmInfo = $"{Symbols.FarmSymbol} {farms}/{farmsInConstruction}";
-        string mineInfo = $"{Symbols.MineSymbol} {mines}/{minesInConstruction}";
-        string reactorInfo = $"{Symbols.ReactorSymbol} {reactors}/{reactorsInConstruction}";
-        string spaceportInfo = $"{Symbols.SpaceportSymbol} {spaceports}/{spaceportsInConstruction}";
+        string areaInfo = $"{Symbols.Area} {DevelopedAreas}/{maxAreas}";
+        string farmInfo = $"{Symbols.Farm} {farms}/{farmsInConstruction}";
+        string mineInfo = $"{Symbols.Mine} {mines}/{minesInConstruction}";
+        string reactorInfo = $"{Symbols.Reactor} {reactors}/{reactorsInConstruction}";
+        string spaceportInfo = $"{Symbols.Spaceport} {spaceports}/{spaceportsInConstruction}";
 
         // Resource Info
-        string resourceStorageFood = $"{Symbols.FoodSymbol} {ResourceStorageCelestialBody[ResourceType.Food].StorageQuantity}";
-        string resourceStorageMetal = $"{Symbols.MetalSymbol} {ResourceStorageCelestialBody[ResourceType.Metal].StorageQuantity}";
-        string resourceStorageEnergy = $"{Symbols.EnergySymbol} {ResourceStorageCelestialBody[ResourceType.Energy].StorageQuantity}";
-        string resourceStorageSpacePoint = $"{Symbols.SpacePointSymbol} {ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity}";
-        string SpaceShipsAvailable = $"{Symbols.SpaceShipSymbol} {SpaceShipTransporterAvailable}";
+        string resourceStorageFood = $"{Symbols.Food} {ResourceStorageCelestialBody[ResourceType.Food].StorageQuantity}";
+        string resourceStorageMetal = $"{Symbols.Metal} {ResourceStorageCelestialBody[ResourceType.Metal].StorageQuantity}";
+        string resourceStorageEnergy = $"{Symbols.Energy} {ResourceStorageCelestialBody[ResourceType.Energy].StorageQuantity}";
+        string resourceStorageSpacePoint = $"{Symbols.SpacePoint} {ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity}";
+        string SpaceShipsAvailable = $"{Symbols.SpaceShip} {SpaceShipTransporterAvailable}";
 
 
         string resourceFoodProduction = $"({ResourceStorageCelestialBody[ResourceType.Food].ProductionQuantity})";

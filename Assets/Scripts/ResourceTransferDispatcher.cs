@@ -43,9 +43,10 @@ public class ResourceTransferDispatcher
                 break; // Order kann nicht erfüllt werden, ist aber priorisiert, deswegen wird die Schleife abgebrochen.
             }
         }
-        if (Order.Repetitions <= 0) // Order wurde erfüllt, deswegen wird die Order aus der Liste entfernt.
+        if (Order.Repetitions == 0) // Order wurde erfüllt, deswegen wird die Order aus der Liste entfernt.
         {
             ResourceTransferOrders.Remove(Order);
+            Order.Repetitions--; // Anzahl der Wiederholungen reduzieren, damit sie auch aus der GUI verschwindet.
         } else if (!Order.IsPrioritized) // Order an das Ende der Liste anhängen, wenn sie nicht priorisiert ist.
         {
             ResourceTransferOrders.Remove(Order); // Order aus der Liste entfernen.
@@ -142,6 +143,7 @@ public class ResourceTransferDispatcher
     {
         Order = order;
         Order.Origin.ResourceTransferOrders.Add(Order);
+        GUIManager.Instance.FillOrdersOverview();
     }
 
     public ResourceTransferOrder CreateOrderFromGui(String ResourceType, int ResourceAmount, CelestialBody origin, CelestialBody destination, int repetitions, bool isPrioritized, bool onlyFullShipment, bool ReturnToOrigin, bool IsForever)

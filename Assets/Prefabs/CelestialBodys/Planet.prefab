@@ -66,12 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '\uf0ac \ue533 - \uf06c
-
-    \uf722: \uf275: \uf7ba:
-
-    \ue2cd: \uf468:
-    \uf0e7:'
+  m_text: CelestialBodyInfosTop
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 91c2440b400a7c44d928f6c261d4e76c, type: 2}
   m_sharedMaterial: {fileID: 3556096587783965701, guid: 91c2440b400a7c44d928f6c261d4e76c, type: 2}
@@ -206,12 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '\uf0ac \ue533 - \uf06c
-
-    \uf722: \uf275: \uf7ba:
-
-    \ue2cd: \uf468:
-    \uf0e7:'
+  m_text: CelestialBodyInfosLeft
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 91c2440b400a7c44d928f6c261d4e76c, type: 2}
   m_sharedMaterial: {fileID: 3556096587783965701, guid: 91c2440b400a7c44d928f6c261d4e76c, type: 2}
@@ -536,12 +526,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '\uf0ac \ue533 - \uf06c
-
-    \uf722: \uf275: \uf7ba:
-
-    \ue2cd: \uf468:
-    \uf0e7:'
+  m_text: CelestialBodyInfosRight
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 91c2440b400a7c44d928f6c261d4e76c, type: 2}
   m_sharedMaterial: {fileID: 3556096587783965701, guid: 91c2440b400a7c44d928f6c261d4e76c, type: 2}
@@ -677,7 +662,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tick
+  m_text: TextTimeToTick
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -967,10 +952,10 @@ MonoBehaviour:
   ChildSpriteRenderer: {fileID: 5203244836809955569}
   ProductivityRateBasicValue: 1
   ProductivityRate: 1
-  MinProductivityRate: 0.5
-  MaxProductivityRate: 3
+  MinProductivityRate: 0.1
+  MaxProductivityRate: 5
   TimeToTick: {fileID: 301566142770989853}
-  ConstructionRate: 0.25
+  ConstructionRate: 0.1
   Areas: []
   allowedLocation: 0
   ResourceTransferOrders: []

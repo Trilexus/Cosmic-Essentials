@@ -18,25 +18,22 @@ public class GUIManager : MonoBehaviour
     public GameObject ActiveCelestialBodyMarker; // shows the selected celestial body
     public GameObject ActiveCelestialBodyTarget; // shows the celestial body target for orders
 
-    [SerializeField]
     public Sprite celestialBodyDefaultImage;
-    [SerializeField]
     public Image orderOriginImage;
-    [SerializeField]
     public Image orderTargetImage;
-    [SerializeField]
     public TMP_Dropdown orderTypeDropdown;
-    [SerializeField]
     public Slider orderAmountSlider;
-    [SerializeField]
     public TMP_InputField orderAmountInputField;
     public TMP_InputField InputFieldOrderRepetitions;
-    [SerializeField]
     public Button orderCreateButton;
     public Toggle ToggleIsPrioritized;
     public Toggle ToggleOnlyFullShipment;
     public Toggle ToggleReturnToOrigin;
     public Toggle ToggleIsForever;
+    public TextMeshProUGUI orderCostsText;
+
+    public GameObject ScrollViewOrdersOverviewContent;
+    public GameObject OrderInfoEntryPrefab;
 
 
     // Start is called before the first frame update
@@ -64,6 +61,7 @@ public class GUIManager : MonoBehaviour
             ActiveCelestialBodyMarker.SetActive(true);
             SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
             //MoveCelestialBodyMenu(selectedCelestialBody);
+            FillOrdersOverview();
             UpdateCelestialBodyInfos();
         } else if (this.selectedCelestialBody == selectedCelestialBody) {
             this.selectedCelestialBody = null;
@@ -79,6 +77,23 @@ public class GUIManager : MonoBehaviour
             ActiveCelestialBodyTarget.SetActive(true);
         }
     }
+
+
+    public void FillOrdersOverview()
+    {
+        foreach (Transform child in ScrollViewOrdersOverviewContent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (ResourceTransferOrder order in selectedCelestialBody.GetComponent<CelestialBody>().ResourceTransferOrders)
+        {
+            GameObject orderEntry = Instantiate(OrderInfoEntryPrefab, ScrollViewOrdersOverviewContent.transform);
+            orderEntry.GetComponent<OrderInfoEntry>().Initialize(order);
+            orderEntry.transform.SetParent(ScrollViewOrdersOverviewContent.transform);
+        }
+    }
+
+
 
     private void SetActivePlanetarySystem(GameObject selectedPlanetarySystem)
     {

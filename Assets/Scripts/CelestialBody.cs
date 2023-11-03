@@ -22,9 +22,9 @@ abstract public class CelestialBody : MonoBehaviour
     public float ProductivityRateBasicValue = 1f;
     public float ProductivityRate = 1f; 
     //Minimalwerte für die ProductivityRate
-    public float MinProductivityRate = 0.5f;
+    public float MinProductivityRate = 0.1f;
     //Maximalwerte für die ProductivityRate
-    public float MaxProductivityRate = 3f;
+    public float MaxProductivityRate = 5f;
     private float nextTickTime; // Zeitpunkt des nächsten Ticks
     private float timeUntilNextTick; // Verbleibende Zeit bis zum nächsten Tick
     public TextMeshProUGUI TimeToTick;
@@ -136,7 +136,7 @@ abstract public class CelestialBody : MonoBehaviour
             float individualConstructionRate = ConstructionRate / countOfConstructingAreas;
             Areas.Where(x => x.constructionProgress < 100)
                  .ToList()
-                 .ForEach(x => x.constructionProgress += (int)(individualConstructionRate * 100));
+                 .ForEach(x => x.constructionProgress += (int)(individualConstructionRate * 100 * ProductivityRate));//TODO: Magic Number
             Areas.Where(x => x.constructionProgress < 100).ToList().ForEach(x => x.constructionProgress = Mathf.Clamp(x.constructionProgress, 1, 100));
         }
         //Executes building projects over time (farm, power plant, mine, research center).

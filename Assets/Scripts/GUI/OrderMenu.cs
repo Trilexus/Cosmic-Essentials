@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
@@ -9,12 +11,31 @@ using static UnityEngine.UI.Image;
 public class OrderMenu : MonoBehaviour
 {
     ResourceTransferDispatcher orderDispatcher;
+    TextMeshProUGUI CostsInfoText;
 
 
     // Start is called before the first frame update
     void Start()
     {
         orderDispatcher = new ResourceTransferDispatcher();
+        CostsInfoText = GUIManager.Instance.orderCostsText;
+    }
+    public void Update()
+    {
+        
+    }
+
+    public void UpdateCostsText()
+    {
+        int costs = SpaceShip.SpaceShipStartSpacePointsCosts;
+        if (GUIManager.Instance.ToggleReturnToOrigin.isOn)
+        {
+            costs = SpaceShip.SpaceShipStartSpacePointsCosts * 2;
+            CostsInfoText.text = costs.ToString();
+        } else
+        {
+            CostsInfoText.text = costs.ToString();
+        }
     }
 
     public void OnSliderChanged(float number)
@@ -49,7 +70,7 @@ public class OrderMenu : MonoBehaviour
         bool isForever = GUIManager.Instance.ToggleIsForever.isOn;
 
         ResourceTransferOrder order = orderDispatcher.CreateOrderFromGui(ResourceType, ResourceAmount, origin, destination, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin, isForever);
-        orderDispatcher.CreateOrderOnCelestialBody(order);
+        orderDispatcher.CreateOrderOnCelestialBody(order);  
     }
 
     public void OnCheckboxIsForeverValueChanged(bool isChecked)

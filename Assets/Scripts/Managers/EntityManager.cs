@@ -34,6 +34,14 @@ public class EntityManager : MonoBehaviour
     {
         Structure structureToBuild = structureDictionary[structureScriptableObject];
         CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
+        foreach (var resource in structureToBuild.Costs)
+        {
+            if (celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity < resource.Quantity)
+            {
+                Debug.Log("Not enough resources to build " + structureToBuild.Name);
+                return;
+            }
+        }
         if (structureToBuild != null)
         {
             celestialBody.InitiateConstructionStructure(structureToBuild);
