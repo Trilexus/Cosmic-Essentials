@@ -6,7 +6,7 @@ public class GUIManager : MonoBehaviour
 {
     public static GUIManager Instance;
     public GameObject CelestialBodyMenu;
-    public GameObject CelestialBodyInfo;
+    public GameObject CelestialBodyBuildInfo;
     public CelestialBodyInfo CelestialBodyInfoScript;
 
     public Vector3 celestialBodyMenuOffset;
@@ -43,7 +43,7 @@ public class GUIManager : MonoBehaviour
         {
             Instance = this; // Singleton
             DontDestroyOnLoad(this.gameObject); // Singleton
-            CelestialBodyInfoScript = CelestialBodyInfo.GetComponent<CelestialBodyInfo>();
+            CelestialBodyInfoScript = CelestialBodyBuildInfo.GetComponent<CelestialBodyInfo>();
         }
         else
         {

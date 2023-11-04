@@ -30,6 +30,7 @@ public class ResourceTransferDispatcher
             if (canFulfillOrder)
             {
                 spaceShip = SpaceShip_TransporterMisslePool.Instance.GetPooledSpaceShip().GetComponent<SpaceShip>(); //SpaceShip aus dem Pool holen.
+                spaceShip.RefuelSpaceShip(order);
                 LoadSpaceShip(); // SpaceShip beladen.
                 if (!Order.IsForever)
                 {
@@ -102,13 +103,19 @@ public class ResourceTransferDispatcher
     }
 
 
+
+
     public bool CanFulfillOrder()
     {
         var spacePointsResource = Order.ResourceShipmentDetails.FirstOrDefault(resource => resource.Name.Equals("SpacePoints"));
         int SpacePointsOrdered = spacePointsResource?.StorageQuantity ?? 0;
         int SpacePointsAvailable = ResourceStorageCelestialBody.TryGetValue(ResourceType.SpacePoints, out var spacePointsStorage) ? spacePointsStorage.StorageQuantity : 0;
-
-        bool SpacePointsAvailableForStartAndOrder = SpacePointsAvailable < SpacePointsOrdered + SpaceShip.SpaceShipStartSpacePointsCosts;
+        int startCosts = SpaceShip.SpaceShipStartSpacePointsCosts;
+        if (Order.ReturnToOrigin)
+        {
+            startCosts *= 2;
+        }
+        bool SpacePointsAvailableForStartAndOrder = SpacePointsAvailable < SpacePointsOrdered + startCosts;
         // Überprüfe, ob genug SpacePoints vorhanden sind für Startkosten und Order (Vollständig oder nicht)
         if (Order.OnlyFullShipment && SpacePointsAvailableForStartAndOrder)
         {

@@ -71,17 +71,19 @@ public class Planet : CelestialBody
         int mines = Areas.Count(I => I.structure.Name == "Mine" && I.constructionProgress >= OneHundredPercent);
         int reactors = Areas.Count(I => I.structure.Name == "Reactor" && I.constructionProgress >= OneHundredPercent);
         int spaceports = Areas.Count(I => I.structure.Name == "Spaceport" && I.constructionProgress >= OneHundredPercent);
+        int apartments = Areas.Count(I => I.structure.Name == "Apartments" && I.constructionProgress >= OneHundredPercent);
         int farmsInConstruction = Areas.Count(I => I.structure.Name == "Farm" && I.constructionProgress < OneHundredPercent);
         int minesInConstruction = Areas.Count(I => I.structure.Name == "Mine" && I.constructionProgress < OneHundredPercent);
         int reactorsInConstruction = Areas.Count(I => I.structure.Name == "Reactor" && I.constructionProgress < OneHundredPercent);
         int spaceportsInConstruction = Areas.Count(I => I.structure.Name == "Spaceport" && I.constructionProgress < OneHundredPercent);
+        int apartmentsInConstruction = Areas.Count(I => I.structure.Name == "Apartments" && I.constructionProgress < OneHundredPercent);
         string ecoColor = CalculateEcoIndexColor();        
         int DevelopedAreas = Areas.Count();
         sb.Clear();
         
         // Eco Index and Population and productivity rate info
         string ecoInfo = $"{ecoColor}\uf06c: {ecoIndex}%({ecoIndexChangeValue:+0.##;-0.##;0})</color>";
-        string populationInfo = $"\ue533: {population.CurrentPopulation}";
+        string populationInfo = $"\ue533: {population.CurrentPopulation} / {population._maxPopulation}";
         string productivityInfo = $"\uf201: {ProductivityRate}";
 
 
@@ -91,6 +93,7 @@ public class Planet : CelestialBody
         string mineInfo = $"{Symbols.Mine} {mines}/{minesInConstruction}";
         string reactorInfo = $"{Symbols.Reactor} {reactors}/{reactorsInConstruction}";
         string spaceportInfo = $"{Symbols.Spaceport} {spaceports}/{spaceportsInConstruction}";
+        string apartmentsInfo = $"{Symbols.Apartments} {apartments}/{apartmentsInConstruction}";
 
         // Resource Info
         string resourceStorageFood = $"{Symbols.Food} {ResourceStorageCelestialBody[ResourceType.Food].StorageQuantity}";
@@ -109,7 +112,7 @@ public class Planet : CelestialBody
         string resourceEnergyConsumption = $"({ResourceStorageCelestialBody[ResourceType.Energy].ConsumptionQuantity})";
         string resourceSpacePointConsumption = $"({ResourceStorageCelestialBody[ResourceType.SpacePoints].ConsumptionQuantity})";
 
-        sb.AppendLine($"{areaInfo} {populationInfo}");
+        sb.AppendLine($"{areaInfo} {apartmentsInfo} {populationInfo}");
         sb.AppendLine($"{ecoInfo} {productivityInfo}");
         string finalString = sb.ToString();
         celestialBodyInfoTop.SetText(finalString);
@@ -164,14 +167,26 @@ public class Planet : CelestialBody
         }
     }
 
-    private void SetupPopulation()
+    public int CalcMaxPopulation()
     {
-        population._maxPopulation = maxAreas;
+        int maxPopulation = 0;
+        foreach(var apartments in Areas.Where(area => area.structure.Type == StructureType.Apartments))
+        {
+            if (apartments.constructionProgress >= 100)
+            {
+                maxPopulation += apartments.structure.LivingSpace;
+            }
+        }
+        return maxPopulation;
+    }
+
+    private void SetupPopulation()
+    {        
         population.RED_THRESHOLD = RED_THRESHOLD;
     }
     public void CalculatePopulation()
     {
-        population.UpdatePopulation(ResourceStorageCelestialBody[0].StorageQuantity, ecoIndex);
+        population.UpdatePopulation(ResourceStorageCelestialBody[0].StorageQuantity, ecoIndex, CalcMaxPopulation());
     }
 
 }

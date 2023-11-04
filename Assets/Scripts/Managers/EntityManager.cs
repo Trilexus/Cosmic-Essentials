@@ -33,28 +33,39 @@ public class EntityManager : MonoBehaviour
     public void BuildStructure(StructureScriptableObject structureScriptableObject)
     {
         Structure structureToBuild = structureDictionary[structureScriptableObject];
-        CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
-        foreach (var resource in structureToBuild.Costs)
+        //CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
+        if (GUIManager.Instance?.selectedCelestialBody?.GetComponent<CelestialBody>() is CelestialBody celestialBody)
         {
-            if (celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity < resource.Quantity)
+            foreach (var resource in structureToBuild.Costs)
             {
-                Debug.Log("Not enough resources to build " + structureToBuild.Name);
-                return;
+                if (celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity < resource.Quantity)
+                {
+                    Debug.Log("Not enough resources to build " + structureToBuild.Name);
+                    return;
+                }
             }
-        }
-        if (structureToBuild != null)
-        {
-            celestialBody.InitiateConstructionStructure(structureToBuild);
+            foreach (var resource in structureToBuild.Costs)
+            {
+                celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity -= resource.Quantity;
+            }
+            if (structureToBuild != null)
+            {
+                celestialBody.InitiateConstructionStructure(structureToBuild);
+            }
         }
     }
 
     public void DemolishStructure(StructureScriptableObject structureScriptableObject)
-    {
+    {   
+         
         Structure structureToDemolish = structureDictionary[structureScriptableObject];
-        CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
-        if (structureToDemolish != null)
+        //CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
+        if (GUIManager.Instance?.selectedCelestialBody?.GetComponent<CelestialBody>() is CelestialBody celestialBody)
         {
-            celestialBody.InitiateDemolishStructure(structureToDemolish);
+            if (structureToDemolish != null)
+            {
+                celestialBody.InitiateDemolishStructure(structureToDemolish);
+            }
         }
     }
 

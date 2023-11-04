@@ -5,5 +5,9 @@ using UnityEngine;
 public enum AllowedLocation
 {
     Planet,
-    SpaceStation
+    MiningPlanet,
+    PowerPlanet,
+    SciencePlanet,
+    SpaceStation,
+    Asteroid,
 }

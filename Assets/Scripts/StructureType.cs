@@ -11,5 +11,6 @@ public enum StructureType
     ResearchCenter = 5,
     TransportStation = 6,
     DefenseStation =7 ,
-    IndustrialPlant = 8
+    IndustrialPlant = 8,
+    Apartments = 9
 }

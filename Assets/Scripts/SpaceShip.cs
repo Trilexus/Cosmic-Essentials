@@ -14,7 +14,7 @@ public class SpaceShip : MonoBehaviour
     public CelestialBody target;
     [SerializeField]
     public CelestialBody origin;
-    public bool FliesBack = false;
+    public bool ReturnToOrigin = false;
     [SerializeField]
     public bool isStarted = false;
     [SerializeField]
@@ -25,6 +25,7 @@ public class SpaceShip : MonoBehaviour
     float speed;
     float rotationSpeed = 150f;
     public static int SpaceShipStartSpacePointsCosts = 50;
+    int Fuel = 0;
     [SerializeField]
     public static Dictionary<ResourceType, ResourceStorage> SpaceShipCosts = new Dictionary<ResourceType, ResourceStorage> {
         { ResourceType.Metal, new ResourceStorage(ResourceType.Metal, 100, 0, 0, 0) },
@@ -68,12 +69,23 @@ public class SpaceShip : MonoBehaviour
     {
         this.target = target;
         this.origin = origin;
+        Fuel -= SpaceShipStartSpacePointsCosts;
         this.transform.position = origin.transform.position;
         RotateToTarget();
         gameObject.SetActive(true);
         isArrived = false;
         isStarted = true;
-        FliesBack = fliesBack;
+        ReturnToOrigin = fliesBack;
+    }
+
+    public void RefuelSpaceShip(ResourceTransferOrder order)
+    {
+        int fuelCosts = 50;
+
+        if (order.ReturnToOrigin) fuelCosts *= 2;
+        order.Origin.GetComponent<CelestialBody>().ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity -= fuelCosts;
+        Fuel = fuelCosts;
+
     }
 
     private void RotateToTargetOverTime()

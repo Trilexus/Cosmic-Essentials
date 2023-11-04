@@ -11,6 +11,7 @@ public static class Symbols
     public const string Mine = "\uf275";
     public const string Reactor = "\uf7ba";
     public const string Spaceport = "\uf7c0";
+    public const string Apartments = "\uf015";
 
     public const string Food = "\ue2cd";
     public const string Metal = "\uf468";

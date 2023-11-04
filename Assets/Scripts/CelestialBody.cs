@@ -31,8 +31,7 @@ abstract public class CelestialBody : MonoBehaviour
     public float ConstructionRate = 0.2f; //bigger = faster
     [SerializeField]
     public List<Area> Areas = new List<Area>();
-    public AllowedLocation allowedLocation;
-    int minimalResourceStorageQuantity = -1;
+    public AllowedLocation allowedLocationType;
     //public List<ResourceStorage> ResourceStorageCelestialBody = new List<ResourceStorage>();
     public StringBuilder sb = new StringBuilder();
     public Dictionary<ResourceType, ResourceStorage> ResourceStorageCelestialBody = new Dictionary<ResourceType, ResourceStorage>();
@@ -159,7 +158,7 @@ abstract public class CelestialBody : MonoBehaviour
                 ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity += resource.StorageQuantity;
                 resource.StorageQuantity = 0; //SpaceShip ist nun leer.
             }
-            if (spaceship.FliesBack)
+            if (spaceship.ReturnToOrigin)
             {
                 spaceship.StartJourney(this, spaceship.origin, false);
             }else
@@ -179,8 +178,6 @@ abstract public class CelestialBody : MonoBehaviour
         {
             resourceStorage.ResetResourceProduction();
         }
-
-
         // Add the base production of resources to the resource storage.
         foreach (Resource resource in BaseResourceProduction)
         {
@@ -189,9 +186,6 @@ abstract public class CelestialBody : MonoBehaviour
                 resourceStorage.ProductionQuantity += resource.Quantity;
             }
         }
-
-
-
         // Combine buildings and other factors and calculate the production of resources.
         foreach (var area in Areas)
         {

@@ -12,9 +12,10 @@ public class Structure
     public int EcoImpactFactor;
     public List<AllowedLocation> AllowedLocations;
     public GameObject Symbol;
+    public int LivingSpace;
     
     // Konstruktor
-    public Structure(string name, StructureType type, List<Resource> resources, List<Resource> costs, int ecoImpactFactor, List<AllowedLocation> allowedLocations, GameObject Symbol)
+    public Structure(string name, StructureType type, List<Resource> resources, List<Resource> costs, int ecoImpactFactor, List<AllowedLocation> allowedLocations, GameObject Symbol, int LivingSpace)
     {
         this.Name = name;   
         this.Type = type;
@@ -23,6 +24,7 @@ public class Structure
         this.EcoImpactFactor = ecoImpactFactor;
         this.AllowedLocations = allowedLocations ?? new List<AllowedLocation>(); // Verhindert NullReferenceException
         this.Symbol = Symbol;
+        this.LivingSpace = LivingSpace;
     }
 
     public Structure(StructureScriptableObject data)
@@ -34,6 +36,7 @@ public class Structure
         this.EcoImpactFactor = data.EcoImpactFactor;
         this.AllowedLocations = data.AllowedLocations ?? new List<AllowedLocation>(); // Verhindert NullReferenceException
         this.Symbol = data.Symbol;
+        this.LivingSpace = data.LivingSpace;
     }
 
     public bool IsLocationAllowed(AllowedLocation location)

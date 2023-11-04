@@ -22,7 +22,7 @@ public class CelestialBodyInfo : MonoBehaviour
 
     public void UpdateCelestialBodyInfos()
     {
-        celestialBodyInfo = GUIManager.Instance.CelestialBodyInfo;
+        celestialBodyInfo = GUIManager.Instance.CelestialBodyBuildInfo;
         selectedCelestialBody = GUIManager.Instance.selectedCelestialBody;
         if (selectedCelestialBody != null && celestialBodyInfo.activeSelf)
         {
