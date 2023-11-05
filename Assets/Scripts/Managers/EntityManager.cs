@@ -30,52 +30,6 @@ public class EntityManager : MonoBehaviour
         }
     }
 
-    public void BuildStructure(StructureScriptableObject structureScriptableObject)
-    {
-        Structure structureToBuild = structureDictionary[structureScriptableObject];
-        
-        //CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
-        if (GUIManager.Instance?.selectedCelestialBody?.GetComponent<CelestialBody>() is CelestialBody celestialBody)
-        {
-            bool areResourcesSufficient = structureToBuild.AreResourcesSufficientForStructure(celestialBody);
-            bool isLocationAllowed = structureToBuild.IsLocationAllowed(celestialBody.AllowedLocationType);
-            if (!isLocationAllowed)
-            {
-                //Debug.Log("Location not allowed to build " + structureToBuild.Name);
-                GUIManager.Instance.MentatScript.SetAlertText("StructureNotAllowed");
-                return;
-            }else if (!areResourcesSufficient)
-            {
-                //Debug.Log("Not enough resources to build " + structureToBuild.Name);
-                GUIManager.Instance.MentatScript.SetAlertText("InsufficientResources");
-                return;
-            }
-            foreach (var resource in structureToBuild.Costs)
-            {
-                celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity -= resource.Quantity;
-            }
-            if (structureToBuild != null)
-            {
-                celestialBody.InitiateConstructionStructure(structureToBuild);
-            }
-        }
-    }
-
-
-    public void DemolishStructure(StructureScriptableObject structureScriptableObject)
-    {   
-         
-        Structure structureToDemolish = structureDictionary[structureScriptableObject];
-        //CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
-        if (GUIManager.Instance?.selectedCelestialBody?.GetComponent<CelestialBody>() is CelestialBody celestialBody)
-        {
-            if (structureToDemolish != null)
-            {
-                celestialBody.InitiateDemolishStructure(structureToDemolish);
-            }
-        }
-    }
-
     private void CreateStructures()
     {
         foreach (var scriptableObject in structureScriptableObjects)
@@ -83,12 +37,5 @@ public class EntityManager : MonoBehaviour
             Structure newStructure = new Structure(scriptableObject);
             structureDictionary[scriptableObject] = newStructure;
         }
-    }
-
-    public void BuildSpaceStation()
-    {
-        PlanetarySystem planetarySystem = GUIManager.Instance.selectedPlanetarySystem.GetComponent<PlanetarySystem>();
-        Debug.Log("BuildSpaceStation in " + planetarySystem.Name);
-        planetarySystem.BuildSpaceStation();
     }
 }

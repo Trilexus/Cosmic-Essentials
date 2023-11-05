@@ -64,7 +64,6 @@ public class GUIManager : MonoBehaviour
             ActiveCelestialBodyMarker.transform.position = selectedCelestialBody.transform.position;
             ActiveCelestialBodyMarker.SetActive(true);
             SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
-            //MoveCelestialBodyMenu(selectedCelestialBody);
             FillOrdersOverview();
             UpdateCelestialBodyInfos();
         } else if (this.selectedCelestialBody == selectedCelestialBody) {

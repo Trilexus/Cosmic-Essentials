@@ -12,11 +12,10 @@ public class StructureButton : MonoBehaviour
         // Dein Code, z.B. den EntityManager ansprechen
         if (structureData != null)
         {
-            EntityManager.Instance.BuildStructure(structureData);
+            BuildingInterfaceManager.Instance.BuildStructure(structureData);
         } else if (structureName.Equals("SpaceStation"))
         {
-            Debug.Log("Build: " + structureName);
-            EntityManager.Instance.BuildSpaceStation();
+            BuildingInterfaceManager.Instance.BuildSpaceStation();
         }else
         {
             Debug.Log("Build: nichts");
@@ -25,6 +24,6 @@ public class StructureButton : MonoBehaviour
     public void Demolish()
     {
         // Dein Code, z.B. den EntityManager ansprechen
-        EntityManager.Instance.DemolishStructure(structureData);
+        BuildingInterfaceManager.Instance.DemolishStructure(structureData);
     }
 }

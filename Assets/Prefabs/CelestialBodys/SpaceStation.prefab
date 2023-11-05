@@ -869,9 +869,11 @@ MonoBehaviour:
   TimeToTick: {fileID: 301566142770989853}
   ConstructionRate: 0.2
   Areas: []
-  allowedLocationType: 4
+  StartStructureScriptableObjects: []
+  AllowedLocationType: 0
   ResourceTransferOrders: []
   SpaceShipTransporterAvailable: 0
+  ResourceStorageLimit: 10000
   SpacecraftReadyForUnloading: []
   MaxOrderLoops: 5
   celestialBodyInfoTop: {fileID: 111318443053578247}

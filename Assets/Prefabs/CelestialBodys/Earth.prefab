@@ -588,6 +588,7 @@ MonoBehaviour:
   AllowedLocationType: 0
   ResourceTransferOrders: []
   SpaceShipTransporterAvailable: 10
+  ResourceStorageLimit: 5000
   SpacecraftReadyForUnloading: []
   MaxOrderLoops: 5
   celestialBodyInfoTop: {fileID: 7713754781580423368}

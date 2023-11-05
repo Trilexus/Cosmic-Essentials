@@ -37,8 +37,10 @@ abstract public class CelestialBody : MonoBehaviour
     //public List<ResourceStorage> ResourceStorageCelestialBody = new List<ResourceStorage>();
     public StringBuilder sb = new StringBuilder();
     public Dictionary<ResourceType, ResourceStorage> ResourceStorageCelestialBody = new Dictionary<ResourceType, ResourceStorage>();
+    
     public List<ResourceTransferOrder> ResourceTransferOrders = new List<ResourceTransferOrder>();
     public int SpaceShipTransporterAvailable = 0;
+    public int ResourceStorageLimit;
 
     public List <SpaceShip> SpacecraftReadyForUnloading = new List<SpaceShip>();
     public const int OneHundredPercent = 100;
@@ -68,7 +70,7 @@ abstract public class CelestialBody : MonoBehaviour
     {
         foreach (ResourceType type in Enum.GetValues(typeof(ResourceType)))
         {
-            ResourceStorageCelestialBody[type] = new ResourceStorage(type.ToString(), 1000, 0, 0, 0);
+            ResourceStorageCelestialBody[type] = new ResourceStorage(type.ToString(), ResourceStorageLimit, 0, 0, 0);
         }
     }
 
@@ -88,6 +90,24 @@ abstract public class CelestialBody : MonoBehaviour
         // Aktualisiere die Anzeige
         TimeToTick.SetText(timeUntilNextTick.ToString("0.0") + "/" + interval);
     }
+
+    public void AddResourceTransferOrder(ResourceTransferOrder order)
+    {
+        ResourceTransferOrders.Add(order);
+        if (GUIManager.Instance.ActiveCelestialBodyTarget == this)
+        {
+            GUIManager.Instance.FillOrdersOverview();
+        }
+    }
+    public void RemoveTranferOrder(ResourceTransferOrder order)
+    {
+        ResourceTransferOrders.Remove(order);
+        if (GUIManager.Instance.ActiveCelestialBodyTarget == this)
+        {
+            GUIManager.Instance.FillOrdersOverview();
+        }
+    }
+
 
     private IEnumerator TickCoroutine()
     {

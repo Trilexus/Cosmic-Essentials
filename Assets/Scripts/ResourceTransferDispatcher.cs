@@ -55,35 +55,6 @@ public class ResourceTransferDispatcher
         }
     }
 
-    public bool UpdateOrderStatus(bool isProcessed) // Order wurde bearbeitet, wird aus der Liste entfernt oder hinten angehängt. (true = bearbeitet, false = nicht bearbeitet)
-    {
-        if (isProcessed)
-        {
-            if (Order.Repetitions <= 0)
-            {
-                ResourceTransferOrders.Remove(Order); // Order aus der Liste entfernen.
-            }
-            else if (Order.IsPrioritized) //Order ist prioriziert, bleibt in der Liste an erster Stelle und wird erneut ausgeführt.
-            {
-                Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
-            }
-            else // Order ist nicht priorisiert, wird hinten an die Liste angehängt und erneut ausgeführt.
-            {
-                Order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
-                ResourceTransferOrders.Remove(Order); // Order aus der Liste entfernen.
-                ResourceTransferOrders.Add(Order); // Order wieder hinten an die Liste anhängen.
-            }
-            return true; // Order ist priorisiert, bleibt in der Liste an erster Stelle und wird erneut ausgeführt.
-        }
-        else if (!Order.IsPrioritized) // Order ist nicht priorisiert, wird hinten an die Liste angehängt und erneut ausgeführt.
-        {
-            ResourceTransferOrders.Remove(Order); // Order aus der Liste entfernen.
-            ResourceTransferOrders.Add(Order); // Order wieder hinten an die Liste anhängen.
-            return false; // Order ist nicht priorisiert, bleibt in der Liste an letzter Stelle und wird erneut ausgeführt.
-        }
-        return true; // Order ist priorisiert, bleibt in der Liste an erster Stelle und wird erneut ausgeführt.
-    }
-
     public void LoadSpaceShip()
     {
         foreach (var orderResource in Order.ResourceShipmentDetails)
@@ -149,8 +120,8 @@ public class ResourceTransferDispatcher
     public void CreateOrderOnCelestialBody(ResourceTransferOrder order)
     {
         Order = order;
-        Order.Origin.ResourceTransferOrders.Add(Order);
-        GUIManager.Instance.FillOrdersOverview();
+        Order.Origin.AddResourceTransferOrder(Order);
+
     }
 
     public ResourceTransferOrder CreateOrderFromGui(String ResourceType, int ResourceAmount, CelestialBody origin, CelestialBody destination, int repetitions, bool isPrioritized, bool onlyFullShipment, bool ReturnToOrigin, bool IsForever)
