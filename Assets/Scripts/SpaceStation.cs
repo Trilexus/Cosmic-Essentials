@@ -56,6 +56,7 @@ public class SpaceStation : CelestialBody
         constructionProgress = progressIncrement;
         buildStationMeterialOrder = new ResourceTransferOrder(orderSpacePoints, belongingtoPlanetScript, this, 4, true, true,true,false);
         belongingtoPlanetScript.ResourceTransferOrders.Add(buildStationMeterialOrder);
+        GUIManager.Instance.FillOrdersOverview();
         orderPlaced = true;
     }
 

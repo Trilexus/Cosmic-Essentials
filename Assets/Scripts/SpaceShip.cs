@@ -24,7 +24,7 @@ public class SpaceShip : MonoBehaviour
     [SerializeField]
     float speed;
     float rotationSpeed = 150f;
-    public static int SpaceShipStartSpacePointsCosts = 50;
+    public static int SpaceShipStartSpacePointsCosts = 25;
     int Fuel = 0;
     [SerializeField]
     public static Dictionary<ResourceType, ResourceStorage> SpaceShipCosts = new Dictionary<ResourceType, ResourceStorage> {

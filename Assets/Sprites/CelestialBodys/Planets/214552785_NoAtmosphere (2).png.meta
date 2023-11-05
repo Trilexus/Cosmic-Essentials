@@ -1,0 +1,5085 @@
+fileFormatVersion: 2
+guid: 849d90de1e1c0dc4d8e802ae42d4e179
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10cfb1e3eeeb7064f8569354ee6b3e7b
+      internalID: -2112115834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57d90971b94166c48b0a525a082200e9
+      internalID: 586642706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b52dea64e4c25ea4298157ceaca4b3f2
+      internalID: -933183095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_3
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c5aa177d93e924796e519eb46b88f3
+      internalID: 1882797525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_4
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 657fb7a9ae8deb44ea6f1be4affb8fc7
+      internalID: 1002943736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dffa05fa2203fae4a8fe3045d82fe45d
+      internalID: -665407812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_6
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067954bc713e4da4e855ba6be9bbb1f1
+      internalID: -1550348321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_7
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8e707d9e79ad4c47838f85d99f6403a
+      internalID: 2138109285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_8
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c012b87e2354624eb4ce2fea858d8ff
+      internalID: 2087663561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_9
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69d84d63775ace4cbb6dc34ddc3a77a
+      internalID: 58987981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_10
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac06ca79091036840b891a2a3187256e
+      internalID: 2091856193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_11
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08be3a37e1c31354d9172b25a2780805
+      internalID: 1397409909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_12
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45a40736f4a7b2840bd4548529a2dcbe
+      internalID: 531263649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_13
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e89c021dea3695e4a9b2817fe0be9bb0
+      internalID: -1424076364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_14
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 1430
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e8604511e9611548a582a12d4842288
+      internalID: 1997026630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_15
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9684c7be429d92448857a7843a396373
+      internalID: -394951534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_16
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c34ecb3a185302f41a4a479d71b4fc44
+      internalID: 794961279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_17
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3cc99d7ef69fa64f811642cd8029536
+      internalID: 1618649100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_18
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82289a89292c17e418f28c34faa615a8
+      internalID: 1014090008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_19
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fba8e0a6e4785774b9c73180ab031803
+      internalID: 376722656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_20
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a4001a6cec452d478a15f7289015b44
+      internalID: 1228800097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_21
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f970327ed8b43f4fb05c4bb3db4f409
+      internalID: 6432083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_22
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bda0ac9a2a36c240811a90db88890f8
+      internalID: -377334967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_23
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dbb9bdd0b9bee14d9bfb42bbb240d81
+      internalID: 1240726279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_24
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccfd8908262393c41a85e6abac7e55ee
+      internalID: -666527343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_25
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c4738312348e8641ae705076247793b
+      internalID: -652130558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_26
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da69294d4d067d46bab3161653a817f
+      internalID: 1556082500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_27
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e184075bb486e2438838e2a975b77d1
+      internalID: -970863719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_28
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8130fe8d05a8e440a6291a806b4c8e8
+      internalID: -853353724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_29
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 1328
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63c9352235d0b8a44b85e37c70402a92
+      internalID: 739905438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_30
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 560a245353d0ba14b94a9db04d25290d
+      internalID: -709727033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_31
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3202533d73374649bf846e5cf71d063
+      internalID: 1213103506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_32
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c50072dc020384f80ec50f19a60f2e
+      internalID: -1481580359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_33
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9556e1e25a6f3c448d9e013f635eb9f
+      internalID: -103087834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_34
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3d56475432ca224c9fbf218854075df
+      internalID: 941834249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_35
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4a40d18d4be2324c8819f3734e78482
+      internalID: 1424573149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_36
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21cea6ae9bac59049be1377ff6d9dd43
+      internalID: 1177947609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_37
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 261f1e95efd173447bff7775156b1c5a
+      internalID: 1976240502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_38
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d776d9334d5c8c34abab26658ecc439a
+      internalID: 542705183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_39
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 473d3aa4a5a9670499436215037076b3
+      internalID: 1893325955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_40
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db63d22f85c420e438b218c456243e49
+      internalID: -371837293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_41
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e77c0e62d0cb16a4081ae701a2dec5cc
+      internalID: -652427511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_42
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f628f1cd51e4ff448a1e495b0be989a4
+      internalID: 1311582894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_43
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84126681be94297439ed13bc2c7f02c3
+      internalID: 961418790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_44
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 1226
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be2067216a913e48a7a00772250031e
+      internalID: 2014914894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_45
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa47f5515a686f449b8b9d37c0a46e74
+      internalID: 1054510326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_46
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a4783c8c8aa8745acc320cf3fecb7f
+      internalID: 1179957724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_47
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a53855d8a1bef41a6f8263ac87763e
+      internalID: 1786147242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_48
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7046306bee32dc45b4ca7cf1e7dd58a
+      internalID: -1249860841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_49
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63954e2dbf3fcf84fbeaf96cc60a7bff
+      internalID: 1124756170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_50
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de451481233a3c2418274a0edea147d2
+      internalID: 798748811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_51
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fbd65f55278819479797cdda6e7ed6e
+      internalID: 1447157852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_52
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e905d339d47ef942b85ae8cadcd975a
+      internalID: -778965058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_53
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc4f4d7ae90d5df478b067b6025c220e
+      internalID: -190741134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_54
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7654afd3eec3f7c4d8c9f1cd58210701
+      internalID: -551520471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_55
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 414f5e22f3d949f4d9484dc05a6c0774
+      internalID: 521026015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_56
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f89e2ee450e684fad38a9c0d3b388e
+      internalID: -1827656933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_57
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5326c717d96da747addffcb96d49af3
+      internalID: 2122127636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_58
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 868205a2bae34514cb37dbef53619d5f
+      internalID: 400076746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_59
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c297498128baab74d93b8a4314177e2d
+      internalID: -374865090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_60
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f891b6d3d46d884698efc2ade83c699
+      internalID: -2108607526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_61
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40545fdb1c0ace744b050c24e331e4c6
+      internalID: 428952127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_62
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e91d70a3800a274eb55d4d154403cd5
+      internalID: 1810881613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_63
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbbbcd15d8d7320498b9eaac2e77af81
+      internalID: -362874879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_64
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f2683c4005fda4690a30bc7c2196a4
+      internalID: 1337569624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_65
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c1c42a3ebf8b844a48b07419db7021
+      internalID: -1335513703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_66
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88d878e551250b240958210bd678022f
+      internalID: -1513789224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_67
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e985a452792e09546b16c4fc1c9de073
+      internalID: 69510702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_68
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5435bbe8103d8aa4ca574740f1c4e653
+      internalID: -314409309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_69
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aab1eb30901969498d96b1098b4c017
+      internalID: -1189978032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_70
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ce178832a672f428e85e23c2a8dcb0
+      internalID: 2069821301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_71
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba885525c779d740b0f30ebd74b25b2
+      internalID: -1516822972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_72
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3256f83b348bab048806d411c0d16125
+      internalID: 1441023360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_73
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38af26f3fc256174bb46d799599b83e5
+      internalID: 1507045826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_74
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 1022
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 412d5f9f0d17098478f2406115c79878
+      internalID: -1706076490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_75
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c9f0c792bc8bd641806ff3e3c1c3a87
+      internalID: 619117649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_76
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0142ee7a076dd2c439afbb360ce1c84e
+      internalID: -1028981929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_77
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb0a61f6ee92b243b3335f23708cce0
+      internalID: 1424414023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_78
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9dc2d36baa769418e1142453010583
+      internalID: -272581964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_79
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a11977a1a56e937498a9ac58a426b83b
+      internalID: -1449151577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_80
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb11a3c555f97045a1897875b899355
+      internalID: 1769175410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_81
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 500aac1b38e685a49bfa4b0158734cb8
+      internalID: -857656446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_82
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48cfd19b313a3c4e8c410388ce763f4
+      internalID: 1305329052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_83
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e23704ec1ffae6147b89e0c7dd7a3ebc
+      internalID: -105015551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_84
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca2b795cab956748a00b1120255a313
+      internalID: -2095352186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_85
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84865b788dfe9d644b0a504ccc1d46cb
+      internalID: 665032440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_86
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a689986bc5c2b994f9710a95a86db4ef
+      internalID: 1384132463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_87
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c1287ad4c017a74ab41d7aef145c0b6
+      internalID: -611026876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_88
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6886cdbf81c29c44a926abcb52b411ae
+      internalID: -1128482223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_89
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 920
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1552deb43c375574bb4af98ea2975551
+      internalID: -2011603213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_90
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48e8164bcaab6e54cb0e470f195ee783
+      internalID: -1572626395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_91
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc687fc02fdc1d3499c1e38519fd939f
+      internalID: 343652497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_92
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5104d3679eb8fe4894fa5206b11ff1d
+      internalID: -327377011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_93
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 674fc27c1495a614997cc47e1afed9e9
+      internalID: 743489539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_94
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d75d17ee36000945bbff6ee2b3cd80f
+      internalID: 103829097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_95
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd70246ec6aeff34abeb14779fbadb56
+      internalID: 1420545932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_96
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d84c7bc157abed46bdba641ef131f40
+      internalID: -1844177915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_97
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf37e2de418b814ebf3e4b03ba6e23c
+      internalID: -1721219784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_98
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1125ff9f309bc40be4cbf1cf289f8f
+      internalID: 158470496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_99
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e736b7f760afa1046b3b330888ce35d5
+      internalID: -1737016106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_100
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1ac7515362a2349bfeacb64989a4b7
+      internalID: 778526647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_101
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb2efc02435f7e43b3ead337b54dea9
+      internalID: 2038929178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_102
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05134e9bdc82b5048ad992b93ee746a3
+      internalID: -880095554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_103
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43fa5dfab3915b7429f6d3e21c00e9db
+      internalID: 1863126092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_104
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 818
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab733aede34e944c89ca28500e9feb2
+      internalID: -1331508016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_105
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95cd7928ad87d354caba5fd400f86854
+      internalID: 2144425971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_106
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52d4ce11f67c9b64185d929794dc990c
+      internalID: 507318530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_107
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b41b69b688c3b444db55c70e690dfcba
+      internalID: -968478088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_108
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db9ea29a40a9fff4db41c4e2c83ad288
+      internalID: -2080406792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_109
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dd4afc99fcba5448bcad14fcebc1b04
+      internalID: 1520655845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_110
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa0c09608f04e04b8b2159795ef99bc
+      internalID: -106914016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_111
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 152bfde0493b7df45a7a3528f567b3b8
+      internalID: 2082663503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_112
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f5f52067062d644bacfe5644f7e2cc
+      internalID: 1863649635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_113
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a239edecefe0840bbeac2c30e16f14
+      internalID: 473551966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_114
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f4644c4bc571e94ab6e6ada54e468a9
+      internalID: -1831105138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_115
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95cdaed284ef3b84ab7d0f19a2e802a4
+      internalID: -556015331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_116
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dc0a98f11327e24bba22af7af8734a3
+      internalID: 1725714884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_117
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d176b0547288774ab39c5bfbffd2294
+      internalID: 1314431426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_118
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae719f764675433409cafeed70bde1c5
+      internalID: 479594945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_119
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 716
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c635141d971cf94eb6a3fcb66aba448
+      internalID: 1319327113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_120
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 681398691ec9d9045b36e5374ee5b90a
+      internalID: -1178510662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_121
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda27975e88fe6e4381233bd8bacdd91
+      internalID: -543403888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_122
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfdd597365136ad42bf0a1f4eb7c6755
+      internalID: -2052105725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_123
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed22173cfed0c924996ff0d88383ca61
+      internalID: -1027718108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_124
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07abab1e66a6aea4a9dc489b81762f4e
+      internalID: 728809836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_125
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdd98aec22f664545851ff85486bb00f
+      internalID: -396751725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_126
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd9dd8f299df58f4bbd84e9d03a4ff4f
+      internalID: -1446701675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_127
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25e7ece98db10f643a9798312f118533
+      internalID: 1790323879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_128
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 892118c40f9158f4499440e03c7402c1
+      internalID: 2008395983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_129
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87f41ff1992d07f42980ac8ffe52cc6b
+      internalID: 695949436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_130
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0357cdb1a5ec30841a36d912c03e1e46
+      internalID: 1940851499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_131
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9298f8559277a86438556c090e51d5c6
+      internalID: -2060255325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_132
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb512bfa7c63a04e90f164b174a5709
+      internalID: -1510722966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_133
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e21b4f6e70631e4ebbeb157033a366c
+      internalID: 783587769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_134
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 614
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b427bfa95d4e2744687fe957812c4d6d
+      internalID: -2130555044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_135
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba6ed853c5f7ef40b8785022f6f8599
+      internalID: -1887273091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_136
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa30473d62c8c0149abb7a76cae05bcf
+      internalID: -1683043499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_137
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e922576283d2d24cbe89f81d93313a7
+      internalID: 275519399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_138
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40d9e61a9a3c7f34181ba9dd07dce155
+      internalID: -720487448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_139
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 790de0da29f746c4a9aed5613f0774b3
+      internalID: -1707506432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_140
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45f488617a1106444a2f29c770b8ceed
+      internalID: -413789760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_141
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1c54aeb97993174380cb63c804df456
+      internalID: 1555490612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_142
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b99f8c9d9df6374a9cf7f69547877cc
+      internalID: -1561290761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_143
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0d07985bd7ca1e48a9276b792a585eb
+      internalID: 363356665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_144
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d694462fe542fde4ab1eea5d01ae5c7a
+      internalID: 1416423565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_145
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 962c20a92043ce34b8fd6413483480a4
+      internalID: -1244709148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_146
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc3156439fcea624abc70e70f82fe23f
+      internalID: 736688615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_147
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b462fcc0aa9c547408681e5656a73062
+      internalID: -2077980728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_148
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502ca0eed6f642c448623a6f9cc8f1f9
+      internalID: -1443559407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_149
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 512
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c622673bcb96e164892c75f67ea91a0b
+      internalID: 305112479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_150
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5efff4795c5704a439f4ccf17e75f241
+      internalID: 1126666812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_151
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab67a9c833ae1da4f99ffef4c11dab77
+      internalID: -856642250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_152
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 905b1f0303ff0714893518bff7b77d3e
+      internalID: -697297734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_153
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c17245983d0ffd48a9099a9643470f9
+      internalID: -264707901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_154
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1220b885603f245469e2d2e326b01359
+      internalID: -1516016377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_155
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2af46be53998b14c8ae156eb88930c2
+      internalID: -510603359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_156
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d2cb10c43c12224db5507f41f6e1597
+      internalID: -1236238684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_157
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c9b927979111e240b48e0c773129b84
+      internalID: 504085116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_158
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 665209a1711c34a49b176692b2e963fe
+      internalID: -1573255673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_159
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dac5281c8b5b7d942b795be6a0b4d704
+      internalID: -428259511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_160
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85cd537b841d3644e9eb6ccfa07d97ed
+      internalID: 1782420764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_161
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41bf832ce0befe4cbdb196a73d21edb
+      internalID: -510339039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_162
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60b8ec4dd1b08eb4ebf3a9c5fadc6461
+      internalID: 1887729754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_163
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33030205c24cae41929c6763d362366
+      internalID: -349814521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_164
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50e383fc42a92f144b28f16dd0463019
+      internalID: -163002596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_165
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeccd422299b35e489fa899ca5f670cd
+      internalID: 936261734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_166
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35e0ff853e2b5c9498bfaa6b77100e08
+      internalID: -1157224546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_167
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93ede2ca98bb6d499409b10d7f6d5fd
+      internalID: -1799977274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_168
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3102fad5ab32fb46b518bbacd3773f9
+      internalID: 439654792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_169
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3e8e80b2c12e0428e49e8619fd7f50
+      internalID: -1728391228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_170
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d3735ff62acb24597c1419834c6d62
+      internalID: -1283145951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_171
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f5830f4c6df6fb45a3db80dd38dcfce
+      internalID: 62186610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_172
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c8c99ebec5e7a48b3a7a59b4954945
+      internalID: -329812591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_173
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b9f0a1f2eb5fbc4684fd1a11bff66ce
+      internalID: -488580263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_174
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bebb2746a759c740a61d2687d889959
+      internalID: -1143066664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_175
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 439250c0de092c549b05562475156645
+      internalID: -1215253941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_176
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3a9312d8fb4224aba05cc37ca145e4
+      internalID: 1875873786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_177
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6034235e1c38e624792a56638ee1025a
+      internalID: 1561345708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_178
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e9761b5c0327043b145037a68d8809
+      internalID: -1206878503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_179
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d1e811d29d57594d91ee002e9d52354
+      internalID: 1841659551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_180
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdd91e239b062ee42bc6d894dc9535ce
+      internalID: -481411062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_181
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66a0f487322a0b040896e124c0bd6ba2
+      internalID: -144868839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_182
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0152b21fc24de4d4b8fd5dccc17f19d8
+      internalID: 1082050823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_183
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503d46f2a907dd641a25e108795d2c3f
+      internalID: -813132239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_184
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bf876b29457d4b4f9b063681f8fe6a8
+      internalID: 1082758901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_185
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 289c340e86aede248ba9064d92582ef8
+      internalID: 1011179875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_186
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9444ce4dde67ad449898f04b3bcb7e3
+      internalID: 64534510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_187
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd791fab9aafb549b3b83c693bab0dc
+      internalID: 77937885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_188
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 719506c26c1def648a83968f8529deb9
+      internalID: 340583925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_189
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38590ac4b432b3645aa00bd1e9772f57
+      internalID: -1815062757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_190
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27215f21b84519547b3c7d5e476716be
+      internalID: -1298992058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_191
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700e3219f3fc42b46834de9ba28a04a8
+      internalID: -1929707328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_192
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95665123963200947bbdee96afbfab2e
+      internalID: 536021045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_193
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe4fb5693e97df747a52dfacd954ca5d
+      internalID: -2113918810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_194
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dffb83301925d7742be9cdc7f024b499
+      internalID: -590856739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_195
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa856b8d38d54b41812c9acc9c0759f
+      internalID: 1737807387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_196
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3001dd57e7f6c3c429a320ccc58022f5
+      internalID: 2057936119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_197
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98165dec736aa71468a7283c25ef8785
+      internalID: -821687682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_198
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f8f16f3c1745ca48b48a3454272e28b
+      internalID: -601374563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_199
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6af5f8a6f7ce32a418ff48be16842edd
+      internalID: 654227021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_200
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e7b1ea479465342943f9bd6c9f74d2
+      internalID: 201983242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_201
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a76b0c53ab1b0234387cd4e7710a4052
+      internalID: 1590557944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_202
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0bc09ebd1ddd894b8c60ac8a3622f01
+      internalID: 1632093186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_203
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec4eeb97b2e24dd4295440e6b6eba86c
+      internalID: -1351517372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_204
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 488bbf37c1b52da4ea00c50e37f95626
+      internalID: -47785315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_205
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8440203c820b98b4682ace4904bfde25
+      internalID: 119826190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_206
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8750ecd6bdc862148a6c221b8d184191
+      internalID: 1334457819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_207
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04bc5788319abac45b16a018cb9dd591
+      internalID: -919703386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_208
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85fdb3906d558ee4cb69673fd47ff05d
+      internalID: -1943371217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_209
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4bb7ada5a9e14f4e9c7b82a68d307e9
+      internalID: -1295395353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_210
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b18b5db633c1066468af8c07094d29de
+      internalID: 1874132386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_211
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75951ed4026150944b9e67a2ed53d7a4
+      internalID: -1228315295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_212
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4e90a5dd50754a44a5bc384af864b3c
+      internalID: 265695605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_213
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c4d42b903e85db4b8850ea8af04bac1
+      internalID: 658444718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_214
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ccef6a04d935c4699470a9d21663a0
+      internalID: 696230270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_215
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96ba0dfad3513145b008d10dc22401e
+      internalID: 1476206669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_216
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e066a9d4cee98dd45b6a3fec0a16f8fe
+      internalID: 1377163227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_217
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 402be67a3cf29634b94a94e13c2f97f7
+      internalID: 376016787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_218
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3352d3f213edb924fabc33efdd75af12
+      internalID: 1037833232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_219
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160e567a1ea29f74ba48521b28d0c7b3
+      internalID: 1815029065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_220
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 264b9dbb048e7cf40849d2a6236c0ced
+      internalID: -1009608584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_221
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23c68badfdd7c947b3493ff1103e33f
+      internalID: 931035884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_222
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101a9fa63018a354d8b4277046096a46
+      internalID: 1681397147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_223
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1914d21f661b8ba4b87460e3b659295a
+      internalID: 554131599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 214552785_NoAtmosphere (2)_224
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1fc7c48c13fee45a16ebc7bf4c712e
+      internalID: 2125901878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6c7d8ea089e80d446848e0c728f1e8bf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      214552785_NoAtmosphere (2)_0: -2112115834
+      214552785_NoAtmosphere (2)_1: 586642706
+      214552785_NoAtmosphere (2)_10: 2091856193
+      214552785_NoAtmosphere (2)_100: 778526647
+      214552785_NoAtmosphere (2)_101: 2038929178
+      214552785_NoAtmosphere (2)_102: -880095554
+      214552785_NoAtmosphere (2)_103: 1863126092
+      214552785_NoAtmosphere (2)_104: -1331508016
+      214552785_NoAtmosphere (2)_105: 2144425971
+      214552785_NoAtmosphere (2)_106: 507318530
+      214552785_NoAtmosphere (2)_107: -968478088
+      214552785_NoAtmosphere (2)_108: -2080406792
+      214552785_NoAtmosphere (2)_109: 1520655845
+      214552785_NoAtmosphere (2)_11: 1397409909
+      214552785_NoAtmosphere (2)_110: -106914016
+      214552785_NoAtmosphere (2)_111: 2082663503
+      214552785_NoAtmosphere (2)_112: 1863649635
+      214552785_NoAtmosphere (2)_113: 473551966
+      214552785_NoAtmosphere (2)_114: -1831105138
+      214552785_NoAtmosphere (2)_115: -556015331
+      214552785_NoAtmosphere (2)_116: 1725714884
+      214552785_NoAtmosphere (2)_117: 1314431426
+      214552785_NoAtmosphere (2)_118: 479594945
+      214552785_NoAtmosphere (2)_119: 1319327113
+      214552785_NoAtmosphere (2)_12: 531263649
+      214552785_NoAtmosphere (2)_120: -1178510662
+      214552785_NoAtmosphere (2)_121: -543403888
+      214552785_NoAtmosphere (2)_122: -2052105725
+      214552785_NoAtmosphere (2)_123: -1027718108
+      214552785_NoAtmosphere (2)_124: 728809836
+      214552785_NoAtmosphere (2)_125: -396751725
+      214552785_NoAtmosphere (2)_126: -1446701675
+      214552785_NoAtmosphere (2)_127: 1790323879
+      214552785_NoAtmosphere (2)_128: 2008395983
+      214552785_NoAtmosphere (2)_129: 695949436
+      214552785_NoAtmosphere (2)_13: -1424076364
+      214552785_NoAtmosphere (2)_130: 1940851499
+      214552785_NoAtmosphere (2)_131: -2060255325
+      214552785_NoAtmosphere (2)_132: -1510722966
+      214552785_NoAtmosphere (2)_133: 783587769
+      214552785_NoAtmosphere (2)_134: -2130555044
+      214552785_NoAtmosphere (2)_135: -1887273091
+      214552785_NoAtmosphere (2)_136: -1683043499
+      214552785_NoAtmosphere (2)_137: 275519399
+      214552785_NoAtmosphere (2)_138: -720487448
+      214552785_NoAtmosphere (2)_139: -1707506432
+      214552785_NoAtmosphere (2)_14: 1997026630
+      214552785_NoAtmosphere (2)_140: -413789760
+      214552785_NoAtmosphere (2)_141: 1555490612
+      214552785_NoAtmosphere (2)_142: -1561290761
+      214552785_NoAtmosphere (2)_143: 363356665
+      214552785_NoAtmosphere (2)_144: 1416423565
+      214552785_NoAtmosphere (2)_145: -1244709148
+      214552785_NoAtmosphere (2)_146: 736688615
+      214552785_NoAtmosphere (2)_147: -2077980728
+      214552785_NoAtmosphere (2)_148: -1443559407
+      214552785_NoAtmosphere (2)_149: 305112479
+      214552785_NoAtmosphere (2)_15: -394951534
+      214552785_NoAtmosphere (2)_150: 1126666812
+      214552785_NoAtmosphere (2)_151: -856642250
+      214552785_NoAtmosphere (2)_152: -697297734
+      214552785_NoAtmosphere (2)_153: -264707901
+      214552785_NoAtmosphere (2)_154: -1516016377
+      214552785_NoAtmosphere (2)_155: -510603359
+      214552785_NoAtmosphere (2)_156: -1236238684
+      214552785_NoAtmosphere (2)_157: 504085116
+      214552785_NoAtmosphere (2)_158: -1573255673
+      214552785_NoAtmosphere (2)_159: -428259511
+      214552785_NoAtmosphere (2)_16: 794961279
+      214552785_NoAtmosphere (2)_160: 1782420764
+      214552785_NoAtmosphere (2)_161: -510339039
+      214552785_NoAtmosphere (2)_162: 1887729754
+      214552785_NoAtmosphere (2)_163: -349814521
+      214552785_NoAtmosphere (2)_164: -163002596
+      214552785_NoAtmosphere (2)_165: 936261734
+      214552785_NoAtmosphere (2)_166: -1157224546
+      214552785_NoAtmosphere (2)_167: -1799977274
+      214552785_NoAtmosphere (2)_168: 439654792
+      214552785_NoAtmosphere (2)_169: -1728391228
+      214552785_NoAtmosphere (2)_17: 1618649100
+      214552785_NoAtmosphere (2)_170: -1283145951
+      214552785_NoAtmosphere (2)_171: 62186610
+      214552785_NoAtmosphere (2)_172: -329812591
+      214552785_NoAtmosphere (2)_173: -488580263
+      214552785_NoAtmosphere (2)_174: -1143066664
+      214552785_NoAtmosphere (2)_175: -1215253941
+      214552785_NoAtmosphere (2)_176: 1875873786
+      214552785_NoAtmosphere (2)_177: 1561345708
+      214552785_NoAtmosphere (2)_178: -1206878503
+      214552785_NoAtmosphere (2)_179: 1841659551
+      214552785_NoAtmosphere (2)_18: 1014090008
+      214552785_NoAtmosphere (2)_180: -481411062
+      214552785_NoAtmosphere (2)_181: -144868839
+      214552785_NoAtmosphere (2)_182: 1082050823
+      214552785_NoAtmosphere (2)_183: -813132239
+      214552785_NoAtmosphere (2)_184: 1082758901
+      214552785_NoAtmosphere (2)_185: 1011179875
+      214552785_NoAtmosphere (2)_186: 64534510
+      214552785_NoAtmosphere (2)_187: 77937885
+      214552785_NoAtmosphere (2)_188: 340583925
+      214552785_NoAtmosphere (2)_189: -1815062757
+      214552785_NoAtmosphere (2)_19: 376722656
+      214552785_NoAtmosphere (2)_190: -1298992058
+      214552785_NoAtmosphere (2)_191: -1929707328
+      214552785_NoAtmosphere (2)_192: 536021045
+      214552785_NoAtmosphere (2)_193: -2113918810
+      214552785_NoAtmosphere (2)_194: -590856739
+      214552785_NoAtmosphere (2)_195: 1737807387
+      214552785_NoAtmosphere (2)_196: 2057936119
+      214552785_NoAtmosphere (2)_197: -821687682
+      214552785_NoAtmosphere (2)_198: -601374563
+      214552785_NoAtmosphere (2)_199: 654227021
+      214552785_NoAtmosphere (2)_2: -933183095
+      214552785_NoAtmosphere (2)_20: 1228800097
+      214552785_NoAtmosphere (2)_200: 201983242
+      214552785_NoAtmosphere (2)_201: 1590557944
+      214552785_NoAtmosphere (2)_202: 1632093186
+      214552785_NoAtmosphere (2)_203: -1351517372
+      214552785_NoAtmosphere (2)_204: -47785315
+      214552785_NoAtmosphere (2)_205: 119826190
+      214552785_NoAtmosphere (2)_206: 1334457819
+      214552785_NoAtmosphere (2)_207: -919703386
+      214552785_NoAtmosphere (2)_208: -1943371217
+      214552785_NoAtmosphere (2)_209: -1295395353
+      214552785_NoAtmosphere (2)_21: 6432083
+      214552785_NoAtmosphere (2)_210: 1874132386
+      214552785_NoAtmosphere (2)_211: -1228315295
+      214552785_NoAtmosphere (2)_212: 265695605
+      214552785_NoAtmosphere (2)_213: 658444718
+      214552785_NoAtmosphere (2)_214: 696230270
+      214552785_NoAtmosphere (2)_215: 1476206669
+      214552785_NoAtmosphere (2)_216: 1377163227
+      214552785_NoAtmosphere (2)_217: 376016787
+      214552785_NoAtmosphere (2)_218: 1037833232
+      214552785_NoAtmosphere (2)_219: 1815029065
+      214552785_NoAtmosphere (2)_22: -377334967
+      214552785_NoAtmosphere (2)_220: -1009608584
+      214552785_NoAtmosphere (2)_221: 931035884
+      214552785_NoAtmosphere (2)_222: 1681397147
+      214552785_NoAtmosphere (2)_223: 554131599
+      214552785_NoAtmosphere (2)_224: 2125901878
+      214552785_NoAtmosphere (2)_23: 1240726279
+      214552785_NoAtmosphere (2)_24: -666527343
+      214552785_NoAtmosphere (2)_25: -652130558
+      214552785_NoAtmosphere (2)_26: 1556082500
+      214552785_NoAtmosphere (2)_27: -970863719
+      214552785_NoAtmosphere (2)_28: -853353724
+      214552785_NoAtmosphere (2)_29: 739905438
+      214552785_NoAtmosphere (2)_3: 1882797525
+      214552785_NoAtmosphere (2)_30: -709727033
+      214552785_NoAtmosphere (2)_31: 1213103506
+      214552785_NoAtmosphere (2)_32: -1481580359
+      214552785_NoAtmosphere (2)_33: -103087834
+      214552785_NoAtmosphere (2)_34: 941834249
+      214552785_NoAtmosphere (2)_35: 1424573149
+      214552785_NoAtmosphere (2)_36: 1177947609
+      214552785_NoAtmosphere (2)_37: 1976240502
+      214552785_NoAtmosphere (2)_38: 542705183
+      214552785_NoAtmosphere (2)_39: 1893325955
+      214552785_NoAtmosphere (2)_4: 1002943736
+      214552785_NoAtmosphere (2)_40: -371837293
+      214552785_NoAtmosphere (2)_41: -652427511
+      214552785_NoAtmosphere (2)_42: 1311582894
+      214552785_NoAtmosphere (2)_43: 961418790
+      214552785_NoAtmosphere (2)_44: 2014914894
+      214552785_NoAtmosphere (2)_45: 1054510326
+      214552785_NoAtmosphere (2)_46: 1179957724
+      214552785_NoAtmosphere (2)_47: 1786147242
+      214552785_NoAtmosphere (2)_48: -1249860841
+      214552785_NoAtmosphere (2)_49: 1124756170
+      214552785_NoAtmosphere (2)_5: -665407812
+      214552785_NoAtmosphere (2)_50: 798748811
+      214552785_NoAtmosphere (2)_51: 1447157852
+      214552785_NoAtmosphere (2)_52: -778965058
+      214552785_NoAtmosphere (2)_53: -190741134
+      214552785_NoAtmosphere (2)_54: -551520471
+      214552785_NoAtmosphere (2)_55: 521026015
+      214552785_NoAtmosphere (2)_56: -1827656933
+      214552785_NoAtmosphere (2)_57: 2122127636
+      214552785_NoAtmosphere (2)_58: 400076746
+      214552785_NoAtmosphere (2)_59: -374865090
+      214552785_NoAtmosphere (2)_6: -1550348321
+      214552785_NoAtmosphere (2)_60: -2108607526
+      214552785_NoAtmosphere (2)_61: 428952127
+      214552785_NoAtmosphere (2)_62: 1810881613
+      214552785_NoAtmosphere (2)_63: -362874879
+      214552785_NoAtmosphere (2)_64: 1337569624
+      214552785_NoAtmosphere (2)_65: -1335513703
+      214552785_NoAtmosphere (2)_66: -1513789224
+      214552785_NoAtmosphere (2)_67: 69510702
+      214552785_NoAtmosphere (2)_68: -314409309
+      214552785_NoAtmosphere (2)_69: -1189978032
+      214552785_NoAtmosphere (2)_7: 2138109285
+      214552785_NoAtmosphere (2)_70: 2069821301
+      214552785_NoAtmosphere (2)_71: -1516822972
+      214552785_NoAtmosphere (2)_72: 1441023360
+      214552785_NoAtmosphere (2)_73: 1507045826
+      214552785_NoAtmosphere (2)_74: -1706076490
+      214552785_NoAtmosphere (2)_75: 619117649
+      214552785_NoAtmosphere (2)_76: -1028981929
+      214552785_NoAtmosphere (2)_77: 1424414023
+      214552785_NoAtmosphere (2)_78: -272581964
+      214552785_NoAtmosphere (2)_79: -1449151577
+      214552785_NoAtmosphere (2)_8: 2087663561
+      214552785_NoAtmosphere (2)_80: 1769175410
+      214552785_NoAtmosphere (2)_81: -857656446
+      214552785_NoAtmosphere (2)_82: 1305329052
+      214552785_NoAtmosphere (2)_83: -105015551
+      214552785_NoAtmosphere (2)_84: -2095352186
+      214552785_NoAtmosphere (2)_85: 665032440
+      214552785_NoAtmosphere (2)_86: 1384132463
+      214552785_NoAtmosphere (2)_87: -611026876
+      214552785_NoAtmosphere (2)_88: -1128482223
+      214552785_NoAtmosphere (2)_89: -2011603213
+      214552785_NoAtmosphere (2)_9: 58987981
+      214552785_NoAtmosphere (2)_90: -1572626395
+      214552785_NoAtmosphere (2)_91: 343652497
+      214552785_NoAtmosphere (2)_92: -327377011
+      214552785_NoAtmosphere (2)_93: 743489539
+      214552785_NoAtmosphere (2)_94: 103829097
+      214552785_NoAtmosphere (2)_95: 1420545932
+      214552785_NoAtmosphere (2)_96: -1844177915
+      214552785_NoAtmosphere (2)_97: -1721219784
+      214552785_NoAtmosphere (2)_98: 158470496
+      214552785_NoAtmosphere (2)_99: -1737016106
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -31,6 +31,11 @@ public class Population {
 
     public void UpdatePopulation(int foodAvailable, float ecoecoIndex, int maxPopulation)
     {
+        if ( CurrentPopulation > maxPopulation)
+        {
+            CurrentPopulation--;
+            return;
+        }
         float ecoecoIndexOneHundredth = ecoecoIndex / 100f;
         _maxPopulation = maxPopulation;
         bool isfoodAvailable = foodAvailable > 0;

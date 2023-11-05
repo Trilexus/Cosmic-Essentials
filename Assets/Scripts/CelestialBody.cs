@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using TMPro;
 using UnityEngine;
@@ -31,7 +32,8 @@ abstract public class CelestialBody : MonoBehaviour
     public float ConstructionRate = 0.2f; //bigger = faster
     [SerializeField]
     public List<Area> Areas = new List<Area>();
-    public AllowedLocation allowedLocationType;
+    public List<StructureScriptableObject> StartStructureScriptableObjects;
+    public AllowedLocation AllowedLocationType;
     //public List<ResourceStorage> ResourceStorageCelestialBody = new List<ResourceStorage>();
     public StringBuilder sb = new StringBuilder();
     public Dictionary<ResourceType, ResourceStorage> ResourceStorageCelestialBody = new Dictionary<ResourceType, ResourceStorage>();
@@ -59,6 +61,7 @@ abstract public class CelestialBody : MonoBehaviour
         InitializeResources();
         nextTickTime = Time.time + interval;
         StartCoroutine(TickCoroutine());
+        InitializeStartingBuildings();
         orderDispatcher = new ResourceTransferDispatcher(ResourceStorageCelestialBody);
     }
     public void InitializeResources()
@@ -66,6 +69,15 @@ abstract public class CelestialBody : MonoBehaviour
         foreach (ResourceType type in Enum.GetValues(typeof(ResourceType)))
         {
             ResourceStorageCelestialBody[type] = new ResourceStorage(type.ToString(), 1000, 0, 0, 0);
+        }
+    }
+
+    private void InitializeStartingBuildings()
+    {
+        foreach (var structure in StartStructureScriptableObjects)
+        {
+            Structure startbuilding = new Structure(structure);
+            Areas.Add(new Area { structure = startbuilding, constructionProgress = 100 });
         }
     }
 
@@ -81,11 +93,7 @@ abstract public class CelestialBody : MonoBehaviour
     {
         while (true)
         {
-            nextTickTime = Time.time + interval; // Setze den Zeitpunkt des nächsten Ticks
-            if (gameObject.name == "Planet Mine")
-            {
-                Debug.Log("Tick: " + gameObject.name + " - " + nextTickTime);
-            }            
+            nextTickTime = Time.time + interval; // Setze den Zeitpunkt des nächsten Ticks           
             yield return new WaitForSeconds(interval);
             Tick();
         }
@@ -109,8 +117,8 @@ abstract public class CelestialBody : MonoBehaviour
     }
     public void InitiateConstructionStructure(Structure structure)
     {
-            //Start building projects (farm, power plant, mine, research center).
-            if (maxAreas > Areas.Count)
+        //Start building projects (farm, power plant, mine, research center).
+        if (maxAreas > Areas.Count)
         {
             Areas.Add(new Area { structure = structure, constructionProgress = 0 });
         }
@@ -118,8 +126,11 @@ abstract public class CelestialBody : MonoBehaviour
     }
     public void InitiateDemolishStructure(Structure structure)
     {
+
         //demolish structure instantly
-        var areaToRemove = Areas.LastOrDefault(x => x.structure == structure);
+        var areaToRemove = Areas.LastOrDefault(x => x.structure.Type == structure.Type);
+        Debug.Log(structure.Name);
+        Debug.Log("Demolish Structure: " + areaToRemove.structure.Name);
         if (areaToRemove != null)
         {
             Areas.Remove(areaToRemove);

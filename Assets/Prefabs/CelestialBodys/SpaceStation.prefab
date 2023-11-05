@@ -443,7 +443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.31, y: -1.224}
+  m_AnchoredPosition: {x: 1.444, y: 0}
   m_SizeDelta: {x: 9, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6705950132734050729
@@ -583,8 +583,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.504}
-  m_SizeDelta: {x: 8.4876, y: 2.4017}
+  m_AnchoredPosition: {x: -0.000000022352, y: -0.6292}
+  m_SizeDelta: {x: 8.4876, y: 2.0175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7414688165764007273
 CanvasRenderer:
@@ -641,8 +641,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.5
-  m_fontSizeBase: 1.5
+  m_fontSize: 1
+  m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -723,8 +723,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.0885, y: 1.2226}
-  m_SizeDelta: {x: 3.0535, y: 1.3063}
+  m_AnchoredPosition: {x: -0.017, y: 0.0174}
+  m_SizeDelta: {x: 3.0535, y: 3.5825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5698671826181361108
 Canvas:
@@ -869,7 +869,7 @@ MonoBehaviour:
   TimeToTick: {fileID: 301566142770989853}
   ConstructionRate: 0.2
   Areas: []
-  allowedLocation: 0
+  allowedLocationType: 4
   ResourceTransferOrders: []
   SpaceShipTransporterAvailable: 0
   SpacecraftReadyForUnloading: []

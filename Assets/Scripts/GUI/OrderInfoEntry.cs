@@ -17,6 +17,8 @@ public class OrderInfoEntry : MonoBehaviour
     public TextMeshProUGUI TextOrderForever;
     public TextMeshProUGUI TextOrderRepetitions;
     ResourceTransferOrder order;
+    public Button ButtonCancelOrder;
+    private List<ResourceTransferOrder> resourceTransferOrders;
 
 
 
@@ -31,12 +33,21 @@ public class OrderInfoEntry : MonoBehaviour
         UpdateGUI();
     }
 
-    public void Initialize(ResourceTransferOrder order)
+    public void Initialize(ResourceTransferOrder order, List<ResourceTransferOrder> resourceTransferOrders)
     {
+        this.resourceTransferOrders = resourceTransferOrders;
         this.order = order;
         UpdateGUI();
     }
 
+    public void CancelOrder()
+    {
+        if (order != null)
+        {
+            resourceTransferOrders.Remove(order);
+            Destroy(this.gameObject);
+        }
+    }
     private void UpdateGUI()
     {
         if (order.Repetitions < 0)

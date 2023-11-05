@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class GUIManager : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class GUIManager : MonoBehaviour
 
     public GameObject ScrollViewOrdersOverviewContent;
     public GameObject OrderInfoEntryPrefab;
+    public GameObject Mentat;
+    public Mentat MentatScript;
 
 
     // Start is called before the first frame update
@@ -44,6 +47,7 @@ public class GUIManager : MonoBehaviour
             Instance = this; // Singleton
             DontDestroyOnLoad(this.gameObject); // Singleton
             CelestialBodyInfoScript = CelestialBodyBuildInfo.GetComponent<CelestialBodyInfo>();
+            MentatScript = Mentat.GetComponent<Mentat>();
         }
         else
         {
@@ -85,10 +89,11 @@ public class GUIManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        foreach (ResourceTransferOrder order in selectedCelestialBody.GetComponent<CelestialBody>().ResourceTransferOrders)
+        List<ResourceTransferOrder> Orders = selectedCelestialBody.GetComponent<CelestialBody>().ResourceTransferOrders;
+        foreach (ResourceTransferOrder order in Orders)
         {
             GameObject orderEntry = Instantiate(OrderInfoEntryPrefab, ScrollViewOrdersOverviewContent.transform);
-            orderEntry.GetComponent<OrderInfoEntry>().Initialize(order);
+            orderEntry.GetComponent<OrderInfoEntry>().Initialize(order, Orders);
             orderEntry.transform.SetParent(ScrollViewOrdersOverviewContent.transform);
         }
     }

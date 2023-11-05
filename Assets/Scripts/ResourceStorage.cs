@@ -9,7 +9,7 @@ public class ResourceStorage
     [SerializeField]
     public string Name;
     [SerializeField]
-    public int MinQuantity = 0;
+    public int MinQuantity = -1;
     [SerializeField]
     public int MaxQuantity;
     [SerializeField]

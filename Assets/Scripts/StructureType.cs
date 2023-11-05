@@ -12,5 +12,7 @@ public enum StructureType
     TransportStation = 6,
     DefenseStation =7 ,
     IndustrialPlant = 8,
-    Apartments = 9
+    Apartments = 9,
+    Mine = 10,
+    CapitalCity = 11
 }

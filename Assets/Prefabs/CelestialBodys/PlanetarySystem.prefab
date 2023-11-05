@@ -132,3 +132,4 @@ MonoBehaviour:
   celestialBodies: []
   neighbors: []
   planetarySystemCenterStar: {fileID: 7428254604738707947}
+  SpaceStationPrefab: {fileID: 7514443899264742639, guid: c94394a5c07f45d46a6bfeebd8118919, type: 3}

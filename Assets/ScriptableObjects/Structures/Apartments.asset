@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Apartments
   Type: 9
-  Resources: []
-  Costs:
+  Resources:
   - {fileID: 2877031959262065529, guid: 7bcaffba1407c364c8c6b66f37243670, type: 3}
   - {fileID: 2877031959262065529, guid: 35d8fdb6c6e109045ae39af38fce7d49, type: 3}
+  Costs:
+  - {fileID: 2877031959262065529, guid: e91b23d1e90f7d849a0110f230f2c8ca, type: 3}
+  - {fileID: 2877031959262065529, guid: 6cb899b2663a49340ba70fd9408c516a, type: 3}
   EcoImpactFactor: -3
   AllowedLocations: 00000000
   Symbol: {fileID: 6999325608662012467, guid: 53c6dc036d68a324db36e6c8f9a5d91b, type: 3}

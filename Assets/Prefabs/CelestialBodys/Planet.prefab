@@ -937,9 +937,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAreas: 30
   population:
-    CurrentPopulation: 5
+    CurrentPopulation: 0
     _maxPopulation: 10
-    _minPopulation: 1
+    _minPopulation: 0
     _populationGrowthCounter: 0
     _growthThresholdTicks: 5
     RED_THRESHOLD: 0.3
@@ -957,7 +957,8 @@ MonoBehaviour:
   TimeToTick: {fileID: 301566142770989853}
   ConstructionRate: 0.1
   Areas: []
-  allowedLocation: 0
+  StartStructureScriptableObjects: []
+  AllowedLocationType: 0
   ResourceTransferOrders: []
   SpaceShipTransporterAvailable: 0
   SpacecraftReadyForUnloading: []
@@ -966,6 +967,7 @@ MonoBehaviour:
   celestialBodyInfoLeft: {fileID: 7518784984302729522}
   celestialBodyInfoRight: {fileID: 2296356027699980533}
   ecoIndex: 100
+  freeAreaImpactFactor: 5
 --- !u!58 &5272761293592083797
 CircleCollider2D:
   m_ObjectHideFlags: 0

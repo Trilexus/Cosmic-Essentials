@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9170030831961479410}
   - component: {fileID: 2877031959262065529}
   m_Layer: 0
-  m_Name: EnergyBaseProduction
+  m_Name: EnergyBaseProduction_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Energy
-  Quantity: 5
+  Quantity: 10
   ResourceType: 2

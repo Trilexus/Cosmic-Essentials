@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -39,8 +40,28 @@ public class Structure
         this.LivingSpace = data.LivingSpace;
     }
 
+    public bool IsLocationAllowed(List<AllowedLocation> locations)
+    {
+        bool isAllowed = AllowedLocations.Intersect(locations).Any();
+        return isAllowed;
+    }
+
     public bool IsLocationAllowed(AllowedLocation location)
     {
-        return AllowedLocations.Contains(location);
+        bool isAllowed = AllowedLocations.Contains(location);
+        return isAllowed;
     }
+
+    public bool AreResourcesSufficientForStructure(CelestialBody celestialBody) 
+    {
+       foreach (Resource resource in Costs)
+        {
+            if (celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity < resource.Quantity)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

@@ -21,7 +21,8 @@ public class Planet : CelestialBody
 
     const int RED_THRESHOLD = 30;
     const int YELLOW_THRESHOLD = 70;
-    const int FREE_AREA_ECOIMPACTFACTOR = 5;
+    [SerializeField]
+    private int freeAreaImpactFactor;
 
     // Start is called before the first frame update
     public override void Start()
@@ -39,6 +40,9 @@ public class Planet : CelestialBody
         UpdateInfoText();
     }
 
+
+
+
     protected override void Tick()
     {
         CalculateProductivityRate();
@@ -52,14 +56,22 @@ public class Planet : CelestialBody
         // Mehr Einwohner pro area (Gebäude) = bessere ProductivityRate
         float ProductivityPopulationFactor = (float)population.CurrentPopulation / Areas.Count;
         ProductivityPopulationFactor = Mathf.Clamp(ProductivityPopulationFactor, MinProductivityRate, MaxProductivityRate);
+        if (population.CurrentPopulation > population._maxPopulation)
+        {
+            ProductivityPopulationFactor = -1; //Too little living space has an impact on efficiency.
+        }else if(population.CurrentPopulation <= 0)
+        {
+              ProductivityPopulationFactor = -1;
+        }
+        
         // Besserer EcoIndex = bessere ProductivityRate
-        float ProductivityEcoIndexFactor = ecoIndex / 20;//TODO: Magic Number
+        float ProductivityEcoIndexFactor = ecoIndex / 100;//TODO: Magic Number
         // Zu wenig Ressourcen = schlechtere ProductivityRate. Ausreichende Ressourcen = normale ProductivityRate
-        float ProductivityResourceFactor1 = (ResourceStorageCelestialBody[ResourceType.Metal].StorageQuantity <= 0 ? 0f : 1f); //TODO: Magic Number
-        float ProductivityResourceFactor2 = (ResourceStorageCelestialBody[ResourceType.Energy].StorageQuantity <= 0 ? 0f : 1f); //TODO: Magic Number
+        float ProductivityResourceFactor1 = (ResourceStorageCelestialBody[ResourceType.Metal].StorageQuantity < 0 ? 0f : 0.5f); //TODO: Magic Number
+        float ProductivityResourceFactor2 = (ResourceStorageCelestialBody[ResourceType.Energy].StorageQuantity < 0 ? 0f : 0.5f); //TODO: Magic Number
         float ProductivityresourceFactor = ProductivityResourceFactor1 + ProductivityResourceFactor2;
 
-        int factorCount = 3;
+        int factorCount = 2;
         ProductivityRate = (ProductivityPopulationFactor + ProductivityEcoIndexFactor + ProductivityresourceFactor) / factorCount;
         ProductivityRate = (float)Math.Round(Mathf.Clamp(ProductivityRate, MinProductivityRate, MaxProductivityRate),2,MidpointRounding.AwayFromZero) ;        
     }
@@ -135,7 +147,7 @@ public class Planet : CelestialBody
         // Population has a negative impact on the ecoIndex
         int sumOfEcoImpactFactorsForPopulation = population.EcoImpactFactor;
         // Free areas have a positive impact on the ecoIndex
-        int sumOfEcoImpactFactorsForFreeAreas = (maxAreas - Areas.Count()) * FREE_AREA_ECOIMPACTFACTOR;
+        int sumOfEcoImpactFactorsForFreeAreas = (maxAreas - Areas.Count()) * freeAreaImpactFactor;
         ecoIndexChangeValue = sumOfEcoImpactFactorsForFreeAreas + sumOfEcoImpactFactorsForStructures + sumOfEcoImpactFactorsForPopulation;
 
         // If EcoIndex is in the yellow or red range, there is a bonus to allow Eco Index to settle into a range
@@ -170,7 +182,7 @@ public class Planet : CelestialBody
     public int CalcMaxPopulation()
     {
         int maxPopulation = 0;
-        foreach(var apartments in Areas.Where(area => area.structure.Type == StructureType.Apartments))
+        foreach(var apartments in Areas)
         {
             if (apartments.constructionProgress >= 100)
             {

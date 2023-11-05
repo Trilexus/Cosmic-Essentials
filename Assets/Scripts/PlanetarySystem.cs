@@ -15,6 +15,7 @@ public class PlanetarySystem : MonoBehaviour
     [SerializeField]
     private GameObject planetarySystemCenterStar;
     private bool isActivePlanetarySystem = false;
+    public GameObject SpaceStationPrefab;
     public bool IsActivePlanetarySystem
     {
         get { return isActivePlanetarySystem; }
@@ -107,6 +108,18 @@ public class PlanetarySystem : MonoBehaviour
             spacestationTransform.gameObject.SetActive(true);
             spacestation.setPositionNearCelestialObject(GUIManager.Instance.selectedCelestialBody);
             //spacestationTransform.SetParent(GUIManager.Instance.selectedCelestialBody.transform,false);
+            spacestation.StartBuilding();
+        } else if (spacestation != null && spacestation.isActiveAndEnabled)
+        {
+            GUIManager.Instance.MentatScript.SetAlertText("Only one station per star system!");
+        }else if (spacestation == null)
+        {
+            GameObject spaceStationGameObject = Instantiate(SpaceStationPrefab, GUIManager.Instance.selectedCelestialBody.transform.position, Quaternion.identity, GUIManager.Instance.selectedCelestialBody.transform);
+            spacestation = spaceStationGameObject.GetComponent<SpaceStation>();
+            spacestation.name = "SpaceStation";
+            celestialBodies.Add(spacestation);
+            spaceStationGameObject.transform.gameObject.SetActive(true);
+            spacestation.setPositionNearCelestialObject(GUIManager.Instance.selectedCelestialBody);
             spacestation.StartBuilding();
         }
     }

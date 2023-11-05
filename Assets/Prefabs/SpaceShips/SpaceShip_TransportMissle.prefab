@@ -133,8 +133,8 @@ MonoBehaviour:
   FreeStorageSpace: 100
   target: {fileID: 0}
   origin: {fileID: 0}
-  FliesBack: 0
+  ReturnToOrigin: 0
   isStarted: 0
   isArrived: 0
   isArrivedDistance: 0.001
-  speed: 1
+  speed: 1.2
