@@ -65,6 +65,10 @@ abstract public class CelestialBody : MonoBehaviour
         StartCoroutine(TickCoroutine());
         InitializeStartingBuildings();
         orderDispatcher = new ResourceTransferDispatcher(ResourceStorageCelestialBody);
+        for (int i = 0; i <= 0; i++)
+        {
+            Tick();
+        }
     }
     public void InitializeResources()
     {

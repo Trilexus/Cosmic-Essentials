@@ -7,8 +7,8 @@ public class SpaceShip : MonoBehaviour
 {
     [SerializeField]
     public Dictionary<ResourceType, ResourceStorage> ResourceStorageSpaceShip = new Dictionary<ResourceType, ResourceStorage>();
-    public int maxStorage = 100;
-    public int FreeStorageSpace = 100;
+    public static int maxStorage = 500;
+    public int FreeStorageSpace = 500;
 
     [SerializeField]
     public CelestialBody target;

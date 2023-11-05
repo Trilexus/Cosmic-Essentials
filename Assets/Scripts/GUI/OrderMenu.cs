@@ -19,6 +19,7 @@ public class OrderMenu : MonoBehaviour
     {
         orderDispatcher = new ResourceTransferDispatcher();
         CostsInfoText = GUIManager.Instance.orderCostsText;
+        GUIManager.Instance.orderAmountSlider.maxValue = SpaceShip.maxStorage;
     }
     public void Update()
     {

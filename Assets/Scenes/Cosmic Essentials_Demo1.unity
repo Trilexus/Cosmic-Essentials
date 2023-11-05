@@ -6585,6 +6585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f836b43641e93a24589cee674239c6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Background: {fileID: 1794954817}
+  speed: 2
+  backgroundSpeed: 0.3
   zoomSpeed: 1
   minOrthoSize: 3
   maxOrthoSize: 15
@@ -8859,6 +8862,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1440051745}
+  - component: {fileID: 1440051746}
   m_Layer: 0
   m_Name: BuildingInterfaceManager
   m_TagString: Untagged
@@ -8881,6 +8885,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1440051746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440051744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b358d1cf23ba84348bbebd220f466831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1450789786 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1421611619072773854, guid: 772867b1e419df84185fcfe3db557cc5, type: 3}
@@ -11265,6 +11281,10 @@ PrefabInstance:
     - target: {fileID: 3553431215775858356, guid: e83108b45d775ee4b8693467850ea356, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281886848863563929, guid: e83108b45d775ee4b8693467850ea356, type: 3}
+      propertyPath: ecoIndex
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5281886848863563929, guid: e83108b45d775ee4b8693467850ea356, type: 3}
       propertyPath: maxAreas
@@ -13681,6 +13701,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8084578099749782766, guid: d1170fa5f0e31fb4784deb4f881d2bac, type: 3}
       propertyPath: freeAreaImpactFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084578099749782766, guid: d1170fa5f0e31fb4784deb4f881d2bac, type: 3}
+      propertyPath: population.CurrentPopulation
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
