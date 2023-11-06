@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -28,6 +29,16 @@ public class EntityManager : MonoBehaviour
         {
             Destroy(gameObject); // Zerstört das zusätzliche GameManager-Objekt, wenn es bereits ein aktives gibt.
         }
+    }
+
+    public List<Structure> GetStructuresForCelestialBody(AllowedLocation celestialBodyAllowedLocation)
+    {
+        return AllStructures.Where(I => I.AllowedLocations.Contains(celestialBodyAllowedLocation)).ToList();
+    }
+
+    public List<StructureScriptableObject> GetStructuresScriptableObjectForCelestialBody(AllowedLocation celestialBodyAllowedLocation)
+    {
+        return structureDictionary.Keys.Where(I => I.AllowedLocations.Contains(celestialBodyAllowedLocation)).ToList();
     }
 
     private void CreateStructures()

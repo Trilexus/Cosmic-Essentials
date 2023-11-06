@@ -33,7 +33,7 @@ abstract public class CelestialBody : MonoBehaviour
     [SerializeField]
     public List<Area> Areas = new List<Area>();
     public List<StructureScriptableObject> StartStructureScriptableObjects;
-    public AllowedLocation AllowedLocationType;
+    public AllowedLocation AllowedLocation;
     //public List<ResourceStorage> ResourceStorageCelestialBody = new List<ResourceStorage>();
     public StringBuilder sb = new StringBuilder();
     public Dictionary<ResourceType, ResourceStorage> ResourceStorageCelestialBody = new Dictionary<ResourceType, ResourceStorage>();
@@ -98,7 +98,7 @@ abstract public class CelestialBody : MonoBehaviour
     public void AddResourceTransferOrder(ResourceTransferOrder order)
     {
         ResourceTransferOrders.Add(order);
-        if (GUIManager.Instance.ActiveCelestialBodyTarget == this)
+        if (GUIManager.Instance.selectedCelestialBodyScript == this)
         {
             GUIManager.Instance.FillOrdersOverview();
         }

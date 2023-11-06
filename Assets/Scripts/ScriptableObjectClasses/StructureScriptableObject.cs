@@ -12,5 +12,6 @@ public class StructureScriptableObject : ScriptableObject
     public int EcoImpactFactor;
     public List<AllowedLocation> AllowedLocations;
     public GameObject Symbol;
+    public Sprite Sprite;
     public int LivingSpace;
 }

@@ -56,10 +56,8 @@ public class PlanetarySystem : MonoBehaviour
 
     public void ActivateAffiliationLines()
     {
-        Debug.Log("ActivateAffiliationLines");
         foreach (CelestialBody celestialBody in celestialBodies.Where(i => i.isActiveAndEnabled))
         {
-            Debug.Log("CelestialBody: " + celestialBody);
             GameObject LineRenderer = LinePool.Instance.GetPooledLine();
             LineRenderer.GetComponent<LineRenderer>().SetPosition(0, celestialBody.transform.position);
             LineRenderer.GetComponent<LineRenderer>().SetPosition(1, planetarySystemCenterStar.transform.position);

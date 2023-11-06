@@ -14,6 +14,7 @@ public class GUIManager : MonoBehaviour
     public Vector3 celestialBodyInfoOffset;
 
     public GameObject selectedCelestialBody;
+    public CelestialBody selectedCelestialBodyScript;
     public GameObject selectedCelestialBodyTarget;
     public GameObject selectedPlanetarySystem;
     public GameObject ActiveCelestialBodyMarker; // shows the selected celestial body
@@ -38,6 +39,9 @@ public class GUIManager : MonoBehaviour
     public GameObject Mentat;
     public Mentat MentatScript;
 
+    public GameObject StructureMenu;
+    public StructureMenu StructureMenuScript;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +50,7 @@ public class GUIManager : MonoBehaviour
         {
             Instance = this; // Singleton
             DontDestroyOnLoad(this.gameObject); // Singleton
+            StructureMenuScript = StructureMenu.GetComponent<StructureMenu>();
             CelestialBodyInfoScript = CelestialBodyBuildInfo.GetComponent<CelestialBodyInfo>();
             MentatScript = Mentat.GetComponent<Mentat>();
         }
@@ -60,18 +65,21 @@ public class GUIManager : MonoBehaviour
         if (this.selectedCelestialBody == null)
         {
             this.selectedCelestialBody = selectedCelestialBody;
-            orderOriginImage.sprite = selectedCelestialBody.GetComponent<CelestialBody>().ChildSpriteRenderer.sprite;
+            selectedCelestialBodyScript = selectedCelestialBody.GetComponent<CelestialBody>();
+            orderOriginImage.sprite = selectedCelestialBodyScript.ChildSpriteRenderer.sprite;
             ActiveCelestialBodyMarker.transform.position = selectedCelestialBody.transform.position;
             ActiveCelestialBodyMarker.SetActive(true);
             SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
             FillOrdersOverview();
             UpdateCelestialBodyInfos();
+            StructureMenuScript.CreateMenuForCelestialBody(selectedCelestialBodyScript.AllowedLocation);
         } else if (this.selectedCelestialBody == selectedCelestialBody) {
             this.selectedCelestialBody = null;
             orderOriginImage.sprite = celestialBodyDefaultImage;
             orderTargetImage.sprite = celestialBodyDefaultImage;
             ActiveCelestialBodyMarker.SetActive(false);
             ActiveCelestialBodyTarget.SetActive(false);
+            StructureMenuScript.ClearMenu();
         } else
         {
             selectedCelestialBodyTarget = selectedCelestialBody;

@@ -23,4 +23,5 @@ MonoBehaviour:
   EcoImpactFactor: -3
   AllowedLocations: 00000000
   Symbol: {fileID: 6999325608662012467, guid: 53c6dc036d68a324db36e6c8f9a5d91b, type: 3}
+  Sprite: {fileID: 1359289968, guid: a92cf8e2799ae114b9a6bdb3b28ac0ae, type: 3}
   LivingSpace: 5

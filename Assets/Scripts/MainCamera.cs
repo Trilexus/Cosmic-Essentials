@@ -9,7 +9,7 @@ public class MainCamera : MonoBehaviour
     [SerializeField]
     float speed = 2.0f; // Geschwindigkeit der Kamera
     [SerializeField]
-    float backgroundSpeed = -0.3f; // Geschwindigkeit des Zooms
+    float backgroundSpeed = 0.3f; // Geschwindigkeit des Zooms
 
     public float zoomSpeed = 1.0f; // Geschwindigkeit des Zooms
     public float minOrthoSize = 3.0f; // Minimale Größe des sichtbaren Bereichs
@@ -35,11 +35,8 @@ public class MainCamera : MonoBehaviour
 
     public void MoveCameraWithKeys()
     {
-        Debug.Log("MoveCamera");
-        Debug.Log(Input.GetAxis("Horizontal"));
-        Debug.Log(Input.GetAxis("Vertical"));
         Vector3 move = new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime * speed, Input.GetAxis("Vertical") * Time.deltaTime * speed, 0);
-        transform.position += move;
+        transform.position -= move;
         MoveBackground(move);
         //transform.position += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
     }
@@ -55,7 +52,7 @@ public class MainCamera : MonoBehaviour
             mouseEnd = Input.mousePosition;
             Vector3 move = mouseEnd - mouseStart;
             mouseStart = Input.mousePosition;
-            transform.position += move * speed * Time.deltaTime;
+            transform.position -= move * speed * Time.deltaTime;
             MoveBackground(move * Time.deltaTime);            
         } else
         {

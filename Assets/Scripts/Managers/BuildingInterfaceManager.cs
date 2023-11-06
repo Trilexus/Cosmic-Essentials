@@ -36,7 +36,7 @@ public class BuildingInterfaceManager : MonoBehaviour
         if (GUIManager.Instance?.selectedCelestialBody?.GetComponent<CelestialBody>() is CelestialBody celestialBody)
         {
             bool areResourcesSufficient = structureToBuild.AreResourcesSufficientForStructure(celestialBody);
-            bool isLocationAllowed = structureToBuild.IsLocationAllowed(celestialBody.AllowedLocationType);
+            bool isLocationAllowed = structureToBuild.IsLocationAllowed(celestialBody.AllowedLocation);
             if (!isLocationAllowed)
             {
                 //Debug.Log("Location not allowed to build " + structureToBuild.Name);

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+  
 
 public class ResourceTransferDispatcher
 {
@@ -78,18 +80,19 @@ public class ResourceTransferDispatcher
 
     public bool CanFulfillOrder()
     {
-        var spacePointsResource = Order.ResourceShipmentDetails.FirstOrDefault(resource => resource.Name.Equals("SpacePoints"));
-        int SpacePointsOrdered = spacePointsResource?.StorageQuantity ?? 0;
+        var spacePointsResource = Order.ResourceShipmentDetails.FirstOrDefault(resource => resource.ResourceType == ResourceType.SpacePoints);
+        int SpacePointsOrdered = spacePointsResource?.StorageQuantity ?? 0; 
         int SpacePointsAvailable = ResourceStorageCelestialBody.TryGetValue(ResourceType.SpacePoints, out var spacePointsStorage) ? spacePointsStorage.StorageQuantity : 0;
         int startCosts = SpaceShip.SpaceShipStartSpacePointsCosts;
         if (Order.ReturnToOrigin)
         {
             startCosts *= 2;
         }
-        bool SpacePointsAvailableForStartAndOrder = SpacePointsAvailable < SpacePointsOrdered + startCosts;
+        bool NoSpacePointsAvailableForStartAndOrder = SpacePointsAvailable < SpacePointsOrdered + startCosts;
         // Überprüfe, ob genug SpacePoints vorhanden sind für Startkosten und Order (Vollständig oder nicht)
-        if (Order.OnlyFullShipment && SpacePointsAvailableForStartAndOrder)
+        if (Order.OnlyFullShipment && NoSpacePointsAvailableForStartAndOrder)
         {
+            UnityEngine.Debug.Log("NoSpacePointsAvailableForStartAndOrder:" + NoSpacePointsAvailableForStartAndOrder);
             return false; // Wenn Order vollständig ausgeführt werden soll und zu wenig SpacePoints für Order und Start vorhanden sind, Order kann nicht erfüllt werden
         }
         else if (SpacePointsAvailable < SpaceShip.SpaceShipStartSpacePointsCosts)
