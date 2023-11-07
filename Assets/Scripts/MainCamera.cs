@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MainCamera : MonoBehaviour
 {
@@ -67,8 +68,20 @@ public class MainCamera : MonoBehaviour
 
     public void ZoomCamera()
     {
-        float scrollData = Input.GetAxis("Mouse ScrollWheel");
-        float newOrthoSize = Camera.main.orthographicSize - scrollData * zoomSpeed;
-        Camera.main.orthographicSize = Mathf.Clamp(newOrthoSize, minOrthoSize, maxOrthoSize);
+        if (!ISMouseOverGUI())
+        {
+            float scrollData = Input.GetAxis("Mouse ScrollWheel");
+            float newOrthoSize = Camera.main.orthographicSize - scrollData * zoomSpeed;
+            Camera.main.orthographicSize = Mathf.Clamp(newOrthoSize, minOrthoSize, maxOrthoSize);
+        }
+    }
+
+    public bool ISMouseOverGUI()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+        return results.Count > 0;
     }
 }

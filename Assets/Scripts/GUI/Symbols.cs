@@ -19,6 +19,9 @@ public static class Symbols
     public const string SpacePoint = "\uf7bf";    
     public const string SpaceShip = "\uf135";
 
+    public const string ecoInfo = "\uf06c";
+    
+
     public const string prioritized = "\uf06a";
     public const string infinity = "\uf534";
     public const string rightLeft = "\uf362";

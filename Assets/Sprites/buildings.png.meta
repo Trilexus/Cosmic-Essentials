@@ -242,6 +242,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Habitat Station_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1788
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b724c328360de54a9ef63b10ce31dd8
+      internalID: -765075577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Habitat Station_Eco_1
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 1786
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6407d74284216b4419504d3b57ff4e5f
+      internalID: -1024651802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Habitat Station_2
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 1583
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cff1d44342fb7994bb094ca59a1af93f
+      internalID: -46099714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protected_area
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 1584
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b457fdd492b87dc4ea78d02abead013c
+      internalID: 519931755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -256,7 +340,11 @@ TextureImporter:
       Apartment_1: 1359289968
       Apartment_2: 1479598161
       Farm_1: -781741253
+      Habitat Station_1: -765075577
+      Habitat Station_2: -46099714
+      Habitat Station_Eco_1: -1024651802
       Mine_1: -1422091767
+      Protected_area: 519931755
       Reactor_1: -336943566
       Spaceport_1: 2071271295
   spritePackingTag: 

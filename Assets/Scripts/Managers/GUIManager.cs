@@ -139,7 +139,7 @@ public class GUIManager : MonoBehaviour
     
     public void UpdateCelestialBodyInfos()
     {
-        CelestialBodyInfoScript.UpdateCelestialBodyInfos();
+        //CelestialBodyInfoScript.UpdateCelestialBodyInfos();
     }
 
     public void HideCelestialBodyMenu()

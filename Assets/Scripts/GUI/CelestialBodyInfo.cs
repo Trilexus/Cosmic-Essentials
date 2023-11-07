@@ -40,7 +40,6 @@ public class CelestialBodyInfo : MonoBehaviour
                 Symbol.transform.position = SymbolPosition;
                 Symbol.GetComponent<RectMask2D>().padding = new Vector4(0, 0, 0, 45 - (0.45f * Mathf.Max(area.constructionProgress,10)));
                 SymbolPosition = new Vector3(SymbolPosition.x + CelestialBodyInfoSymbolOffset.x, SymbolPosition.y, 0);
-
             }
         }
     }

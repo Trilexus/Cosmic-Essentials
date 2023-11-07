@@ -14,5 +14,6 @@ public enum StructureType
     IndustrialPlant = 8,
     Apartments = 9,
     Mine = 10,
-    CapitalCity = 11
+    CapitalCity = 11,
+    Outpost = 12
 }

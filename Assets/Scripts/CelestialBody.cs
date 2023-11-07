@@ -153,8 +153,6 @@ abstract public class CelestialBody : MonoBehaviour
 
         //demolish structure instantly
         var areaToRemove = Areas.LastOrDefault(x => x.structure.Type == structure.Type);
-        Debug.Log(structure.Name);
-        Debug.Log("Demolish Structure: " + areaToRemove.structure.Name);
         if (areaToRemove != null)
         {
             Areas.Remove(areaToRemove);

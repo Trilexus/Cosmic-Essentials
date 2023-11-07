@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TMPro;
-using TMPro.EditorUtilities;
-using UnityEditor.Build.Pipeline.Utilities;
 using UnityEngine;
 using UnityEngine.TextCore;
 using UnityEngine.UI;
@@ -65,7 +63,7 @@ public class StructureMenuEntry : MonoBehaviour
         int completedBuildingCount = Areas.Count(I => I.structure.Type == structureData.Type && I.constructionProgress >= OneHundredPercent);
         lastunderConstructionBuildingCount = underConstructionBuildingCount;
         underConstructionBuildingCount = Areas.Count(I => I.structure.Type == structureData.Type && I.constructionProgress < OneHundredPercent);
-        if (lastunderConstructionBuildingCount != underConstructionBuildingCount) { CreateBuildPrograssItems(); }
+        if (lastunderConstructionBuildingCount != underConstructionBuildingCount) { CreateBuildProgressItems(); }
         int buildingCount = completedBuildingCount + underConstructionBuildingCount;
 
         sb.Clear();
@@ -73,7 +71,7 @@ public class StructureMenuEntry : MonoBehaviour
         BuildingCounter.text = sb.ToString();
     }
 
-    public void CreateBuildPrograssItems()
+    public void CreateBuildProgressItems()
     {
         if (BuildProgress.transform.childCount < underConstructionBuildingCount)
         {
@@ -96,18 +94,20 @@ public class StructureMenuEntry : MonoBehaviour
     {
         Image.sprite = structureData.Sprite;
         sb.Clear();
-        //sb.AppendLine($"BuildCosts:");
+        string resourceSummary = "";
         foreach (Resource cost in structureData.Costs)
         {
             string symbol = Symbols.GetSymbol(cost.ResourceType);
-
-            sb.Append($"{symbol} {cost.Quantity} ");
+            string nonbreakingSpace = "\u00A0";
+            string quantity = $"{cost.Quantity}";
+            resourceSummary += $" {symbol}{nonbreakingSpace}{quantity} ";
         }
+        sb.Append($"{resourceSummary}");
         //sb.AppendLine($"Throughput:");
         BuildingInfosCosts.text = sb.ToString();
         sb.Clear();
 
-        string livingSpace = $"{Symbols.Apartments} {structureData.LivingSpace}";
+        string livingSpace = $" {Symbols.Apartments} {structureData.LivingSpace}";
 
 
         sb.Append($"{livingSpace} ");
@@ -128,6 +128,9 @@ public class StructureMenuEntry : MonoBehaviour
             }
             
         }
+        color = CalculateResourceColor(structureData.EcoImpactFactor);
+        string ecoFactor = $"{color}{Symbols.ecoInfo} {structureData.EcoImpactFactor}</color>";
+        sb.AppendLine($"{ecoFactor}");
         sb.AppendLine($"{producedResource}");
         sb.AppendLine($"{consumedResource}");
         BuildingName.text = structureData.Name;

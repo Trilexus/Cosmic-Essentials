@@ -9,7 +9,6 @@ public class StructureButton : MonoBehaviour
 
     public void Build()
     {
-        // Dein Code, z.B. den EntityManager ansprechen
         if (structureData != null)
         {
             BuildingInterfaceManager.Instance.BuildStructure(structureData);
@@ -23,6 +22,7 @@ public class StructureButton : MonoBehaviour
     }
     public void Demolish()
     {
+        StructureScriptableObject structureData = transform.parent.gameObject.GetComponent<StructureMenuEntry>().structureData;
         // Dein Code, z.B. den EntityManager ansprechen
         BuildingInterfaceManager.Instance.DemolishStructure(structureData);
     }
