@@ -80,7 +80,7 @@ public class SpaceShip : MonoBehaviour
 
     public void RefuelSpaceShip(ResourceTransferOrder order)
     {
-        int fuelCosts = 50;
+        int fuelCosts = SpaceShipStartSpacePointsCosts;
 
         if (order.ReturnToOrigin) fuelCosts *= 2;
         order.Origin.GetComponent<CelestialBody>().ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity -= fuelCosts;

@@ -20,6 +20,9 @@ public class GUIManager : MonoBehaviour
     public GameObject ActiveCelestialBodyMarker; // shows the selected celestial body
     public GameObject ActiveCelestialBodyTarget; // shows the celestial body target for orders
 
+    public GameObject TopPanel;
+    public TopPanel TopPanelScript;
+
     public Sprite celestialBodyDefaultImage;
     public Image orderOriginImage;
     public Image orderTargetImage;
@@ -40,7 +43,9 @@ public class GUIManager : MonoBehaviour
     public Mentat MentatScript;
 
     public GameObject StructureMenu;
-    public StructureMenu StructureMenuScript;
+    public GameObject SpacefleetMenu;
+    public BuildTabMenu StructureMenuScript;
+    public BuildTabMenu SpacefleetMenuScript;
 
 
     // Start is called before the first frame update
@@ -50,8 +55,10 @@ public class GUIManager : MonoBehaviour
         {
             Instance = this; // Singleton
             DontDestroyOnLoad(this.gameObject); // Singleton
-            StructureMenuScript = StructureMenu.GetComponent<StructureMenu>();
+            StructureMenuScript = StructureMenu.GetComponent<BuildTabMenu>();
+            SpacefleetMenuScript = StructureMenu.GetComponent<BuildTabMenu>();
             CelestialBodyInfoScript = CelestialBodyBuildInfo.GetComponent<CelestialBodyInfo>();
+            TopPanelScript = TopPanel.GetComponent<TopPanel>();
             MentatScript = Mentat.GetComponent<Mentat>();
         }
         else
@@ -71,14 +78,16 @@ public class GUIManager : MonoBehaviour
             ActiveCelestialBodyMarker.SetActive(true);
             SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
             FillOrdersOverview();
-            UpdateCelestialBodyInfos();
+            UpdateTopPanelInfos();
             StructureMenuScript.CreateMenuForCelestialBody(selectedCelestialBodyScript.AllowedLocation);
+            SpacefleetMenuScript.CreateMenuForCelestialBody();
         } else if (this.selectedCelestialBody == selectedCelestialBody) {
             this.selectedCelestialBody = null;
             orderOriginImage.sprite = celestialBodyDefaultImage;
             orderTargetImage.sprite = celestialBodyDefaultImage;
             ActiveCelestialBodyMarker.SetActive(false);
             ActiveCelestialBodyTarget.SetActive(false);
+            ResetTopPanelInfos();
             StructureMenuScript.ClearMenu();
         } else
         {
@@ -134,12 +143,16 @@ public class GUIManager : MonoBehaviour
         Vector3 newPositionWithOffset = newPosition + celestialBodyMenuOffset;
         rect.transform.position = newPositionWithOffset;
         CelestialBodyMenu.SetActive(true);
-        UpdateCelestialBodyInfos();
+        //UpdateCelestialBodyInfos();
     }
     
-    public void UpdateCelestialBodyInfos()
+    public void UpdateTopPanelInfos()
     {
-        //CelestialBodyInfoScript.UpdateCelestialBodyInfos();
+        TopPanelScript.UpdatePanelInfos(selectedCelestialBodyScript);
+    }
+    public void ResetTopPanelInfos()
+    {
+        TopPanelScript.ResetPanel();
     }
 
     public void HideCelestialBodyMenu()

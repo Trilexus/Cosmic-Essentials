@@ -56,11 +56,3 @@ public class ResourceStorage
     }
 }
 
-[Serializable]
-public enum ResourceType
-{
-    Food = 0,
-    Metal = 1,
-    Energy = 2,
-    SpacePoints = 3
-}

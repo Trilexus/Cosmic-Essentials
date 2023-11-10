@@ -7,6 +7,6 @@ public class PlanetScriptableObject : ScriptableObject
 {
     public int area;
     public List<Area> areas;
-    public AllowedLocation allowedLocation;
+    public LocationType allowedLocation;
     public List<Resource> ResourceStorage;
 }

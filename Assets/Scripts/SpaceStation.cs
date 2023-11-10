@@ -61,11 +61,8 @@ public class SpaceStation : CelestialBody
 
     public void ProcessBuilding()
     {
-        Debug.Log("ProcessBuilding");
         if (ResourceStorageCelestialBody.TryGetValue(ResourceType.SpacePoints, out var spacePointsStorage) && spacePointsStorage.StorageQuantity >= requiredResourceAmountStep)
         {
-            Debug.Log("ProcessBuilding: if");
-            Debug.Log("ProcessBuilding: spacePointsStorage.StorageQuantity: " + spacePointsStorage.StorageQuantity);
             constructionProgress += progressIncrement;
             spacePointsStorage.StorageQuantity -= requiredResourceAmountStep;
             spriteMask.transform.localScale = new Vector3(constructionProgress / 100f, constructionProgress / 100f, 1);

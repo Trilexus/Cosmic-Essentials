@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AllowedLocation
+public enum LocationType
 {
     Planet,
     MiningPlanet,
@@ -10,4 +10,5 @@ public enum AllowedLocation
     SciencePlanet,
     SpaceStation,
     Asteroid,
+    LavaPlanet
 }

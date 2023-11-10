@@ -14,15 +14,20 @@ using UnityEngine.Android;
 public class Planet : CelestialBody
 {
     [SerializeField]
-    protected int ecoIndex = 100;
+    public int ecoIndex = 100;
     protected float minEcoIndex = 0;
     protected float maxEcoIndex = 100;
-    int ecoIndexChangeValue = 0;
+    public int ecoIndexChangeValue = 0;
 
     const int RED_THRESHOLD = 30;
     const int YELLOW_THRESHOLD = 70;
     [SerializeField]
     private int freeAreaImpactFactor;
+
+    public int sumOfNegativeEcoImpactFactorsForStructures;
+    public int sumOfPositiveEcoImpactFactorsForStructures;
+    public int sumOfEcoImpactFactorsForPopulation;
+    public int sumOfEcoImpactFactorsForFreeAreas;
 
     // Start is called before the first frame update
     public override void Start()
@@ -143,12 +148,15 @@ public class Planet : CelestialBody
     private void CalculateEcoIndex()
     {
         // Most structures have a negative impact on the ecoIndex
-        int sumOfEcoImpactFactorsForStructures = Areas.Sum(area => area.structure.EcoImpactFactor);
+        sumOfNegativeEcoImpactFactorsForStructures = Areas.Where(area => area.structure.EcoImpactFactor < 0).Sum(area => area.structure.EcoImpactFactor);
+        // Some buildings have a positive impact on the ecoIndex
+        sumOfPositiveEcoImpactFactorsForStructures = Areas.Where(area => area.constructionProgress >= 100 && area.structure.EcoImpactFactor > 0).Sum(area => area.structure.EcoImpactFactor);
         // Population has a negative impact on the ecoIndex
-        int sumOfEcoImpactFactorsForPopulation = population.EcoImpactFactor;
+        sumOfEcoImpactFactorsForPopulation = population.EcoImpactFactor;
         // Free areas have a positive impact on the ecoIndex
-        int sumOfEcoImpactFactorsForFreeAreas = (maxAreas - Areas.Count()) * freeAreaImpactFactor;
-        ecoIndexChangeValue = sumOfEcoImpactFactorsForFreeAreas + sumOfEcoImpactFactorsForStructures + sumOfEcoImpactFactorsForPopulation;
+        sumOfEcoImpactFactorsForFreeAreas = (maxAreas - Areas.Count()) * freeAreaImpactFactor;
+        //int 
+        ecoIndexChangeValue = sumOfEcoImpactFactorsForFreeAreas + sumOfNegativeEcoImpactFactorsForStructures + sumOfPositiveEcoImpactFactorsForStructures + sumOfEcoImpactFactorsForPopulation;
 
         // If EcoIndex is in the yellow or red range, there is a bonus to allow Eco Index to settle into a range
         if (ecoIndex < YELLOW_THRESHOLD)
@@ -163,7 +171,7 @@ public class Planet : CelestialBody
 
     }
 
-    private string CalculateEcoIndexColor()
+    public string CalculateEcoIndexColor()
     {
           if (ecoIndex < RED_THRESHOLD)
         {

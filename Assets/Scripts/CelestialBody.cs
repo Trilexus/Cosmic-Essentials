@@ -10,10 +10,11 @@ using Random = UnityEngine.Random;
 
 abstract public class CelestialBody : MonoBehaviour
 {
+    public string Name;
     [SerializeField]
-    protected int maxAreas;
+    public int maxAreas;
     [SerializeField]
-    protected Population population;
+    public Population population;
     [SerializeField]
     public float interval = 2f; // Zeit zwischen zwei Ticks, wird durch ProductivityRate beeinflusst
     // Every Celestial Body have a default production of ressources.
@@ -33,12 +34,16 @@ abstract public class CelestialBody : MonoBehaviour
     [SerializeField]
     public List<Area> Areas = new List<Area>();
     public List<StructureScriptableObject> StartStructureScriptableObjects;
-    public AllowedLocation AllowedLocation;
+    public LocationType AllowedLocation;
     //public List<ResourceStorage> ResourceStorageCelestialBody = new List<ResourceStorage>();
     public StringBuilder sb = new StringBuilder();
     public Dictionary<ResourceType, ResourceStorage> ResourceStorageCelestialBody = new Dictionary<ResourceType, ResourceStorage>();
     
     public List<ResourceTransferOrder> ResourceTransferOrders = new List<ResourceTransferOrder>();
+    [SerializeField]
+    private List<ModifierScriptableObject> modifierScriptableObjects;
+    [SerializeField]
+    private List<Modifier> modifiers;
     public int SpaceShipTransporterAvailable = 0;
     public int ResourceStorageLimit;
 
@@ -47,8 +52,10 @@ abstract public class CelestialBody : MonoBehaviour
 
     ResourceTransferDispatcher orderDispatcher;
     public int MaxOrderLoops = 5;
-    
 
+
+    [SerializeField]
+    protected TextMeshProUGUI celestialBodyName;
     [SerializeField]
     protected TextMeshProUGUI celestialBodyInfoTop;
     [SerializeField]
@@ -58,8 +65,10 @@ abstract public class CelestialBody : MonoBehaviour
 
     public virtual void Start()
     {
+        celestialBodyName.text = Name;
         interval = Random.Range(1.5f, 2.5f);
         interval = (float)Math.Round(interval, 2);
+        InitializeModifiers();
         InitializeResources();
         nextTickTime = Time.time + interval;
         StartCoroutine(TickCoroutine());
@@ -86,7 +95,10 @@ abstract public class CelestialBody : MonoBehaviour
             Areas.Add(new Area { structure = startbuilding, constructionProgress = 100 });
         }
     }
-
+    private void InitializeModifiers()
+    {
+        modifiers = ModifierManager.Instance.CreateModifiers(modifierScriptableObjects);
+    }
     protected virtual void Update()
     {
         // Aktualisiere die verbleibende Zeit
@@ -97,7 +109,8 @@ abstract public class CelestialBody : MonoBehaviour
 
     public void AddResourceTransferOrder(ResourceTransferOrder order)
     {
-        ResourceTransferOrders.Add(order);
+        //ResourceTransferOrders.Add(order);
+        ResourceTransferOrders.Insert(0, order);
         if (GUIManager.Instance.selectedCelestialBodyScript == this)
         {
             GUIManager.Instance.FillOrdersOverview();
@@ -129,7 +142,7 @@ abstract public class CelestialBody : MonoBehaviour
         ManageResourceProduction();
         UnloadTheSpaceShips();
         ProcessResourceTransferOrders();
-        GUIManager.Instance.UpdateCelestialBodyInfos();
+        //GUIManager.Instance.UpdateTopPanelInfos();
     }
 
 
@@ -235,9 +248,12 @@ abstract public class CelestialBody : MonoBehaviour
                 }
             }
         }
+        // Buffs und Debuffs werden hier angewendet.
+        ModifierManager.Instance.ApplyModifiers(modifiers, ResourceStorageCelestialBody);
+        
         //Innerhalb der Storage Klassse wird die ProductionQuantity zur StorageQuantity addiert. Das darf nicht mehrfach ausgeführt werden.
         // Update storage.
-        foreach (var resourceStorage in ResourceStorageCelestialBody.Values)
+                foreach (var resourceStorage in ResourceStorageCelestialBody.Values)
         {
             resourceStorage.CalculateResourceStorage();
         }
@@ -278,8 +294,46 @@ abstract public class CelestialBody : MonoBehaviour
     //    return 
     //}
 
-    abstract public void UpdateInfoText();
+    public virtual void UpdateInfoText()
+    {
 
+    }
 
+    public virtual int GetResourceCount(ResourceType resourceType, DataTypeResource dataType)
+    {
+        if (ResourceStorageCelestialBody.ContainsKey(resourceType))
+        {
+            switch (dataType)
+            {
+                case DataTypeResource.Production:
+                    return ResourceStorageCelestialBody[resourceType].ProductionQuantity;
+                case DataTypeResource.Consumption:
+                    return ResourceStorageCelestialBody[resourceType].ConsumptionQuantity;
+                case DataTypeResource.Storage:
+                    return ResourceStorageCelestialBody[resourceType].StorageQuantity;
+                default:
+                    return 0;
+            } 
+        } else
+        {
+            return 0;
+        }
+    }
 
+    public virtual int GetStructuresCount(StructureType structureType, bool isCompleted)
+    {
+        switch (isCompleted)
+        {
+            case true:
+                return Areas.Count(x => x.structure.Type == structureType && x.constructionProgress >= 100);
+            case false:
+                return Areas.Count(x => x.structure.Type == structureType && x.constructionProgress < 100);
+        }
+    }
+}
+public enum DataTypeResource
+{
+    Production,
+    Consumption,
+    Storage
 }

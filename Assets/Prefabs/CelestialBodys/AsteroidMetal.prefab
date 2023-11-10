@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1155772959815776994
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1145547951719265602, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553431215775858356, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553431215775858356, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553431215775858356, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553431215775858356, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553431215775858356, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553431215775858356, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553431215775858356, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553431215775858356, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553431215775858356, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553431215775858356, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553431215775858356, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662720156064215609, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.56600004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926162295748657090, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.34599996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203244836809955569, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 490477901, guid: 9e03463cc62aa634eb21a8bf8c881d15, type: 3}
+    - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: maxAreas
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: AllowedLocation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: population.CurrentPopulation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: SpaceShipTransporterAvailable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: BaseResourceProduction.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: BaseResourceProduction.Array.data[0]
+      value: 
+      objectReference: {fileID: 2877031959262065529, guid: 3254b01dc8a330b45bb56976b3511da7, type: 3}
+    - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: BaseResourceProduction.Array.data[1]
+      value: 
+      objectReference: {fileID: 2877031959262065529, guid: 3254b01dc8a330b45bb56976b3511da7, type: 3}
+    - target: {fileID: 5281886848863563929, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: StartStructureScriptableObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397849610964009536, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bdaac9e06a4583c41a4e884ab7f9b19c, type: 2}
+    - target: {fileID: 7514443899264742639, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}
+      propertyPath: m_Name
+      value: AsteroidMetal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cdf95cd7f57ebbc44b12f9000bc614f2, type: 3}

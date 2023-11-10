@@ -5,7 +5,7 @@ using UnityEngine;
 static public class StructureDatabase
 {
     public static List<Structure> AllStructures = new List<Structure>();
-    public static Dictionary<AllowedLocation, List<Structure>> AllowedStructures = new Dictionary<AllowedLocation, List<Structure>>();
+    public static Dictionary<LocationType, List<Structure>> AllowedStructures = new Dictionary<LocationType, List<Structure>>();
 
     public static void Initialize()
     {

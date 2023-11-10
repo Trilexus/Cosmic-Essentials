@@ -12,6 +12,7 @@ public static class Symbols
     public const string Reactor = "\uf7ba";
     public const string Spaceport = "\uf7c0";
     public const string Apartments = "\uf015";
+    public const string buildings = "\uf1ad";
 
     public const string Food = "\ue2cd";
     public const string Metal = "\uf468";
@@ -20,6 +21,8 @@ public static class Symbols
     public const string SpaceShip = "\uf135";
 
     public const string ecoInfo = "\uf06c";
+    public const string population = "\ue533";
+    public const string productivity = "\uf201";
     
 
     public const string prioritized = "\uf06a";

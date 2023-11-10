@@ -60,9 +60,9 @@ public class StructureMenuEntry : MonoBehaviour
     public void UpdateInfoText()
     {
         List<Area> Areas = GUIManager.Instance.selectedCelestialBodyScript.Areas;
-        int completedBuildingCount = Areas.Count(I => I.structure.Type == structureData.Type && I.constructionProgress >= OneHundredPercent);
+        int completedBuildingCount = Areas.Count(I => I.structure.Name == structureData.Name && I.constructionProgress >= OneHundredPercent);
         lastunderConstructionBuildingCount = underConstructionBuildingCount;
-        underConstructionBuildingCount = Areas.Count(I => I.structure.Type == structureData.Type && I.constructionProgress < OneHundredPercent);
+        underConstructionBuildingCount = Areas.Count(I => I.structure.Name == structureData.Name && I.constructionProgress < OneHundredPercent);
         if (lastunderConstructionBuildingCount != underConstructionBuildingCount) { CreateBuildProgressItems(); }
         int buildingCount = completedBuildingCount + underConstructionBuildingCount;
 

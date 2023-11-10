@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 10291404800
-    m_Localized: "Not enough resources\t"
+    m_Localized: Not enough resources
     m_Metadata:
       m_Items: []
   - m_Id: 9239173685248

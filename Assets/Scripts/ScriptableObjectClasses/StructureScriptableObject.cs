@@ -10,7 +10,7 @@ public class StructureScriptableObject : ScriptableObject
     public List<Resource> Resources;
     public List<Resource> Costs;
     public int EcoImpactFactor;
-    public List<AllowedLocation> AllowedLocations;
+    public List<LocationType> AllowedLocations;
     public GameObject Symbol;
     public Sprite Sprite;
     public int LivingSpace;

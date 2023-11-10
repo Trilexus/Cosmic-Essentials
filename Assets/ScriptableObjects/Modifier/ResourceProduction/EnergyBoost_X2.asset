@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1caf6e1bc4e7e4642b51c01c26d1fd43, type: 3}
+  m_Name: EnergyBoost_X2
+  m_EditorClassIdentifier: 
+  ModifierName: Reactor overcharge
+  ModifierType: 0
+  AttributeType: 0
+  ModifierSprite: {fileID: -462523424, guid: c406022701738534cb1f61a8f750859a, type: 3}
+  ModifierLevel: 1
+  ResourceType: 2
+  ResourceProductionFactor: 2
