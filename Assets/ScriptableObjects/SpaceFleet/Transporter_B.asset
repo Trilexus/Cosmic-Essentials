@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bdbb54535774a46b191e4d98c9365f, type: 3}
+  m_Name: Transporter_B
+  m_EditorClassIdentifier: 
+  Name: Transporter
+  Costs:
+  - {fileID: 2877031959262065529, guid: 4b5fbcaafdec7ee41956ccf86666cacd, type: 3}
+  - {fileID: 2877031959262065529, guid: d8121c97ddfe5f04b94b8758555ae56e, type: 3}
+  StructureRequirements:
+  - {fileID: 11400000, guid: b982e262bd894b94fb44a0398d4649a3, type: 2}
+  CostsCrew: 0
+  LivingSpace: 5
+  Prefab: {fileID: 8365648586687536510, guid: 2c32c7d63cc490c47a4244d33d420b92, type: 3}
+  Locations: 
+  Symbol: {fileID: 0}
+  Sprite: {fileID: -1017810356, guid: c406022701738534cb1f61a8f750859a, type: 3}
+  ResourcesCargo: []
+  Type: 0
+  MaxCargoSpace: 2000
+  MaxSpeed: 50
+  MaxRange: 100
+  MaxFuel: 200

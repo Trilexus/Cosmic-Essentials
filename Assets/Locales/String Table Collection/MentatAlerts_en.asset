@@ -27,7 +27,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 52482821218304
-    m_Localized: Struktur an diesem Ort nicht erlaubt.
+    m_Localized: Structure not permitted at this location!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2680060170100736
+    m_Localized: Not implemented
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2876467833364480
+    m_Localized: Requirement not fulfilled!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4028674662359040
+    m_Localized: Building requirements not fulfilled!
     m_Metadata:
       m_Items: []
   references:

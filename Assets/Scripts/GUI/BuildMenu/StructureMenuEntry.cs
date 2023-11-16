@@ -9,34 +9,23 @@ using UnityEngine;
 using UnityEngine.TextCore;
 using UnityEngine.UI;
 
-public class StructureMenuEntry : MonoBehaviour
+public class StructureMenuEntry : MenuEntry
 {
 
     public StructureScriptableObject structureData; // Dein ScriptableObject
-    public Image Image;
-    public TextMeshProUGUI BuildingCounter;
-    public TextMeshProUGUI BuildingName;
-    public TextMeshProUGUI BuildingInfosCosts;
-    public TextMeshProUGUI BuildingInfosThroughput;
-    public StringBuilder sb = new StringBuilder();
-    [SerializeField]
-    GameObject BuildProgress;
-    [SerializeField]
-    GameObject BuildProgressItem;
     string color;
-    int OneHundredPercent = 100;
 
-    int lastunderConstructionBuildingCount = 0;
-    int underConstructionBuildingCount = 0;
     // Start is called before the first frame update
     void Start()
     {
+
         GetAndSetStructureInfoTextAndImage();
     }
 
     // Update is called once per frame
     void Update()
     {
+        SetBuildableColor();
         if (GUIManager.Instance.selectedCelestialBody != null)
         {
             UpdateInfoText();
@@ -49,8 +38,8 @@ public class StructureMenuEntry : MonoBehaviour
     public void ResetCounterToDefault()
     {
         BuildingCounter.text = "---";
-        lastunderConstructionBuildingCount = 0;
-        underConstructionBuildingCount = 0;
+        lastunderConstructionCount = 0;
+        underConstructionCount = 0;
         foreach (Transform child in BuildProgress.transform)
         {
             Destroy(child.gameObject);
@@ -61,10 +50,10 @@ public class StructureMenuEntry : MonoBehaviour
     {
         List<Area> Areas = GUIManager.Instance.selectedCelestialBodyScript.Areas;
         int completedBuildingCount = Areas.Count(I => I.structure.Name == structureData.Name && I.constructionProgress >= OneHundredPercent);
-        lastunderConstructionBuildingCount = underConstructionBuildingCount;
-        underConstructionBuildingCount = Areas.Count(I => I.structure.Name == structureData.Name && I.constructionProgress < OneHundredPercent);
-        if (lastunderConstructionBuildingCount != underConstructionBuildingCount) { CreateBuildProgressItems(); }
-        int buildingCount = completedBuildingCount + underConstructionBuildingCount;
+        lastunderConstructionCount = underConstructionCount;
+        underConstructionCount = Areas.Count(I => I.structure.Name == structureData.Name && I.constructionProgress < OneHundredPercent);
+        if (lastunderConstructionCount != underConstructionCount) { CreateBuildProgressItems(); }
+        int buildingCount = completedBuildingCount + underConstructionCount;
 
         sb.Clear();
         sb.AppendLine($"{buildingCount}");
@@ -73,17 +62,17 @@ public class StructureMenuEntry : MonoBehaviour
 
     public void CreateBuildProgressItems()
     {
-        if (BuildProgress.transform.childCount < underConstructionBuildingCount)
+        if (BuildProgress.transform.childCount < underConstructionCount)
         {
-            for (int i = BuildProgress.transform.childCount; i < underConstructionBuildingCount; i++)
+            for (int i = BuildProgress.transform.childCount; i < underConstructionCount; i++)
             {
                 GameObject go = Instantiate(BuildProgressItem, BuildProgress.transform);
                 go.transform.localScale = new Vector3(1, 1, 1);
             }
         }
-        else if (BuildProgress.transform.childCount > underConstructionBuildingCount)
+        else if (BuildProgress.transform.childCount > underConstructionCount)
         {
-            for (int i = BuildProgress.transform.childCount; i > underConstructionBuildingCount; i--)
+            for (int i = BuildProgress.transform.childCount; i > underConstructionCount; i--)
             {
                 Destroy(BuildProgress.transform.GetChild(i - 1).gameObject);
             }
@@ -100,14 +89,14 @@ public class StructureMenuEntry : MonoBehaviour
             string symbol = Symbols.GetSymbol(cost.ResourceType);
             string nonbreakingSpace = "\u00A0";
             string quantity = $"{cost.Quantity}";
-            resourceSummary += $" {symbol}{nonbreakingSpace}{quantity} ";
+            resourceSummary += $"{symbol}{nonbreakingSpace}{quantity} ";
         }
         sb.Append($"{resourceSummary}");
         //sb.AppendLine($"Throughput:");
         BuildingInfosCosts.text = sb.ToString();
         sb.Clear();
 
-        string livingSpace = $" {Symbols.Apartments} {structureData.LivingSpace}";
+        string livingSpace = $"{Symbols.Apartments} {structureData.LivingSpace}";
 
 
         sb.Append($"{livingSpace} ");
@@ -118,7 +107,7 @@ public class StructureMenuEntry : MonoBehaviour
             
             color = CalculateResourceColor(resource.Quantity);
             string symbol = Symbols.GetSymbol(resource.ResourceType);
-            string quantity = $"{color} {symbol} {resource.Quantity}</color>";
+            string quantity = $"{color}{symbol} {resource.Quantity}</color>";
             if (resource.Quantity < 0)
             {
                 consumedResource += $"{quantity} ";
@@ -130,9 +119,9 @@ public class StructureMenuEntry : MonoBehaviour
         }
         color = CalculateResourceColor(structureData.EcoImpactFactor);
         string ecoFactor = $"{color}{Symbols.ecoInfo} {structureData.EcoImpactFactor}</color>";
-        sb.AppendLine($"{ecoFactor}");
         sb.AppendLine($"{producedResource}");
         sb.AppendLine($"{consumedResource}");
+        sb.AppendLine($"{ecoFactor}");
         BuildingName.text = structureData.Name;
         BuildingInfosThroughput.text = sb.ToString();
     }
@@ -151,5 +140,17 @@ public class StructureMenuEntry : MonoBehaviour
     public void UpdateBuildingCounter(int count)
     {
         BuildingCounter.text = count.ToString();
+    }
+
+    public void SetBuildableColor()
+    {
+        if (IsBuildable(structureData.StructureRequirements))
+        {
+            Image.color = Color.white;
+        }
+        else
+        {
+            Image.color = Color.red;
+        }
     }
 }

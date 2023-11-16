@@ -285,7 +285,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Habitat Station_2
+      name: Research station_1
       rect:
         serializedVersion: 2
         x: 637
@@ -326,6 +326,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Station Start 01
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1785
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d5ec9620fc4104e96d73110181cdee
+      internalID: -1897366407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Station Start 02
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1580
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf2cecd539dedd4b87958d2ad3bba98
+      internalID: -912251398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ResearchCenter1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1373
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a01f8129b390fce47a57244f73fa4f8d
+      internalID: -2081036435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -341,12 +404,15 @@ TextureImporter:
       Apartment_2: 1479598161
       Farm_1: -781741253
       Habitat Station_1: -765075577
-      Habitat Station_2: -46099714
       Habitat Station_Eco_1: -1024651802
       Mine_1: -1422091767
       Protected_area: 519931755
       Reactor_1: -336943566
+      Research station_1: -46099714
+      ResearchCenter1: -2081036435
       Spaceport_1: 2071271295
+      Station Start 01: -1897366407
+      Station Start 02: -912251398
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -9,5 +9,7 @@ public enum ResourceType
     Food = 0,
     Metal = 1,
     Energy = 2,
-    SpacePoints = 3
+    SpacePoints = 3,
+    ResearchPoints = 4,
+    SocialEvolutionPoints = 5
 }

@@ -17,6 +17,7 @@ public class GUIManager : MonoBehaviour
     public CelestialBody selectedCelestialBodyScript;
     public GameObject selectedCelestialBodyTarget;
     public GameObject selectedPlanetarySystem;
+    public PlanetarySystem selectedPlanetarySystemScript;
     public GameObject ActiveCelestialBodyMarker; // shows the selected celestial body
     public GameObject ActiveCelestialBodyTarget; // shows the celestial body target for orders
 
@@ -39,6 +40,8 @@ public class GUIManager : MonoBehaviour
 
     public GameObject ScrollViewOrdersOverviewContent;
     public GameObject OrderInfoEntryPrefab;
+    public GameObject ScrollViewHangarOverviewContent;
+    public GameObject SpaceShipEntryPrefab;
     public GameObject Mentat;
     public Mentat MentatScript;
 
@@ -78,6 +81,7 @@ public class GUIManager : MonoBehaviour
             ActiveCelestialBodyMarker.SetActive(true);
             SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
             FillOrdersOverview();
+            FillHangarOverview();
             UpdateTopPanelInfos();
             StructureMenuScript.CreateMenuForCelestialBody(selectedCelestialBodyScript.AllowedLocation);
             SpacefleetMenuScript.CreateMenuForCelestialBody();
@@ -89,6 +93,7 @@ public class GUIManager : MonoBehaviour
             ActiveCelestialBodyTarget.SetActive(false);
             ResetTopPanelInfos();
             StructureMenuScript.ClearMenu();
+            SpacefleetMenuScript.ClearMenu();
         } else
         {
             selectedCelestialBodyTarget = selectedCelestialBody;
@@ -115,6 +120,22 @@ public class GUIManager : MonoBehaviour
     }
 
 
+    public void FillHangarOverview()
+    {
+        foreach (Transform child in ScrollViewHangarOverviewContent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        List<HangarSlot> hangar = selectedCelestialBodyScript.Hangar;
+        foreach (HangarSlot slot in hangar)
+        {
+            GameObject SpaceShip  = Instantiate(SpaceShipEntryPrefab, ScrollViewHangarOverviewContent.transform);
+            SpaceShip.GetComponent<SpaceShipEntry>().Initialize(slot);
+            SpaceShip.transform.SetParent(ScrollViewHangarOverviewContent.transform);
+        }
+    }
+
+
 
     private void SetActivePlanetarySystem(GameObject selectedPlanetarySystem)
     {
@@ -122,7 +143,8 @@ public class GUIManager : MonoBehaviour
         {
             DeactivateCurrentPlanetarySystem();
             this.selectedPlanetarySystem = selectedPlanetarySystem;
-            selectedPlanetarySystem.GetComponent<PlanetarySystem>().IsActivePlanetarySystem = true;
+            selectedPlanetarySystemScript = selectedPlanetarySystem.GetComponent<PlanetarySystem>();
+            selectedPlanetarySystemScript.IsActivePlanetarySystem = true;
         }        
     }
 

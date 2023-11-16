@@ -27,6 +27,18 @@ MonoBehaviour:
     m_Key: StructureNotAllowed
     m_Metadata:
       m_Items: []
+  - m_Id: 2680060170100736
+    m_Key: NotImplemented
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2876467833364480
+    m_Key: RequirementNotFulfilled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4028674662359040
+    m_Key: BuildingRequirementsNotFulfilled
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

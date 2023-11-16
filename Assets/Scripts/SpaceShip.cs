@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceShip : MonoBehaviour
+public class SpaceShip : SpaceFleet
 {
     [SerializeField]
     public Dictionary<ResourceType, ResourceStorage> ResourceStorageSpaceShip = new Dictionary<ResourceType, ResourceStorage>();
@@ -32,7 +32,7 @@ public class SpaceShip : MonoBehaviour
         { ResourceType.Energy, new ResourceStorage(ResourceType.Energy, 100, 0, 0, 0) },
     };
 
-
+    
     public void ResetResources()
     {
         ResourceStorageSpaceShip.Clear();

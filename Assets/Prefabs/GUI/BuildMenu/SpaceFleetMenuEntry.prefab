@@ -297,7 +297,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 1, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -779,14 +779,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b9a91cb624d6e4f9761dad140618c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spaceFleetData: {fileID: 0}
-  Image: {fileID: 6387985784482803998}
   BuildingCounter: {fileID: 5710366459554025163}
   BuildingName: {fileID: 661694499144270553}
   BuildingInfosCosts: {fileID: 2552170930159485921}
   BuildingInfosThroughput: {fileID: 1421229445958030420}
   BuildProgress: {fileID: 8651787694946572658}
   BuildProgressItem: {fileID: 340730323941489315, guid: 28bb0191582b09d48ac40cdfa565ee24, type: 3}
+  Image: {fileID: 6387985784482803998}
+  spaceFleetData: {fileID: 0}
 --- !u!222 &4577990018193588444
 CanvasRenderer:
   m_ObjectHideFlags: 0

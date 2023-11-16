@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BuildingInterfaceManager : MonoBehaviour
 {
     public static BuildingInterfaceManager Instance;
+
 
     //EntityManager.Instance.structureDictionary;
 
@@ -30,14 +33,20 @@ public class BuildingInterfaceManager : MonoBehaviour
 
     public void BuildStructure(StructureScriptableObject structureScriptableObject)
     {
-        Structure structureToBuild = EntityManager.Instance.structureDictionary[structureScriptableObject];
 
+        Structure structureToBuild = EntityManager.Instance.structureDictionary[structureScriptableObject];
         //CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
         if (GUIManager.Instance?.selectedCelestialBody?.GetComponent<CelestialBody>() is CelestialBody celestialBody)
         {
-            bool areResourcesSufficient = structureToBuild.AreResourcesSufficientForStructure(celestialBody);
+            bool isbuildable = AreRequiredBuildingsPresent(structureScriptableObject, celestialBody);
+            //bool areResourcesSufficient = structureToBuild.AreResourcesSufficientForStructure(celestialBody);
+            bool areResourcesSufficient = AreResourcesSufficientForEntity(structureScriptableObject);
             bool isLocationAllowed = structureToBuild.IsLocationAllowed(celestialBody.AllowedLocation);
-            if (!isLocationAllowed)
+            if (!isbuildable)
+            {                
+                GUIManager.Instance.MentatScript.SetAlertText("RequirementNotFulfilled");
+                return;
+            }else if (!isLocationAllowed)
             {
                 //Debug.Log("Location not allowed to build " + structureToBuild.Name);
                 GUIManager.Instance.MentatScript.SetAlertText("StructureNotAllowed");
@@ -78,5 +87,60 @@ public class BuildingInterfaceManager : MonoBehaviour
                 celestialBody.InitiateDemolishStructure(structureToDemolish);
             }
         }
+    }
+
+    internal void BuildSpacefleet(SpacefleetScriptableObject spacefleetScriptableObject)
+    {
+        CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBodyScript;
+        bool areRequiredBuildingsPresent = AreRequiredBuildingsPresent(spacefleetScriptableObject, celestialBody);
+        bool areResourcesSufficient = AreResourcesSufficientForEntity(spacefleetScriptableObject);
+
+        if (spacefleetScriptableObject.Type == SpacefleetType.SpaceStation && areResourcesSufficient && areRequiredBuildingsPresent)
+        {
+            BuildSpaceStation();
+        }
+        else if (areResourcesSufficient && areRequiredBuildingsPresent)
+        {
+            foreach (Resource resource in spacefleetScriptableObject.Costs)
+            {
+                celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity -= resource.Quantity;
+            }
+                celestialBody.InitiateConstructionSpacefleet(spacefleetScriptableObject);
+        } else if(!areRequiredBuildingsPresent)
+        {
+            GUIManager.Instance.MentatScript.SetAlertText("BuildingRequirementsNotFulfilled");
+        } else if (!areResourcesSufficient)
+        {
+            GUIManager.Instance.MentatScript.SetAlertText("InsufficientResources");
+        }
+    }
+
+    public bool AreResourcesSufficientForEntity(EntityScriptableObject entityScriptableObject)
+    {
+        CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBodyScript;
+        foreach (Resource resource in entityScriptableObject.Costs)
+        {
+            if (celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity < resource.Quantity)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool AreRequiredBuildingsPresent(EntityScriptableObject ScriptableObject, CelestialBody celestialBody)
+    {
+        Structure structure;
+        List<StructureScriptableObject> structureRequirements = ScriptableObject.StructureRequirements;
+        foreach (StructureScriptableObject structureRequirement in structureRequirements)
+        {
+            structure = EntityManager.Instance.GetStructure(structureRequirement);
+            bool hatStrukturMitVollemFortschritt = celestialBody.Areas.Any(area => area.structure.Type == structure.Type && area.constructionProgress >= 100);
+            if (!hatStrukturMitVollemFortschritt)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

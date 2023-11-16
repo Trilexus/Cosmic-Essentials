@@ -7,29 +7,37 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpacefleetMenuEntry : MonoBehaviour
+public class SpacefleetMenuEntry : MenuEntry
 {
 
     public SpacefleetScriptableObject spaceFleetData; // Dein ScriptableObject
-    public Image Image;
-    public TextMeshProUGUI BuildingCounter;
-    public TextMeshProUGUI BuildingName;
-    public TextMeshProUGUI BuildingInfosCosts;
-    public TextMeshProUGUI BuildingInfosThroughput;
-    public StringBuilder sb = new StringBuilder();
-    [SerializeField]
-    GameObject BuildProgress;
-    [SerializeField]
-    GameObject BuildProgressItem;
     string color;
-    int OneHundredPercent = 100;
 
-    int lastunderConstructionBuildingCount = 0;
-    int underConstructionBuildingCount = 0;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        SetBuildableColor();
+        if (spaceFleetData.Type == SpacefleetType.SpaceShipTransporter)
+        {
+            UpdateSpaceShipTransporterCounter();
+        } else if (spaceFleetData.Type == SpacefleetType.SpaceStation)
+        {
+            UpdateSpaceStationCounter();
+        }
+    }
+
+
 
     internal void GetAndSetSpaceFleetInfoTextAndImage()
     {
         Image.sprite = spaceFleetData.Sprite;
+        BuildingName.text = spaceFleetData.Name;
         sb.Clear();
         string resourceSummary = "";
         foreach (Resource cost in spaceFleetData.Costs)
@@ -37,30 +45,51 @@ public class SpacefleetMenuEntry : MonoBehaviour
             string symbol = Symbols.GetSymbol(cost.ResourceType);
             string nonbreakingSpace = "\u00A0";
             string quantity = $"{cost.Quantity}";
-            resourceSummary += $" {symbol}{nonbreakingSpace}{quantity} ";
+            resourceSummary += $"{symbol}{nonbreakingSpace}{quantity} ";
         }
-        sb.Append($"{resourceSummary}");
-        string livingSpace = $" {Symbols.Apartments} {spaceFleetData.LivingSpace}";
+        sb.AppendLine($"{resourceSummary}");
+        string livingSpace = $"{Symbols.population} {spaceFleetData.LivingSpace}";
         sb.AppendLine($"{livingSpace}");
         BuildingInfosCosts.text = sb.ToString();
         sb.Clear();
-
-        BuildingName.text = spaceFleetData.Name;
-        BuildingInfosThroughput.text = sb.ToString();
+        string requirements = GetStructureRequirementsString();
+        BuildingInfosThroughput.text = requirements;
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void SetBuildableColor()
     {
-        
+        if (IsBuildable(spaceFleetData.StructureRequirements))
+        {
+            Image.color = Color.white;
+        }
+        else
+        {
+            Image.color = Color.red;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public string GetStructureRequirementsString()
     {
-        
+        sb.Clear();
+            foreach (StructureScriptableObject structureRequirement in spaceFleetData.StructureRequirements)
+        {
+            sb.AppendLine(structureRequirement.Name);            
+        }
+        return sb.ToString();
+    }
+
+    public void UpdateSpaceShipTransporterCounter()
+    {
+        CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBodyScript;
+        int countReady = celestialBody.GetSpaceFleetCount(spaceFleetData, true);
+        int countInConstruction = celestialBody.GetSpaceFleetCount(spaceFleetData, false);
+        BuildingCounter.text = countReady + "/" + countInConstruction;
+    }
+
+    private void UpdateSpaceStationCounter()
+    {
+        int count = GUIManager.Instance.selectedPlanetarySystemScript.celestialBodies.Where(I => I is SpaceStation  && I.isActiveAndEnabled).Count();
+        BuildingCounter.text = count.ToString();
+
     }
 }
-
-

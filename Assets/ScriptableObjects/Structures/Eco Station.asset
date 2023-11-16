@@ -13,18 +13,23 @@ MonoBehaviour:
   m_Name: Eco Station
   m_EditorClassIdentifier: 
   Name: Eco Station
-  Type: 12
-  Resources:
-  - {fileID: 2877031959262065529, guid: 958b64b2bacb2ad4ab69678125d81135, type: 3}
-  - {fileID: 2877031959262065529, guid: cac883f4bb8daa04cbec89e8c80856cb, type: 3}
-  - {fileID: 2877031959262065529, guid: 147e32b02dac1514d896af5fc9f6df6f, type: 3}
   Costs:
   - {fileID: 2877031959262065529, guid: 1a12a5e0505eb1c45a32c78f02e66b69, type: 3}
   - {fileID: 2877031959262065529, guid: df15273f719e51347b79c376d1112ba9, type: 3}
   - {fileID: 2877031959262065529, guid: e57a2a87f3246f34a82a4a62b9a10656, type: 3}
   - {fileID: 2877031959262065529, guid: 570417fc26d50b7478f69e9f75eccfe8, type: 3}
-  EcoImpactFactor: 4
-  AllowedLocations: 0100000002000000
+  StructureRequirements:
+  - {fileID: 11400000, guid: 5c3de664e5fd9ec4b8935ed370aaa8b3, type: 2}
+  CostsCrew: 0
+  LivingSpace: 2
+  Prefab: {fileID: 0}
+  Locations: 
   Symbol: {fileID: 0}
   Sprite: {fileID: -1024651802, guid: a92cf8e2799ae114b9a6bdb3b28ac0ae, type: 3}
-  LivingSpace: 2
+  Type: 12
+  Resources:
+  - {fileID: 2877031959262065529, guid: 958b64b2bacb2ad4ab69678125d81135, type: 3}
+  - {fileID: 2877031959262065529, guid: cac883f4bb8daa04cbec89e8c80856cb, type: 3}
+  - {fileID: 2877031959262065529, guid: 147e32b02dac1514d896af5fc9f6df6f, type: 3}
+  EcoImpactFactor: 4
+  AllowedLocations: 0100000002000000

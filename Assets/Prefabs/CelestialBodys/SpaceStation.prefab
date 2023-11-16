@@ -360,7 +360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0123, y: 1.0932999}
+  m_AnchoredPosition: {x: 0.00000013411, y: 0.642}
   m_SizeDelta: {x: 11.5524, y: 1.1763}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &730673525973711125
@@ -1014,6 +1014,7 @@ MonoBehaviour:
   SpaceShipTransporterAvailable: 0
   ResourceStorageLimit: 10000
   SpacecraftReadyForUnloading: []
+  Hangar: []
   MaxOrderLoops: 5
   celestialBodyName: {fileID: 5627975196499376487}
   celestialBodyInfoTop: {fileID: 111318443053578247}

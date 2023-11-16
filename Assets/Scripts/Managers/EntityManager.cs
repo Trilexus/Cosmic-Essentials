@@ -15,7 +15,8 @@ public class EntityManager : MonoBehaviour
     public Dictionary<StructureScriptableObject, Structure> structureDictionary = new Dictionary<StructureScriptableObject, Structure>();
 
     [SerializeField]
-    private List<SpacefleetScriptableObject> spacefleetScriptableObject;
+    private List<SpacefleetScriptableObject> spacefleetScriptableObjects;
+    public Dictionary<SpacefleetScriptableObject, SpaceFleet> spacefleetDictionary = new Dictionary<SpacefleetScriptableObject, SpaceFleet>();
 
     public static EntityManager Instance { get; private set; }
 
@@ -47,8 +48,18 @@ public class EntityManager : MonoBehaviour
 
     public List<SpacefleetScriptableObject> GetSpacefleetScriptableObjectForCelestialBody()
     {
-        return spacefleetScriptableObject;
+        return spacefleetScriptableObjects;
     }
+
+    public Structure GetStructure(StructureScriptableObject structureScriptableObject)
+    {
+        return structureDictionary[structureScriptableObject];
+    }
+    //TODO Funktioniert erst,,wenn Spacefleet erstellt werden können.
+    //public Structure GetSpacefleet(SpacefleetScriptableObject spacefleetScriptableObject)
+    //{
+        //return spacefleetDictionary[spacefleetScriptableObject];
+    //}
 
 
     private void CreateStructures()
@@ -58,6 +69,17 @@ public class EntityManager : MonoBehaviour
         {
             Structure newStructure = new Structure(scriptableObject);
             structureDictionary[scriptableObject] = newStructure;
+        }
+    }
+    private void CreateSpacefleet()
+    {
+        spacefleetDictionary.Clear();
+        foreach (var scriptableObject in spacefleetScriptableObjects)
+        {
+            //TODO Hier sollen Spacefleets erstellt werden.
+            //Dabei muss der Pool beachtet und angepasst werden!
+            //SpaceFleet newSpacefleet = new SpaceShip(scriptableObject);
+            //spacefleetDictionary[scriptableObject] = newStructure;
         }
     }
 }

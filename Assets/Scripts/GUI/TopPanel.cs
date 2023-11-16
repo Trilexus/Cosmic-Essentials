@@ -21,6 +21,10 @@ public class TopPanel : MonoBehaviour
     TextMeshProUGUI energyText;
     [SerializeField]
     TextMeshProUGUI spacePointsText;
+    [SerializeField]
+    TextMeshProUGUI researchPointsLocalText;
+    [SerializeField]
+    TextMeshProUGUI researchPointsGlobalText;
     CelestialBody selectedCelestialBodyScript;
     StringBuilder stringBuilder = new StringBuilder();
 

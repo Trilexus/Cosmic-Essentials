@@ -58,5 +58,9 @@ public class BuildTabMenu : MonoBehaviour
         {
             Destroy(entry.gameObject);
         }
+        foreach (Transform entry in spaceFleetMenuContent.transform)
+        {
+            Destroy(entry.gameObject);
+        }
     }
 }

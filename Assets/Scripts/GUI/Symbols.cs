@@ -18,13 +18,14 @@ public static class Symbols
     public const string Metal = "\uf468";
     public const string Energy = "\uf0e7";
     public const string SpacePoint = "\uf7bf";    
+    public const string ResearchPoint = "\uf0c3";
     public const string SpaceShip = "\uf135";
 
     public const string ecoInfo = "\uf06c";
     public const string population = "\ue533";
     public const string productivity = "\uf201";
     
-
+    public const string cargoBox = "\uf49e";
     public const string prioritized = "\uf06a";
     public const string infinity = "\uf534";
     public const string rightLeft = "\uf362";
@@ -43,6 +44,8 @@ public static class Symbols
                 return Energy;
             case ResourceType.SpacePoints:
                 return SpacePoint;
+            case ResourceType.ResearchPoints:
+                return ResearchPoint;
             default:
                 return "-";
         }

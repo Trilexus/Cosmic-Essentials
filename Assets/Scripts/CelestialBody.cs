@@ -48,6 +48,7 @@ abstract public class CelestialBody : MonoBehaviour
     public int ResourceStorageLimit;
 
     public List <SpaceShip> SpacecraftReadyForUnloading = new List<SpaceShip>();
+    public List<HangarSlot> Hangar = new List<HangarSlot>();
     public const int OneHundredPercent = 100;
 
     ResourceTransferDispatcher orderDispatcher;
@@ -161,6 +162,12 @@ abstract public class CelestialBody : MonoBehaviour
         }
 
     }
+
+    public void InitiateConstructionSpacefleet(SpacefleetScriptableObject spacefleetScriptableObject)
+    {   
+        Hangar.Add(new HangarSlot { spacefleetScriptableObject = spacefleetScriptableObject, constructionProgress = 0 });
+    }
+
     public void InitiateDemolishStructure(Structure structure)
     {
 
@@ -184,6 +191,18 @@ abstract public class CelestialBody : MonoBehaviour
                  .ForEach(x => x.constructionProgress += (int)(individualConstructionRate * 100 * ProductivityRate));//TODO: Magic Number
             Areas.Where(x => x.constructionProgress < 100).ToList().ForEach(x => x.constructionProgress = Mathf.Clamp(x.constructionProgress, 1, 100));
         }
+        int countOfConstructingSpacefleet = Hangar.Count(x => x.constructionProgress < 100);
+        if (countOfConstructingSpacefleet > 0)
+        {
+            float individualConstructionRate = ConstructionRate / countOfConstructingSpacefleet;
+            Hangar.Where(x => x.constructionProgress < 100)
+                 .ToList()
+                 .ForEach(x => x.constructionProgress += (int)(individualConstructionRate * 100 * ProductivityRate));//TODO: Magic Number
+            Hangar.Where(x => x.constructionProgress < 100).ToList().ForEach(x => x.constructionProgress = Mathf.Clamp(x.constructionProgress, 1, 100));
+            Hangar.Where(x => x.constructionProgress < 100).ToList().ForEach(x => Debug.Log(x.constructionProgress));
+
+        }
+
         //Executes building projects over time (farm, power plant, mine, research center).
     }
 
@@ -328,6 +347,18 @@ abstract public class CelestialBody : MonoBehaviour
                 return Areas.Count(x => x.structure.Type == structureType && x.constructionProgress >= 100);
             case false:
                 return Areas.Count(x => x.structure.Type == structureType && x.constructionProgress < 100);
+        }
+    }
+
+
+    public int GetSpaceFleetCount(SpacefleetScriptableObject spacefleetScriptableObject, bool isCompleted)
+    {
+        switch (isCompleted)
+        {
+            case true:
+                return Hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress >= 100);
+            case false:
+                return Hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress < 100);
         }
     }
 }
