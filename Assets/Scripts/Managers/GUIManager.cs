@@ -51,9 +51,14 @@ public class GUIManager : MonoBehaviour
     public BuildTabMenu StructureMenuScript;
     public BuildTabMenu SpacefleetMenuScript;
 
+    public delegate void SelectedCelestialBodyChangeHandler(CelestialBody selectedCelestialBodyScript);
+    public event SelectedCelestialBodyChangeHandler OnSelectedCelestialBodyChanged;
+
+    public delegate void SelectedCelestialBodyDeselectedHandler();
+    public event SelectedCelestialBodyDeselectedHandler OnDeselectCelestialBody;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (Instance == null)
         {
@@ -82,10 +87,11 @@ public class GUIManager : MonoBehaviour
             ActiveCelestialBodyMarker.SetActive(true);
             SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
             FillOrdersOverview();
-            selectedCelestialBodyScript.SubscribeToHangarChanges(FillHangarOverview);
             UpdateTopPanelInfos();
             StructureMenuScript.CreateMenuForCelestialBody(selectedCelestialBodyScript.AllowedLocation);
             SpacefleetMenuScript.CreateMenuForCelestialBody();
+
+            OnSelectedCelestialBodyChanged.Invoke(selectedCelestialBodyScript);
         } else if (this.selectedCelestialBody == selectedCelestialBody) {
             this.selectedCelestialBody = null;
             orderOriginImage.sprite = celestialBodyDefaultImage;
@@ -95,13 +101,14 @@ public class GUIManager : MonoBehaviour
             ResetTopPanelInfos();
             StructureMenuScript.ClearMenu();
             SpacefleetMenuScript.ClearMenu();
+            OnDeselectCelestialBody.Invoke();
         } else
         {
             selectedCelestialBodyTarget = selectedCelestialBody;
             orderTargetImage.sprite = selectedCelestialBodyTarget.GetComponent<CelestialBody>().ChildSpriteRenderer.sprite;
             ActiveCelestialBodyTarget.transform.position = selectedCelestialBody.transform.position;
-            selectedCelestialBodyScript.UnSubscribeToHangarChanges(FillHangarOverview);
             ActiveCelestialBodyTarget.SetActive(true);
+            
         }
     }
 
@@ -120,25 +127,7 @@ public class GUIManager : MonoBehaviour
             orderEntry.transform.SetParent(ScrollViewOrdersOverviewContent.transform);
         }
     }
-
-
-    public void FillHangarOverview(HangarSlot hangarSlot)
-    {
-        foreach (Transform child in ScrollViewHangarOverviewContent.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        List<HangarSlot> hangar = selectedCelestialBodyScript.PerformHangarOperation(manager => manager.GetHangarSlots());
-        foreach (HangarSlot slot in hangar)
-        {
-            GameObject SpaceShip  = Instantiate(SpaceShipEntryPrefab, ScrollViewHangarOverviewContent.transform);
-            SpaceShip.GetComponent<SpaceShipEntry>().Initialize(slot);
-            SpaceShip.transform.SetParent(ScrollViewHangarOverviewContent.transform);
-        }
-    }
-
-
-
+    
     private void SetActivePlanetarySystem(GameObject selectedPlanetarySystem)
     {
         if (selectedPlanetarySystem != this.selectedPlanetarySystem)

@@ -30,4 +30,4 @@ MonoBehaviour:
   MaxSpeed: 50
   MaxRange: 100
   MaxFuel: 200
-  StartSpacePointsCosts: 0
+  StartSpacePointsCosts: 100

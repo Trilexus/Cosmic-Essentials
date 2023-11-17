@@ -17,4 +17,4 @@ MonoBehaviour:
   ModifierSprite: {fileID: -1112525622, guid: c406022701738534cb1f61a8f750859a, type: 3}
   ModifierLevel: 1
   ResourceType: 1
-  ResourceProductionFactor: 2
+  ResourceProductionFactor: 5

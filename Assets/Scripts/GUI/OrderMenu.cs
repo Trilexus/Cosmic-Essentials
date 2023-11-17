@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class OrderMenu : MonoBehaviour
     public GameObject AvailableTransportPanel;
     public GameObject AvailableTransporterForOrders;
     SpacefleetScriptableObject ActiveSpacefleetScriptableObject;
+    private bool AutoMode = false;
 
 
     private void Awake()
@@ -30,6 +32,7 @@ public class OrderMenu : MonoBehaviour
         CostsInfoText = GUIManager.Instance.orderCostsText;
         GUIManager.Instance.orderAmountSlider.maxValue = SpaceShip.maxStorage;
         EntityManager.Instance.OnSpacefleetChanged += UpdateMenuForAvailableSpaceFleet;
+        UpdateMenuForAvailableSpaceFleet(EntityManager.Instance.GetSpacefleetScriptableObjectForCelestialBody());
         //GUIManager.Instance.selectedCelestialBodyScript.SubscribeToHangarChanges(HangarChanged);
     }
     public void Update()
@@ -39,9 +42,9 @@ public class OrderMenu : MonoBehaviour
 
     public void UpdateMenuForAvailableSpaceFleet(List<SpacefleetScriptableObject> spacefleetScriptableObjects)
     {
-        CelestialBody celestialBody =  GUIManager.Instance.selectedCelestialBodyScript;
+        //CelestialBody celestialBody =  GUIManager.Instance.selectedCelestialBodyScript;
         List<SpacefleetScriptableObject> spacefleetScriptableObjectsOnCelestialBody = EntityManager.Instance.GetAllSpacefleetScriptableObjectByTypes(SpacefleetType.SpaceShipTransporter);
-        ActiveSpacefleetScriptableObject = spacefleetScriptableObjectsOnCelestialBody[0];
+        ActiveSpacefleetScriptableObject = spacefleetScriptableObjectsOnCelestialBody.Last();
         foreach (SpacefleetScriptableObject spacefleetScriptableObject in spacefleetScriptableObjectsOnCelestialBody)
         {
             GameObject newSpacefleetMenuEntry = Instantiate(AvailableTransporterForOrders, AvailableTransportPanel.transform);
@@ -50,17 +53,29 @@ public class OrderMenu : MonoBehaviour
             TMP_Text text = newSpacefleetMenuEntry.GetComponentInChildren<TMP_Text>();
             AvailableTransporterButton availableTransporterButton = newSpacefleetMenuEntry.GetComponent<AvailableTransporterButton>();
             availableTransporterButton.spacefleetScriptableObject = spacefleetScriptableObject;
-            text.text = Symbols.SpaceShip + " " + spacefleetScriptableObject.Name + "(" + spacefleetScriptableObject.MaxCargoSpace+")";
+            text.text = Symbols.SpaceShip + " " + spacefleetScriptableObject.Name + "\n("+ Symbols.cargoBox + " " + spacefleetScriptableObject.MaxCargoSpace+")";
         }
-        //dropdown.ClearOptions();
-        //dropdown.AddOptions(spacefleetScriptableObjectsOnCelestialBody.ConvertAll(x => x.Name));
     }
 
-    public void ChangeSpaceshipSettings(SpacefleetScriptableObject spacefleetScriptableObject)
+    public void SetActiveButtonColor(GameObject buttonGameObject)
+    {
+          foreach (Transform child in AvailableTransportPanel.transform)
+        {
+            Button button = child.GetComponent<Button>();
+            button.image.color = Color.white;
+        }
+        Button button1 = buttonGameObject.GetComponent<Button>();
+        button1.image.color = Color.green;
+    }
+
+
+    public void ChangeSpaceshipSettings(SpacefleetScriptableObject spacefleetScriptableObject, bool auto)
     {
         GUIManager.Instance.orderAmountSlider.maxValue = spacefleetScriptableObject.MaxCargoSpace;
         GUIManager.Instance.orderAmountSlider.value = spacefleetScriptableObject.MaxCargoSpace;      
         ActiveSpacefleetScriptableObject = spacefleetScriptableObject;
+        UpdateCostsText();
+        AutoMode = auto;
     }
 
     public void UpdateCostsText()

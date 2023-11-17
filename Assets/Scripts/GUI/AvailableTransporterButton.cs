@@ -8,11 +8,18 @@ public class AvailableTransporterButton : MonoBehaviour
     public SpacefleetScriptableObject spacefleetScriptableObject;
     private GameObject OrderMenu;
     private OrderMenu orderMenuScript;
+    [SerializeField]
+    bool AutoMode = false;
     // Start is called before the first frame update
     void Start()
     {
         OrderMenu = GUIManager.Instance.OrderMenu;
         orderMenuScript = OrderMenu.GetComponent<OrderMenu>();
+        if (AutoMode)
+        {
+            orderMenuScript.ChangeSpaceshipSettings(spacefleetScriptableObject, AutoMode);
+            orderMenuScript.SetActiveButtonColor(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -23,7 +30,7 @@ public class AvailableTransporterButton : MonoBehaviour
 
     public void OnClick()
     {
-
-        orderMenuScript.ChangeSpaceshipSettings(spacefleetScriptableObject);
+        orderMenuScript.ChangeSpaceshipSettings(spacefleetScriptableObject, AutoMode);
+        orderMenuScript.SetActiveButtonColor(gameObject);
     }
 }
