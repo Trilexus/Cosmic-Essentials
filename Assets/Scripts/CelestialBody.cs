@@ -49,6 +49,7 @@ abstract public class CelestialBody : MonoBehaviour
 
     public List <SpaceShip> SpacecraftReadyForUnloading = new List<SpaceShip>();
     public List<HangarSlot> Hangar = new List<HangarSlot>();
+    private HangarManager hangarManager = new HangarManager();
     public const int OneHundredPercent = 100;
 
     ResourceTransferDispatcher orderDispatcher;
@@ -163,10 +164,7 @@ abstract public class CelestialBody : MonoBehaviour
 
     }
 
-    public void InitiateConstructionSpacefleet(SpacefleetScriptableObject spacefleetScriptableObject)
-    {   
-        Hangar.Add(new HangarSlot { spacefleetScriptableObject = spacefleetScriptableObject, constructionProgress = 0 });
-    }
+
 
     public void InitiateDemolishStructure(Structure structure)
     {
@@ -182,6 +180,12 @@ abstract public class CelestialBody : MonoBehaviour
 
     private void ExecuteConstructionProgress()
     {
+        ExecuteConstructionPrograssStructure();
+        EcecuteConstructionProgressHangarSlot();
+    }
+
+    private void ExecuteConstructionPrograssStructure()
+    {
         int countOfConstructingAreas = Areas.Count(x => x.constructionProgress < 100);
         if (countOfConstructingAreas > 0)
         {
@@ -191,22 +195,18 @@ abstract public class CelestialBody : MonoBehaviour
                  .ForEach(x => x.constructionProgress += (int)(individualConstructionRate * 100 * ProductivityRate));//TODO: Magic Number
             Areas.Where(x => x.constructionProgress < 100).ToList().ForEach(x => x.constructionProgress = Mathf.Clamp(x.constructionProgress, 1, 100));
         }
-        int countOfConstructingSpacefleet = Hangar.Count(x => x.constructionProgress < 100);
+    }
+
+    private void EcecuteConstructionProgressHangarSlot()
+    {
+        int countOfConstructingSpacefleet = hangarManager.GetSpaceFleetCount(false);
         if (countOfConstructingSpacefleet > 0)
         {
             float individualConstructionRate = ConstructionRate / countOfConstructingSpacefleet;
-            Hangar.Where(x => x.constructionProgress < 100)
-                 .ToList()
-                 .ForEach(x => x.constructionProgress += (int)(individualConstructionRate * 100 * ProductivityRate));//TODO: Magic Number
-            Hangar.Where(x => x.constructionProgress < 100).ToList().ForEach(x => x.constructionProgress = Mathf.Clamp(x.constructionProgress, 1, 100));
-            Hangar.Where(x => x.constructionProgress < 100).ToList().ForEach(x => Debug.Log(x.constructionProgress));
-
+            individualConstructionRate = individualConstructionRate * 100 * ProductivityRate;
+            hangarManager.GetHangarSlots(false).ToList().ForEach(slot => slot.AddTooConstructionStatus((int)individualConstructionRate));
         }
-
-        //Executes building projects over time (farm, power plant, mine, research center).
     }
-
-
 
     public void RegisterTheSpaceship(SpaceShip spaceShip)
     {
@@ -350,16 +350,38 @@ abstract public class CelestialBody : MonoBehaviour
         }
     }
 
+    public void InitiateConstructionSpacefleet(SpacefleetScriptableObject spacefleetScriptableObject)
+    {
+        int constructionProgress = 0;
+        AddShipToHangar(new HangarSlot(spacefleetScriptableObject, constructionProgress));
+    }
+    public void AddShipToHangar(HangarSlot ship)
+    {
+        hangarManager.AddSpaceship(ship);
+    }
+
+    public void RemoveShipFromHangar(HangarSlot ship)
+    {
+        hangarManager.RemoveSpaceship(ship);
+    }
 
     public int GetSpaceFleetCount(SpacefleetScriptableObject spacefleetScriptableObject, bool isCompleted)
     {
-        switch (isCompleted)
-        {
-            case true:
-                return Hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress >= 100);
-            case false:
-                return Hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress < 100);
-        }
+        return hangarManager.GetSpaceFleetCount(spacefleetScriptableObject, isCompleted);
+    }
+
+    public void SubscribeToHangarChanges(HangarManager.HangarChangeHandler handler)
+    {
+        hangarManager.OnHangarSlotChanged += handler;
+    }
+    public void UnSubscribeToHangarChanges(HangarManager.HangarChangeHandler handler)
+    {
+        hangarManager.OnHangarSlotChanged -= handler;
+    }
+
+    public TResult PerformHangarOperation<TResult>(Func<HangarManager, TResult> operation)
+    {
+        return operation(hangarManager);
     }
 }
 public enum DataTypeResource

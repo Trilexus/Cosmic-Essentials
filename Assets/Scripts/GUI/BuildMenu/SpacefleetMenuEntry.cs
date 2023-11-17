@@ -81,8 +81,8 @@ public class SpacefleetMenuEntry : MenuEntry
     public void UpdateSpaceShipTransporterCounter()
     {
         CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBodyScript;
-        int countReady = celestialBody.GetSpaceFleetCount(spaceFleetData, true);
-        int countInConstruction = celestialBody.GetSpaceFleetCount(spaceFleetData, false);
+        int countReady = celestialBody.PerformHangarOperation(manager => manager.GetSpaceFleetCount(spaceFleetData, true));
+        int countInConstruction = celestialBody.PerformHangarOperation(manager => manager.GetSpaceFleetCount(spaceFleetData, false));
         BuildingCounter.text = countReady + "/" + countInConstruction;
     }
 

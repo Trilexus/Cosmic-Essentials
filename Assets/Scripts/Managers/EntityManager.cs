@@ -17,6 +17,8 @@ public class EntityManager : MonoBehaviour
     [SerializeField]
     private List<SpacefleetScriptableObject> spacefleetScriptableObjects;
     public Dictionary<SpacefleetScriptableObject, SpaceFleet> spacefleetDictionary = new Dictionary<SpacefleetScriptableObject, SpaceFleet>();
+    public delegate void SpacefleetChangeHandler(List<SpacefleetScriptableObject> spacefleetScriptableObjects);
+    public event SpacefleetChangeHandler OnSpacefleetChanged;
 
     public static EntityManager Instance { get; private set; }
 
@@ -35,6 +37,10 @@ public class EntityManager : MonoBehaviour
             Destroy(gameObject); // Zerstört das zusätzliche GameManager-Objekt, wenn es bereits ein aktives gibt.
         }
     }
+    public void Start()
+    {
+        OnSpacefleetChanged?.Invoke(spacefleetScriptableObjects);
+    }
 
     public List<Structure> GetStructuresForCelestialBody(LocationType celestialBodyAllowedLocation)
     {
@@ -49,6 +55,11 @@ public class EntityManager : MonoBehaviour
     public List<SpacefleetScriptableObject> GetSpacefleetScriptableObjectForCelestialBody()
     {
         return spacefleetScriptableObjects;
+    }
+
+    public List<SpacefleetScriptableObject> GetAllSpacefleetScriptableObjectByTypes(SpacefleetType type)
+    {
+        return spacefleetScriptableObjects.Where(spaceFleet => spaceFleet.Type == type).ToList();
     }
 
     public Structure GetStructure(StructureScriptableObject structureScriptableObject)

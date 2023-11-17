@@ -13,5 +13,7 @@ public class SpacefleetScriptableObject : EntityScriptableObject
     public int MaxSpeed; // Wie schnell ist es?
     public int MaxRange; // Wie weit kann es fliegen?
     public int MaxFuel; // Wie viel Treibstoff kann es mitnehmen?
+    public int StartSpacePointsCosts;
+
 
 }

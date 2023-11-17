@@ -39,6 +39,7 @@ public class GUIManager : MonoBehaviour
     public TextMeshProUGUI orderCostsText;
 
     public GameObject ScrollViewOrdersOverviewContent;
+    public GameObject OrderMenu;
     public GameObject OrderInfoEntryPrefab;
     public GameObject ScrollViewHangarOverviewContent;
     public GameObject SpaceShipEntryPrefab;
@@ -81,7 +82,7 @@ public class GUIManager : MonoBehaviour
             ActiveCelestialBodyMarker.SetActive(true);
             SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
             FillOrdersOverview();
-            FillHangarOverview();
+            selectedCelestialBodyScript.SubscribeToHangarChanges(FillHangarOverview);
             UpdateTopPanelInfos();
             StructureMenuScript.CreateMenuForCelestialBody(selectedCelestialBodyScript.AllowedLocation);
             SpacefleetMenuScript.CreateMenuForCelestialBody();
@@ -99,6 +100,7 @@ public class GUIManager : MonoBehaviour
             selectedCelestialBodyTarget = selectedCelestialBody;
             orderTargetImage.sprite = selectedCelestialBodyTarget.GetComponent<CelestialBody>().ChildSpriteRenderer.sprite;
             ActiveCelestialBodyTarget.transform.position = selectedCelestialBody.transform.position;
+            selectedCelestialBodyScript.UnSubscribeToHangarChanges(FillHangarOverview);
             ActiveCelestialBodyTarget.SetActive(true);
         }
     }
@@ -120,13 +122,13 @@ public class GUIManager : MonoBehaviour
     }
 
 
-    public void FillHangarOverview()
+    public void FillHangarOverview(HangarSlot hangarSlot)
     {
         foreach (Transform child in ScrollViewHangarOverviewContent.transform)
         {
             Destroy(child.gameObject);
         }
-        List<HangarSlot> hangar = selectedCelestialBodyScript.Hangar;
+        List<HangarSlot> hangar = selectedCelestialBodyScript.PerformHangarOperation(manager => manager.GetHangarSlots());
         foreach (HangarSlot slot in hangar)
         {
             GameObject SpaceShip  = Instantiate(SpaceShipEntryPrefab, ScrollViewHangarOverviewContent.transform);

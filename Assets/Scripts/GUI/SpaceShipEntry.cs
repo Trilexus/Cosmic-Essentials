@@ -11,7 +11,13 @@ public class SpaceShipEntry : MonoBehaviour
 
     public void Initialize(HangarSlot slot)
     {
+        UpdateInfoText(slot);
+        slot.OnShipConstructionStatusChanged += UpdateInfoText;
+    }
+
+    private void UpdateInfoText(HangarSlot slot)
+    {
         sprite.sprite = slot.spacefleetScriptableObject.Sprite;
-        textObject.text = Symbols.SpaceShip + " - " + slot.spacefleetScriptableObject.name + " - " +Symbols.cargoBox +  slot.spacefleetScriptableObject.MaxCargoSpace;
+        textObject.text = Symbols.SpaceShip + " - " + slot.spacefleetScriptableObject.name + " - " + Symbols.cargoBox + slot.spacefleetScriptableObject.MaxCargoSpace;
     }
 }

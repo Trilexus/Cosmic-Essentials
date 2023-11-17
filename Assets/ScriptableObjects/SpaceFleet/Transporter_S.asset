@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74bdbb54535774a46b191e4d98c9365f, type: 3}
   m_Name: Transporter_S
   m_EditorClassIdentifier: 
-  Name: Transporter
+  Name: OrbitDart
   Costs:
   - {fileID: 2877031959262065529, guid: e46c88ef0ce5fc24e9765a1f3a2e14c7, type: 3}
   - {fileID: 2877031959262065529, guid: 05df8503c0f5f6849acd165eb21cac28, type: 3}
