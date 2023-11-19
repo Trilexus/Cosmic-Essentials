@@ -19,15 +19,15 @@ MonoBehaviour:
   StructureRequirements:
   - {fileID: 11400000, guid: b982e262bd894b94fb44a0398d4649a3, type: 2}
   CostsCrew: 0
-  LivingSpace: 5
-  Prefab: {fileID: 3972412088658497116, guid: de78b34fbfba55d43b9a96e2e28934bb, type: 3}
+  LivingSpace: 2
+  Prefab: {fileID: 2305082013439432934, guid: 02a9f5b20fd068845986e01a85a63ea9, type: 3}
   Locations: 
   Symbol: {fileID: 0}
   Sprite: {fileID: -376676883, guid: c406022701738534cb1f61a8f750859a, type: 3}
-  ResourcesCargo: []
   Type: 0
-  MaxCargoSpace: 500
-  MaxSpeed: 100
-  MaxRange: 100
+  CargoSpace: 500
+  Speed: 75
+  Range: 0
   MaxFuel: 100
+  Fuel: 0
   StartSpacePointsCosts: 25

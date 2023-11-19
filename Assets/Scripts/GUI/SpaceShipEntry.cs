@@ -18,6 +18,11 @@ public class SpaceShipEntry : MonoBehaviour
     private void UpdateInfoText(HangarSlot slot)
     {
         sprite.sprite = slot.spacefleetScriptableObject.Sprite;
-        textObject.text = Symbols.SpaceShip + " - " + slot.spacefleetScriptableObject.name + " - " + Symbols.cargoBox + slot.spacefleetScriptableObject.MaxCargoSpace;
+        string constructionProgress = "";
+        if (slot.constructionProgress < 100)
+        {
+            constructionProgress = " (" + slot.constructionProgress + "%)";
+        }
+        textObject.text = Symbols.SpaceShip + " - " + slot.spacefleetScriptableObject.name + " - " + Symbols.cargoBox + slot.spacefleetScriptableObject.CargoSpace + constructionProgress;
     }
 }

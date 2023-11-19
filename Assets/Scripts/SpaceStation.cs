@@ -96,6 +96,7 @@ public class SpaceStation : CelestialBody
         // Eco Index and Population and productivity rate info
         string populationInfo = $"\ue533: {population.CurrentPopulation}";
         string productivityInfo = $"\uf201: {ProductivityRate}";
+        int spaceShipTransporterAvailable = hangarManager.GetSpaceFleetCount(true) + hangarManager.GetSpaceFleetCount(false);
 
 
         // Farm, Mine, and Reactor info
@@ -110,7 +111,7 @@ public class SpaceStation : CelestialBody
         string resourceStorageMetal = $"{Symbols.Metal} {ResourceStorageCelestialBody[ResourceType.Metal].StorageQuantity}";
         string resourceStorageEnergy = $"{Symbols.Energy} {ResourceStorageCelestialBody[ResourceType.Energy].StorageQuantity}";
         string resourceStorageSpacePoint = $"{Symbols.SpacePoint} {ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity}";
-        string SpaceShipsAvailable = $"{Symbols.SpaceShip} {SpaceShipTransporterAvailable}";
+        string SpaceShipsAvailable = $"{Symbols.SpaceShip} {spaceShipTransporterAvailable}";
 
 
         string resourceFoodProduction = $"({ResourceStorageCelestialBody[ResourceType.Food].ProductionQuantity})";
@@ -127,7 +128,9 @@ public class SpaceStation : CelestialBody
         string finalString = sb.ToString();
         celestialBodyInfoTop.SetText(finalString);
 
-        sb.Clear();        
+        sb.Clear();
+        sb.AppendLine($"{farmInfo} {resourceStorageFood}{resourceFoodProduction}{resourceFoodConsumption}");
+        sb.AppendLine($"{mineInfo} {resourceStorageMetal}{resourceMetalProduction}{resourceMetalConsumption}");
         sb.AppendLine($"{reactorInfo} {resourceStorageEnergy}{resourceEnergyProduction}{resourceEnergyConsumption}");
         sb.AppendLine($"{spaceportInfo} {resourceStorageSpacePoint}{resourceSpacePointProduction}{resourceSpacePointConsumption}");
         sb.AppendLine($"{SpaceShipsAvailable}");

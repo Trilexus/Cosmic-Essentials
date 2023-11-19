@@ -39,7 +39,7 @@ public class Population {
         float ecoecoIndexOneHundredth = ecoecoIndex / 100f;
         _maxPopulation = maxPopulation;
         bool isfoodAvailable = foodAvailable > 0;
-        if (isfoodAvailable && ecoecoIndex > RED_THRESHOLD)
+        if (isfoodAvailable && ecoecoIndex >= RED_THRESHOLD)
         {
             _populationGrowthCounter = _populationGrowthCounter + (ecoecoIndexOneHundredth);
             if (_populationGrowthCounter >= _growthThresholdTicks)

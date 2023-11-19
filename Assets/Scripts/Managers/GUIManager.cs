@@ -48,8 +48,10 @@ public class GUIManager : MonoBehaviour
 
     public GameObject StructureMenu;
     public GameObject SpacefleetMenu;
+    public GameObject InfoMenu;
     public BuildTabMenu StructureMenuScript;
     public BuildTabMenu SpacefleetMenuScript;
+    public BuildTabMenu InfoMenuScript;
 
     public delegate void SelectedCelestialBodyChangeHandler(CelestialBody selectedCelestialBodyScript);
     public event SelectedCelestialBodyChangeHandler OnSelectedCelestialBodyChanged;
@@ -65,7 +67,8 @@ public class GUIManager : MonoBehaviour
             Instance = this; // Singleton
             DontDestroyOnLoad(this.gameObject); // Singleton
             StructureMenuScript = StructureMenu.GetComponent<BuildTabMenu>();
-            SpacefleetMenuScript = StructureMenu.GetComponent<BuildTabMenu>();
+            SpacefleetMenuScript = SpacefleetMenu.GetComponent<BuildTabMenu>();
+            InfoMenuScript = InfoMenu.GetComponent<BuildTabMenu>();
             CelestialBodyInfoScript = CelestialBodyBuildInfo.GetComponent<CelestialBodyInfo>();
             TopPanelScript = TopPanel.GetComponent<TopPanel>();
             MentatScript = Mentat.GetComponent<Mentat>();
@@ -90,6 +93,8 @@ public class GUIManager : MonoBehaviour
             UpdateTopPanelInfos();
             StructureMenuScript.CreateMenuForCelestialBody(selectedCelestialBodyScript.AllowedLocation);
             SpacefleetMenuScript.CreateMenuForCelestialBody();
+            InfoMenuScript.CreateMenuForCelestialBody(selectedCelestialBodyScript);
+
 
             OnSelectedCelestialBodyChanged.Invoke(selectedCelestialBodyScript);
         } else if (this.selectedCelestialBody == selectedCelestialBody) {

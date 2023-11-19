@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74bdbb54535774a46b191e4d98c9365f, type: 3}
-  m_Name: Transporter_B
+  m_Name: Transporter_Auto
   m_EditorClassIdentifier: 
   Name: CosmoCarrier
   Costs:
@@ -20,14 +20,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b982e262bd894b94fb44a0398d4649a3, type: 2}
   CostsCrew: 0
   LivingSpace: 5
-  Prefab: {fileID: 8365648586687536510, guid: 2c32c7d63cc490c47a4244d33d420b92, type: 3}
+  Prefab: {fileID: 0}
   Locations: 
   Symbol: {fileID: 0}
-  Sprite: {fileID: -1017810356, guid: c406022701738534cb1f61a8f750859a, type: 3}
+  Sprite: {fileID: 0}
   Type: 0
-  CargoSpace: 2500
-  Speed: 25
+  CargoSpace: 500
+  Speed: 0
   Range: 0
   MaxFuel: 200
   Fuel: 0
-  StartSpacePointsCosts: 100
+  StartSpacePointsCosts: 0

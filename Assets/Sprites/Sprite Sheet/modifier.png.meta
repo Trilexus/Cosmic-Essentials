@@ -377,7 +377,7 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -385,6 +385,27 @@ TextureImporter:
       bones: []
       spriteID: 0bc07cc26afbecd47aa7f7a005912332
       internalID: 1717127541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodBoost01
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1783
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613411cb922c49b458f150611c9cbfb3
+      internalID: -1880197193
       vertices: []
       indices: 
       edges: []
@@ -402,6 +423,7 @@ TextureImporter:
     nameFileIdTable:
       EnergyBoost_1: 97547440
       EnergyBoost_1_Atom: -462523424
+      FoodBoost01: -1880197193
       MiningBoost_1_Laser: -273616308
       MiningBoost_1_Nugget: -785386847
       MiningBoost_2_Laser: -1112525622

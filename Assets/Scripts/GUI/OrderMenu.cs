@@ -17,8 +17,12 @@ public class OrderMenu : MonoBehaviour
     [SerializeField]
     public GameObject AvailableTransportPanel;
     public GameObject AvailableTransporterForOrders;
+    [SerializeField]
     SpacefleetScriptableObject ActiveSpacefleetScriptableObject;
+    [SerializeField]
+    private Button AutoButton;
     private bool AutoMode = false;
+    
 
 
     private void Awake()
@@ -28,11 +32,13 @@ public class OrderMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AutoButton.image.color = Color.green;
         orderDispatcher = new ResourceTransferDispatcher();
         CostsInfoText = GUIManager.Instance.orderCostsText;
-        GUIManager.Instance.orderAmountSlider.maxValue = SpaceShip.maxStorage;
+        GUIManager.Instance.orderAmountSlider.maxValue = SpaceShip.CargoSpace;
         EntityManager.Instance.OnSpacefleetChanged += UpdateMenuForAvailableSpaceFleet;
         UpdateMenuForAvailableSpaceFleet(EntityManager.Instance.GetSpacefleetScriptableObjectForCelestialBody());
+        ChangeSpaceshipSettings(ActiveSpacefleetScriptableObject, true);
         //GUIManager.Instance.selectedCelestialBodyScript.SubscribeToHangarChanges(HangarChanged);
     }
     public void Update()
@@ -53,7 +59,7 @@ public class OrderMenu : MonoBehaviour
             TMP_Text text = newSpacefleetMenuEntry.GetComponentInChildren<TMP_Text>();
             AvailableTransporterButton availableTransporterButton = newSpacefleetMenuEntry.GetComponent<AvailableTransporterButton>();
             availableTransporterButton.spacefleetScriptableObject = spacefleetScriptableObject;
-            text.text = Symbols.SpaceShip + " " + spacefleetScriptableObject.Name + "\n("+ Symbols.cargoBox + " " + spacefleetScriptableObject.MaxCargoSpace+")";
+            text.text = Symbols.SpaceShip + " " + spacefleetScriptableObject.Name + "\n("+ Symbols.cargoBox + " " + spacefleetScriptableObject.CargoSpace +")";
         }
     }
 
@@ -71,28 +77,13 @@ public class OrderMenu : MonoBehaviour
 
     public void ChangeSpaceshipSettings(SpacefleetScriptableObject spacefleetScriptableObject, bool auto)
     {
-        GUIManager.Instance.orderAmountSlider.maxValue = spacefleetScriptableObject.MaxCargoSpace;
-        GUIManager.Instance.orderAmountSlider.value = spacefleetScriptableObject.MaxCargoSpace;      
+        GUIManager.Instance.orderAmountSlider.maxValue = spacefleetScriptableObject.CargoSpace;
+        GUIManager.Instance.orderAmountSlider.value = spacefleetScriptableObject.CargoSpace;      
         ActiveSpacefleetScriptableObject = spacefleetScriptableObject;
-        UpdateCostsText();
         AutoMode = auto;
     }
 
-    public void UpdateCostsText()
-    {
-        int costs = ActiveSpacefleetScriptableObject.StartSpacePointsCosts;
-        if (GUIManager.Instance.ToggleReturnToOrigin.isOn)
-        {
-            costs = ActiveSpacefleetScriptableObject.StartSpacePointsCosts * 2;
-            CostsInfoText.text = costs.ToString();
-        } else
-        {
-            CostsInfoText.text = costs.ToString();
-        }
-    }
-
-
-
+    
     public void OnSliderChanged(float number)
     {
         if (GUIManager.Instance.orderAmountInputField.text != number.ToString())
@@ -123,8 +114,15 @@ public class OrderMenu : MonoBehaviour
         bool onlyFullShipment = GUIManager.Instance.ToggleOnlyFullShipment.isOn;
         bool ReturnToOrigin = GUIManager.Instance.ToggleReturnToOrigin.isOn;
         bool isForever = GUIManager.Instance.ToggleIsForever.isOn;
-
-        ResourceTransferOrder order = orderDispatcher.CreateOrderFromGui(ResourceType, ResourceAmount, origin, destination, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin, isForever);
+        ResourceTransferOrder order;
+        if (AutoMode)
+        {
+            order = orderDispatcher.CreateOrderFromGui(ResourceType, ResourceAmount, origin, destination, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin, isForever);
+        }
+        else
+        {
+            order = orderDispatcher.CreateOrderFromGui(ResourceType, ResourceAmount, origin, destination, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin, isForever, ActiveSpacefleetScriptableObject);
+        }
         orderDispatcher.CreateOrderOnCelestialBody(order);  
     }
 

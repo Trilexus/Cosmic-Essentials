@@ -94,22 +94,24 @@ public class BuildingInterfaceManager : MonoBehaviour
         CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBodyScript;
         bool areRequiredBuildingsPresent = AreRequiredBuildingsPresent(spacefleetScriptableObject, celestialBody);
         bool areResourcesSufficient = AreResourcesSufficientForEntity(spacefleetScriptableObject);
-
+        bool arePopulationRequirementsFulfilled = celestialBody.population.CurrentPopulation >= spacefleetScriptableObject.LivingSpace;
         if (spacefleetScriptableObject.Type == SpacefleetType.SpaceStation && areResourcesSufficient && areRequiredBuildingsPresent)
         {
             BuildSpaceStation();
         }
-        else if (areResourcesSufficient && areRequiredBuildingsPresent)
+        else if (areResourcesSufficient && areRequiredBuildingsPresent && arePopulationRequirementsFulfilled)
         {
             foreach (Resource resource in spacefleetScriptableObject.Costs)
             {
                 celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity -= resource.Quantity;
             }
-                celestialBody.InitiateConstructionSpacefleet(spacefleetScriptableObject);
+            celestialBody.population.CurrentPopulation -= spacefleetScriptableObject.LivingSpace;
+            celestialBody.InitiateConstructionSpacefleet(spacefleetScriptableObject);
+
         } else if(!areRequiredBuildingsPresent)
         {
             GUIManager.Instance.MentatScript.SetAlertText("BuildingRequirementsNotFulfilled");
-        } else if (!areResourcesSufficient)
+        } else if (!areResourcesSufficient || arePopulationRequirementsFulfilled)
         {
             GUIManager.Instance.MentatScript.SetAlertText("InsufficientResources");
         }

@@ -16,6 +16,8 @@ public class ResourceTransferOrder
     public bool ReturnToOrigin;
     public bool OnlyFullShipment;
     public bool IsForever;
+    public bool AutoChooseShip;
+    public SpacefleetScriptableObject SpacefleetScriptableObject;
 
     public ResourceTransferOrder(List<ResourceStorage> resourceShipmentDetails, CelestialBody origin, CelestialBody destination, int repetitions, bool isPrioritized, bool onlyFullShipment, bool ReturnToOrigin, bool isForever)
     {
@@ -27,6 +29,21 @@ public class ResourceTransferOrder
         this.ReturnToOrigin = ReturnToOrigin;
         OnlyFullShipment = onlyFullShipment;
         IsForever = isForever;
+        AutoChooseShip = true;
+    }
+
+    public ResourceTransferOrder(List<ResourceStorage> resourceShipmentDetails, CelestialBody origin, CelestialBody destination, int repetitions, bool isPrioritized, bool onlyFullShipment, bool ReturnToOrigin, bool isForever, SpacefleetScriptableObject spacefleetScriptableObject)
+    {
+        ResourceShipmentDetails = resourceShipmentDetails;
+        Origin = origin;
+        Target = destination;
+        Repetitions = repetitions;
+        IsPrioritized = isPrioritized;
+        this.ReturnToOrigin = ReturnToOrigin;
+        OnlyFullShipment = onlyFullShipment;
+        IsForever = isForever;
+        AutoChooseShip = false;
+        SpacefleetScriptableObject = spacefleetScriptableObject;
     }
 
 }

@@ -50,6 +50,8 @@ public class SpacefleetMenuEntry : MenuEntry
         sb.AppendLine($"{resourceSummary}");
         string livingSpace = $"{Symbols.population} {spaceFleetData.LivingSpace}";
         sb.AppendLine($"{livingSpace}");
+        string cargoSpace = $"{Symbols.cargoBox} {spaceFleetData.CargoSpace}";
+        sb.AppendLine($"{cargoSpace}");
         BuildingInfosCosts.text = sb.ToString();
         sb.Clear();
         string requirements = GetStructureRequirementsString();

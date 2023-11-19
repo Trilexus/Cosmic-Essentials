@@ -38,18 +38,19 @@ abstract public class CelestialBody : MonoBehaviour
     //public List<ResourceStorage> ResourceStorageCelestialBody = new List<ResourceStorage>();
     public StringBuilder sb = new StringBuilder();
     public Dictionary<ResourceType, ResourceStorage> ResourceStorageCelestialBody = new Dictionary<ResourceType, ResourceStorage>();
+    public List<Resource> StartResources = new List<Resource>();
     
     public List<ResourceTransferOrder> ResourceTransferOrders = new List<ResourceTransferOrder>();
     [SerializeField]
     private List<ModifierScriptableObject> modifierScriptableObjects;
     [SerializeField]
-    private List<Modifier> modifiers;
-    public int SpaceShipTransporterAvailable = 0;
+    public List<Modifier> modifiers;
+    //public int SpaceShipTransporterAvailable = 0;
     public int ResourceStorageLimit;
 
     public List <SpaceShip> SpacecraftReadyForUnloading = new List<SpaceShip>();
     public List<HangarSlot> Hangar = new List<HangarSlot>();
-    private HangarManager hangarManager = new HangarManager();
+    protected HangarManager hangarManager = new HangarManager();
     public const int OneHundredPercent = 100;
 
     ResourceTransferDispatcher orderDispatcher;
@@ -76,7 +77,7 @@ abstract public class CelestialBody : MonoBehaviour
         StartCoroutine(TickCoroutine());
         InitializeStartingBuildings();
         orderDispatcher = new ResourceTransferDispatcher(ResourceStorageCelestialBody);
-        for (int i = 0; i <= 0; i++)
+        for (int i = 0; i <= 2; i++)
         {
             Tick();
         }
@@ -86,6 +87,10 @@ abstract public class CelestialBody : MonoBehaviour
         foreach (ResourceType type in Enum.GetValues(typeof(ResourceType)))
         {
             ResourceStorageCelestialBody[type] = new ResourceStorage(type.ToString(), ResourceStorageLimit, 0, 0, 0);
+        }
+        foreach (var resource in StartResources)
+        {
+            ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity += resource.Quantity;
         }
     }
 
@@ -218,7 +223,7 @@ abstract public class CelestialBody : MonoBehaviour
         //Unload the SpaceShips
         foreach (SpaceShip spaceship in SpacecraftReadyForUnloading)
         {
-            foreach (ResourceStorage resource in spaceship.ResourceStorageSpaceShip.Values)
+            foreach (ResourceStorage resource in spaceship.ResourceStorage.Values)
             {
                 ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity += resource.StorageQuantity;
                 resource.StorageQuantity = 0; //SpaceShip ist nun leer.
@@ -228,8 +233,9 @@ abstract public class CelestialBody : MonoBehaviour
                 spaceship.StartJourney(this, spaceship.origin, false);
             }else
             {
-                SpaceShip_TransporterMisslePool.Instance.ReturnSpaceShipToPool(spaceship.gameObject);
-                SpaceShipTransporterAvailable += 1; //SpaceShip ist nun auf diesem CelestialBody verfügbar.
+                SpaceShipPool.Instance.ReturnSpaceShipToPool(spaceship.gameObject);
+                //SpaceShipTransporterAvailable += 1; //SpaceShip ist nun auf diesem CelestialBody verfügbar.
+                hangarManager.AddSpaceShip(spaceship);
             }
         }
         SpacecraftReadyForUnloading.Clear();
@@ -288,10 +294,8 @@ abstract public class CelestialBody : MonoBehaviour
     private void ProcessResourceTransferOrders()
     {
         bool OrderAvailable = ResourceTransferOrders.Count > 0;
-        bool SpaceShipAvailable = SpaceShipTransporterAvailable > 0;
-        bool SpacePointsAvailableForStart = ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity > SpaceShip.SpaceShipStartSpacePointsCosts;
-
-        if (OrderAvailable && SpaceShipAvailable && SpacePointsAvailableForStart)
+        //bool SpacePointsAvailableForStart = ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity > SpaceShip.StartSpacePointsCosts;
+        if (OrderAvailable)
         {
             orderDispatcher.CelestialBody = this;
             orderDispatcher.ResourceTransferOrders = ResourceTransferOrders;
@@ -355,15 +359,11 @@ abstract public class CelestialBody : MonoBehaviour
         int constructionProgress = 0;
         AddShipToHangar(new HangarSlot(spacefleetScriptableObject, constructionProgress));
     }
-    public void AddShipToHangar(HangarSlot ship)
+    public void AddShipToHangar(HangarSlot slot)
     {
-        hangarManager.AddSpaceship(ship);
+        hangarManager.AddHangarSlot(slot);
     }
 
-    public void RemoveShipFromHangar(HangarSlot ship)
-    {
-        hangarManager.RemoveSpaceship(ship);
-    }
 
     public int GetSpaceFleetCount(SpacefleetScriptableObject spacefleetScriptableObject, bool isCompleted)
     {

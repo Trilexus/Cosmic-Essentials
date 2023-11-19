@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1caf6e1bc4e7e4642b51c01c26d1fd43, type: 3}
-  m_Name: MiningBoost_X2
+  m_Name: Farm boost x3
   m_EditorClassIdentifier: 
-  ModifierName: Mine overcharge
+  ModifierName: Farm boost
   ModifierType: 0
-  ModifierSprite: {fileID: -1112525622, guid: c406022701738534cb1f61a8f750859a, type: 3}
+  ModifierSprite: {fileID: -1880197193, guid: c406022701738534cb1f61a8f750859a, type: 3}
   ModifierLevel: 1
-  ResourceType: 1
-  ResourceProductionFactor: 2
+  ResourceType: 0
+  ResourceProductionFactor: 3

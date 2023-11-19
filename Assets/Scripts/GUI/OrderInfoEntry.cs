@@ -19,7 +19,7 @@ public class OrderInfoEntry : MonoBehaviour
     ResourceTransferOrder order;
     public Button ButtonCancelOrder;
     private List<ResourceTransferOrder> resourceTransferOrders;
-
+    public Image SpaceShipImage;
 
 
     // Start is called before the first frame update
@@ -70,6 +70,13 @@ public class OrderInfoEntry : MonoBehaviour
             }else
             {
                 TextOrderRepetitions.text = "\uf2f9" + order.Repetitions.ToString();
+            }
+            if (order.AutoChooseShip)
+            {
+                SpaceShipImage.sprite = null;
+            } else
+            {
+                SpaceShipImage.sprite = order.SpacefleetScriptableObject.Sprite;
             }
         }
     }

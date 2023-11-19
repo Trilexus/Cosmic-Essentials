@@ -36,6 +36,8 @@ public class Planet : CelestialBody
         //celestialBodyInfo = transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         SetupPopulation();
         CalculateEcoIndex();
+        //CalculatePopulation();
+        CalculateProductivityRate();
         UpdateInfoText();
     }
     // Update is called once per frame
@@ -50,9 +52,9 @@ public class Planet : CelestialBody
 
     protected override void Tick()
     {
+        CalculateEcoIndex();
         CalculateProductivityRate();
         base.Tick();
-        CalculateEcoIndex();
         CalculatePopulation();
         UpdateInfoText();
     }
@@ -63,22 +65,35 @@ public class Planet : CelestialBody
         ProductivityPopulationFactor = Mathf.Clamp(ProductivityPopulationFactor, MinProductivityRate, MaxProductivityRate);
         if (population.CurrentPopulation > population._maxPopulation)
         {
-            ProductivityPopulationFactor = -1; //Too little living space has an impact on efficiency.
+            ProductivityPopulationFactor = -0.5f; //Too little living space has an impact on efficiency.
         }else if(population.CurrentPopulation <= 0)
         {
-              ProductivityPopulationFactor = -1;
+            ProductivityPopulationFactor = -1;
         }
-        
+
         // Besserer EcoIndex = bessere ProductivityRate
-        float ProductivityEcoIndexFactor = ecoIndex / 100;//TODO: Magic Number
+        float ProductivityEcoIndexFactor = ecoIndex / 100f;//TODO: Magic Number
+        if (ecoIndex < RED_THRESHOLD)
+        {
+            ProductivityEcoIndexFactor = -1;
+        }else if (ecoIndex < YELLOW_THRESHOLD)
+        {
+            ProductivityEcoIndexFactor = -0.5f;
+        } else
+        {
+            ProductivityEcoIndexFactor = 1f;       
+        }
+
         // Zu wenig Ressourcen = schlechtere ProductivityRate. Ausreichende Ressourcen = normale ProductivityRate
         float ProductivityResourceFactor1 = (ResourceStorageCelestialBody[ResourceType.Metal].StorageQuantity < 0 ? 0f : 0.5f); //TODO: Magic Number
         float ProductivityResourceFactor2 = (ResourceStorageCelestialBody[ResourceType.Energy].StorageQuantity < 0 ? 0f : 0.5f); //TODO: Magic Number
         float ProductivityresourceFactor = ProductivityResourceFactor1 + ProductivityResourceFactor2;
 
-        int factorCount = 2;
+        float factorCount = 2;
         ProductivityRate = (ProductivityPopulationFactor + ProductivityEcoIndexFactor + ProductivityresourceFactor) / factorCount;
-        ProductivityRate = (float)Math.Round(Mathf.Clamp(ProductivityRate, MinProductivityRate, MaxProductivityRate),2,MidpointRounding.AwayFromZero) ;        
+
+        ProductivityRate = (float)Math.Round(Mathf.Clamp(ProductivityRate, MinProductivityRate, MaxProductivityRate),2,MidpointRounding.AwayFromZero) ;
+
     }
 
     //UpdateInfoText is called from Update() in CelestialBody and is used to update the text in the child gameobjetc CelestialBodyInfos
@@ -102,6 +117,7 @@ public class Planet : CelestialBody
         string ecoInfo = $"{ecoColor}\uf06c: {ecoIndex}%({ecoIndexChangeValue:+0.##;-0.##;0})</color>";
         string populationInfo = $"\ue533: {population.CurrentPopulation} / {population._maxPopulation}";
         string productivityInfo = $"\uf201: {ProductivityRate}";
+        int spaceShipTransporterAvailable = hangarManager.GetSpaceFleetCount(true) + hangarManager.GetSpaceFleetCount(false);
 
 
         // Farm, Mine, and Reactor info
@@ -117,7 +133,7 @@ public class Planet : CelestialBody
         string resourceStorageMetal = $"{Symbols.Metal} {ResourceStorageCelestialBody[ResourceType.Metal].StorageQuantity}";
         string resourceStorageEnergy = $"{Symbols.Energy} {ResourceStorageCelestialBody[ResourceType.Energy].StorageQuantity}";
         string resourceStorageSpacePoint = $"{Symbols.SpacePoint} {ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity}";
-        string SpaceShipsAvailable = $"{Symbols.SpaceShip} {SpaceShipTransporterAvailable}";
+        string SpaceShipsAvailable = $"{Symbols.SpaceShip} {spaceShipTransporterAvailable}";
 
         string resourceFoodProduction = $"({ResourceStorageCelestialBody[ResourceType.Food].ProductionQuantity})";
         string resourceMetalProduction = $"({ResourceStorageCelestialBody[ResourceType.Metal].ProductionQuantity})";
@@ -203,6 +219,7 @@ public class Planet : CelestialBody
     private void SetupPopulation()
     {        
         population.RED_THRESHOLD = RED_THRESHOLD;
+        population._maxPopulation = CalcMaxPopulation();
     }
     public void CalculatePopulation()
     {

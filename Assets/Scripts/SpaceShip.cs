@@ -1,31 +1,29 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SpaceShip : SpaceFleet
 {
-    [SerializeField]
-    public Dictionary<ResourceType, ResourceStorage> ResourceStorageSpaceShip = new Dictionary<ResourceType, ResourceStorage>();
-    public static int maxStorage = 500;
-    public int FreeStorageSpace = 500;
-
-    [SerializeField]
+    public Dictionary<ResourceType, ResourceStorage> ResourceStorage = new Dictionary<ResourceType, ResourceStorage>();
+    public static int CargoSpace = 500;
+    public int FreeSpace;
     public CelestialBody target;
-    [SerializeField]
     public CelestialBody origin;
     public bool ReturnToOrigin = false;
-    [SerializeField]
     public bool isStarted = false;
-    [SerializeField]
     public bool isArrived = false;
-    [SerializeField]
     float isArrivedDistance = 0.001f;
-    [SerializeField]
     float speed;
     float rotationSpeed = 150f;
-    public static int SpaceShipStartSpacePointsCosts = 25;
-    int Fuel = 0;
+    public SpacefleetType Type; // Enum, was für ein Schiff oder Raumstation ist es?
+    public int MaxRange; // Wie weit kann es fliegen?
+    public int MaxFuel; // Wie viel Treibstoff kann es mitnehmen?
+    public int Fuel;
+    public int LaunchSpacePointsCosts;
+    public SpacefleetScriptableObject SpacefleetScriptableObject;
+
     [SerializeField]
     public static Dictionary<ResourceType, ResourceStorage> SpaceShipCosts = new Dictionary<ResourceType, ResourceStorage> {
         { ResourceType.Metal, new ResourceStorage(ResourceType.Metal, 100, 0, 0, 0) },
@@ -35,11 +33,23 @@ public class SpaceShip : SpaceFleet
     
     public void ResetResources()
     {
-        ResourceStorageSpaceShip.Clear();
+        ResourceStorage.Clear();
         foreach (ResourceType type in Enum.GetValues(typeof(ResourceType)))
         {
-            ResourceStorageSpaceShip[type] = new ResourceStorage(type.ToString(), 100, 0, 0, 0);
+            ResourceStorage[type] = new ResourceStorage(type.ToString(), 100, 0, 0, 0);
         }
+    }
+
+    public void InitializedSpaceShip(SpacefleetScriptableObject spacefleetScriptableObject)
+    {
+        ResetResources();
+        CargoSpace = spacefleetScriptableObject.CargoSpace;        
+        speed = spacefleetScriptableObject.Speed / 100f;
+        MaxRange = spacefleetScriptableObject.Range;
+        MaxFuel = spacefleetScriptableObject.MaxFuel;
+        Fuel = spacefleetScriptableObject.Fuel;
+        FreeSpace = CargoSpace;
+        SpacefleetScriptableObject = spacefleetScriptableObject;
     }
 
 
@@ -69,7 +79,8 @@ public class SpaceShip : SpaceFleet
     {
         this.target = target;
         this.origin = origin;
-        Fuel -= SpaceShipStartSpacePointsCosts;
+        Fuel -= LaunchSpacePointsCosts;
+        SpaceShip spaceShip = this;
         this.transform.position = origin.transform.position;
         RotateToTarget();
         gameObject.SetActive(true);
@@ -80,7 +91,7 @@ public class SpaceShip : SpaceFleet
 
     public void RefuelSpaceShip(ResourceTransferOrder order)
     {
-        int fuelCosts = SpaceShipStartSpacePointsCosts;
+        int fuelCosts = LaunchSpacePointsCosts;
 
         if (order.ReturnToOrigin) fuelCosts *= 2;
         order.Origin.GetComponent<CelestialBody>().ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity -= fuelCosts;
