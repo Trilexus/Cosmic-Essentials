@@ -7,6 +7,7 @@ public class StructureScriptableObject : EntityScriptableObject
 {
     public StructureType Type;
     public List<Resource> Resources;
+    public int StorageCapacity;
     public int EcoImpactFactor;
     public List<LocationType> AllowedLocations;
 

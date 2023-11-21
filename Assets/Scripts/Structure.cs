@@ -14,9 +14,13 @@ public class Structure
     public List<LocationType> AllowedLocations;
     public GameObject Symbol;
     public int LivingSpace;
+    public int StorageCapacity;
+    public int CostsPopulation;
     
+
+
     // Konstruktor
-    public Structure(string name, StructureType type, List<Resource> resources, List<Resource> costs, int ecoImpactFactor, List<LocationType> allowedLocations, GameObject Symbol, int LivingSpace)
+    public Structure(string name, StructureType type, List<Resource> resources, List<Resource> costs, int ecoImpactFactor, List<LocationType> allowedLocations, GameObject Symbol, int StorageCapacity, int LivingSpace)
     {
         this.Name = name;   
         this.Type = type;
@@ -25,6 +29,7 @@ public class Structure
         this.EcoImpactFactor = ecoImpactFactor;
         this.AllowedLocations = allowedLocations ?? new List<LocationType>(); // Verhindert NullReferenceException
         this.Symbol = Symbol;
+        this.StorageCapacity = StorageCapacity;
         this.LivingSpace = LivingSpace;
     }
 
@@ -34,9 +39,11 @@ public class Structure
         this.Type = data.Type;
         this.Resources = data.Resources;
         this.Costs = data.Costs;
+        this.CostsPopulation = data.CostsPopulation;
         this.EcoImpactFactor = data.EcoImpactFactor;
         this.AllowedLocations = data.AllowedLocations ?? new List<LocationType>(); // Verhindert NullReferenceException
         this.Symbol = data.Symbol;
+        this.StorageCapacity = data.StorageCapacity;
         this.LivingSpace = data.LivingSpace;
     }
 

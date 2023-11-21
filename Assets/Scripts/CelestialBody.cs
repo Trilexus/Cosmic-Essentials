@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using TMPro;
+using UnityEditor.Build.Pipeline.Tasks;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,7 +20,7 @@ abstract public class CelestialBody : MonoBehaviour
     public float interval = 2f; // Zeit zwischen zwei Ticks, wird durch ProductivityRate beeinflusst
     // Every Celestial Body have a default production of ressources.
     [SerializeField]
-    private List<Resource> BaseResourceProduction;
+    public List<Resource> BaseResourceProduction;
     public SpriteRenderer ChildSpriteRenderer;
     public float ProductivityRateBasicValue = 1f;
     public float ProductivityRate = 1f; 
@@ -46,7 +47,8 @@ abstract public class CelestialBody : MonoBehaviour
     [SerializeField]
     public List<Modifier> modifiers;
     //public int SpaceShipTransporterAvailable = 0;
-    public int ResourceStorageLimit;
+    public int CurrentResourceStorageLimit;
+    public int DefaultResourceStorageLimit = 5000;
 
     public List <SpaceShip> SpacecraftReadyForUnloading = new List<SpaceShip>();
     public List<HangarSlot> Hangar = new List<HangarSlot>();
@@ -86,7 +88,7 @@ abstract public class CelestialBody : MonoBehaviour
     {
         foreach (ResourceType type in Enum.GetValues(typeof(ResourceType)))
         {
-            ResourceStorageCelestialBody[type] = new ResourceStorage(type.ToString(), ResourceStorageLimit, 0, 0, 0);
+            ResourceStorageCelestialBody[type] = new ResourceStorage(type.ToString(), CurrentResourceStorageLimit, 0, 0, 0);
         }
         foreach (var resource in StartResources)
         {
@@ -146,6 +148,7 @@ abstract public class CelestialBody : MonoBehaviour
     protected virtual void Tick()
     {
         ExecuteConstructionProgress();
+        CalculateCtructureEffekts();
         ManageResourceProduction();
         UnloadTheSpaceShips();
         ProcessResourceTransferOrders();
@@ -352,6 +355,18 @@ abstract public class CelestialBody : MonoBehaviour
             case false:
                 return Areas.Count(x => x.structure.Type == structureType && x.constructionProgress < 100);
         }
+    }
+
+    public virtual void CalculateCtructureEffekts()
+    {
+        CalculateStructureStorageEffekt();
+    }
+
+    public void CalculateStructureStorageEffekt()
+    {
+        CurrentResourceStorageLimit = DefaultResourceStorageLimit;
+        Areas.Where(x => x.constructionProgress >= 100).ToList().ForEach(x => CurrentResourceStorageLimit += x.structure.StorageCapacity);
+        ResourceStorageCelestialBody.Values.ToList().ForEach(x => x.MaxQuantity = CurrentResourceStorageLimit);
     }
 
     public void InitiateConstructionSpacefleet(SpacefleetScriptableObject spacefleetScriptableObject)

@@ -1098,12 +1098,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7c4de5953007a31479f89fdacee345a6, type: 2}
   - {fileID: 11400000, guid: 8e1ed4865f886194c8d8748bebe615a6, type: 2}
   AllowedLocation: 0
+  StartResources: []
   ResourceTransferOrders: []
   modifierScriptableObjects: []
   modifiers: []
-  SpaceShipTransporterAvailable: 6
-  ResourceStorageLimit: 5000
+  CurrentResourceStorageLimit: 5000
   SpacecraftReadyForUnloading: []
+  Hangar: []
   MaxOrderLoops: 5
   celestialBodyName: {fileID: 388879236019944273}
   celestialBodyInfoTop: {fileID: 5941369353734620351}
@@ -1112,6 +1113,10 @@ MonoBehaviour:
   ecoIndex: 100
   ecoIndexChangeValue: 0
   freeAreaImpactFactor: 5
+  sumOfNegativeEcoImpactFactorsForStructures: 0
+  sumOfPositiveEcoImpactFactorsForStructures: 0
+  sumOfEcoImpactFactorsForPopulation: 0
+  sumOfEcoImpactFactorsForFreeAreas: 0
 --- !u!58 &5272761293592083797
 CircleCollider2D:
   m_ObjectHideFlags: 0

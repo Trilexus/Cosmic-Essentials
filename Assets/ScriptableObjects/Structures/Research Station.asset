@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 2877031959262065529, guid: 570417fc26d50b7478f69e9f75eccfe8, type: 3}
   StructureRequirements:
   - {fileID: 11400000, guid: 5c3de664e5fd9ec4b8935ed370aaa8b3, type: 2}
-  CostsCrew: 0
+  CostsCrew: 1
   LivingSpace: 1
   Prefab: {fileID: 0}
   Locations: 
@@ -30,5 +30,6 @@ MonoBehaviour:
   - {fileID: 2877031959262065529, guid: 958b64b2bacb2ad4ab69678125d81135, type: 3}
   - {fileID: 2877031959262065529, guid: 5361fdef39d1a944794254bfb7b54922, type: 3}
   - {fileID: 2877031959262065529, guid: f8afeecd30aff6c4084ab4aa655ad6cf, type: 3}
+  StorageCapacity: 0
   EcoImpactFactor: -5
   AllowedLocations: 010000000200000003000000

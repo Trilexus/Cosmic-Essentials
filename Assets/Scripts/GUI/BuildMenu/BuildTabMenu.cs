@@ -15,10 +15,6 @@ public class BuildTabMenu : MonoBehaviour
     GameObject spaceFleetEntryPrefab;
     [SerializeField]
     GameObject spaceFleetMenuContent;
-    [SerializeField]
-    GameObject InfoEntryPrefab;
-    [SerializeField]
-    GameObject InfoMenuContent;
 
 
     // Start is called before the first frame update
@@ -59,16 +55,6 @@ public class BuildTabMenu : MonoBehaviour
     }
 
 
-    public void CreateMenuForCelestialBody(CelestialBody celestialBody)
-    {
-        celestialBody.modifiers.ForEach(modifier =>
-        {
-            GameObject newInfoMenuEntry = Instantiate(InfoEntryPrefab, InfoMenuContent.transform);
-            newInfoMenuEntry.transform.SetParent(InfoMenuContent.transform);
-            newInfoMenuEntry.GetComponent<BuffEntry>().Initialize(modifier as ModifierResourceProductionFactor);
-        });
-    }
-
 
 
     public void ClearMenu()
@@ -78,10 +64,6 @@ public class BuildTabMenu : MonoBehaviour
             Destroy(entry.gameObject);
         }
         foreach (Transform entry in spaceFleetMenuContent.transform)
-        {
-            Destroy(entry.gameObject);
-        }
-        foreach (Transform entry in InfoMenuContent.transform)
         {
             Destroy(entry.gameObject);
         }

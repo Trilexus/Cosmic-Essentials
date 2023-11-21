@@ -51,7 +51,7 @@ public class GUIManager : MonoBehaviour
     public GameObject InfoMenu;
     public BuildTabMenu StructureMenuScript;
     public BuildTabMenu SpacefleetMenuScript;
-    public BuildTabMenu InfoMenuScript;
+    public TabCelestialBodyInfo InfoMenuScript;
 
     public delegate void SelectedCelestialBodyChangeHandler(CelestialBody selectedCelestialBodyScript);
     public event SelectedCelestialBodyChangeHandler OnSelectedCelestialBodyChanged;
@@ -68,7 +68,7 @@ public class GUIManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject); // Singleton
             StructureMenuScript = StructureMenu.GetComponent<BuildTabMenu>();
             SpacefleetMenuScript = SpacefleetMenu.GetComponent<BuildTabMenu>();
-            InfoMenuScript = InfoMenu.GetComponent<BuildTabMenu>();
+            InfoMenuScript = InfoMenu.GetComponent<TabCelestialBodyInfo>();
             CelestialBodyInfoScript = CelestialBodyBuildInfo.GetComponent<CelestialBodyInfo>();
             TopPanelScript = TopPanel.GetComponent<TopPanel>();
             MentatScript = Mentat.GetComponent<Mentat>();
@@ -104,8 +104,10 @@ public class GUIManager : MonoBehaviour
             ActiveCelestialBodyMarker.SetActive(false);
             ActiveCelestialBodyTarget.SetActive(false);
             ResetTopPanelInfos();
+            DeactivateCurrentPlanetarySystem();
             StructureMenuScript.ClearMenu();
             SpacefleetMenuScript.ClearMenu();
+            InfoMenuScript.ClearMenu();
             OnDeselectCelestialBody.Invoke();
         } else
         {
@@ -137,7 +139,7 @@ public class GUIManager : MonoBehaviour
     {
         if (selectedPlanetarySystem != this.selectedPlanetarySystem)
         {
-            DeactivateCurrentPlanetarySystem();
+            //DeactivateCurrentPlanetarySystem();
             this.selectedPlanetarySystem = selectedPlanetarySystem;
             selectedPlanetarySystemScript = selectedPlanetarySystem.GetComponent<PlanetarySystem>();
             selectedPlanetarySystemScript.IsActivePlanetarySystem = true;
@@ -148,7 +150,8 @@ public class GUIManager : MonoBehaviour
     {
         if (selectedPlanetarySystem != null)
         {
-            selectedPlanetarySystem.GetComponent<PlanetarySystem>().IsActivePlanetarySystem = false;
+            selectedPlanetarySystemScript.IsActivePlanetarySystem = false;
+            selectedPlanetarySystem = null;
         }
     }
 
@@ -186,6 +189,16 @@ public class GUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            UnselectAll();
+        }
     }
+
+    public void UnselectAll()
+    {
+        SetActiveCelestialBody(selectedCelestialBody);
+    }
+
+
 }

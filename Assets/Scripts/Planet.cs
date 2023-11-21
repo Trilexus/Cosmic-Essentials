@@ -21,8 +21,7 @@ public class Planet : CelestialBody
 
     const int RED_THRESHOLD = 30;
     const int YELLOW_THRESHOLD = 70;
-    [SerializeField]
-    private int freeAreaImpactFactor;
+    public int freeAreaImpactFactor;
 
     public int sumOfNegativeEcoImpactFactorsForStructures;
     public int sumOfPositiveEcoImpactFactorsForStructures;

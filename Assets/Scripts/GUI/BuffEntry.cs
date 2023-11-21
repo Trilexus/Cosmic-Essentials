@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,7 +15,18 @@ public class BuffEntry : MonoBehaviour
     {
         sprite.sprite = modifier.ModifierSprite;
         textObject.text = modifier.ModifierName + "\nType: " + modifier.ModifierType + " - " + modifier.ResourceType.ToString() + "\nLevel " + modifier.ModifierLevel + " x " + modifier.ResourceProductionFactor;
+    }
+    public void Initialize(ModifierEcoFactor modifier)
+    {
+        sprite.sprite = modifier.ModifierSprite;
+        textObject.text = modifier.ModifierName + "\nType: " + modifier.ModifierType + " - " + modifier.ModifierLevel + " x " + modifier.EcoFactor;
 
+    }
+
+    internal void Initialize(ModifierProductivityFactor modifierProductivityFactor)
+    {
+        sprite.sprite = modifierProductivityFactor.ModifierSprite;
+        textObject.text = modifierProductivityFactor.ModifierName + "\nType: " + modifierProductivityFactor.ModifierType + " - " + modifierProductivityFactor.ModifierLevel;
     }
 
 

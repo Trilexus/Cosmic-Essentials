@@ -62,6 +62,7 @@ public class BuildingInterfaceManager : MonoBehaviour
             {
                 celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity -= resource.Quantity;
             }
+            celestialBody.population.CurrentPopulation -= structureScriptableObject.CostsPopulation;
             if (structureToBuild != null)
             {
                 celestialBody.InitiateConstructionStructure(structureToBuild);

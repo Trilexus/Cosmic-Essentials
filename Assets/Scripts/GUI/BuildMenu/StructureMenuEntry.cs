@@ -84,19 +84,20 @@ public class StructureMenuEntry : MenuEntry
         Image.sprite = structureData.Sprite;
         sb.Clear();
         string resourceSummary = "";
+        string nonbreakingSpace = "\u00A0";
         foreach (Resource cost in structureData.Costs)
         {
             string symbol = Symbols.GetSymbol(cost.ResourceType);
-            string nonbreakingSpace = "\u00A0";
             string quantity = $"{cost.Quantity}";
             resourceSummary += $"{symbol}{nonbreakingSpace}{quantity} ";
         }
         sb.Append($"{resourceSummary}");
         //sb.AppendLine($"Throughput:");
+        sb.Append($"{Symbols.population}{nonbreakingSpace}{structureData.CostsPopulation}");
         BuildingInfosCosts.text = sb.ToString();
         sb.Clear();
 
-        string livingSpace = $"{Symbols.Apartments} {structureData.LivingSpace}";
+        string livingSpace = $"{Symbols.Apartments}{nonbreakingSpace}{structureData.LivingSpace}";
 
 
         sb.Append($"{livingSpace} ");
@@ -114,11 +115,16 @@ public class StructureMenuEntry : MenuEntry
             } else
             {
                 producedResource += $"{quantity} ";
-            }
-            
+            }            
+        }
+        if (structureData.StorageCapacity > 0)
+        {
+            string storageCapacity = $"{Symbols.box} {structureData.StorageCapacity}";
+            sb.Append($"{storageCapacity}");
         }
         color = CalculateResourceColor(structureData.EcoImpactFactor);
         string ecoFactor = $"{color}{Symbols.ecoInfo} {structureData.EcoImpactFactor}</color>";
+
         sb.AppendLine($"{producedResource}");
         sb.AppendLine($"{consumedResource}");
         sb.AppendLine($"{ecoFactor}");
