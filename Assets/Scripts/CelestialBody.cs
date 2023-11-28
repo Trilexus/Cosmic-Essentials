@@ -2,10 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using TMPro;
-using UnityEditor.Build.Pipeline.Tasks;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -152,6 +150,7 @@ abstract public class CelestialBody : MonoBehaviour
         ManageResourceProduction();
         UnloadTheSpaceShips();
         ProcessResourceTransferOrders();
+        ManageResearch();
         //GUIManager.Instance.UpdateTopPanelInfos();
     }
 
@@ -244,6 +243,16 @@ abstract public class CelestialBody : MonoBehaviour
         SpacecraftReadyForUnloading.Clear();
     }
 
+    public void ManageResearch()
+    {
+        
+        int ResearchPoints = GetResourceCount(ResourceType.ResearchPoints, DataTypeResource.Storage);        
+        if (ResearchPoints > 0)
+        {
+            ResearchManager.Instance.AddResearchPoints(ResearchPoints);
+            ResourceStorageCelestialBody[ResourceType.ResearchPoints].StorageQuantity = 0;
+        }
+    }
 
     public void ManageResourceProduction()
     {
@@ -260,6 +269,10 @@ abstract public class CelestialBody : MonoBehaviour
                 resourceStorage.ProductionQuantity += resource.Quantity;
             }
         }
+        //10 Population produces 1 ResearchPoint
+        int populationResearchPoints = population.CurrentPopulation / 10;
+        ResourceStorageCelestialBody[ResourceType.ResearchPoints].ProductionQuantity += populationResearchPoints;
+
         // Combine buildings and other factors and calculate the production of resources.
         foreach (var area in Areas)
         {

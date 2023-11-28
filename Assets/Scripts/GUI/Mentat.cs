@@ -28,6 +28,12 @@ public class Mentat : MonoBehaviour
         MentatAlertText.text = TranslatedValue;
         startTimeAlert = DateTime.Now; 
     }
+    public void SetText(string message)
+    {
+        myLocalizedString = new LocalizedString("MentatText", message);
+        MentatText.text = TranslatedValue;
+        startTimeAlert = DateTime.Now;
+    }
 
     // Update is called once per frame
     void Update()
@@ -35,7 +41,7 @@ public class Mentat : MonoBehaviour
         TimeSpan timeSpanAlert = DateTime.Now - startTimeAlert;
         if (timeSpanAlert.TotalSeconds > displayTimeAlert)
         {
-            MentatAlertText.text = "-_-";
+            MentatAlertText.text = "";
         }
     }
 

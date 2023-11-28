@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class GUIManager : MonoBehaviour
 {
@@ -52,6 +53,7 @@ public class GUIManager : MonoBehaviour
     public BuildTabMenu StructureMenuScript;
     public BuildTabMenu SpacefleetMenuScript;
     public TabCelestialBodyInfo InfoMenuScript;
+    public GameObject ResearchPanel;
 
     public delegate void SelectedCelestialBodyChangeHandler(CelestialBody selectedCelestialBodyScript);
     public event SelectedCelestialBodyChangeHandler OnSelectedCelestialBodyChanged;
@@ -77,6 +79,11 @@ public class GUIManager : MonoBehaviour
         {
             Destroy(this.gameObject); // Singleton
         }
+    }
+
+    public void ToggleResearchPanel()
+    {
+        ResearchPanel.SetActive(!ResearchPanel.activeSelf);
     }
 
     public void SetActiveCelestialBody(GameObject selectedCelestialBody)
@@ -111,6 +118,14 @@ public class GUIManager : MonoBehaviour
             OnDeselectCelestialBody.Invoke();
         } else
         {
+            bool isSamePlanetarySystem = selectedCelestialBody.transform.parent.gameObject == selectedPlanetarySystem;
+            bool isSelectedCelestialBodySpaceStation = selectedCelestialBodyScript is SpaceStation;
+            if (!isSamePlanetarySystem && !isSelectedCelestialBodySpaceStation)
+            {
+                MentatScript.SetAlertText("InterstellarTravelRestriction");
+                MentatScript.SetText("InterstellarTravelRestriction");
+                return;
+            }
             selectedCelestialBodyTarget = selectedCelestialBody;
             orderTargetImage.sprite = selectedCelestialBodyTarget.GetComponent<CelestialBody>().ChildSpriteRenderer.sprite;
             ActiveCelestialBodyTarget.transform.position = selectedCelestialBody.transform.position;

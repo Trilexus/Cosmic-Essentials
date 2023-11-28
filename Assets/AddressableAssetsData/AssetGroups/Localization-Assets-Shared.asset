@@ -29,6 +29,14 @@ MonoBehaviour:
     m_Address: Assets/Locales/String Table Collection/MentatAlerts Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: e35374e03584e974f99397c8d98ae111
+    m_Address: Assets/Locales/String Table Collection/MentatText Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: f2fc596b0c70e79439939477c9ecc4de
+    m_Address: Assets/Locales/String Table Collection/Research Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: aaf365a0b128a27419cd8e03e498c8cd, type: 2}
   m_SchemaSet:

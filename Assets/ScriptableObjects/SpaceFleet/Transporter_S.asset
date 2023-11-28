@@ -15,10 +15,11 @@ MonoBehaviour:
   Name: OrbitDart
   Costs:
   - {fileID: 2877031959262065529, guid: e46c88ef0ce5fc24e9765a1f3a2e14c7, type: 3}
-  - {fileID: 2877031959262065529, guid: 05df8503c0f5f6849acd165eb21cac28, type: 3}
+  - {fileID: 2877031959262065529, guid: e91b23d1e90f7d849a0110f230f2c8ca, type: 3}
+  - {fileID: 2877031959262065529, guid: 570417fc26d50b7478f69e9f75eccfe8, type: 3}
   StructureRequirements:
   - {fileID: 11400000, guid: b982e262bd894b94fb44a0398d4649a3, type: 2}
-  CostsCrew: 0
+  CostsPopulation: 2
   LivingSpace: 2
   Prefab: {fileID: 2305082013439432934, guid: 02a9f5b20fd068845986e01a85a63ea9, type: 3}
   Locations: 

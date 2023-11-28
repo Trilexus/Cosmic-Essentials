@@ -44,6 +44,10 @@ MonoBehaviour:
     m_Localized: "Geb\xE4udevoraussetzungen nicht erf\xFCllt!"
     m_Metadata:
       m_Items: []
+  - m_Id: 7405399538556928
+    m_Localized: Interstellare Reiseblockierung
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

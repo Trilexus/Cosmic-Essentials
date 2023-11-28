@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: BuildingRequirementsNotFulfilled
     m_Metadata:
       m_Items: []
+  - m_Id: 7405399538556928
+    m_Key: InterstellarTravelRestriction
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

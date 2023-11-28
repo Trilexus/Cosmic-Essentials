@@ -42,6 +42,10 @@ MonoBehaviour:
     m_Localized: Building requirements not fulfilled!
     m_Metadata:
       m_Items: []
+  - m_Id: 7405399538556928
+    m_Localized: Interstellar Travel Restriction
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

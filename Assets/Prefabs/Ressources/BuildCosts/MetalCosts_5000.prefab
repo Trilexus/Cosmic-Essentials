@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9170030831961479410}
   - component: {fileID: 2877031959262065529}
   m_Layer: 0
-  m_Name: EnergyCosts_1000
+  m_Name: MetalCosts_5000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5471dcb235819c4449cc72b786063587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Energy
-  Quantity: 1000
-  ResourceType: 2
+  Name: Metal
+  Quantity: 5000
+  ResourceType: 1

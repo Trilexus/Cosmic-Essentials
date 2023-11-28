@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Research Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Research
+  m_TableCollectionNameGuidString: f2fc596b0c70e79439939477c9ecc4de
+  m_Entries:
+  - m_Id: 6420062208
+    m_Key: SpaceportDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558278098944
+    m_Key: Spaceport
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141781499535360
+    m_Key: OrbitDart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141785039527936
+    m_Key: OrbitDartDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142307519782912
+    m_Key: CosmoCarrier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142311609229312
+    m_Key: CosmoCarrierDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 146054673227776
+    m_Key: ImprovedFarms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 146057059786752
+    m_Key: ImprovedFarmsDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 147562332577792
+    m_Key: ImprovedMines
+    m_Metadata:
+      m_Items: []
+  - m_Id: 147564249374720
+    m_Key: ImprovedMinesDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148355970392064
+    m_Key: ImprovedReactors
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148358239510528
+    m_Key: ImprovedReactorsDescription
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8735134474472783882
+  references:
+    version: 2
+    RefIds:
+    - rid: 8735134474472783882
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1700915192149

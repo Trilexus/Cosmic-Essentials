@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ebeffe97db39a4fa4e50a3103081ac, type: 3}
+  m_Name: Research_Improved Reactors01
+  m_EditorClassIdentifier: 
+  ResearchNodeName: ImprovedReactors
+  ResearchNodeDescription: ImprovedReactorsDescription
+  ResearchNodeSprite: {fileID: -462523424, guid: c406022701738534cb1f61a8f750859a, type: 3}
+  ResearchNodeLevel: 1
+  ResearchNodeCost: 200
+  ResearchRequirements:
+  - {fileID: 11400000, guid: b9163e7114cec58469972e5d2b41807b, type: 2}
+  currentResearchProgress: 0

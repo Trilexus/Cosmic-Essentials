@@ -57,16 +57,39 @@ public class TopPanel : MonoBehaviour
         metalText.text = GetResourceInfoString(ResourceType.Metal);
         energyText.text = GetResourceInfoString(ResourceType.Energy);
         spacePointsText.text = GetResourceInfoString(ResourceType.SpacePoints);
+        researchPointsLocalText.text = GetResourceInfoString(ResourceType.ResearchPoints);
     }
 
     public string GetResourceInfoString(ResourceType resourceType)
     {
-        string symbol = Symbols.GetSymbol(resourceType);
-        string storage = (selectedCelestialBodyScript.GetResourceCount(resourceType, DataTypeResource.Storage)).ToString();
-        string production = (selectedCelestialBodyScript.GetResourceCount(resourceType, DataTypeResource.Production)).ToString();
-        string consumption = (selectedCelestialBodyScript.GetResourceCount(resourceType, DataTypeResource.Consumption)).ToString();
+        if (resourceType != ResourceType.ResearchPoints)
+        {
+            string symbol = Symbols.GetSymbol(resourceType);
+            string storage = (selectedCelestialBodyScript.GetResourceCount(resourceType, DataTypeResource.Storage)).ToString();
+            string production = (selectedCelestialBodyScript.GetResourceCount(resourceType, DataTypeResource.Production)).ToString();
+            string consumption = (selectedCelestialBodyScript.GetResourceCount(resourceType, DataTypeResource.Consumption)).ToString();
+            stringBuilder.Clear();
+            stringBuilder.Append($"{symbol}:{storage}({production}/{consumption})");
+        }
+        else
+        {
+            string symbol = Symbols.GetSymbol(resourceType);
+            string storage = (selectedCelestialBodyScript.GetResourceCount(resourceType, DataTypeResource.Storage)).ToString();
+            string production = (selectedCelestialBodyScript.GetResourceCount(resourceType, DataTypeResource.Production)).ToString();
+            string consumption = (selectedCelestialBodyScript.GetResourceCount(resourceType, DataTypeResource.Consumption)).ToString();
+            stringBuilder.Clear();
+            stringBuilder.Append($"{symbol}:{production}/{consumption}");
+        }
+        
+        return stringBuilder.ToString();
+    }
+
+    public string GetGlobalResourceInfoString()
+    {
+        string symbol = Symbols.GetSymbol(ResourceType.ResearchPoints);
+        string totalResearchPoints = ResearchManager.Instance.ResearchPoints.ToString();
         stringBuilder.Clear();
-        stringBuilder.Append($"{symbol}:{storage}({production}/{consumption})");
+        stringBuilder.Append($"{symbol}:{totalResearchPoints}");
         return stringBuilder.ToString();
     }
 
@@ -119,7 +142,8 @@ public class TopPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        researchPointsGlobalText.text = GetGlobalResourceInfoString();
+
         if (GUIManager.Instance.selectedCelestialBody != null)
         {
             UpdatePanelInfos(selectedCelestialBodyScript);
