@@ -8,7 +8,23 @@ public class Structure
 {
     public string Name;
     public StructureType Type;
-    public List <Resource> Resources;
+    public List<Resource> resources;
+    public List<Resource> Resources
+    {
+        get
+        {
+            List<Resource> returnList = new List<Resource>();
+            foreach (var resource in resources)
+            {
+                returnList.Add(AddUpgrades(resource));
+            }
+            return returnList;
+        }
+        set
+        {
+            resources = value;
+        }
+    }
     public List<Resource> Costs;
     public int EcoImpactFactor;
     public List<LocationType> AllowedLocations;
@@ -16,8 +32,25 @@ public class Structure
     public int LivingSpace;
     public int StorageCapacity;
     public int CostsPopulation;
-    
+    public Sprite Sprite;
+    public List<StructureResourceUpgrade> Upgrades;
 
+
+    private Resource AddUpgrades(Resource resource)
+    {
+        Resource returnResource = new Resource();
+        returnResource.Quantity = resource.Quantity;
+        returnResource.ResourceType = resource.ResourceType;
+
+        foreach (var upgrade in Upgrades)
+        {
+            if (upgrade.ResourcesType.Contains(resource.ResourceType))
+            {
+                returnResource.Quantity += upgrade.ResourcesChangeAmount;
+            }
+        }
+        return returnResource;
+    }
 
     // Konstruktor
     public Structure(string name, StructureType type, List<Resource> resources, List<Resource> costs, int ecoImpactFactor, List<LocationType> allowedLocations, GameObject Symbol, int StorageCapacity, int LivingSpace)
@@ -31,6 +64,7 @@ public class Structure
         this.Symbol = Symbol;
         this.StorageCapacity = StorageCapacity;
         this.LivingSpace = LivingSpace;
+        Upgrades = new List<StructureResourceUpgrade>();
     }
 
     public Structure(StructureScriptableObject data)
@@ -45,6 +79,8 @@ public class Structure
         this.Symbol = data.Symbol;
         this.StorageCapacity = data.StorageCapacity;
         this.LivingSpace = data.LivingSpace;
+        this.Sprite = data.Sprite;
+        Upgrades = new List<StructureResourceUpgrade>();
     }
 
     public bool IsLocationAllowed(List<LocationType> locations)

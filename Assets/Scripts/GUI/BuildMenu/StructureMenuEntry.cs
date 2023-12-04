@@ -49,9 +49,9 @@ public class StructureMenuEntry : MenuEntry
     public void UpdateInfoText()
     {
         List<Area> Areas = GUIManager.Instance.selectedCelestialBodyScript.Areas;
-        int completedBuildingCount = Areas.Count(I => I.structure.Name == structureData.Name && I.constructionProgress >= OneHundredPercent);
+        int completedBuildingCount = Areas.Count(I => I.structure.Name == structureData.Name && I.ConstructionProgress >= OneHundredPercent);
         lastunderConstructionCount = underConstructionCount;
-        underConstructionCount = Areas.Count(I => I.structure.Name == structureData.Name && I.constructionProgress < OneHundredPercent);
+        underConstructionCount = Areas.Count(I => I.structure.Name == structureData.Name && I.ConstructionProgress < OneHundredPercent);
         if (lastunderConstructionCount != underConstructionCount) { CreateBuildProgressItems(); }
         int buildingCount = completedBuildingCount + underConstructionCount;
 

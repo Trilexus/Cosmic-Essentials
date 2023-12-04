@@ -7,7 +7,8 @@ using UnityEngine;
 public class BuildingInterfaceManager : MonoBehaviour
 {
     public static BuildingInterfaceManager Instance;
-
+    public delegate void BuildStructureDelegate(CelestialBody celestialBody);
+    public event BuildStructureDelegate OnBuildStructure;
 
     //EntityManager.Instance.structureDictionary;
 
@@ -65,7 +66,7 @@ public class BuildingInterfaceManager : MonoBehaviour
             celestialBody.population.CurrentPopulation -= structureScriptableObject.CostsPopulation;
             if (structureToBuild != null)
             {
-                celestialBody.InitiateConstructionStructure(structureToBuild);
+                celestialBody.InitiateConstructionStructure(structureToBuild, 0);
             }
         }
     }
@@ -138,7 +139,7 @@ public class BuildingInterfaceManager : MonoBehaviour
         foreach (StructureScriptableObject structureRequirement in structureRequirements)
         {
             structure = EntityManager.Instance.GetStructure(structureRequirement);
-            bool hatStrukturMitVollemFortschritt = celestialBody.Areas.Any(area => area.structure.Type == structure.Type && area.constructionProgress >= 100);
+            bool hatStrukturMitVollemFortschritt = celestialBody.Areas.Any(area => area.structure.Type == structure.Type && area.ConstructionProgress >= 100);
             if (!hatStrukturMitVollemFortschritt)
             {
                 return false;

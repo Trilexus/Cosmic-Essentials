@@ -29,6 +29,7 @@ public class EntityManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject); // Dies stellt sicher, dass der GameManager zwischen den Szenenwechseln nicht zerstört wird.
             CreateStructures();
+            SubscribeToEvents();
             //Create Structure Database
             StructureDatabase.Initialize();
         }
@@ -42,6 +43,11 @@ public class EntityManager : MonoBehaviour
         OnSpacefleetChanged?.Invoke(spacefleetScriptableObjects);
     }
 
+    public void SubscribeToEvents()
+    {
+        ResearchManager.Instance.OnResearchNodeStructureProductionDone += UpgradeStructures;
+    }
+
     public List<Structure> GetStructuresForCelestialBody(LocationType celestialBodyAllowedLocation)
     {
         return AllStructures.Where(I => I.AllowedLocations.Contains(celestialBodyAllowedLocation)).ToList();
@@ -49,8 +55,12 @@ public class EntityManager : MonoBehaviour
 
     public List<StructureScriptableObject> GetStructuresScriptableObjectForCelestialBody(LocationType celestialBodyAllowedLocation)
     {
-        return structureDictionary.Keys.Where(I => I.AllowedLocations.Contains(celestialBodyAllowedLocation)).ToList();
+        return structureDictionary.Keys
+            .Where(structure => structure.AllowedLocations.Contains(celestialBodyAllowedLocation))
+            .Where(structure => structure.ResearchRequirements.All(ResearchManager.Instance.ResearchNodeScriptableObjectsDone.Contains))
+            .ToList();
     }
+
 
     public List<SpacefleetScriptableObject> GetSpacefleetScriptableObjectForCelestialBody()
     {
@@ -79,7 +89,17 @@ public class EntityManager : MonoBehaviour
         foreach (var scriptableObject in structureScriptableObjects)
         {
             Structure newStructure = new Structure(scriptableObject);
+            //StructureScriptableObject structureScriptableObjectCopy = Instantiate(scriptableObject);
             structureDictionary[scriptableObject] = newStructure;
+        }
+    }
+
+    public void UpgradeStructures(StructureResourceUpgrade structureResourceUpgrade)
+    {
+        foreach (StructureScriptableObject updateScriptableObject in structureResourceUpgrade.structureScriptableObjects)
+        {
+            structureDictionary[updateScriptableObject].Upgrades.Add(structureResourceUpgrade);
+            Debug.Log("Upgrade " + updateScriptableObject.Name + " with " + structureResourceUpgrade.ResourcesType);
         }
     }
     private void CreateSpacefleet()

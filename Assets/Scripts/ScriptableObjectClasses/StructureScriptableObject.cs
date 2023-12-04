@@ -11,4 +11,5 @@ public class StructureScriptableObject : EntityScriptableObject
     public int EcoImpactFactor;
     public List<LocationType> AllowedLocations;
 
+
 }

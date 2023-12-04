@@ -103,7 +103,7 @@ public class GUIManager : MonoBehaviour
             InfoMenuScript.CreateMenuForCelestialBody(selectedCelestialBodyScript);
 
 
-            OnSelectedCelestialBodyChanged.Invoke(selectedCelestialBodyScript);
+            OnSelectedCelestialBodyChanged?.Invoke(selectedCelestialBodyScript);
         } else if (this.selectedCelestialBody == selectedCelestialBody) {
             this.selectedCelestialBody = null;
             orderOriginImage.sprite = celestialBodyDefaultImage;

@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class ResearchNodeScriptableObject : ScriptableObject
 {
-
     public string ResearchNodeName;
     public string ResearchNodeDescription;
     public Sprite ResearchNodeSprite;
@@ -14,4 +13,8 @@ public class ResearchNodeScriptableObject : ScriptableObject
     public int ResearchNodeCost;
     public List<ResearchNodeScriptableObject> ResearchRequirements;
     public int currentResearchProgress = 0;
+    public ResearchType ResearchType;
+    public ResearchUpgrade researchUpgrade;
 }
+
+

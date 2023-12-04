@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -66,6 +67,10 @@ abstract public class CelestialBody : MonoBehaviour
     [SerializeField]
     protected TextMeshProUGUI celestialBodyInfoRight;
 
+    public delegate void StartStructureBuildHandler(Area area);
+    public event StartStructureBuildHandler OnStartStructureBuild;
+
+
     public virtual void Start()
     {
         celestialBodyName.text = Name;
@@ -76,6 +81,7 @@ abstract public class CelestialBody : MonoBehaviour
         nextTickTime = Time.time + interval;
         StartCoroutine(TickCoroutine());
         InitializeStartingBuildings();
+        SubscribeToEvents();
         orderDispatcher = new ResourceTransferDispatcher(ResourceStorageCelestialBody);
         for (int i = 0; i <= 2; i++)
         {
@@ -99,7 +105,21 @@ abstract public class CelestialBody : MonoBehaviour
         foreach (var structure in StartStructureScriptableObjects)
         {
             Structure startbuilding = new Structure(structure);
-            Areas.Add(new Area { structure = startbuilding, constructionProgress = 100 });
+            InitiateConstructionStructure(startbuilding, 100);
+            //Areas.Add(new Area { structure = startbuilding, ConstructionProgress = 100 });
+        }
+    }
+    public void SubscribeToEvents()
+    {
+        ResearchManager.Instance.OnResearchNodeStructureProductionDone += UpgradeStructures;
+    }
+
+
+    public void UpgradeStructures(StructureResourceUpgrade structureResourceUpgrade)
+    {
+        foreach (StructureScriptableObject updateScriptableObject in structureResourceUpgrade.structureScriptableObjects)
+        {
+            Areas.Where(x => x.structure.Type == updateScriptableObject.Type).ToList().ForEach(x => x.structure.Upgrades.Add(structureResourceUpgrade));
         }
     }
     private void InitializeModifiers()
@@ -161,12 +181,14 @@ abstract public class CelestialBody : MonoBehaviour
         //GetComponentInParent<PlanetarySystem>().IsActivePlanetarySystem = true;
         GUIManager.Instance.SetActiveCelestialBody(gameObject);
     }
-    public void InitiateConstructionStructure(Structure structure)
+    public void InitiateConstructionStructure(Structure structure, int constructionProgress)
     {
         //Start building projects (farm, power plant, mine, research center).
         if (maxAreas > Areas.Count)
         {
-            Areas.Add(new Area { structure = structure, constructionProgress = 0 });
+            Area newArea = new Area { structure = structure, ConstructionProgress = constructionProgress };
+            Areas.Add(newArea);
+            OnStartStructureBuild?.Invoke(newArea);
         }
 
     }
@@ -193,14 +215,14 @@ abstract public class CelestialBody : MonoBehaviour
 
     private void ExecuteConstructionPrograssStructure()
     {
-        int countOfConstructingAreas = Areas.Count(x => x.constructionProgress < 100);
+        int countOfConstructingAreas = Areas.Count(x => x.ConstructionProgress < 100);
         if (countOfConstructingAreas > 0)
         {
             float individualConstructionRate = ConstructionRate / countOfConstructingAreas;
-            Areas.Where(x => x.constructionProgress < 100)
+            Areas.Where(x => x.ConstructionProgress < 100)
                  .ToList()
-                 .ForEach(x => x.constructionProgress += (int)(individualConstructionRate * 100 * ProductivityRate));//TODO: Magic Number
-            Areas.Where(x => x.constructionProgress < 100).ToList().ForEach(x => x.constructionProgress = Mathf.Clamp(x.constructionProgress, 1, 100));
+                 .ForEach(x => x.ConstructionProgress += (int)(individualConstructionRate * 100 * ProductivityRate));//TODO: Magic Number
+            Areas.Where(x => x.ConstructionProgress < 100).ToList().ForEach(x => x.ConstructionProgress = Mathf.Clamp(x.ConstructionProgress, 1, 100));
         }
     }
 
@@ -276,7 +298,7 @@ abstract public class CelestialBody : MonoBehaviour
         // Combine buildings and other factors and calculate the production of resources.
         foreach (var area in Areas)
         {
-            if (area.constructionProgress >= 100)
+            if (area.ConstructionProgress >= 100)
             {
                 foreach (var resource in area.structure.Resources)
                 {
@@ -285,6 +307,12 @@ abstract public class CelestialBody : MonoBehaviour
                         var production = resource.Quantity > 0 ? (int)(resource.Quantity * ProductivityRate) : resource.Quantity;
                         resourceStorage.ProductionQuantity += production > 0 ? production : 0;
                         resourceStorage.ConsumptionQuantity += production < 0 ? production : 0;
+
+                        //Upgrades werden hier angewendet.
+                        //foreach (var upgrade in area.structure.Upgrades.Where(i => i.ResourcesType.Equals(resource.ResourceType)))
+                        //{                            
+                        //        resourceStorage.ProductionQuantity += upgrade.ResourcesChangeAmount;                            
+                        //}
                     }
                 }
             }
@@ -364,9 +392,9 @@ abstract public class CelestialBody : MonoBehaviour
         switch (isCompleted)
         {
             case true:
-                return Areas.Count(x => x.structure.Type == structureType && x.constructionProgress >= 100);
+                return Areas.Count(x => x.structure.Type == structureType && x.ConstructionProgress >= 100);
             case false:
-                return Areas.Count(x => x.structure.Type == structureType && x.constructionProgress < 100);
+                return Areas.Count(x => x.structure.Type == structureType && x.ConstructionProgress < 100);
         }
     }
 
@@ -378,7 +406,7 @@ abstract public class CelestialBody : MonoBehaviour
     public void CalculateStructureStorageEffekt()
     {
         CurrentResourceStorageLimit = DefaultResourceStorageLimit;
-        Areas.Where(x => x.constructionProgress >= 100).ToList().ForEach(x => CurrentResourceStorageLimit += x.structure.StorageCapacity);
+        Areas.Where(x => x.ConstructionProgress >= 100).ToList().ForEach(x => CurrentResourceStorageLimit += x.structure.StorageCapacity);
         ResourceStorageCelestialBody.Values.ToList().ForEach(x => x.MaxQuantity = CurrentResourceStorageLimit);
     }
 

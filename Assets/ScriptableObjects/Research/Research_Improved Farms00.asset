@@ -18,4 +18,6 @@ MonoBehaviour:
   ResearchNodeLevel: 0
   ResearchNodeCost: 100
   ResearchRequirements: []
-  currentResearchProgress: 0
+  currentResearchProgress: 100
+  ResearchType: 0
+  researchUpgrade: {fileID: 11400000, guid: b3389f18130a64c4a940031bdc62b9c8, type: 2}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,10 @@ public class ResearchManager : MonoBehaviour
 
     public delegate void ResearchNodeDone(ResearchNode researchNode, ResearchNodeScriptableObject researchNodeScriptableObject);
     public event ResearchNodeDone OnResearchNodeDone;
+    public delegate void ResearchNodeStructureProductionDone(StructureResourceUpgrade structureResourceUpgrade);
+    public event ResearchNodeStructureProductionDone OnResearchNodeStructureProductionDone;
+    public delegate void ResearchNodeBuildableEntityDone();
+    public event ResearchNodeBuildableEntityDone OnResearchNodeBuildableEntityDone;
 
     public void Awake()
     {
@@ -23,12 +28,23 @@ public class ResearchManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            ResetResearch();
         }
         else
         {
             Destroy(gameObject);
         }
     }
+
+    public void ResetResearch()
+    {
+        foreach (ResearchNodeScriptableObject researchNodeScriptableObject in ResearchNodeScriptableObjects)
+        {
+            researchNodeScriptableObject.currentResearchProgress = 0;
+        }
+    }
+
+
 
     public void SetActiveResearchNode(ResearchNodeScriptableObject researchNode, GameObject ResearchNodeGameObject)
     {
@@ -98,14 +114,26 @@ public class ResearchManager : MonoBehaviour
 
             if (ActiveResearchNodeScriptableObject.currentResearchProgress >= ActiveResearchNodeScriptableObject.ResearchNodeCost)
             {
-                ResearchNodeScriptableObjectsDone.Add(ActiveResearchNodeScriptableObject);
-                ResearchNodeScriptableObjects.Remove(ActiveResearchNodeScriptableObject);
-                ActiveResearchNodeGameObject.GetComponent<Image>().color = Color.green;
-                OnResearchNodeDone?.Invoke(ActiveResearchNodeGameObject.GetComponent<ResearchNode>(), ActiveResearchNodeScriptableObject);
-                ActiveResearchNodeGameObject = null;
-                ActiveResearchNodeScriptableObject = null;
-
+                ResearchDone();
             }
         }
+    }
+
+    public void ResearchDone()
+    {
+        ResearchNodeScriptableObjectsDone.Add(ActiveResearchNodeScriptableObject);
+        ResearchNodeScriptableObjects.Remove(ActiveResearchNodeScriptableObject);
+        ActiveResearchNodeGameObject.GetComponent<Image>().color = Color.green;
+        OnResearchNodeDone?.Invoke(ActiveResearchNodeGameObject.GetComponent<ResearchNode>(), ActiveResearchNodeScriptableObject);
+        if (ActiveResearchNodeScriptableObject.ResearchType == ResearchType.StructureProduction)
+        {
+            StructureResourceUpgrade structureResourceUpgrade = (StructureResourceUpgrade)ActiveResearchNodeScriptableObject.researchUpgrade;
+            OnResearchNodeStructureProductionDone.Invoke(structureResourceUpgrade);
+        } else if (ActiveResearchNodeScriptableObject.ResearchType == ResearchType.BuildableEntity)
+        {
+            OnResearchNodeBuildableEntityDone.Invoke();
+        }
+        ActiveResearchNodeGameObject = null;
+        ActiveResearchNodeScriptableObject = null;
     }
 }

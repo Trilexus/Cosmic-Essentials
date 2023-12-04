@@ -98,16 +98,16 @@ public class Planet : CelestialBody
     //UpdateInfoText is called from Update() in CelestialBody and is used to update the text in the child gameobjetc CelestialBodyInfos
     public override void UpdateInfoText()
     {
-        int farms = Areas.Count(I => I.structure.Name == "Farm" && I.constructionProgress >= OneHundredPercent);
-        int mines = Areas.Count(I => I.structure.Name == "Mine" && I.constructionProgress >= OneHundredPercent);
-        int reactors = Areas.Count(I => I.structure.Name == "Reactor" && I.constructionProgress >= OneHundredPercent);
-        int spaceports = Areas.Count(I => I.structure.Name == "Spaceport" && I.constructionProgress >= OneHundredPercent);
-        int apartments = Areas.Count(I => I.structure.Name == "Apartments" && I.constructionProgress >= OneHundredPercent);
-        int farmsInConstruction = Areas.Count(I => I.structure.Name == "Farm" && I.constructionProgress < OneHundredPercent);
-        int minesInConstruction = Areas.Count(I => I.structure.Name == "Mine" && I.constructionProgress < OneHundredPercent);
-        int reactorsInConstruction = Areas.Count(I => I.structure.Name == "Reactor" && I.constructionProgress < OneHundredPercent);
-        int spaceportsInConstruction = Areas.Count(I => I.structure.Name == "Spaceport" && I.constructionProgress < OneHundredPercent);
-        int apartmentsInConstruction = Areas.Count(I => I.structure.Name == "Apartments" && I.constructionProgress < OneHundredPercent);
+        int farms = Areas.Count(I => I.structure.Name == "Farm" && I.ConstructionProgress >= OneHundredPercent);
+        int mines = Areas.Count(I => I.structure.Name == "Mine" && I.ConstructionProgress >= OneHundredPercent);
+        int reactors = Areas.Count(I => I.structure.Name == "Reactor" && I.ConstructionProgress >= OneHundredPercent);
+        int spaceports = Areas.Count(I => I.structure.Name == "Spaceport" && I.ConstructionProgress >= OneHundredPercent);
+        int apartments = Areas.Count(I => I.structure.Name == "Apartments" && I.ConstructionProgress >= OneHundredPercent);
+        int farmsInConstruction = Areas.Count(I => I.structure.Name == "Farm" && I.ConstructionProgress < OneHundredPercent);
+        int minesInConstruction = Areas.Count(I => I.structure.Name == "Mine" && I.ConstructionProgress < OneHundredPercent);
+        int reactorsInConstruction = Areas.Count(I => I.structure.Name == "Reactor" && I.ConstructionProgress < OneHundredPercent);
+        int spaceportsInConstruction = Areas.Count(I => I.structure.Name == "Spaceport" && I.ConstructionProgress < OneHundredPercent);
+        int apartmentsInConstruction = Areas.Count(I => I.structure.Name == "Apartments" && I.ConstructionProgress < OneHundredPercent);
         string ecoColor = CalculateEcoIndexColor();        
         int DevelopedAreas = Areas.Count();
         sb.Clear();
@@ -165,7 +165,7 @@ public class Planet : CelestialBody
         // Most structures have a negative impact on the ecoIndex
         sumOfNegativeEcoImpactFactorsForStructures = Areas.Where(area => area.structure.EcoImpactFactor < 0).Sum(area => area.structure.EcoImpactFactor);
         // Some buildings have a positive impact on the ecoIndex
-        sumOfPositiveEcoImpactFactorsForStructures = Areas.Where(area => area.constructionProgress >= 100 && area.structure.EcoImpactFactor > 0).Sum(area => area.structure.EcoImpactFactor);
+        sumOfPositiveEcoImpactFactorsForStructures = Areas.Where(area => area.ConstructionProgress >= 100 && area.structure.EcoImpactFactor > 0).Sum(area => area.structure.EcoImpactFactor);
         // Population has a negative impact on the ecoIndex
         sumOfEcoImpactFactorsForPopulation = population.EcoImpactFactor;
         // Free areas have a positive impact on the ecoIndex
@@ -207,7 +207,7 @@ public class Planet : CelestialBody
         int maxPopulation = 0;
         foreach(var apartments in Areas)
         {
-            if (apartments.constructionProgress >= 100)
+            if (apartments.ConstructionProgress >= 100)
             {
                 maxPopulation += apartments.structure.LivingSpace;
             }

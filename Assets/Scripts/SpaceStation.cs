@@ -82,14 +82,14 @@ public class SpaceStation : CelestialBody
 
     public override void UpdateInfoText()
     {
-        int farms = Areas.Count(I => I.structure.Name == "Farm" && I.constructionProgress >= OneHundredPercent);
-        int mines = Areas.Count(I => I.structure.Name == "Mine" && I.constructionProgress >= OneHundredPercent);
-        int reactors = Areas.Count(I => I.structure.Name == "Reactor" && I.constructionProgress >= OneHundredPercent);
-        int spaceports = Areas.Count(I => I.structure.Name == "Spaceport" && I.constructionProgress >= OneHundredPercent);
-        int farmsInConstruction = Areas.Count(I => I.structure.Name == "Farm" && I.constructionProgress < OneHundredPercent);
-        int minesInConstruction = Areas.Count(I => I.structure.Name == "Mine" && I.constructionProgress < OneHundredPercent);
-        int reactorsInConstruction = Areas.Count(I => I.structure.Name == "Reactor" && I.constructionProgress < OneHundredPercent);
-        int spaceportsInConstruction = Areas.Count(I => I.structure.Name == "Spaceport" && I.constructionProgress < OneHundredPercent);
+        int farms = Areas.Count(I => I.structure.Name == "Farm" && I.ConstructionProgress >= OneHundredPercent);
+        int mines = Areas.Count(I => I.structure.Name == "Mine" && I.ConstructionProgress >= OneHundredPercent);
+        int reactors = Areas.Count(I => I.structure.Name == "Reactor" && I.ConstructionProgress >= OneHundredPercent);
+        int spaceports = Areas.Count(I => I.structure.Name == "Spaceport" && I.ConstructionProgress >= OneHundredPercent);
+        int farmsInConstruction = Areas.Count(I => I.structure.Name == "Farm" && I.ConstructionProgress < OneHundredPercent);
+        int minesInConstruction = Areas.Count(I => I.structure.Name == "Mine" && I.ConstructionProgress < OneHundredPercent);
+        int reactorsInConstruction = Areas.Count(I => I.structure.Name == "Reactor" && I.ConstructionProgress < OneHundredPercent);
+        int spaceportsInConstruction = Areas.Count(I => I.structure.Name == "Spaceport" && I.ConstructionProgress < OneHundredPercent);
         int DevelopedAreas = Areas.Count();
         sb.Clear();
 

@@ -42,7 +42,7 @@ public class MenuEntry : MonoBehaviour
         {
             structure = EntityManager.Instance.GetStructure(structureRequirement);
             bool hatStrukturMitVollemFortschritt = GUIManager.Instance.selectedCelestialBodyScript.Areas
-                .Any(area => area.structure.Type == structure.Type && area.constructionProgress >= 100);
+                .Any(area => area.structure.Type == structure.Type && area.ConstructionProgress >= 100);
             if (!hatStrukturMitVollemFortschritt)
             {
                 return false;

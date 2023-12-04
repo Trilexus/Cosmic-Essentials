@@ -8,6 +8,20 @@ public class Area
     [SerializeField]
     public Structure structure;
     [SerializeField]
-    public int constructionProgress; // 0 -> 100 percent 
+    private int constructionProgress; // 0 -> 100 percent
+    public int ConstructionProgress
+    {
+        get
+        {
+            return constructionProgress;
+        }
+        set
+        {
+            constructionProgress = value;
+            OnConstructionProgressChanged?.Invoke(this);
+        }
+    }
 
+    public delegate void ConstructionProgressChangeHandler(Area area);
+    public event ConstructionProgressChangeHandler OnConstructionProgressChanged;
 }

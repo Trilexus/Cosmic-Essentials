@@ -33,12 +33,12 @@ public class CelestialBodyInfo : MonoBehaviour
             Vector3 CelestialBodyInfoSymbolOffset = new Vector3(60, 0, 0);
             RectTransform InfoRect = celestialBodyInfo.GetComponent<RectTransform>();
             Vector3 SymbolPosition = new Vector3(InfoRect.position.x, InfoRect.position.y, 0);
-            foreach (Area area in selectedCelestialBody.GetComponent<CelestialBody>().Areas.Where<Area>(i => i.constructionProgress < 100))
+            foreach (Area area in selectedCelestialBody.GetComponent<CelestialBody>().Areas.Where<Area>(i => i.ConstructionProgress < 100))
             {
                 GameObject Symbol = Instantiate(area.structure.Symbol);
                 Symbol.transform.SetParent(celestialBodyInfo.transform);
                 Symbol.transform.position = SymbolPosition;
-                Symbol.GetComponent<RectMask2D>().padding = new Vector4(0, 0, 0, 45 - (0.45f * Mathf.Max(area.constructionProgress,10)));
+                Symbol.GetComponent<RectMask2D>().padding = new Vector4(0, 0, 0, 45 - (0.45f * Mathf.Max(area.ConstructionProgress,10)));
                 SymbolPosition = new Vector3(SymbolPosition.x + CelestialBodyInfoSymbolOffset.x, SymbolPosition.y, 0);
             }
         }

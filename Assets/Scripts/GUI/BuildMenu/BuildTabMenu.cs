@@ -29,8 +29,15 @@ public class BuildTabMenu : MonoBehaviour
         
     }
 
+    public void UpdateStructure()
+    {
+        ClearMenu();
+        CreateMenuForCelestialBody(GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>().AllowedLocation);
+    }
+
     public void CreateMenuForCelestialBody(LocationType Location)
     {
+        ResearchManager.Instance.OnResearchNodeBuildableEntityDone += UpdateStructure;
         EntityManager.Instance.GetStructuresScriptableObjectForCelestialBody(Location).ForEach(I =>
         {
             GameObject newStructureMenuEntry = Instantiate(structureEntryPrefab, structureMenuContent.transform);
@@ -59,6 +66,7 @@ public class BuildTabMenu : MonoBehaviour
 
     public void ClearMenu()
     {
+        ResearchManager.Instance.OnResearchNodeBuildableEntityDone -= UpdateStructure;
         foreach (Transform entry in structureMenuContent.transform)
         {
             Destroy(entry.gameObject);

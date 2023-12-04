@@ -67,6 +67,14 @@ MonoBehaviour:
     m_Localized: Deine Reaktoren produzieren +1 Energie.
     m_Metadata:
       m_Items: []
+  - m_Id: 2673872275660800
+    m_Localized: Forschungszentrum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2673883998740480
+    m_Localized: Forschungszentrum baubar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

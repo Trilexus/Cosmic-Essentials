@@ -20,3 +20,5 @@ MonoBehaviour:
   ResearchRequirements:
   - {fileID: 11400000, guid: c9f1ce689b1eb294198844b1d6d939b8, type: 2}
   currentResearchProgress: 0
+  ResearchType: 0
+  researchUpgrade: {fileID: 11400000, guid: b3389f18130a64c4a940031bdc62b9c8, type: 2}

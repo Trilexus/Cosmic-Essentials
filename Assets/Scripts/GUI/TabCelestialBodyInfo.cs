@@ -39,13 +39,14 @@ public class TabCelestialBodyInfo : MonoBehaviour
         CBNameText.text = celestialBody.Name;
         CBImage.sprite = celestialBody.ChildSpriteRenderer.sprite;
         StringBuilder.Clear();
-        StringBuilder.AppendLine($"{Symbols.Area} {celestialBody.maxAreas}");
+        StringBuilder.AppendLine($"Building areas({Symbols.Area}): {celestialBody.maxAreas}");
         if (celestialBody is Planet planet)
         {
-            StringBuilder.AppendLine($"Type: {planet.AllowedLocation}");
-            StringBuilder.AppendLine($"{planet.freeAreaImpactFactor} {Symbols.ecoInfo} / {Symbols.Area}");
-            StringBuilder.AppendLine($"{Symbols.box} {planet.CurrentResourceStorageLimit}");
-            //StringBuilder.AppendLine($"{Symbols.population} {planet.population.CurrentPopulation}");
+            StringBuilder.AppendLine($"Celestial Body: {planet.AllowedLocation}<sprite name='bolt-solid'>");
+            StringBuilder.AppendLine($"Each undeveloped building site ({Symbols.Area}) generates {planet.freeAreaImpactFactor} EcoPoints ({Symbols.ecoInfo})");
+            StringBuilder.AppendLine($"Storage Capacity ({Symbols.box}): {planet.CurrentResourceStorageLimit} Units per Resource.");
+            StringBuilder.AppendLine($"Current Inhabitants ({Symbols.population}): {planet.population.CurrentPopulation}; Maximum Housing Capacity ({Symbols.Apartments}): {planet.population._maxPopulation}. ");
+            
             CBMainInfosText_L.text = StringBuilder.ToString();
         }
         celestialBody.BaseResourceProduction.ForEach(resourceProduction =>
