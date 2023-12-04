@@ -1,0 +1,50 @@
+\uF64F Farm produziert Nahrung
+\ue2cd Nahrung wird für Bewohner benötigt. Pro Bewohner eine Nahrung.
+\uF275 Miene produziert Metall
+\uF468 Metall wird zum bau von Gebäuden benötigt.
+\uF7BA Reaktor produziert Energie
+\uF0E7 Energie Wird für Gebäude benötigt.
+\uF7C0 Spaceport produziert Spacepoints
+\uF7BF Spacepoints werden für Raumfahrt benötigt (Bau von Raumschiffen)
+\uF0C3 Forschungspunkte ermöglichen das Forschen. Sie werden pro 10 Population auf einem Planeten oder in Forschungscentren erzeugt.
+
+\uF185 Appartments bieten Wohnraum für Bewohner
+\uF015 Wohnraum für Population
+\uE533 Population Bewohner werden für die Produktion und den Bau von gebäuden benötigt. Mehr Bewohner pro Gebäude = mehr Produktivität.
+
+\uF0AC Bauplätze Pro Bauplatz kann ein Gebäude gebaut werden. Jeder unbebaute Bauplatz erzeugt Eco Punkte
+\uF201 Produktivität steigert die Produktion von Ressourcen und die Baugewschwindigkeit
+\uF06A Ökologischer Status ist wichtig für die Bevölkerung und wirkt sich auf die Produktivität aus.
+
+\uF46C Lagerplatz auf Planeten und Spaceships
+\uF135 Raumschiffe transportieren Ressourcen zu anderen Planeten
+\uF2F9 Spaceship fliegt wieder zum Start zurück
+\uF466 Spaceship startet nur, wenn die gesammte menmge Resourcen vollständig transportiert werden kann.
+\uF534 Auftrag wird immer wieder ausgeführt
+\uF2ED Mülleimer - Gebäude abreißen
+
+
+\uF64F Farm produces food.
+\ue2cd Food is needed for inhabitants. One food per inhabitant.
+\uF275 Mine produces metal.
+\uF468 Metal is required for building construction.
+\uF7BA Reactor generates energy.
+\uF0E7 Energy is needed for buildings.
+\uF7C0 Spaceport produces Spacepoints.
+\uF7BF Spacepoints are needed for space travel (building spaceships).
+\uF0C3 Research points enable research. They are generated per 10 inhabitants on a planet or in research centers. The menu opens by clicking on the icon at the top right of the screen.
+
+\uF015 Apartments provide living space for inhabitants.
+\uE533 Population inhabitants are needed for production and building construction. More inhabitants per building = more productivity.
+
+\uF0AC Construction sites allow one building per site. Each unbuilt site generates Eco Points.
+\uF201 Productivity increases resource production and construction speed.
+\uF06C Ecological status is important for the population and affects productivity.
+
+\uf49e Storage space on planets and spaceships.
+\uf06a Transport order is prioritized blocks other orders
+\uF135 Spaceships transport resources to other planets.
+\uF2F9 Spaceship returns to the start.
+\uF466 Spaceship only launches if the full amount of resources can be transported.
+\uF534 Mission is repeatedly executed.
+\uF2ED Trash can - demolish buildings.

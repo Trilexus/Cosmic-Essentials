@@ -26,10 +26,27 @@ public class TabsMenu : MonoBehaviour
 
     public void OnClick(Button button)
     {
+        //foreach (GameObject panel in panels)
+        //{
+        //    panel.SetActive(false);
+        //}
+        //button.GetComponent<ButtonData>().CorrespondingPanel.SetActive(true);
+        ActivatePanel(button.GetComponent<ButtonData>().CorrespondingPanel);
+    }
+
+    public void ActivatePanel(GameObject aktivatePanel)
+    {
+        CanvasGroup canvasGroup;
         foreach (GameObject panel in panels)
         {
-            panel.SetActive(false);
+            canvasGroup = panel.GetComponent<CanvasGroup>();
+            canvasGroup.alpha = 0f;
+            canvasGroup.blocksRaycasts = false;
+            canvasGroup.interactable = false;
         }
-        button.GetComponent<ButtonData>().CorrespondingPanel.SetActive(true);
+        canvasGroup = aktivatePanel.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.interactable = true;
     }
 }

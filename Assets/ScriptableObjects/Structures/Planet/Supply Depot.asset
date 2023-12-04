@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0ea2a14cb502343b86b717293febe2, type: 3}
+  m_Name: Supply Depot
+  m_EditorClassIdentifier: 
+  Name: Supply Depot
+  Costs:
+  - {fileID: 2877031959262065529, guid: e91b23d1e90f7d849a0110f230f2c8ca, type: 3}
+  - {fileID: 2877031959262065529, guid: e46c88ef0ce5fc24e9765a1f3a2e14c7, type: 3}
+  StructureRequirements: []
+  CostsPopulation: 1
+  LivingSpace: 0
+  Prefab: {fileID: 0}
+  Locations: 
+  Symbol: {fileID: 0}
+  Sprite: {fileID: 221663333, guid: a92cf8e2799ae114b9a6bdb3b28ac0ae, type: 3}
+  Type: 0
+  Resources:
+  - {fileID: 2877031959262065529, guid: fc25679a33ffd3c44af9a6d326393ebb, type: 3}
+  StorageCapacity: 5000
+  EcoImpactFactor: 1
+  AllowedLocations: 000000000100000002000000

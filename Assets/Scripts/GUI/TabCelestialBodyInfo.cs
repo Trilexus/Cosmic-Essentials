@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Text;
+using UnityEngine.Rendering;
 
 public class TabCelestialBodyInfo : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class TabCelestialBodyInfo : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI CBMainInfosText_R;
     StringBuilder StringBuilder = new StringBuilder();
+    CelestialBody LastCelestialBody;
 
 
     // Start is called before the first frame update
@@ -34,28 +36,47 @@ public class TabCelestialBodyInfo : MonoBehaviour
 
     }
 
-    public void CreateMenuForCelestialBody(CelestialBody celestialBody)
+    public void UpdateInfos(CelestialBody celestialBody)
     {
-        CBNameText.text = celestialBody.Name;
-        CBImage.sprite = celestialBody.ChildSpriteRenderer.sprite;
-        StringBuilder.Clear();
-        StringBuilder.AppendLine($"Building areas({Symbols.Area}): {celestialBody.maxAreas}");
+        SetInfoText(celestialBody);
+    }
+
+    public void SetInfoText(CelestialBody celestialBody)
+    {
         if (celestialBody is Planet planet)
         {
-            StringBuilder.AppendLine($"Celestial Body: {planet.AllowedLocation}<sprite name='bolt-solid'>");
-            StringBuilder.AppendLine($"Each undeveloped building site ({Symbols.Area}) generates {planet.freeAreaImpactFactor} EcoPoints ({Symbols.ecoInfo})");
-            StringBuilder.AppendLine($"Storage Capacity ({Symbols.box}): {planet.CurrentResourceStorageLimit} Units per Resource.");
-            StringBuilder.AppendLine($"Current Inhabitants ({Symbols.population}): {planet.population.CurrentPopulation}; Maximum Housing Capacity ({Symbols.Apartments}): {planet.population._maxPopulation}. ");
-            
-            CBMainInfosText_L.text = StringBuilder.ToString();
-        }
-        celestialBody.BaseResourceProduction.ForEach(resourceProduction =>
-        {
             StringBuilder.Clear();
-            string quantity = resourceProduction.Quantity > 0 ? $"+{resourceProduction.Quantity}" : $"-{resourceProduction.Quantity}";
-            StringBuilder.AppendLine($"{Symbols.GetSymbol(resourceProduction.ResourceType)}: {quantity}");
-            CBMainInfosText_R.text += StringBuilder.ToString();
-        });
+            StringBuilder.AppendLine($"{StyleSheet.H1}Planetary overview{StyleSheet.H1End}");
+            StringBuilder.AppendLine($"{StyleSheet.BulletPoint}Celestial Body Type: {planet.AllowedLocation}{StyleSheet.BulletPointEnd}");
+            StringBuilder.AppendLine($"{StyleSheet.BulletPoint}Building areas: {celestialBody.maxAreas}{StyleSheet.BulletPointEnd}");
+            StringBuilder.AppendLine($"Each undeveloped building site generates {planet.freeAreaImpactFactor} EcoPoints.");
+            StringBuilder.AppendLine($"{StyleSheet.H2}Storage Capacity{StyleSheet.H1End}");
+            StringBuilder.AppendLine($"{StyleSheet.BulletPoint}Maximum {planet.CurrentResourceStorageLimit} units per resource{StyleSheet.BulletPointEnd}");
+            StringBuilder.AppendLine($"{StyleSheet.H2}Population{StyleSheet.H1End}");
+            StringBuilder.AppendLine($"{StyleSheet.BulletPoint}Current Inhabitants: {planet.population.CurrentPopulation}{StyleSheet.BulletPointEnd}");
+            StringBuilder.AppendLine($"{StyleSheet.BulletPoint}Maximum Housing Capacity: {planet.population._maxPopulation}{StyleSheet.BulletPointEnd}");
+            StringBuilder.AppendLine($"{StyleSheet.BulletPoint}Growth Percent: {planet.population.GrowthPercent}%{StyleSheet.BulletPointEnd}");
+
+            CBMainInfosText_L.text = StringBuilder.ToString();
+            StringBuilder.Clear();
+            celestialBody.BaseResourceProduction.ForEach(resourceProduction =>
+            {
+                string quantity = resourceProduction.Quantity > 0 ? $"+{resourceProduction.Quantity}" : $"-{resourceProduction.Quantity}";
+                StringBuilder.AppendLine($"{Symbols.GetSymbol(resourceProduction.ResourceType)}: {quantity}");
+                CBMainInfosText_R.text = StringBuilder.ToString();
+            });
+        }
+    }
+
+    public void CreateMenuForCelestialBody(CelestialBody celestialBody)
+    {
+        LastCelestialBody = celestialBody;
+        celestialBody.OnTickDone += UpdateInfos;
+        CBNameText.text = celestialBody.Name;
+        CBImage.sprite = celestialBody.ChildSpriteRenderer.sprite;
+        
+        SetInfoText(celestialBody);
+        
         
         celestialBody.modifiers.ForEach(modifier =>
         {
@@ -83,6 +104,7 @@ public class TabCelestialBodyInfo : MonoBehaviour
 
     public void ClearMenu()
     {
+        LastCelestialBody.OnTickDone -= UpdateInfos;
         foreach (Transform entry in InfoMenuContent.transform)
         {
             Destroy(entry.gameObject);

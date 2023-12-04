@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using System;
 
 public class GUIManager : MonoBehaviour
 {
@@ -101,8 +102,13 @@ public class GUIManager : MonoBehaviour
             StructureMenuScript.CreateMenuForCelestialBody(selectedCelestialBodyScript.AllowedLocation);
             SpacefleetMenuScript.CreateMenuForCelestialBody();
             InfoMenuScript.CreateMenuForCelestialBody(selectedCelestialBodyScript);
-
-
+            if (OnSelectedCelestialBodyChanged != null)
+            {
+                foreach (Delegate d in OnSelectedCelestialBodyChanged.GetInvocationList())
+                {
+                    Debug.Log("Subscriber: " + d.Method);
+                }
+            }
             OnSelectedCelestialBodyChanged?.Invoke(selectedCelestialBodyScript);
         } else if (this.selectedCelestialBody == selectedCelestialBody) {
             this.selectedCelestialBody = null;
@@ -204,7 +210,7 @@ public class GUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && selectedCelestialBody != null)
         {
             UnselectAll();
         }

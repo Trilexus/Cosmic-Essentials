@@ -8,4 +8,5 @@ public enum ResearchType
     CelestialBody = 1,
     SpaceFleet = 2,
     BuildableEntity = 3,
+    ResearchPrerequisite = 4,
 }

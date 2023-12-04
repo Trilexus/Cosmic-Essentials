@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1848604a7b2674397929a3410de4de, type: 3}
+  m_Name: TextDataWelcomeMessageBox
+  m_EditorClassIdentifier: 
+  texts:
+  - 'Welcome, Commander!
+
+
+    You are at the beginning of a journey to create an
+    interstellar civilization. Your task: collect food, metal, energy and space points
+    to build spaceships and stations and increase your influence in the universe.
+    Not every planet is habitable - choose wisely how you use your resources. Your
+    strategy will be crucial.
+
+
+    As I am still developing this prototype, it is
+    at an early stage and you may find that many features are not yet fully functional.
+    I am eager to hear your feedback and suggestions for improvement. If you encounter
+    any problems or have ideas you would like to share with me, please do not hesitate
+    to contact me at [itch.io].
+
+
+    Together we shape the universe.
+
+    Good luck!'
+  - '\uF64F Farm produces food.
+
+    \ue2cd Food is needed for inhabitants. One
+    food per inhabitant.
+
+    \uF275 Mine produces metal.
+
+    \uF468 Metal is
+    required for building construction.
+
+    \uF7BA Reactor generates energy.
+
+    \uF0E7
+    Energy is needed for buildings.
+
+    \uF7C0 Spaceport produces Spacepoints.
+
+    \uF7BF
+    Spacepoints are needed for space travel (building spaceships).
+
+    \uF0C3 Research
+    points enable research. They are generated per 10 inhabitants on a planet or
+    in research centers. The menu opens by clicking on the icon at the top right
+    of the screen.
+
+    
+
+    \uF015 Apartments provide living space for inhabitants.
+
+    \uE533
+    Population inhabitants are needed for production and building construction. More
+    inhabitants per building = more productivity.'
+  - '\uF0AC Construction sites allow one building per site. Each unbuilt site generates
+    Eco Points.
+
+    \uF201 Productivity increases resource production and construction
+    speed.
+
+    \uF06C Ecological status is important for the population and affects
+    productivity.
+
+    
+
+    \uf49e Storage space on planets and spaceships.
+
+    \uf06a
+    Transport order is prioritized blocks other orders
+
+    \uF135 Spaceships transport
+    resources to other planets.
+
+    \uF2F9 Spaceship returns to the start.
+
+    \uF466
+    Spaceship only launches if the full amount of resources can be transported.
+
+    \uF534
+    Mission is repeatedly executed.
+
+    \uF2ED Trash can - demolish buildings.'

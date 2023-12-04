@@ -5,9 +5,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    public GameObject WelcomeMesageBox;
     public static GameManager Instance;
 
+
+
+    public void ToggleWelcomeBox()
+    {
+        WelcomeMesageBox.SetActive(!WelcomeMesageBox.activeSelf);
+    }
     public void Awake()
     {
         if (Instance == null)

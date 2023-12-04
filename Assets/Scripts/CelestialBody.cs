@@ -6,6 +6,7 @@ using System.Text;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 abstract public class CelestialBody : MonoBehaviour
@@ -69,6 +70,8 @@ abstract public class CelestialBody : MonoBehaviour
 
     public delegate void StartStructureBuildHandler(Area area);
     public event StartStructureBuildHandler OnStartStructureBuild;
+    public delegate void TickDone(CelestialBody celestialBody);
+    public event TickDone OnTickDone;
 
 
     public virtual void Start()
@@ -171,15 +174,17 @@ abstract public class CelestialBody : MonoBehaviour
         UnloadTheSpaceShips();
         ProcessResourceTransferOrders();
         ManageResearch();
+        OnTickDone?.Invoke(this);
         //GUIManager.Instance.UpdateTopPanelInfos();
     }
 
 
     public void OnMouseDown()
     {
-        Debug.Log("Clicked: " + gameObject.name);
-        //GetComponentInParent<PlanetarySystem>().IsActivePlanetarySystem = true;
-        GUIManager.Instance.SetActiveCelestialBody(gameObject);
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            GUIManager.Instance.SetActiveCelestialBody(gameObject);
+        }
     }
     public void InitiateConstructionStructure(Structure structure, int constructionProgress)
     {
@@ -189,6 +194,9 @@ abstract public class CelestialBody : MonoBehaviour
             Area newArea = new Area { structure = structure, ConstructionProgress = constructionProgress };
             Areas.Add(newArea);
             OnStartStructureBuild?.Invoke(newArea);
+        } else
+        {
+         Destroy(gameObject);
         }
 
     }

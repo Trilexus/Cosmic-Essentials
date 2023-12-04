@@ -9,9 +9,11 @@ public class StructureBuildProgressEntry : MonoBehaviour
     public TextMeshProUGUI textObject;
     public Image sprite;
     public Slider slider;
+    private Area _slot;
 
     public void Initialize(Area slot)
     {
+        _slot = slot;
         UpdateInfos(slot);
         slot.OnConstructionProgressChanged += UpdateInfos;
     }
@@ -27,5 +29,10 @@ public class StructureBuildProgressEntry : MonoBehaviour
         textObject.text = slot.structure.Name;
         sprite.sprite = slot.structure.Sprite;
         slider.value = slot.ConstructionProgress;      
+    }
+
+    public void OnDestroy()
+    {
+        _slot.OnConstructionProgressChanged -= UpdateInfos;
     }
 }

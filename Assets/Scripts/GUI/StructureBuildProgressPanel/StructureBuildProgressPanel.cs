@@ -33,6 +33,7 @@ public class StructureBuildProgressPanel : MonoBehaviour
 
     public void CreateStructureView(CelestialBody celestialBody)
     {
+        Debug.Log("CreateStructureView");
         FillStructureOverview(celestialBody);
         selectedCelestialBodyScript = celestialBody;
         selectedCelestialBodyScript.OnStartStructureBuild += CreateNode;

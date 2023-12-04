@@ -15,6 +15,7 @@ public class Population {
     private float _populationGrowthCounter;
     [SerializeField]
     private int _growthThresholdTicks = 10;
+    public int GrowthPercent => (int)(_populationGrowthCounter / _growthThresholdTicks * 100);
     public float RED_THRESHOLD;
     [SerializeField]
     private int _ecoImpactFactor = -1;
@@ -39,7 +40,7 @@ public class Population {
         float ecoecoIndexOneHundredth = ecoecoIndex / 100f;
         _maxPopulation = maxPopulation;
         bool isfoodAvailable = foodAvailable > 0;
-        if (isfoodAvailable && ecoecoIndex >= RED_THRESHOLD)
+        if (isfoodAvailable && ecoecoIndex >= RED_THRESHOLD && CurrentPopulation < maxPopulation)
         {
             _populationGrowthCounter = _populationGrowthCounter + (ecoecoIndexOneHundredth);
             if (_populationGrowthCounter >= _growthThresholdTicks)

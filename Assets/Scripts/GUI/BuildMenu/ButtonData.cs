@@ -10,21 +10,24 @@ public class ButtonData : MonoBehaviour
     private Button button;
     public Color ActiveColor;
     public Color NormalColor;
+    private CanvasGroup canvasGroup;
 
     // Start is called before the first frame update
     void Start()
     {
         button = GetComponent<Button>();
+        canvasGroup = CorrespondingPanel.GetComponent<CanvasGroup>();
     }
 
     // Update is called once per frame
     void Update()
     {// && button.colors.normalColor != ActiveColor
          //&& button.colors.normalColor != NormalColor
-           
-        if (CorrespondingPanel.activeSelf) {
+        
+
+        if (canvasGroup.alpha == 1f) {
             SetButtonColor(ActiveColor);
-        }else if (!CorrespondingPanel.activeSelf)
+        }else
         {
             SetButtonColor(NormalColor);
         }

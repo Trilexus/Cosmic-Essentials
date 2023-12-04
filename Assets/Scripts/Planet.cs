@@ -117,6 +117,7 @@ public class Planet : CelestialBody
         string populationInfo = $"\ue533: {population.CurrentPopulation} / {population._maxPopulation}";
         string productivityInfo = $"\uf201: {ProductivityRate}";
         int spaceShipTransporterAvailable = hangarManager.GetSpaceFleetCount(true) + hangarManager.GetSpaceFleetCount(false);
+        string SpaceShipsAvailable = $"{Symbols.SpaceShip} {spaceShipTransporterAvailable}";
 
 
         // Farm, Mine, and Reactor info
@@ -127,22 +128,7 @@ public class Planet : CelestialBody
         string spaceportInfo = $"{Symbols.Spaceport} {spaceports}/{spaceportsInConstruction}";
         string apartmentsInfo = $"{Symbols.Apartments} {apartments}/{apartmentsInConstruction}";
 
-        // Resource Info
-        string resourceStorageFood = $"{Symbols.Food} {ResourceStorageCelestialBody[ResourceType.Food].StorageQuantity}";
-        string resourceStorageMetal = $"{Symbols.Metal} {ResourceStorageCelestialBody[ResourceType.Metal].StorageQuantity}";
-        string resourceStorageEnergy = $"{Symbols.Energy} {ResourceStorageCelestialBody[ResourceType.Energy].StorageQuantity}";
-        string resourceStorageSpacePoint = $"{Symbols.SpacePoint} {ResourceStorageCelestialBody[ResourceType.SpacePoints].StorageQuantity}";
-        string SpaceShipsAvailable = $"{Symbols.SpaceShip} {spaceShipTransporterAvailable}";
-
-        string resourceFoodProduction = $"({ResourceStorageCelestialBody[ResourceType.Food].ProductionQuantity})";
-        string resourceMetalProduction = $"({ResourceStorageCelestialBody[ResourceType.Metal].ProductionQuantity})";
-        string resourceEnergyProduction = $"({ResourceStorageCelestialBody[ResourceType.Energy].ProductionQuantity})";
-        string resourceSpacePointProduction = $"({ResourceStorageCelestialBody[ResourceType.SpacePoints].ProductionQuantity})";
         
-        string resourceFoodConsumption = $"({ResourceStorageCelestialBody[0].ConsumptionQuantity})";
-        string resourceMetalConsumption = $"({ResourceStorageCelestialBody[ResourceType.Metal].ConsumptionQuantity})";
-        string resourceEnergyConsumption = $"({ResourceStorageCelestialBody[ResourceType.Energy].ConsumptionQuantity})";
-        string resourceSpacePointConsumption = $"({ResourceStorageCelestialBody[ResourceType.SpacePoints].ConsumptionQuantity})";
 
         sb.AppendLine($"{areaInfo} {apartmentsInfo} {populationInfo}");
         sb.AppendLine($"{ecoInfo} {productivityInfo}");
@@ -150,14 +136,30 @@ public class Planet : CelestialBody
         celestialBodyInfoTop.SetText(finalString);
 
         sb.Clear();
-        sb.AppendLine($"{farmInfo} {resourceStorageFood}{resourceFoodProduction}{resourceFoodConsumption}");
-        sb.AppendLine($"{mineInfo} {resourceStorageMetal}{resourceMetalProduction}{resourceMetalConsumption}");
-        sb.AppendLine($"{reactorInfo} {resourceStorageEnergy}{resourceEnergyProduction}{resourceEnergyConsumption}");
-        sb.AppendLine($"{spaceportInfo} {resourceStorageSpacePoint}{resourceSpacePointProduction}{resourceSpacePointConsumption}");
+        sb.AppendLine($"{farmInfo} {CollectResourceInfos(ResourceType.Food)}");
+        sb.AppendLine($"{mineInfo} {CollectResourceInfos(ResourceType.Metal)}");
+        sb.AppendLine($"{reactorInfo} {CollectResourceInfos(ResourceType.Energy)}");
+        sb.AppendLine($"{spaceportInfo} {CollectResourceInfos(ResourceType.SpacePoints)}");
+
+
         sb.AppendLine($"{SpaceShipsAvailable}");
 
         finalString = sb.ToString();
         celestialBodyInfoRight.SetText(finalString);
+    }
+
+    public string CollectResourceInfos(ResourceType resourceType)
+    {
+        string resourceSymbol = $"{Symbols.GetSymbol(resourceType)}";
+        int resourceStorage = ResourceStorageCelestialBody[resourceType].StorageQuantity;
+        int resourceProduction = ResourceStorageCelestialBody[resourceType].ProductionQuantity;
+        int resourceConsumption = ResourceStorageCelestialBody[resourceType].ConsumptionQuantity;
+        string returnString = $"{Symbols.GetSymbol(resourceType)} {resourceStorage}({resourceProduction})({resourceConsumption})";
+        if (resourceStorage == 0 && resourceProduction == 0 && resourceConsumption == 0)
+        {
+            returnString = "";
+        }
+        return returnString;
     }
 
     private void CalculateEcoIndex()
