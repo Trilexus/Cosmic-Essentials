@@ -39,10 +39,16 @@ public class BuildingInterfaceManager : MonoBehaviour
         //CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
         if (GUIManager.Instance?.selectedCelestialBody?.GetComponent<CelestialBody>() is CelestialBody celestialBody)
         {
+            bool isAreaAvailable = celestialBody.Areas.Count < celestialBody.maxAreas;
             bool isbuildable = AreRequiredBuildingsPresent(structureScriptableObject, celestialBody);
             //bool areResourcesSufficient = structureToBuild.AreResourcesSufficientForStructure(celestialBody);
             bool areResourcesSufficient = AreResourcesSufficientForEntity(structureScriptableObject);
             bool isLocationAllowed = structureToBuild.IsLocationAllowed(celestialBody.AllowedLocation);
+            if (!isAreaAvailable)
+            {
+                GUIManager.Instance.MentatScript.SetAlertText("NoAreaAvailable");
+                return;
+            }
             if (!isbuildable)
             {                
                 GUIManager.Instance.MentatScript.SetAlertText("RequirementNotFulfilled");

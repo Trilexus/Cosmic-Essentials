@@ -64,7 +64,7 @@ public class EntityManager : MonoBehaviour
 
     public List<SpacefleetScriptableObject> GetSpacefleetScriptableObjectForCelestialBody()
     {
-        return spacefleetScriptableObjects;
+        return spacefleetScriptableObjects.Where(spaceFleet => spaceFleet.ResearchRequirements.All(ResearchManager.Instance.ResearchNodeScriptableObjectsDone.Contains)).ToList(); 
     }
 
     public List<SpacefleetScriptableObject> GetAllSpacefleetScriptableObjectByTypes(SpacefleetType type)

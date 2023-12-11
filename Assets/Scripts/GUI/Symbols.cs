@@ -31,6 +31,7 @@ public static class Symbols
     public const string rightLeft = "\uf362";
     public const string box = "\uf466";
     public const string clipboardCheck = "\uf46c";
+    public const string fuel = "\uf240";
 
     public static string GetSymbol(ResourceType type)
     {

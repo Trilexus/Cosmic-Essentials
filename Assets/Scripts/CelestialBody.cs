@@ -149,7 +149,7 @@ abstract public class CelestialBody : MonoBehaviour
     public void RemoveTranferOrder(ResourceTransferOrder order)
     {
         ResourceTransferOrders.Remove(order);
-        if (GUIManager.Instance.ActiveCelestialBodyTarget == this)
+        if (GUIManager.Instance.ActiveCelestialBodyTargetMarker == this)
         {
             GUIManager.Instance.FillOrdersOverview();
         }
@@ -174,6 +174,7 @@ abstract public class CelestialBody : MonoBehaviour
         UnloadTheSpaceShips();
         ProcessResourceTransferOrders();
         ManageResearch();
+        hangarManager.RefuelSpaceship(ResourceStorageCelestialBody[ResourceType.SpacePoints]);
         OnTickDone?.Invoke(this);
         //GUIManager.Instance.UpdateTopPanelInfos();
     }
@@ -189,16 +190,10 @@ abstract public class CelestialBody : MonoBehaviour
     public void InitiateConstructionStructure(Structure structure, int constructionProgress)
     {
         //Start building projects (farm, power plant, mine, research center).
-        if (maxAreas > Areas.Count)
-        {
             Area newArea = new Area { structure = structure, ConstructionProgress = constructionProgress };
             Areas.Add(newArea);
             OnStartStructureBuild?.Invoke(newArea);
-        } else
-        {
-         Destroy(gameObject);
-        }
-
+        
     }
 
 
@@ -262,7 +257,7 @@ abstract public class CelestialBody : MonoBehaviour
             }
             if (spaceship.ReturnToOrigin)
             {
-                spaceship.StartJourney(this, spaceship.origin, false);
+                spaceship.StartJourneyOrder(this, spaceship.origin, false);
             }else
             {
                 SpaceShipPool.Instance.ReturnSpaceShipToPool(spaceship.gameObject);
@@ -421,7 +416,9 @@ abstract public class CelestialBody : MonoBehaviour
     public void InitiateConstructionSpacefleet(SpacefleetScriptableObject spacefleetScriptableObject)
     {
         int constructionProgress = 0;
-        AddShipToHangar(new HangarSlot(spacefleetScriptableObject, constructionProgress));
+        SpacefleetScriptableObject newSpacefleetScriptableObject = Instantiate(spacefleetScriptableObject);
+        newSpacefleetScriptableObject.Fuel = 0;
+        AddShipToHangar(new HangarSlot(newSpacefleetScriptableObject, constructionProgress));
     }
     public void AddShipToHangar(HangarSlot slot)
     {
@@ -431,7 +428,7 @@ abstract public class CelestialBody : MonoBehaviour
 
     public int GetSpaceFleetCount(SpacefleetScriptableObject spacefleetScriptableObject, bool isCompleted)
     {
-        return hangarManager.GetSpaceFleetCount(spacefleetScriptableObject, isCompleted);
+        return hangarManager.GetSpaceFleetCount(spacefleetScriptableObject, isCompleted, true) + hangarManager.GetSpaceFleetCount(spacefleetScriptableObject, isCompleted, false);
     }
 
     public void SubscribeToHangarChanges(HangarManager.HangarChangeHandler handler)

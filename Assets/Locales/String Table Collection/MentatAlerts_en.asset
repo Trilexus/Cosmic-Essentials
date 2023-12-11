@@ -46,6 +46,10 @@ MonoBehaviour:
     m_Localized: Interstellar Travel Restriction
     m_Metadata:
       m_Items: []
+  - m_Id: 12037590277054464
+    m_Localized: No area available
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

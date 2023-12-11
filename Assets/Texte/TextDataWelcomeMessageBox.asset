@@ -33,15 +33,15 @@ MonoBehaviour:
     Together we shape the universe.
 
     Good luck!'
-  - '\uF64F Farm produces food.
+  - '\uf722 Farm produces food.
 
-    \ue2cd Food is needed for inhabitants. One
-    food per inhabitant.
+    \ue2cd Food is needed for inhabitants. One food
+    per inhabitant.
 
     \uF275 Mine produces metal.
 
-    \uF468 Metal is
-    required for building construction.
+    \uF468 Metal is required
+    for building construction.
 
     \uF7BA Reactor generates energy.
 
@@ -58,7 +58,7 @@ MonoBehaviour:
     in research centers. The menu opens by clicking on the icon at the top right
     of the screen.
 
-    
+
 
     \uF015 Apartments provide living space for inhabitants.
 
@@ -74,7 +74,7 @@ MonoBehaviour:
     \uF06C Ecological status is important for the population and affects
     productivity.
 
-    
+
 
     \uf49e Storage space on planets and spaceships.
 

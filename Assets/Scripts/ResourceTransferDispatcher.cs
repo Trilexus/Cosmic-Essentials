@@ -40,7 +40,10 @@ public class ResourceTransferDispatcher : MonoBehaviour
             }
         }
     }
-
+    public void LoadSpaceShip(SpaceShip spaceShip, Dictionary<ResourceType, ResourceStorage> ResourceStorage)
+    {
+        spaceShip.ResourceStorage = ResourceStorage; 
+    }
 
     public void CreateOrderOnCelestialBody(ResourceTransferOrder order)
     {
@@ -88,12 +91,14 @@ public class ResourceTransferDispatcher : MonoBehaviour
     {
         if (!order.AutoChooseShip)
         {
-            if (celestialBody.PerformHangarOperation(hangar => hangar.GetSpaceFleetCount(order.SpacefleetScriptableObject,true) > 0))
+            if (celestialBody.PerformHangarOperation(hangar => hangar.GetSpaceFleetCount(order.SpacefleetScriptableObject,true, true) > 0))
             {
-                return celestialBody.PerformHangarOperation(hangar => hangar.GetSpaceShip(order.SpacefleetScriptableObject));
+                Debug.Log("GetSpaceShip Schiff vorhanden");
+                return celestialBody.PerformHangarOperation(hangar => hangar.GetSpaceShip(order.SpacefleetScriptableObject, false));
             }
             else
             {
+                Debug.Log("GetSpaceShip Schiff nicht vorhanden");
                 return null;
             }
         }
@@ -116,7 +121,7 @@ public class ResourceTransferDispatcher : MonoBehaviour
                     {
                         order.Repetitions--; // Anzahl der Wiederholungen reduzieren.
                     }
-                    AvailableShip.StartJourney(order.Origin, order.Target, order.ReturnToOrigin); // SpaceShip starten.
+                    AvailableShip.StartJourneyOrder(order.Origin, order.Target, order.ReturnToOrigin); // SpaceShip starten.
                     break; // Order wurde erfüllt, deswegen wird die Schleife abgebrochen.
                 }
             }

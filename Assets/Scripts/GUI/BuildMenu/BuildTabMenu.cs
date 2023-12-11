@@ -33,6 +33,7 @@ public class BuildTabMenu : MonoBehaviour
     {
         ClearMenu();
         CreateMenuForCelestialBody(GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>().AllowedLocation);
+        CreateMenuForCelestialBody();
     }
 
     public void CreateMenuForCelestialBody(LocationType Location)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 public class HangarManager
@@ -14,13 +15,32 @@ public class HangarManager
     {
         hangar.Add(hangarSlot);
         OnHangarSlotChanged?.Invoke(hangarSlot);
-        hangarSlot.OnShipConstructionStatusChanged += HandleShipConstructionStatusChange;
+        hangarSlot.OnShipStatusChanged += HandleShipStatusChange;
     }
 
     public bool AddSpaceShip(SpaceShip spaceShip)
     {
         AddHangarSlot(new HangarSlot(spaceShip.SpacefleetScriptableObject, 100));
         return true;
+    }
+
+    public void RefuelSpaceship(ResourceStorage resourceStorage)
+    {
+        if (resourceStorage.StorageQuantity >= 1)
+        {
+            foreach (HangarSlot slot in hangar.Where(x => x.constructionProgress >= 100 && x.spacefleetScriptableObject.Fuel< x.spacefleetScriptableObject.MaxFuel))
+            {
+                OnHangarSlotChanged?.Invoke(slot);
+                int amountToRefuel = Mathf.Min(resourceStorage.StorageQuantity, slot.spacefleetScriptableObject.MaxFuel - slot.spacefleetScriptableObject.Fuel);
+                slot.RefuelShip(amountToRefuel);
+                resourceStorage.StorageQuantity -= amountToRefuel;
+                if (resourceStorage.StorageQuantity <= 0)
+                {
+                    break;
+                }
+            }
+        }
+        
     }
 
     public void ManageHangar()
@@ -30,7 +50,7 @@ public class HangarManager
 
     public bool RemoveHangarSlot(HangarSlot hangarSlot)
     {
-        hangarSlot.OnShipConstructionStatusChanged -= HandleShipConstructionStatusChange;
+        hangarSlot.OnShipStatusChanged -= HandleShipStatusChange;
         hangar.Remove(hangarSlot);
         OnHangarSlotChanged?.Invoke(hangarSlot);
         return true;
@@ -68,14 +88,28 @@ public class HangarManager
         }
     }
 
-    public int GetSpaceFleetCount(SpacefleetScriptableObject spacefleetScriptableObject, bool isCompleted)
+    public int GetSpaceFleetCount(SpacefleetScriptableObject spacefleetScriptableObject, bool isCompleted, bool isEmpty)
     {
         switch (isCompleted)
         {
             case true:
-                return hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress >= 100);
+                if (isEmpty)
+                {
+                    return hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress >= 100 && x.spacefleetScriptableObject.FreeSpace == x.spacefleetScriptableObject.CargoSpace);
+                } else
+                {
+                    return hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress >= 100);
+                }                
             case false:
-                return hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress < 100);
+                if (isEmpty)
+                {
+                    return hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress < 100 && x.spacefleetScriptableObject.FreeSpace == x.spacefleetScriptableObject.CargoSpace);
+                }
+                else
+                {
+                    return hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress < 100);
+                }
+                //return hangar.Count(x => x.spacefleetScriptableObject.Type == spacefleetScriptableObject.Type && x.constructionProgress < 100);
         }
     }
 
@@ -106,7 +140,7 @@ public class HangarManager
         List<HangarSlot> hangarSlots = new List<HangarSlot>();
         foreach (HangarSlot slot in hangar.Where(x => x.constructionProgress >= 100))
         {
-            if (!spacefleetScriptableObjects.Contains(slot.spacefleetScriptableObject) && slot.spacefleetScriptableObject.CargoSpace >= amount)
+            if (!spacefleetScriptableObjects.Contains(slot.spacefleetScriptableObject) && slot.spacefleetScriptableObject.CargoSpace >= amount && slot.spacefleetScriptableObject.FreeSpace == slot.spacefleetScriptableObject.CargoSpace)
             {
                 hangarSlots.Add(slot);
                 spacefleetScriptableObjects.Add(slot.spacefleetScriptableObject);
@@ -128,9 +162,16 @@ public class HangarManager
         }
     }
 
-    public SpaceShip GetSpaceShip(SpacefleetScriptableObject spacefleetScriptableObject)
+    public SpaceShip GetSpaceShip(SpacefleetScriptableObject spacefleetScriptableObject, bool checkIdentity)
     {
-        HangarSlot slot = hangar.Where(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress >= 100).First();
+        HangarSlot slot;
+        if (!checkIdentity)
+        {
+            slot = hangar.Where(x => x.spacefleetScriptableObject.Type == spacefleetScriptableObject.Type && x.constructionProgress >= 100 && x.spacefleetScriptableObject.FreeSpace == x.spacefleetScriptableObject.CargoSpace).First();
+        } else
+        {
+            slot = hangar.Where(x => ReferenceEquals(x.spacefleetScriptableObject,spacefleetScriptableObject) && x.constructionProgress >= 100).First();
+        }
         if (slot == null)
         {
             return null;
@@ -154,7 +195,7 @@ public class HangarManager
         }
     }
 
-    private void HandleShipConstructionStatusChange(HangarSlot hangarSlot)
+    private void HandleShipStatusChange(HangarSlot hangarSlot)
     {
         OnHangarSlotChanged?.Invoke(hangarSlot);
     }

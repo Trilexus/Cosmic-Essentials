@@ -31,5 +31,5 @@ MonoBehaviour:
   - {fileID: 2877031959262065529, guid: 5361fdef39d1a944794254bfb7b54922, type: 3}
   - {fileID: 2877031959262065529, guid: f8afeecd30aff6c4084ab4aa655ad6cf, type: 3}
   StorageCapacity: 0
-  EcoImpactFactor: -5
+  EcoImpactFactor: -3
   AllowedLocations: 00000000

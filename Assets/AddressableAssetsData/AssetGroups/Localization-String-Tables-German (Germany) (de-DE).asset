@@ -23,24 +23,28 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-de-DE
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef6780a49b7148a4ca286645cb8f23f0
     m_Address: MentatAlerts_de-DE
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-de-DE
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99605600a9c4f5348a2330dd62e8aec4
     m_Address: MentatText_de-DE
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-de-DE
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2971c76e7a47a674c9e4e4f044224a88
     m_Address: Research_de-DE
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-de-DE
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: aaf365a0b128a27419cd8e03e498c8cd, type: 2}
   m_SchemaSet:

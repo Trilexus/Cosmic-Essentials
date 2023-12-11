@@ -18,10 +18,11 @@ public class GUIManager : MonoBehaviour
     public GameObject selectedCelestialBody;
     public CelestialBody selectedCelestialBodyScript;
     public GameObject selectedCelestialBodyTarget;
+    public CelestialBody selectedCelestialBodyTargetScript;
     public GameObject selectedPlanetarySystem;
     public PlanetarySystem selectedPlanetarySystemScript;
     public GameObject ActiveCelestialBodyMarker; // shows the selected celestial body
-    public GameObject ActiveCelestialBodyTarget; // shows the celestial body target for orders
+    public GameObject ActiveCelestialBodyTargetMarker; // shows the celestial body target for orders
 
     public GameObject TopPanel;
     public TopPanel TopPanelScript;
@@ -61,6 +62,9 @@ public class GUIManager : MonoBehaviour
 
     public delegate void SelectedCelestialBodyDeselectedHandler();
     public event SelectedCelestialBodyDeselectedHandler OnDeselectCelestialBody;
+
+    public delegate void SelectedCelestialBodyTargetChangeHandler(CelestialBody selectedCelestialBodyScript);
+    public event SelectedCelestialBodyTargetChangeHandler OnSelectedCelestialBodyTargetChanged;
 
     // Start is called before the first frame update
     void Awake()
@@ -115,7 +119,7 @@ public class GUIManager : MonoBehaviour
             orderOriginImage.sprite = celestialBodyDefaultImage;
             orderTargetImage.sprite = celestialBodyDefaultImage;
             ActiveCelestialBodyMarker.SetActive(false);
-            ActiveCelestialBodyTarget.SetActive(false);
+            ActiveCelestialBodyTargetMarker.SetActive(false);
             ResetTopPanelInfos();
             DeactivateCurrentPlanetarySystem();
             StructureMenuScript.ClearMenu();
@@ -133,10 +137,13 @@ public class GUIManager : MonoBehaviour
                 return;
             }
             selectedCelestialBodyTarget = selectedCelestialBody;
-            orderTargetImage.sprite = selectedCelestialBodyTarget.GetComponent<CelestialBody>().ChildSpriteRenderer.sprite;
-            ActiveCelestialBodyTarget.transform.position = selectedCelestialBody.transform.position;
-            ActiveCelestialBodyTarget.SetActive(true);
-            
+            selectedCelestialBodyTargetScript = selectedCelestialBodyTarget.GetComponent<CelestialBody>();
+            orderTargetImage.sprite = selectedCelestialBodyTargetScript.ChildSpriteRenderer.sprite;
+            ActiveCelestialBodyTargetMarker.transform.position = selectedCelestialBody.transform.position;
+            ActiveCelestialBodyTargetMarker.SetActive(true);
+            OnSelectedCelestialBodyTargetChanged?.Invoke(selectedCelestialBodyTargetScript);
+
+
         }
     }
 

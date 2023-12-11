@@ -131,9 +131,9 @@ public class ResearchManager : MonoBehaviour
             OnResearchNodeStructureProductionDone.Invoke(structureResourceUpgrade);
         } else if (ActiveResearchNodeScriptableObject.ResearchType == ResearchType.BuildableEntity)
         {
-            OnResearchNodeBuildableEntityDone.Invoke();
+            OnResearchNodeBuildableEntityDone?.Invoke();
         }
-        ActiveResearchNodeGameObject = null;
         ActiveResearchNodeScriptableObject = null;
+        ActiveResearchNodeGameObject = null;
     }
 }

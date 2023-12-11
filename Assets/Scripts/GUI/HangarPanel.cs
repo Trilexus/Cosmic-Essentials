@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class HangarPanel : MonoBehaviour
 {
+    [SerializeField]
     private GameObject scrollViewHangarOverviewContent;
     private GameObject spaceShipEntryPrefab;
     private CelestialBody selectedCelestialBodyScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,7 @@ public class HangarPanel : MonoBehaviour
 
     public void InitializedScript()
     {
-        scrollViewHangarOverviewContent = GUIManager.Instance.ScrollViewHangarOverviewContent;
+        //scrollViewHangarOverviewContent = GUIManager.Instance.ScrollViewHangarOverviewContent;
         spaceShipEntryPrefab = GUIManager.Instance.SpaceShipEntryPrefab;
         GUIManager.Instance.OnSelectedCelestialBodyChanged += CreateHangarView;
         GUIManager.Instance.OnDeselectCelestialBody += DestroyHangarView;
@@ -32,6 +34,7 @@ public class HangarPanel : MonoBehaviour
         Debug.Log("CreateHangarView");
         FillHangarOverview(celestialBody);
         selectedCelestialBodyScript.SubscribeToHangarChanges(UpdateHangar);
+        
     }
     public void UpdateHangar(HangarSlot hangarSlot)
     {

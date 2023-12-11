@@ -24,6 +24,9 @@ public class SpaceShip : SpaceFleet
     public int LaunchSpacePointsCosts;
     public SpacefleetScriptableObject SpacefleetScriptableObject;
 
+    public Flymodes Flymode = Flymodes.FreeFlight;
+
+
     [SerializeField]
     public static Dictionary<ResourceType, ResourceStorage> SpaceShipCosts = new Dictionary<ResourceType, ResourceStorage> {
         { ResourceType.Metal, new ResourceStorage(ResourceType.Metal, 100, 0, 0, 0) },
@@ -33,11 +36,11 @@ public class SpaceShip : SpaceFleet
     
     public void ResetResources()
     {
-        ResourceStorage.Clear();
-        foreach (ResourceType type in Enum.GetValues(typeof(ResourceType)))
-        {
-            ResourceStorage[type] = new ResourceStorage(type.ToString(), 100, 0, 0, 0);
-        }
+        ResourceStorage.Clear();        
+            ResourceStorage.Add(ResourceType.Food, new ResourceStorage(ResourceType.Food, CargoSpace, 0, 0, 0));
+            ResourceStorage.Add(ResourceType.Metal, new ResourceStorage(ResourceType.Metal, CargoSpace, 0, 0, 0));
+            ResourceStorage.Add(ResourceType.Energy, new ResourceStorage(ResourceType.Energy, CargoSpace, 0, 0, 0));
+            ResourceStorage.Add(ResourceType.SpacePoints, new ResourceStorage(ResourceType.SpacePoints, CargoSpace, 0, 0, 0));
     }
 
     public void InitializedSpaceShip(SpacefleetScriptableObject spacefleetScriptableObject)
@@ -63,19 +66,39 @@ public class SpaceShip : SpaceFleet
     // Update is called once per frame
     void Update()
     {
-        if (isStarted)
+        if (isStarted && Flymode == Flymodes.ExecuteOrder)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, target.transform.position) < isArrivedDistance)
-            {
-                isArrived = true;
-                isStarted = false;
-                target.RegisterTheSpaceship(this);
-            }
+            OrderFlymode();
+        } else if (isStarted && Flymode == Flymodes.FlyToTarget)
+        {
+            FlyToTarget();
         }
     }
 
-    public void StartJourney(CelestialBody origin, CelestialBody target, bool fliesBack)
+    public void OrderFlymode()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        if (Vector2.Distance(transform.position, target.transform.position) < isArrivedDistance)
+        {
+            isArrived = true;
+            isStarted = false;
+            target.RegisterTheSpaceship(this);
+        }
+    }
+
+    public void FlyToTarget()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        if (Vector2.Distance(transform.position, target.transform.position) < isArrivedDistance)
+        {
+            isArrived = true;
+            isStarted = false;
+            target.PerformHangarOperation(hangar => hangar.AddSpaceShip(this));
+            SpaceShipPool.Instance.ReturnSpaceShipToPool(this.gameObject);
+        }
+    }
+
+    public void StartJourneyOrder(CelestialBody origin, CelestialBody target, bool fliesBack)
     {
         this.target = target;
         this.origin = origin;
@@ -87,6 +110,22 @@ public class SpaceShip : SpaceFleet
         isArrived = false;
         isStarted = true;
         ReturnToOrigin = fliesBack;
+        Flymode = Flymodes.ExecuteOrder;
+    }
+
+    public void StartJourneyFlyToTarget(CelestialBody origin, CelestialBody target)
+    {
+        this.target = target;
+        this.origin = target;
+        Fuel -= LaunchSpacePointsCosts;
+        SpaceShip spaceShip = this;
+        this.transform.position = origin.transform.position;
+        RotateToTarget();
+        gameObject.SetActive(true);
+        isArrived = false;
+        isStarted = true;
+        ReturnToOrigin = false;
+        Flymode = Flymodes.FlyToTarget;
     }
 
     public void RefuelSpaceShip(ResourceTransferOrder order)
@@ -119,4 +158,10 @@ public class SpaceShip : SpaceFleet
 
         transform.rotation = targetRotation;
     }
+}
+public enum Flymodes
+{
+    FreeFlight,
+    ExecuteOrder,
+    FlyToTarget
 }
