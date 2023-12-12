@@ -84,7 +84,7 @@ public class StructureMenuEntry : MenuEntry
         sb.Clear();
         string resourceSummary = "";
         string nonbreakingSpace = "\u00A0";
-        foreach (Resource cost in structureData.Costs)
+        foreach (ResourceScriptableObject cost in structureData.Costs)
         {
             string symbol = Symbols.GetSymbol(cost.ResourceType);
             string quantity = $"{cost.Quantity}";
@@ -102,7 +102,7 @@ public class StructureMenuEntry : MenuEntry
         sb.Append($"{livingSpace} ");
         string producedResource = "";
         string consumedResource = "";
-        foreach (Resource resource in structureData.Resources)
+        foreach (ResourceScriptableObject resource in structureData.Resources)
         {
             
             color = CalculateResourceColor(resource.Quantity);

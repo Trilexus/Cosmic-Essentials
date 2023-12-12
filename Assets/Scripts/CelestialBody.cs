@@ -20,7 +20,7 @@ abstract public class CelestialBody : MonoBehaviour
     public float interval = 2f; // Zeit zwischen zwei Ticks, wird durch ProductivityRate beeinflusst
     // Every Celestial Body have a default production of ressources.
     [SerializeField]
-    public List<Resource> BaseResourceProduction;
+    public List<ResourceScriptableObject> BaseResourceProduction;
     public SpriteRenderer ChildSpriteRenderer;
     public float ProductivityRateBasicValue = 1f;
     public float ProductivityRate = 1f; 
@@ -39,7 +39,7 @@ abstract public class CelestialBody : MonoBehaviour
     //public List<ResourceStorage> ResourceStorageCelestialBody = new List<ResourceStorage>();
     public StringBuilder sb = new StringBuilder();
     public Dictionary<ResourceType, ResourceStorage> ResourceStorageCelestialBody = new Dictionary<ResourceType, ResourceStorage>();
-    public List<Resource> StartResources = new List<Resource>();
+    public List<ResourceScriptableObject> StartResources = new List<ResourceScriptableObject>();
     
     public List<ResourceTransferOrder> ResourceTransferOrders = new List<ResourceTransferOrder>();
     [SerializeField]
@@ -287,7 +287,7 @@ abstract public class CelestialBody : MonoBehaviour
             resourceStorage.ResetResourceProduction();
         }
         // Add the base production of resources to the resource storage.
-        foreach (Resource resource in BaseResourceProduction)
+        foreach (ResourceScriptableObject resource in BaseResourceProduction)
         {
             if (ResourceStorageCelestialBody.TryGetValue(resource.ResourceType, out var resourceStorage))
             {

@@ -109,7 +109,7 @@ public class BuildingInterfaceManager : MonoBehaviour
         }
         else if (areResourcesSufficient && areRequiredBuildingsPresent && arePopulationRequirementsFulfilled)
         {
-            foreach (Resource resource in spacefleetScriptableObject.Costs)
+            foreach (ResourceScriptableObject resource in spacefleetScriptableObject.Costs)
             {
                 celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity -= resource.Quantity;
             }
@@ -128,7 +128,7 @@ public class BuildingInterfaceManager : MonoBehaviour
     public bool AreResourcesSufficientForEntity(EntityScriptableObject entityScriptableObject)
     {
         CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBodyScript;
-        foreach (Resource resource in entityScriptableObject.Costs)
+        foreach (ResourceScriptableObject resource in entityScriptableObject.Costs)
         {
             if (celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity < resource.Quantity)
             {

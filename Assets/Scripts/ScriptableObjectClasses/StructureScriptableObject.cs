@@ -6,7 +6,7 @@ using UnityEngine;
 public class StructureScriptableObject : EntityScriptableObject
 {
     public StructureType Type;
-    public List<Resource> Resources;
+    public List<ResourceScriptableObject> Resources;
     public int StorageCapacity;
     public int EcoImpactFactor;
     public List<LocationType> AllowedLocations;

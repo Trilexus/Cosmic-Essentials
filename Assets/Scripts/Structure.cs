@@ -8,12 +8,12 @@ public class Structure
 {
     public string Name;
     public StructureType Type;
-    public List<Resource> resources;
-    public List<Resource> Resources
+    public List<ResourceScriptableObject> resources;
+    public List<ResourceScriptableObject> Resources
     {
         get
         {
-            List<Resource> returnList = new List<Resource>();
+            List<ResourceScriptableObject> returnList = new List<ResourceScriptableObject>();
             foreach (var resource in resources)
             {
                 returnList.Add(AddUpgrades(resource));
@@ -25,7 +25,7 @@ public class Structure
             resources = value;
         }
     }
-    public List<Resource> Costs;
+    public List<ResourceScriptableObject> Costs;
     public int EcoImpactFactor;
     public List<LocationType> AllowedLocations;
     public GameObject Symbol;
@@ -36,9 +36,9 @@ public class Structure
     public List<StructureResourceUpgrade> Upgrades;
 
 
-    private Resource AddUpgrades(Resource resource)
+    private ResourceScriptableObject AddUpgrades(ResourceScriptableObject resource)
     {
-        Resource returnResource = new Resource();
+        ResourceScriptableObject returnResource = ScriptableObject.CreateInstance<ResourceScriptableObject>();
         returnResource.Quantity = resource.Quantity;
         returnResource.ResourceType = resource.ResourceType;
 
@@ -53,7 +53,7 @@ public class Structure
     }
 
     // Konstruktor
-    public Structure(string name, StructureType type, List<Resource> resources, List<Resource> costs, int ecoImpactFactor, List<LocationType> allowedLocations, GameObject Symbol, int StorageCapacity, int LivingSpace)
+    public Structure(string name, StructureType type, List<ResourceScriptableObject> resources, List<ResourceScriptableObject> costs, int ecoImpactFactor, List<LocationType> allowedLocations, GameObject Symbol, int StorageCapacity, int LivingSpace)
     {
         this.Name = name;   
         this.Type = type;
@@ -97,7 +97,7 @@ public class Structure
 
     public bool AreResourcesSufficientForStructure(CelestialBody celestialBody) 
     {
-       foreach (Resource resource in Costs)
+       foreach (ResourceScriptableObject resource in Costs)
         {
             if (celestialBody.ResourceStorageCelestialBody[resource.ResourceType].StorageQuantity < resource.Quantity)
             {

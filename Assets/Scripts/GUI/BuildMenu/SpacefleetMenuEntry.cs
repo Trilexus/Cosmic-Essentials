@@ -40,7 +40,7 @@ public class SpacefleetMenuEntry : MenuEntry
         BuildingName.text = spaceFleetData.Name;
         sb.Clear();
         string resourceSummary = "";
-        foreach (Resource cost in spaceFleetData.Costs)
+        foreach (ResourceScriptableObject cost in spaceFleetData.Costs)
         {
             string symbol = Symbols.GetSymbol(cost.ResourceType);
             string nonbreakingSpace = "\u00A0";
