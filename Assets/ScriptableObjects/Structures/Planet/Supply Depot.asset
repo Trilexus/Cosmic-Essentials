@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Supply Depot
   Costs:
-  - {fileID: 2877031959262065529, guid: e91b23d1e90f7d849a0110f230f2c8ca, type: 3}
-  - {fileID: 2877031959262065529, guid: e46c88ef0ce5fc24e9765a1f3a2e14c7, type: 3}
+  - {fileID: 11400000, guid: d1e7a65f8376ce644953ddb48de3ca82, type: 2}
+  - {fileID: 11400000, guid: 37f5c8808d98c5b4cb94dd038bfa895f, type: 2}
   StructureRequirements: []
   ResearchRequirements: []
   CostsPopulation: 1
@@ -26,7 +26,7 @@ MonoBehaviour:
   Sprite: {fileID: 221663333, guid: a92cf8e2799ae114b9a6bdb3b28ac0ae, type: 3}
   Type: 0
   Resources:
-  - {fileID: 2877031959262065529, guid: fc25679a33ffd3c44af9a6d326393ebb, type: 3}
+  - {fileID: 11400000, guid: 98b1c5b9617b43149b6119be6c39eb72, type: 2}
   StorageCapacity: 5000
   EcoImpactFactor: -1
-  AllowedLocations: 000000000100000002000000
+  AllowedLocations: 00000000

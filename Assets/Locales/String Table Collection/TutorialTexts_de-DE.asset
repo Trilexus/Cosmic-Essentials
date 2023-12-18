@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: TutorialTexts_de-DE
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: de-DE
+  m_SharedData: {fileID: 11400000, guid: c12d5f2a572bf604e9f29d07d9981e54, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 40988985417728
+    m_Localized: "Willkommen, auserw\xE4hlter Krisenmanager! Als dein pers\xF6nlicher
+      Berater und Kommunikationsschnittstelle zur Stellaren F\xF6deration stehe ich
+      dir in dieser entscheidenden Phase zur Seite. Du wurdest ausgew\xE4hlt, um
+      deine Spezies vor der drohenden Vernichtung zu bewahren, eine Aufgabe von unermesslicher
+      Tragweite. Unsere F\xF6deration, die seit der Entstehung des kosmischen Ph\xE4nomens
+      Sagittarius A* besteht, verfolgt das ehrenvolle Ziel, das Wachstum und die
+      Entwicklung junger Zivilisationen zu f\xF6rdern und zu sch\xFCtzen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41141389647872
+    m_Localized: "Nach unseren Gesetzen ist es unsere vorrangige Aufgabe, unterentwickelte
+      Spezies \u2013 wie die eure \u2013 zu besch\xFCtzen, und zwar nicht nur vor
+      externen Bedrohungen, sondern auch vor ihren eigenen selbstzerst\xF6rerischen
+      Tendenzen. Trotz der Tatsache, dass eure Zivilisation aktuell keinen signifikanten
+      Mehrwert f\xFCr die F\xF6deration darstellt, m\xF6chten wir euch die Chance
+      einer Mitgliedschaft in unserer Jugendorganisation, bekannt als 'Die Insekten',
+      anbieten. Diese Mitgliedschaft ist jedoch an eine entscheidende Bedingung gekn\xFCpft:
+      Ihr m\xFCsst euer \xDCberleben sichern. Unsere fortgeschrittenen Berechnungen
+      und Simulationen zeigen leider, dass dies unter den aktuellen Umst\xE4nden
+      h\xF6chst unwahrscheinlich ist."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41320167661568
+    m_Localized: "Eure aktuelle Regierungs- und Wirtschaftsform ist ein Kurs, der
+      unausweichlich zur Zerst\xF6rung eures Planeten f\xFChren wird. Die Zeit dr\xE4ngt,
+      und die Herausforderungen sind gewaltig. Als neu eingesetzte Verwalterin liegt
+      es nun in deiner Hand, das Ruder herumzurei\xDFen: Du musst dringend notwendige
+      Reformen durchf\xFChren, nachhaltige Praktiken implementieren und eine Strategie
+      zur Rettung eures \xD6kosystems entwickeln. Dar\xFCber hinaus ist die Kolonisierung
+      eines benachbarten Sternensystems ein entscheidender Schritt, um zu demonstrieren,
+      dass eure Spezies f\xE4hig ist, sich \xFCber planetare Grenzen hinaus zu entwickeln
+      und zu gedeihen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41565505085440
+    m_Localized: "Solltest du in dieser monumentalen Aufgabe Erfolg haben, wird euch
+      nicht nur die Mitgliedschaft in der F\xF6deration zuteil, sondern auch der
+      Zugang zu fortschrittlichen Technologien und Wissen, die eure Zivilisation
+      in eine neue \xC4ra f\xFChren k\xF6nnen. Scheiterst du jedoch, wird die F\xF6deration
+      keine andere Wahl haben, als sich von eurem Schicksal abzuwenden und sich auf
+      die kommenden Bewohner eures Planeten vorzubereiten.\r\n\r\nDie Zeit ist knapp,
+      und die Zukunft deiner Welt liegt in deinen H\xE4nden. Wir stehen bereit, dich
+      in diesem entscheidenden Unterfangen zu unterst\xFCtzen. Viel Erfolg, Krisenmanager."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 67621498806272
+    m_Localized: "Nun, da wir mit den formalen Einf\xFChrungen durch sind, Krisenmanager,
+      ist es an der Zeit, sich auf Ihre neue Rolle einzustellen. Ich nehme an, eine
+      kurze Einf\xFChrung in die Grundlagen unserer Operationsweise k\xF6nnte Ihnen
+      behilflich sein. Darf ich Ihnen ein schnelles Tutorial anbieten, um Ihnen den
+      Einstieg zu erleichtern?\""
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

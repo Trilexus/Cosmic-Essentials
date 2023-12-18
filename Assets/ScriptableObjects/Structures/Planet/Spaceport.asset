@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Spaceport
   Costs:
-  - {fileID: 2877031959262065529, guid: 6cb899b2663a49340ba70fd9408c516a, type: 3}
-  - {fileID: 2877031959262065529, guid: 6cb899b2663a49340ba70fd9408c516a, type: 3}
+  - {fileID: 11400000, guid: c8b51212296165e46b1867c8bfafb1eb, type: 2}
+  - {fileID: 11400000, guid: c8b51212296165e46b1867c8bfafb1eb, type: 2}
   StructureRequirements: []
   ResearchRequirements:
   - {fileID: 11400000, guid: 7f18a87fdbf9a274aa1e95b1b41e1371, type: 2}
@@ -27,9 +27,9 @@ MonoBehaviour:
   Sprite: {fileID: 2071271295, guid: a92cf8e2799ae114b9a6bdb3b28ac0ae, type: 3}
   Type: 4
   Resources:
-  - {fileID: 2877031959262065529, guid: be578bf9ada1d0f4196f3e72e8b40bab, type: 3}
-  - {fileID: 2877031959262065529, guid: 944de76aa92bf6a4b83a34c1d4fdcc55, type: 3}
-  - {fileID: 2877031959262065529, guid: cac883f4bb8daa04cbec89e8c80856cb, type: 3}
+  - {fileID: 11400000, guid: e1a023cb29b134c4a888152461ce9aa0, type: 2}
+  - {fileID: 11400000, guid: 8349758f0c0a3054094abb3021ba8b43, type: 2}
+  - {fileID: 11400000, guid: 12dbb6a2f611c7b48be2cdc35518acad, type: 2}
   StorageCapacity: 0
   EcoImpactFactor: -10
   AllowedLocations: 0000000004000000

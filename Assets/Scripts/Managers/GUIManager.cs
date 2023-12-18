@@ -95,9 +95,9 @@ public class GUIManager : MonoBehaviour
     {
         if (this.selectedCelestialBody == null)
         {
+            //Select Celestial Body (primary)
             this.selectedCelestialBody = selectedCelestialBody;
             selectedCelestialBodyScript = selectedCelestialBody.GetComponent<CelestialBody>();
-            orderOriginImage.sprite = selectedCelestialBodyScript.ChildSpriteRenderer.sprite;
             ActiveCelestialBodyMarker.transform.position = selectedCelestialBody.transform.position;
             ActiveCelestialBodyMarker.SetActive(true);
             SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);
@@ -114,10 +114,10 @@ public class GUIManager : MonoBehaviour
                 }
             }
             OnSelectedCelestialBodyChanged?.Invoke(selectedCelestialBodyScript);
-        } else if (this.selectedCelestialBody == selectedCelestialBody) {
+        } else if (this.selectedCelestialBody == selectedCelestialBody) 
+        {
+            //Deselect Celestial Body (primary and secondary)
             this.selectedCelestialBody = null;
-            orderOriginImage.sprite = celestialBodyDefaultImage;
-            orderTargetImage.sprite = celestialBodyDefaultImage;
             ActiveCelestialBodyMarker.SetActive(false);
             ActiveCelestialBodyTargetMarker.SetActive(false);
             ResetTopPanelInfos();
@@ -128,6 +128,7 @@ public class GUIManager : MonoBehaviour
             OnDeselectCelestialBody.Invoke();
         } else
         {
+            //Select Celestial Body (secondary)
             bool isSamePlanetarySystem = selectedCelestialBody.transform.parent.gameObject == selectedPlanetarySystem;
             bool isSelectedCelestialBodySpaceStation = selectedCelestialBodyScript is SpaceStation;
             if (!isSamePlanetarySystem && !isSelectedCelestialBodySpaceStation)
@@ -136,14 +137,12 @@ public class GUIManager : MonoBehaviour
                 MentatScript.SetText("InterstellarTravelRestriction");
                 return;
             }
-            selectedCelestialBodyTarget = selectedCelestialBody;
-            selectedCelestialBodyTargetScript = selectedCelestialBodyTarget.GetComponent<CelestialBody>();
+            this.selectedCelestialBodyTarget = selectedCelestialBody;
+            selectedCelestialBodyTargetScript = selectedCelestialBody.GetComponent<CelestialBody>();
             orderTargetImage.sprite = selectedCelestialBodyTargetScript.ChildSpriteRenderer.sprite;
             ActiveCelestialBodyTargetMarker.transform.position = selectedCelestialBody.transform.position;
             ActiveCelestialBodyTargetMarker.SetActive(true);
             OnSelectedCelestialBodyTargetChanged?.Invoke(selectedCelestialBodyTargetScript);
-
-
         }
     }
 

@@ -98,6 +98,7 @@ public class EntityManager : MonoBehaviour
     {
         foreach (StructureScriptableObject updateScriptableObject in structureResourceUpgrade.structureScriptableObjects)
         {
+           
             structureDictionary[updateScriptableObject].Upgrades.Add(structureResourceUpgrade);
             Debug.Log("Upgrade " + updateScriptableObject.Name + " with " + structureResourceUpgrade.ResourcesType);
         }

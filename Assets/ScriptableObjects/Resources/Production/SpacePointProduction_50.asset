@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7ddecfb4c0867141807459c377489d1, type: 3}
-  m_Name: test2
+  m_Script: {fileID: 11500000, guid: 63818fd3ce88509458b0727b21e6fcb1, type: 3}
+  m_Name: SpacePointProduction_50
   m_EditorClassIdentifier: 
-  ModifierName: 
-  ModifierType: 0
-  AttributeType: 0
-  ModifierSprite: {fileID: 0}
-  ModifierLevel: 0
+  Quantity: 50
+  ResourceType: 3

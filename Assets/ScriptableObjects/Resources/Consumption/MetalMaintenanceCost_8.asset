@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63818fd3ce88509458b0727b21e6fcb1, type: 3}
-  m_Name: NewResource
+  m_Name: MetalMaintenanceCost_8
   m_EditorClassIdentifier: 
-  Quantity: 0
-  ResourceType: 0
+  Quantity: -8
+  ResourceType: 1

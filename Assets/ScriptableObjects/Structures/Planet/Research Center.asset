@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Research Center
   Costs:
-  - {fileID: 2877031959262065529, guid: e91b23d1e90f7d849a0110f230f2c8ca, type: 3}
-  - {fileID: 2877031959262065529, guid: 6cb899b2663a49340ba70fd9408c516a, type: 3}
+  - {fileID: 11400000, guid: c8b51212296165e46b1867c8bfafb1eb, type: 2}
+  - {fileID: 11400000, guid: 37f5c8808d98c5b4cb94dd038bfa895f, type: 2}
   StructureRequirements: []
   ResearchRequirements:
   - {fileID: 11400000, guid: aad6ae5e0de49544080d4904d58539aa, type: 2}
@@ -27,9 +27,9 @@ MonoBehaviour:
   Sprite: {fileID: -2081036435, guid: a92cf8e2799ae114b9a6bdb3b28ac0ae, type: 3}
   Type: 5
   Resources:
-  - {fileID: 2877031959262065529, guid: 958b64b2bacb2ad4ab69678125d81135, type: 3}
-  - {fileID: 2877031959262065529, guid: 5361fdef39d1a944794254bfb7b54922, type: 3}
-  - {fileID: 2877031959262065529, guid: f8afeecd30aff6c4084ab4aa655ad6cf, type: 3}
+  - {fileID: 11400000, guid: 3d705f60d36ae9248a3177a01071bd1e, type: 2}
+  - {fileID: 11400000, guid: ec10f3dfb9222ef4988ad13b50b1324a, type: 2}
+  - {fileID: 11400000, guid: b7e37d55ece9ee44caf8cbbc863aac14, type: 2}
   StorageCapacity: 0
   EcoImpactFactor: -3
   AllowedLocations: 00000000

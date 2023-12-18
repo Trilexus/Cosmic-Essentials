@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: OrbitDart
   Costs:
-  - {fileID: 2877031959262065529, guid: e46c88ef0ce5fc24e9765a1f3a2e14c7, type: 3}
-  - {fileID: 2877031959262065529, guid: e91b23d1e90f7d849a0110f230f2c8ca, type: 3}
-  - {fileID: 2877031959262065529, guid: 570417fc26d50b7478f69e9f75eccfe8, type: 3}
+  - {fileID: 11400000, guid: e8c7971c93e6e1c4593f2ccde054f34f, type: 2}
+  - {fileID: 11400000, guid: 3a0eddde014015e4fa91e2cdac0f5415, type: 2}
+  - {fileID: 11400000, guid: 1a0839e9d39f4cb409503c8fe6ddde5a, type: 2}
   StructureRequirements:
   - {fileID: 11400000, guid: b982e262bd894b94fb44a0398d4649a3, type: 2}
   ResearchRequirements:

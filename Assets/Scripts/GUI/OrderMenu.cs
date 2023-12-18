@@ -22,7 +22,24 @@ public class OrderMenu : MonoBehaviour
     [SerializeField]
     private Button AutoButton;
     private bool AutoMode = false;
-    
+
+    CelestialBody originCelestialBody;
+    CelestialBody targetCelestialBody;
+
+
+    public Sprite celestialBodyDefaultImage;
+    public Image orderOriginImage;
+    public Image orderTargetImage;
+    public TMP_Dropdown orderTypeDropdown;
+    public Slider orderAmountSlider;
+    public TMP_InputField orderAmountInputField;
+    public TMP_InputField InputFieldOrderRepetitions;
+    public Button orderCreateButton;
+    public Toggle ToggleIsPrioritized;
+    public Toggle ToggleOnlyFullShipment;
+    public Toggle ToggleReturnToOrigin;
+    public Toggle ToggleIsForever;
+    public TextMeshProUGUI orderCostsText;
 
 
     private void Awake()
@@ -40,6 +57,10 @@ public class OrderMenu : MonoBehaviour
         UpdateMenuForAvailableSpaceFleet(EntityManager.Instance.GetSpacefleetScriptableObjectForCelestialBody());
         ChangeSpaceshipSettings(ActiveSpacefleetScriptableObject, true);
         //GUIManager.Instance.selectedCelestialBodyScript.SubscribeToHangarChanges(HangarChanged);
+
+        GUIManager.Instance.OnSelectedCelestialBodyChanged += SetOrigin;
+        GUIManager.Instance.OnSelectedCelestialBodyTargetChanged += SetTarget;
+        GUIManager.Instance.OnDeselectCelestialBody += UnsetOriginAndTarget;
     }
     public void Update()
     {
@@ -81,6 +102,7 @@ public class OrderMenu : MonoBehaviour
         GUIManager.Instance.orderAmountSlider.value = spacefleetScriptableObject.CargoSpace;      
         ActiveSpacefleetScriptableObject = spacefleetScriptableObject;
         AutoMode = auto;
+        Debug.Log("ChangeSpaceshipSettings - AutoMode :" + AutoMode);
     }
 
     
@@ -108,22 +130,45 @@ public class OrderMenu : MonoBehaviour
         string ResourceType = GUIManager.Instance.orderTypeDropdown.options[GUIManager.Instance.orderTypeDropdown.value].text;
         int ResourceAmount = (int)GUIManager.Instance.orderAmountSlider.value;
         int repetitions = GUIManager.Instance.InputFieldOrderRepetitions.text == "" ? 1 : int.Parse(GUIManager.Instance.InputFieldOrderRepetitions.text);
-        CelestialBody origin = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
-        CelestialBody destination = GUIManager.Instance.selectedCelestialBodyTarget.GetComponent<CelestialBody>();
+        originCelestialBody = GUIManager.Instance.selectedCelestialBody.GetComponent<CelestialBody>();
+        targetCelestialBody = GUIManager.Instance.selectedCelestialBodyTarget.GetComponent<CelestialBody>();
         bool isPrioritized = GUIManager.Instance.ToggleIsPrioritized.isOn;
         bool onlyFullShipment = GUIManager.Instance.ToggleOnlyFullShipment.isOn;
         bool ReturnToOrigin = GUIManager.Instance.ToggleReturnToOrigin.isOn;
         bool isForever = GUIManager.Instance.ToggleIsForever.isOn;
         ResourceTransferOrder order;
+        Debug.Log("CreateOrder - AutoMode :" + AutoMode);
         if (AutoMode)
         {
-            order = orderDispatcher.CreateOrderFromGui(ResourceType, ResourceAmount, origin, destination, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin, isForever);
+            order = orderDispatcher.CreateOrderFromGui(ResourceType, ResourceAmount, originCelestialBody, targetCelestialBody, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin, isForever);
         }
         else
         {
-            order = orderDispatcher.CreateOrderFromGui(ResourceType, ResourceAmount, origin, destination, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin, isForever, ActiveSpacefleetScriptableObject);
+            order = orderDispatcher.CreateOrderFromGui(ResourceType, ResourceAmount, originCelestialBody, targetCelestialBody, repetitions, isPrioritized, onlyFullShipment, ReturnToOrigin, isForever, ActiveSpacefleetScriptableObject);
         }
         orderDispatcher.CreateOrderOnCelestialBody(order);  
+    }
+
+
+    public void SetOrigin(CelestialBody origin)
+    {
+        originCelestialBody = origin;
+        orderOriginImage.sprite = originCelestialBody.ChildSpriteRenderer.sprite;
+    }
+    public void SetTarget(CelestialBody target)
+    {
+        targetCelestialBody = target;
+        orderTargetImage.sprite = targetCelestialBody.ChildSpriteRenderer.sprite;
+        orderCreateButton.interactable = true;
+    }
+
+    public void UnsetOriginAndTarget()
+    {
+        orderCreateButton.interactable = false;
+        originCelestialBody = null;
+        targetCelestialBody = null;
+        orderOriginImage.sprite = celestialBodyDefaultImage;
+        orderTargetImage.sprite = celestialBodyDefaultImage;
     }
 
     public void OnCheckboxIsForeverValueChanged(bool isChecked)

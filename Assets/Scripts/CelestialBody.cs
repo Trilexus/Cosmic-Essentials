@@ -123,6 +123,7 @@ abstract public class CelestialBody : MonoBehaviour
         foreach (StructureScriptableObject updateScriptableObject in structureResourceUpgrade.structureScriptableObjects)
         {
             Areas.Where(x => x.structure.Type == updateScriptableObject.Type).ToList().ForEach(x => x.structure.Upgrades.Add(structureResourceUpgrade));
+
         }
     }
     private void InitializeModifiers()

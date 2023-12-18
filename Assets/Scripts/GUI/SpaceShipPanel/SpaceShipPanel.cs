@@ -4,10 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
-using UnityEngine.U2D;
-using System.Linq.Expressions;
-using System.Runtime.ConstrainedExecution;
-using static UnityEngine.Rendering.DebugUI;
+
 
 public class SpaceShipPanel : MonoBehaviour
 {
@@ -33,6 +30,8 @@ public class SpaceShipPanel : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI SpaceShipDescription;
     private SpacefleetScriptableObject activeSpaceShip;
+    [SerializeField]
+    Button LaunchButton;
 
     [SerializeField]
     List <SliderInputFieldPair> ResourceSliderInputFieldPairs;
@@ -54,12 +53,19 @@ public class SpaceShipPanel : MonoBehaviour
         }
         GUIManager.Instance.OnSelectedCelestialBodyTargetChanged += SetTarget;
         GUIManager.Instance.OnDeselectCelestialBody += ResetMenu;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (activeSpaceShip != null && !LaunchButton.interactable)
+        {
+            ActivateGUI();
+        } else if (LaunchButton.interactable)
+        {
+            DeActivateGUI();
+        }
     }
 
     public void ResetMenu()
@@ -85,7 +91,7 @@ public class SpaceShipPanel : MonoBehaviour
 
         if (activeSpaceShip == null) { return; }
         if (CelestialBodyTarget == null) { return; }
-        SpaceShip spaceShip = celestialBody.PerformHangarOperation(hangar => hangar.GetSpaceShip(activeSpaceShip, true));
+        SpaceShip spaceShip = celestialBody.PerformHangarOperation(hangar => hangar.GetSpaceShip(activeSpaceShip, true, false));
         ResourceTransferDispatcher resourceTransferDispatcher = new ResourceTransferDispatcher();
         resourceTransferDispatcher.LoadSpaceShip(spaceShip, activeSpaceShip.ResourceStorage);
         spaceShip.StartJourneyFlyToTarget(celestialBody, CelestialBodyTarget);
@@ -106,10 +112,31 @@ public class SpaceShipPanel : MonoBehaviour
             ResourceSliderInputFieldPairsDict[resourceStorrage.ResourceType].ResourceInputField.text = resourceStorrage.StorageQuantity.ToString();
         }
     }
-    
+
+    public void ActivateGUI()
+    {
+        foreach (SliderInputFieldPair sliderInputFieldPair in ResourceSliderInputFieldPairs)
+        {
+            sliderInputFieldPair.ResourceInputField.interactable = true;
+            sliderInputFieldPair.ResourceSlider.interactable = true;
+        }
+        LaunchButton.interactable = true;
+        
+    }
+    public void DeActivateGUI()
+    {
+        foreach (SliderInputFieldPair sliderInputFieldPair in ResourceSliderInputFieldPairs)
+        {
+            sliderInputFieldPair.ResourceInputField.interactable = false;
+            sliderInputFieldPair.ResourceSlider.interactable = false;
+        }
+        LaunchButton.interactable = false;
+
+    }
+
     public void SetTarget(CelestialBody celestialBodyTarget)
     { 
-        ResetMenu();
+        //ResetMenu();
         if (celestialBodyTarget == null)
         {            
             return;

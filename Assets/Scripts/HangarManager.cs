@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 public class HangarManager
@@ -95,19 +94,20 @@ public class HangarManager
             case true:
                 if (isEmpty)
                 {
-                    return hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress >= 100 && x.spacefleetScriptableObject.FreeSpace == x.spacefleetScriptableObject.CargoSpace);
+                    //Debug.Log("GetSpaceFleetCount" + hangar.FirstOrDefault(x => x.spacefleetScriptableObject.Type == spacefleetScriptableObject.Type).spacefleetScriptableObject.FreeSpace + "==" + hangar.FirstOrDefault(x => x.spacefleetScriptableObject.Type == spacefleetScriptableObject.Type).spacefleetScriptableObject.CargoSpace);
+                    return hangar.Count(x => x.spacefleetScriptableObject.Type == spacefleetScriptableObject.Type && x.constructionProgress >= 100 && x.spacefleetScriptableObject.FreeSpace == x.spacefleetScriptableObject.CargoSpace);
                 } else
                 {
-                    return hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress >= 100);
+                    return hangar.Count(x => x.spacefleetScriptableObject.Type == spacefleetScriptableObject.Type && x.constructionProgress >= 100);
                 }                
             case false:
                 if (isEmpty)
                 {
-                    return hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress < 100 && x.spacefleetScriptableObject.FreeSpace == x.spacefleetScriptableObject.CargoSpace);
+                    return hangar.Count(x => x.spacefleetScriptableObject.Type == spacefleetScriptableObject.Type && x.constructionProgress < 100 && x.spacefleetScriptableObject.FreeSpace == x.spacefleetScriptableObject.CargoSpace);
                 }
                 else
                 {
-                    return hangar.Count(x => x.spacefleetScriptableObject == spacefleetScriptableObject && x.constructionProgress < 100);
+                    return hangar.Count(x => x.spacefleetScriptableObject.Type == spacefleetScriptableObject.Type && x.constructionProgress < 100);
                 }
                 //return hangar.Count(x => x.spacefleetScriptableObject.Type == spacefleetScriptableObject.Type && x.constructionProgress < 100);
         }
@@ -162,14 +162,23 @@ public class HangarManager
         }
     }
 
-    public SpaceShip GetSpaceShip(SpacefleetScriptableObject spacefleetScriptableObject, bool checkIdentity)
+    public SpaceShip GetSpaceShip(SpacefleetScriptableObject spacefleetScriptableObject, bool checkIdentity, bool checkName)
     {
         HangarSlot slot;
         if (!checkIdentity)
         {
-            slot = hangar.Where(x => x.spacefleetScriptableObject.Type == spacefleetScriptableObject.Type && x.constructionProgress >= 100 && x.spacefleetScriptableObject.FreeSpace == x.spacefleetScriptableObject.CargoSpace).First();
+            if (checkName)
+            {
+                slot = hangar.FirstOrDefault(x => x.spacefleetScriptableObject.Name == spacefleetScriptableObject.Name && x.constructionProgress >= 100 && x.spacefleetScriptableObject.FreeSpace == x.spacefleetScriptableObject.CargoSpace);
+            }else
+            {
+                slot = hangar.FirstOrDefault(x => x.spacefleetScriptableObject.Type == spacefleetScriptableObject.Type && x.constructionProgress >= 100 && x.spacefleetScriptableObject.FreeSpace == x.spacefleetScriptableObject.CargoSpace);
+            }
+
+            Debug.Log("GetSpaceShip" + "checkIdentity: " + checkIdentity + " Type: " + spacefleetScriptableObject.Name);
         } else
         {
+            Debug.Log("GetSpaceShip" + "checkIdentity: " + checkIdentity + " Type: " + spacefleetScriptableObject.Name);
             slot = hangar.Where(x => ReferenceEquals(x.spacefleetScriptableObject,spacefleetScriptableObject) && x.constructionProgress >= 100).First();
         }
         if (slot == null)

@@ -89,12 +89,16 @@ public class ResourceTransferDispatcher : MonoBehaviour
 
     public SpaceShip SelectSpaceShip(ResourceTransferOrder order, CelestialBody celestialBody)
     {
-        if (!order.AutoChooseShip)
+        if (order.AutoChooseShip)
         {
+            Debug.Log("GetSpaceShip AutoChooseShip true");
+            return celestialBody.PerformHangarOperation(hangar => hangar.GetSpaceShipForOrderAmount(order.ResourceShipmentDetails[0].StorageQuantity));
+        }else {
+            Debug.Log("GetSpaceShip AutoChooseShip false");
             if (celestialBody.PerformHangarOperation(hangar => hangar.GetSpaceFleetCount(order.SpacefleetScriptableObject,true, true) > 0))
             {
                 Debug.Log("GetSpaceShip Schiff vorhanden");
-                return celestialBody.PerformHangarOperation(hangar => hangar.GetSpaceShip(order.SpacefleetScriptableObject, false));
+                return celestialBody.PerformHangarOperation(hangar => hangar.GetSpaceShip(order.SpacefleetScriptableObject, false, true));
             }
             else
             {
@@ -102,7 +106,6 @@ public class ResourceTransferDispatcher : MonoBehaviour
                 return null;
             }
         }
-        return celestialBody.PerformHangarOperation(hangar => hangar.GetSpaceShipForOrderAmount(order.ResourceShipmentDetails[0].StorageQuantity));
     }
 
 
@@ -114,6 +117,8 @@ public class ResourceTransferDispatcher : MonoBehaviour
             bool canFulfillOrder = CheckResourcesForOrder(order); // Überprüfen, ob die Order erfüllt werden kann.
             if (canFulfillOrder)
             {
+                Debug.Log("Order kann erfüllt werden");
+                Debug.Log("Order AutoChooseShip: " + order.AutoChooseShip);
                 SpaceShip AvailableShip = SelectSpaceShip(order, CelestialBody);
                 if (AvailableShip != null) { 
                     LoadSpaceShip(AvailableShip); // SpaceShip beladen.

@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 'Protected area '
   Costs:
-  - {fileID: 2877031959262065529, guid: 6cb899b2663a49340ba70fd9408c516a, type: 3}
-  - {fileID: 2877031959262065529, guid: e91b23d1e90f7d849a0110f230f2c8ca, type: 3}
+  - {fileID: 11400000, guid: 1129cfd8f98a67048ae77f696374251b, type: 2}
+  - {fileID: 11400000, guid: d1e7a65f8376ce644953ddb48de3ca82, type: 2}
   StructureRequirements: []
-  CostsCrew: 1
+  ResearchRequirements: []
+  CostsPopulation: 0
   LivingSpace: 1
   Prefab: {fileID: 0}
   Locations: 
@@ -25,8 +26,8 @@ MonoBehaviour:
   Sprite: {fileID: 519931755, guid: a92cf8e2799ae114b9a6bdb3b28ac0ae, type: 3}
   Type: 1
   Resources:
-  - {fileID: 2877031959262065529, guid: fc25679a33ffd3c44af9a6d326393ebb, type: 3}
-  - {fileID: 2877031959262065529, guid: a702bc0776fd1cc4984d3cb84d502c34, type: 3}
+  - {fileID: 11400000, guid: 98b1c5b9617b43149b6119be6c39eb72, type: 2}
+  - {fileID: 11400000, guid: 48bcdfc15fd015e4e826645ba3f09de8, type: 2}
   StorageCapacity: 0
   EcoImpactFactor: 20
   AllowedLocations: 00000000

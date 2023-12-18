@@ -28,6 +28,7 @@ public class StructureMenuEntry : MenuEntry
         if (GUIManager.Instance.selectedCelestialBody != null)
         {
             UpdateInfoText();
+            GetAndSetStructureInfoTextAndImage();
         } else
         {
             ResetCounterToDefault();
@@ -104,7 +105,7 @@ public class StructureMenuEntry : MenuEntry
         string consumedResource = "";
         foreach (ResourceScriptableObject resource in structureData.Resources)
         {
-            
+
             color = CalculateResourceColor(resource.Quantity);
             string symbol = Symbols.GetSymbol(resource.ResourceType);
             string quantity = $"{color}{symbol} {resource.Quantity}</color>";
@@ -114,8 +115,18 @@ public class StructureMenuEntry : MenuEntry
             } else
             {
                 producedResource += $"{quantity} ";
-            }            
+            }
         }
+        int upgradeResources = 0; ;
+        foreach (StructureResourceUpgrade upgrade in EntityManager.Instance.structureDictionary[structureData].Upgrades)
+        {
+            if (upgrade.ResourcesType.Contains(structureData.Resources[0].ResourceType))
+            {
+                upgradeResources += upgrade.ResourcesChangeAmount;
+            }
+        }
+
+
         if (structureData.StorageCapacity > 0)
         {
             string storageCapacity = $"{Symbols.box} {structureData.StorageCapacity}";
@@ -124,7 +135,7 @@ public class StructureMenuEntry : MenuEntry
         color = CalculateResourceColor(structureData.EcoImpactFactor);
         string ecoFactor = $"{color}{Symbols.ecoInfo} {structureData.EcoImpactFactor}</color>";
 
-        sb.AppendLine($"{producedResource}");
+        sb.AppendLine($"{producedResource} +{upgradeResources}");
         sb.AppendLine($"{consumedResource}");
         sb.AppendLine($"{ecoFactor}");
         BuildingName.text = structureData.Name;

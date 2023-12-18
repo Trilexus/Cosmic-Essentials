@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Mine
   Costs:
-  - {fileID: 2877031959262065529, guid: 6cb899b2663a49340ba70fd9408c516a, type: 3}
-  - {fileID: 2877031959262065529, guid: e91b23d1e90f7d849a0110f230f2c8ca, type: 3}
+  - {fileID: 11400000, guid: 1129cfd8f98a67048ae77f696374251b, type: 2}
+  - {fileID: 11400000, guid: d1e7a65f8376ce644953ddb48de3ca82, type: 2}
   StructureRequirements: []
   ResearchRequirements: []
   CostsPopulation: 1
@@ -26,8 +26,8 @@ MonoBehaviour:
   Sprite: {fileID: -1422091767, guid: a92cf8e2799ae114b9a6bdb3b28ac0ae, type: 3}
   Type: 10
   Resources:
-  - {fileID: 2877031959262065529, guid: 0dc281bd14c4c184e97c15097ce77dab, type: 3}
-  - {fileID: 2877031959262065529, guid: 7bcaffba1407c364c8c6b66f37243670, type: 3}
+  - {fileID: 11400000, guid: 32f4a0f810d51cb4b9073ae9eb28974a, type: 2}
+  - {fileID: 11400000, guid: 7fb4d6b532a96114098ddea70cc4dc30, type: 2}
   StorageCapacity: 0
   EcoImpactFactor: -7
   AllowedLocations: 00000000

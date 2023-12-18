@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Habitat Station
   Costs:
-  - {fileID: 2877031959262065529, guid: 1a12a5e0505eb1c45a32c78f02e66b69, type: 3}
-  - {fileID: 2877031959262065529, guid: df15273f719e51347b79c376d1112ba9, type: 3}
-  - {fileID: 2877031959262065529, guid: e57a2a87f3246f34a82a4a62b9a10656, type: 3}
-  - {fileID: 2877031959262065529, guid: 570417fc26d50b7478f69e9f75eccfe8, type: 3}
+  - {fileID: 11400000, guid: c8b51212296165e46b1867c8bfafb1eb, type: 2}
+  - {fileID: 11400000, guid: e8c7971c93e6e1c4593f2ccde054f34f, type: 2}
+  - {fileID: 11400000, guid: 4b285bdc1d2503448a6495825a918bfc, type: 2}
   StructureRequirements:
   - {fileID: 11400000, guid: 5c3de664e5fd9ec4b8935ed370aaa8b3, type: 2}
-  CostsCrew: 0
+  ResearchRequirements: []
+  CostsPopulation: 0
   LivingSpace: 3
   Prefab: {fileID: 0}
   Locations: 
@@ -28,8 +28,9 @@ MonoBehaviour:
   Sprite: {fileID: -765075577, guid: a92cf8e2799ae114b9a6bdb3b28ac0ae, type: 3}
   Type: 12
   Resources:
-  - {fileID: 2877031959262065529, guid: 944de76aa92bf6a4b83a34c1d4fdcc55, type: 3}
-  - {fileID: 2877031959262065529, guid: 35d8fdb6c6e109045ae39af38fce7d49, type: 3}
-  - {fileID: 2877031959262065529, guid: fab607621c2031047acdef3d16ce16ef, type: 3}
+  - {fileID: 11400000, guid: dbac8eb17302fc14f996b350562d0b9f, type: 2}
+  - {fileID: 11400000, guid: b4345775631fc9041a59a2c93fd4bea6, type: 2}
+  - {fileID: 11400000, guid: 05b4f26fcea2c574fba1e9995c74d089, type: 2}
+  StorageCapacity: 0
   EcoImpactFactor: 1
   AllowedLocations: 0100000002000000

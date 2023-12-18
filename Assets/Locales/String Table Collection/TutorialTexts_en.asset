@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: TutorialTexts_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: c12d5f2a572bf604e9f29d07d9981e54, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 40988985417728
+    m_Localized: Welcome, chosen crisis manager! As your personal advisor and communications
+      interface to the Stellar Federation, I am at your side during this crucial
+      phase. You have been chosen to save your species from imminent annihilation,
+      a task of immeasurable proportions. Our Federation, which has existed since
+      the creation of the cosmic phenomenon Sagittarius A*, pursues the noble goal
+      of promoting and protecting the growth and development of young civilizations.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41141389647872
+    m_Localized: 'According to our laws, it is our primary duty to protect underdeveloped
+      species - such as yours - not only from external threats, but also from their
+      own self-destructive tendencies. Despite the fact that your civilization does
+      not currently add significant value to the Federation, we would like to offer
+      you the opportunity of membership in our youth organization, known as ''The
+      Insects''. However, this membership is subject to one crucial condition: You
+      must ensure your survival. Unfortunately, our advanced calculations and simulations
+      show that this is highly unlikely under the current circumstances.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41320167661568
+    m_Localized: 'Your current form of government and economy is a course that will
+      inevitably lead to the destruction of your planet. Time is of the essence and
+      the challenges are immense. As the newly appointed steward, it is now in your
+      hands to turn the tide: you must make much-needed reforms, implement sustainable
+      practices and develop a strategy to save your ecosystem. Furthermore, colonizing
+      a neighboring star system is a crucial step in demonstrating that your species
+      is capable of evolving and thriving beyond planetary boundaries.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41565505085440
+    m_Localized: 'Should you succeed in this monumental task, you will not only be
+      granted membership in the Federation, but also access to advanced technologies
+      and knowledge that can lead your civilization into a new era. However, if you
+      fail, the Federation will have no choice but to turn its back on your destiny
+      and prepare for the coming inhabitants of your planet.
+
+
+      Time is short,
+      and the future of your world is in your hands. We stand ready to assist you
+      in this crucial endeavor. Good luck, crisis manager.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 67621498806272
+    m_Localized: Now that we're through with the formal introductions, Crisis Manager,
+      it's time to settle into your new role. I suppose a brief introduction to the
+      basics of how we operate might help you. May I offer you a quick tutorial to
+      help you get started?"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

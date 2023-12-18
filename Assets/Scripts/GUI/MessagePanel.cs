@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class MessagePanel : MonoBehaviour
 {
@@ -17,14 +18,23 @@ public class MessagePanel : MonoBehaviour
     //Regex from https://forum.unity.com/threads/using-text-of-a-tmp_text-component-to-set-a-unicode-value-shows-up-as-a-string-literal.686578/
     //Replace \uXXXX and \UXXXXXXXX with the correct unicode character
     private Regex m_RegexExpression = new Regex(@"(?<!\\)(?:\\u[0-9a-fA-F]{4}|\\U[0-9a-fA-F]{8})");
-
+    [SerializeField]
+    private bool useLocalisaztion;
+    [SerializeField]
+    private string LocalisatzionTableName;
 
     // Start is called before the first frame update
     void Start()
     {
-        stringBuilder.Append($"{Messages.texts[CurrentMessage]}");
         LastMessages = Messages.texts.Count - 1;
-        MessageText.text = stringBuilder.ToString();
+        if (useLocalisaztion)
+        {
+            UpdateMessageWithLocalisation();
+        }else
+        {
+            UpdateMessage();
+        }
+        GameManager.ChangeLanguageEvent += UpdateCurrentText;
     }
 
 
@@ -35,11 +45,33 @@ public class MessagePanel : MonoBehaviour
     {
         
     }
+
+    public void UpdateCurrentText()
+    {
+        if (useLocalisaztion)
+        {
+            UpdateMessageWithLocalisation();
+        }
+        else
+        {
+            UpdateMessage();
+        }
+    }
     public void NextMessage()
     {
         if (CurrentMessage < LastMessages)
         {
             CurrentMessage++;
+        } else
+        {
+            CloseMessage();
+        }
+        if (useLocalisaztion)
+        {
+            UpdateMessageWithLocalisation();
+        }
+        else
+        {
             UpdateMessage();
         }
     }
@@ -47,7 +79,14 @@ public class MessagePanel : MonoBehaviour
     {
         if (CurrentMessage > 0)
         {
-            CurrentMessage--;
+            CurrentMessage--;            
+        }
+        if (useLocalisaztion)
+        {
+            UpdateMessageWithLocalisation();
+        }
+        else
+        {
             UpdateMessage();
         }
     }
@@ -58,6 +97,14 @@ public class MessagePanel : MonoBehaviour
         string message = ReplaceEscape(Messages.texts[CurrentMessage]);
         stringBuilder.Append($"{message}");
         MessageText.text = stringBuilder.ToString(); 
+    }
+
+    public void UpdateMessageWithLocalisation()
+    {
+        stringBuilder.Clear();
+        LocalizedString myLocalizedString = new LocalizedString(LocalisatzionTableName, Messages.texts[CurrentMessage]);
+        stringBuilder.Append($"{myLocalizedString.GetLocalizedString()}");
+        MessageText.text = stringBuilder.ToString();
     }
 
     public void CloseMessage()

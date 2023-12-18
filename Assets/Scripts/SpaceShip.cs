@@ -71,6 +71,7 @@ public class SpaceShip : SpaceFleet
             OrderFlymode();
         } else if (isStarted && Flymode == Flymodes.FlyToTarget)
         {
+            Debug.Log("FlyToTarget");
             FlyToTarget();
         }
     }
@@ -91,9 +92,11 @@ public class SpaceShip : SpaceFleet
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
         if (Vector2.Distance(transform.position, target.transform.position) < isArrivedDistance)
         {
+            Debug.Log("Arrived");
             isArrived = true;
             isStarted = false;
             target.PerformHangarOperation(hangar => hangar.AddSpaceShip(this));
+            Debug.Log("ArrivedAddSpaceshipToTarget");
             SpaceShipPool.Instance.ReturnSpaceShipToPool(this.gameObject);
         }
     }
