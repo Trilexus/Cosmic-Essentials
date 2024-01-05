@@ -43,7 +43,10 @@ public class Planet : CelestialBody
     protected override void Update()
     {
         base.Update();
-        UpdateInfoText();
+        if (!isPaused)
+        {
+            UpdateInfoText();
+        }
     }
 
 
@@ -51,11 +54,14 @@ public class Planet : CelestialBody
 
     protected override void Tick()
     {
-        CalculateEcoIndex();
-        CalculateProductivityRate();
-        base.Tick();
-        CalculatePopulation();
-        UpdateInfoText();
+        if (!isPaused)
+        {
+            CalculateEcoIndex();
+            CalculateProductivityRate();
+            base.Tick();
+            CalculatePopulation();
+            UpdateInfoText();
+        }
     }
     public void CalculateProductivityRate()
     {

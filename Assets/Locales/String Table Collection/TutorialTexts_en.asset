@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: c12d5f2a572bf604e9f29d07d9981e54, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 4329505822962614283
   m_TableData:
   - m_Id: 40988985417728
     m_Localized: Welcome, chosen crisis manager! As your personal advisor and communications
@@ -68,6 +69,103 @@ MonoBehaviour:
       help you get started?"
     m_Metadata:
       m_Items: []
+  - m_Id: 1279007570681856
+    m_Localized: If you need help, I am at your disposal! Good luck in saving your
+      species.
+    m_Metadata:
+      m_Items:
+      - rid: 4329505822962614283
+  - m_Id: 1319718055731200
+    m_Localized: 'Then we get started. Saving a small civilization is not technically
+      difficult, but can be a challenge with self-destructive civilizations. You
+      can see your home planet, Earth, on the working map. I''ll time your planet
+      so you don''t self-destruct during the tutorial.
+
+      <color=red>Now click
+      on the planet "Earch". </color>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4024960903962624
+    m_Localized: 'Your control menu is located on the left-hand side with the following
+      tabs:
+
+      1. information on the selected Celesatial Body.
+
+      2. building
+      menu for structures.
+
+      3. building menu for space objects.
+
+      <color=red>Please
+      click on ''>>>'' to continue.</color>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4039446343868416
+    m_Localized: 'The information panel gives you an overview of various aspects,
+      including population growth. The population increases if the living conditions
+      are appropriate. This includes sufficient living space, the availability of
+      food and an acceptable eco-factor.
+
+      <color=red>Now click on the button
+      for the building menu</color>.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4042523977342976
+    m_Localized: 'In the building menu for structures, you have the option of constructing
+      all building types, viewing their number and removing them again if necessary.
+      You can also view the construction costs, production output and resource consumption
+      of each building here.
+
+      <color=red>Please click on ''>>>'' to continue.</color>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4063708949667840
+    m_Localized: I hope that you are well prepared for the well-being of your little
+      humans. If you have any questions or suggestions for improvement, please visit
+      us at https://trilexus.itch.io/cosmic-essentials.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4102360404746240
+    m_Localized: 'Click on the building image to start construction, while the garbage
+      can symbol leads to demolition. The number of buildings is displayed at the
+      bottom of the screen. Further information, such as building production, can
+      be seen next to the planet.
+
+      <color=red>Click on ''>>>'' to continue</color>.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4439019256176640
+    m_Localized: 'Environmentally, your planet is on the verge of collapse. Too many
+      mines and reactors have pushed the EcoFactor into the red zone. The resulting
+      pollution significantly reduces productivity, and without changes, planetary
+      collapse is imminent.
+
+      <color=red>Click on ''>>>'' to continue</color>.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453776684113920
+    m_Localized: 'The current values for the EcoFactor and productivity are visible
+      directly above the planet and for the selected planet in the info bar at the
+      top. By removing environmentally harmful buildings, you can improve the EcoFactor
+      and thus also increase productivity.
+
+      <color=red>Click on ''>>>'' to
+      continue</color>.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4456373159616512
+    m_Localized: 'Now it''s up to you to restore the balance of your planet. Unfortunately,
+      my programmer was unable to complete the tutorial. You are now on your own.
+      Good luck and sorry for the inconvenience ;-)
+
+      <color=red>Click on ''>>>''
+      to continue</color>.'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4329505822962614283
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0060ea27408b0400

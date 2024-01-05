@@ -26,8 +26,8 @@ MonoBehaviour:
   Sprite: {fileID: -336943566, guid: a92cf8e2799ae114b9a6bdb3b28ac0ae, type: 3}
   Type: 3
   Resources:
-  - {fileID: 11400000, guid: 4f65faecf4ccae04a8fd4455c81655c6, type: 2}
+  - {fileID: 11400000, guid: 255de4b615684344a970b5c6a6381aff, type: 2}
   - {fileID: 11400000, guid: e248c6824f10a7949a7f68d08574e080, type: 2}
   StorageCapacity: 0
-  EcoImpactFactor: -7
+  EcoImpactFactor: -6
   AllowedLocations: 00000000

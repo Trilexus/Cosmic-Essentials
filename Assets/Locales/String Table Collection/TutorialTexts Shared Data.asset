@@ -15,6 +15,50 @@ MonoBehaviour:
   m_TableCollectionName: TutorialTexts
   m_TableCollectionNameGuidString: c12d5f2a572bf604e9f29d07d9981e54
   m_Entries:
+  - m_Id: 67621498806272
+    m_Key: MentatMessage000
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1319718055731200
+    m_Key: MentatMessage001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4024960903962624
+    m_Key: MentatMessage002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4039446343868416
+    m_Key: MentatMessage003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4042523977342976
+    m_Key: MentatMessage004
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4102360404746240
+    m_Key: MentatMessage005
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4439019256176640
+    m_Key: MentatMessage006
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453776684113920
+    m_Key: MentatMessage007
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4456373159616512
+    m_Key: MentatMessage008
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1279007570681856
+    m_Key: MentatMessage900
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4063708949667840
+    m_Key: MentatMessage950
+    m_Metadata:
+      m_Items: []
   - m_Id: 40988985417728
     m_Key: Story01
     m_Metadata:
@@ -29,10 +73,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 41565505085440
     m_Key: Story04
-    m_Metadata:
-      m_Items: []
-  - m_Id: 67621498806272
-    m_Key: MentatMessage01
     m_Metadata:
       m_Items: []
   m_Metadata:

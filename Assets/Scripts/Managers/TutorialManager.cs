@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -23,36 +24,203 @@ public class TutorialManager : MonoBehaviour
     [SerializeField]
     Canvas canvas;
     int tutorialStep = 0;
+    private bool yesPressed = false;
+    private bool noPressed = false;
+    private bool nextPressed = false;
+    [SerializeField]
+    private GameObject MainPlanet;
+    private Planet MainPlanetScript;
+    private Animator MainPlanetAnimator;
+    private TabsMenu PanelTabsMenuTopScript;
+    private float timer = 0.0f;
+    private float interval = 0.6f; 
+
+
+
     void Start()
     {
+        MainPlanetScript = MainPlanet.GetComponent<Planet>();
+        MainPlanetAnimator = MainPlanet.GetComponentInChildren<Animator>();
         GUIMarkerRectTransform = GUIMarker.GetComponent<RectTransform>();
         GUIMarkerCanvasGroup = GUIMarker.GetComponent<CanvasGroup>();
         mentat = GUIManager.Instance.MentatScript;
-        WelcomePanelInstance = Instantiate(WelcomePanelStory,canvas.transform);
+        WelcomePanelStory.SetActive(true);
+        WelcomePanelInstance = WelcomePanelStory;
+        mentat.OnButtonYes += OnButtonYes;
+        mentat.OnButtonNo += OnButtonNo;
+        mentat.OnNextPressed += NextPressed;
+        GameObject PanelTabsMenuTop = GUIElements[1];
+        PanelTabsMenuTopScript = PanelTabsMenuTop.GetComponent<TabsMenu>();
+    }
+    private void OnDestroy()
+    {
+        mentat.OnButtonYes -= OnButtonYes;
+        mentat.OnButtonNo -= OnButtonNo;
+        mentat.OnNextPressed -= NextPressed;
+    }
 
+    private void LogTutorialStep()
+    {
+        timer += Time.deltaTime; // Zeit seit dem letzten Update hinzufügen
+
+        if (timer >= interval)
+        {
+            // Führen Sie hier Ihren Befehl aus
+            Debug.Log(tutorialStep);
+
+            timer = 0.0f; // Timer zurücksetzen
+        }
     }
 
     public void Update()
     {
-        if (!WelcomePanelInstance.activeSelf && tutorialStep == 0)
+        //LogTutorialStep();
+        switch (tutorialStep)
         {
-            //Destroy(WelcomePanelInstance);
-            StartTutorial();
-            tutorialStep++;
+            case 0 :
+                if (!WelcomePanelInstance.activeSelf)
+                {
+                    Time.timeScale = 1;
+                    //Destroy(WelcomePanelInstance);
+                    SetTutorialText(true);
+                    tutorialStep++;
+                }
+                break;
+            case 1 :
+                if (yesPressed)
+                {
+                    FreezTimeOnMainPlanet();
+                    SetTutorialText(true);
+                    tutorialStep = 999; // 999 is waiting for the player to select the main planet
+                    mentat.HideButtons();
+                    resetButtons();
+                    GUIManager.Instance.OnSelectedCelestialBodyChanged += NextTutorialStep_SelectedCelestialBodyChanged;
+                }
+                else if (noPressed)                
+                {
+                    tutorialStep = 900;
+                    resetButtons();
+                }                
+                break;
+            case 2 :
+                    SetTutorialText(true);
+                    tutorialStep++;
+                    //mentat.ShowButtons();
+                    resetButtons();                
+                break;            
+            case 3:
+                if (nextPressed)
+                {
+                    SetTutorialText(true);
+                    tutorialStep = 999; // 999 is waiting for the player to select Structure Build Menu
+                    PanelTabsMenuTopScript.onTabActivate += NextTutorialStep_StructureMenuActivated;
+                    BlinkGUIElement("ButtonStructures");
+                }
+                break;
+            case 4:
+                SetTutorialText(true);
+                tutorialStep++;
+                resetButtons();
+                HideGUIMarker();
+                break;
+            case 5:
+                if (nextPressed)
+                {
+                    SetTutorialText(true);
+                    tutorialStep++;
+                    resetButtons();
+                }
+                break;
+            case 6:
+                if (nextPressed)
+                {
+                    SetTutorialText(true);
+                    tutorialStep++;
+                    resetButtons();
+                }
+                break;
+            case 7:
+                if (nextPressed)
+                {
+                    SetTutorialText(true);
+                    tutorialStep++;
+                    resetButtons();
+                }
+                break;
+            case 8:
+                if (nextPressed)
+                {
+                    SetTutorialText(true);
+                    tutorialStep++;
+                    resetButtons();
+                }
+                break;
+            case 9:
+                if (nextPressed)
+                {
+                    SetTutorialText(true);
+                    tutorialStep++;
+                    resetButtons();
+                    tutorialStep = 950; // 950 Ends Tutorial
+                }
+                break;
+            case 900:
+                SetTutorialText(true);
+                UnFreezTimeOnMainPlanet();
+                mentat.HideButtons();
+                mentat.OnButtonYes -= OnButtonYes;
+                mentat.OnButtonNo -= OnButtonNo;
+                tutorialStep++;
+                break;
+            case 950:
+                SetTutorialText(true);
+                UnFreezTimeOnMainPlanet();
+                tutorialStep++;
+                break;
+
+        }
+    }
+    public void NextTutorialStep_SelectedCelestialBodyChanged(CelestialBody celestialBody)
+    {
+        if (celestialBody.gameObject == MainPlanet) 
+        {
+            GUIManager.Instance.OnSelectedCelestialBodyChanged -= NextTutorialStep_SelectedCelestialBodyChanged;
+            tutorialStep  =2;
         }
     }
 
-    public void StartTutorial()
+    public void NextTutorialStep_StructureMenuActivated(GameObject gameObject)
     {
-        SetMenatText("MentatMessage01");
+        GameObject StructureMenu = GUIElements[6];
+        if (gameObject == StructureMenu)
+        {
+            PanelTabsMenuTopScript.onTabActivate -= NextTutorialStep_StructureMenuActivated;
+            tutorialStep = 4;
+        }
     }
 
-    public void SetMenatText(string message)
+    public void SetTutorialText(bool clearText)
+    {
+        SetMenatText("MentatMessage" + tutorialStep.ToString("D3"), clearText);
+    }
+
+    public void FreezTimeOnMainPlanet()
+    {
+        MainPlanetScript.isPaused = true;
+        MainPlanetAnimator.enabled = false;
+    }
+    public void UnFreezTimeOnMainPlanet()
+    {
+        MainPlanetScript.isPaused = false;
+        MainPlanetAnimator.enabled = true;
+    }
+
+    public void SetMenatText(string message, bool clearText)
     {
         stringBuilder.Clear();
         LocalizedString myLocalizedString = new LocalizedString(LocalisatzionTableName, message);
         stringBuilder.Append($"{myLocalizedString.GetLocalizedString()}");
-        mentat.SetTextWithTyping(message, LocalisatzionTableName);
+        mentat.SetTextWithTyping(message, LocalisatzionTableName, clearText);
     }
 
     public void NextPosition()
@@ -75,6 +243,19 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    public void BlinkGUIElement(string name) 
+    {
+        GameObject GUIElement = GUIElements.Find(I => I.name == name);
+        RectTransform rectTransform = GUIElement.GetComponent<RectTransform>();
+        GUIMarkerRectTransform.SetParent(GUIElement.transform.parent);
+        GUIMarkerRectTransform.anchoredPosition = rectTransform.anchoredPosition;
+        GUIMarkerRectTransform.sizeDelta = rectTransform.sizeDelta;
+        GUIMarkerRectTransform.anchorMin = rectTransform.anchorMin;
+        GUIMarkerRectTransform.anchorMax = rectTransform.anchorMax;
+        GUIMarkerRectTransform.pivot = rectTransform.pivot;
+        ShowGUIMarker();
+    }
+
     public void ShowGUIMarker()
     {
         GUIMarkerCanvasGroup.alpha = 1;
@@ -93,4 +274,27 @@ public class TutorialManager : MonoBehaviour
             button.onClick.Invoke();
         }
     }
+
+    public void OnButtonYes()
+    {
+        yesPressed = true;
+        noPressed = false;
+    }
+    public void OnButtonNo()
+    {
+        yesPressed = false;
+        noPressed = true;
+    }
+    public void resetButtons()
+    {
+        yesPressed = false;
+        noPressed = false;
+        nextPressed = false;
+    }
+
+    public void NextPressed()
+    {
+        nextPressed = true;
+    }
+
 }

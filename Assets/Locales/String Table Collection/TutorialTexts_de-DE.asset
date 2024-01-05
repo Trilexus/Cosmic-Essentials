@@ -72,6 +72,79 @@ MonoBehaviour:
       Einstieg zu erleichtern?\""
     m_Metadata:
       m_Items: []
+  - m_Id: 1279007570681856
+    m_Localized: "Wenn Sie Hilfe brauchen, stehe ich Ihnen zur Verf\xFCgung! Viel
+      Erfolg bei der Rettung ihrer Spezies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1319718055731200
+    m_Localized: "Dann legen wir los. Das Retten einer kleinen Zivilisation ist technisch
+      gesehen nicht schwer, kann aber bei selbstzerst\xF6rerischen Zivilisationen
+      eine Herausforderung darstellen. Auf der Arbeitskarte kannst du deinen Heimatplaneten,
+      die Erde, sehen. Ich stoppe die Zeit f\xFCr deinen Planeten, damit ihr euch
+      nicht w\xE4hrend des Tutorials selbst vernichtet.\n<color=red>Klicke nun den
+      Planeten \"Earch\" an. </color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4024960903962624
+    m_Localized: "Aurf der linken Seite befindet sich Ihr  Steuermen\xFC mit folgenden
+      Reitern:\n1. Informationen zum gew\xE4hlten Celesatial Body.\n2. Baumen\xFC
+      f\xFCr Strukturen.\n3. Baumen\xFC f\xFCr Weltraumobjekte.\n<color=red>Bitte
+      klicke auf '>>>', um fortzufahren.</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4039446343868416
+    m_Localized: "Das Informationspanel gibt dir einen \xDCberblick \xFCber verschiedene
+      Aspekte, einschlie\xDFlich des Bev\xF6lkerungswachstums. Die Bev\xF6lkerungszahl
+      nimmt zu, sofern die Lebensbedingungen angemessen sind. Dazu geh\xF6ren ausreichender
+      Wohnraum, die Verf\xFCgbarkeit von Nahrung und ein akzeptabler EcoFaktor.\n<color=red>Klicke
+      nun den Button f\xFCr das Baumen\xFC an.</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4042523977342976
+    m_Localized: "\"Im Baumen\xFC f\xFCr Strukturen hast du die M\xF6glichkeit, alle
+      Geb\xE4udetypen zu errichten, ihre Anzahl zu \xFCberblicken und sie bei Bedarf
+      wieder zu entfernen. Zus\xE4tzlich kannst du hier die Baukosten sowie die Produktionsleistung
+      und den Ressourcenverbrauch jedes Geb\xE4udes einsehen.\r\n<color=red>Bitte
+      klicke auf '>>>', um fortzufahren.</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4063708949667840
+    m_Localized: "\"F\xFCr das Wohl deiner Menschlein hoffe ich, dass du gut vorbereitet
+      bist. Falls du noch Fragen hast oder Verbesserungsvorschl\xE4ge einbringen
+      m\xF6chtest, besuche uns gerne unter https://trilexus.itch.io/cosmic-essentials."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4102360404746240
+    m_Localized: "Durch Anklicken des Geb\xE4udebildes beginnst du den Bau, w\xE4hrend
+      das M\xFClleimer-Symbol zum Abriss f\xFChrt. Die Anzahl der Geb\xE4ude wird
+      unten im Bild angezeigt. Neben dem Planeten sind weitere Informationen, wie
+      die Geb\xE4udeproduktion, ersichtlich.\r\n<color=red>Klicke auf '>>>', um fortzufahren.</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4439019256176640
+    m_Localized: "Umwelttechnisch steht euer Planet kurz vor dem Kollaps. Zu viele
+      Minen und Reaktoren haben den EcoFactor stark in den roten Bereich gedr\xFCckt.
+      Die resultierende Verschmutzung senkt die Produktivit\xE4t erheblich, und ohne
+      \xC4nderungen droht bald ein planetarer Zusammenbruch.\n<color=red>Klicke auf
+      '>>>', um fortzufahren.</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4453776684113920
+    m_Localized: "Die aktuellen Werte f\xFCr den EcoFactor und die Produktivit\xE4t
+      sind direkt \xFCber dem Planeten sowie f\xFCr den ausgew\xE4hlten Planeten
+      in der Infoleiste oben sichtbar. Durch das Entfernen umweltsch\xE4dlicher Geb\xE4ude
+      kannst du den EcoFactor verbessern und somit auch die Produktivit\xE4t steigern.\n<color=red>Klicke
+      auf '>>>', um fortzufahren.</color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4456373159616512
+    m_Localized: "Jetzt liegt es an dir, das Gleichgewicht deines Planeten wiederherzustellen.
+      Leider konnte mein Programmierer das Tutorial nicht weiter ausarbeiten. Du
+      bist jetzt auf dich allein gestellt. Viel Erfolg und Entschuldigung f\xFCr
+      die Unannehmlichkeiten! ;-)\n<color=red>Klicke auf '>>>', um fortzufahren.</color>"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

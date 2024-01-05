@@ -7,6 +7,7 @@ using System;
 
 public class GUIManager : MonoBehaviour
 {
+    public TextMeshProUGUI DebugText;
     public static GUIManager Instance;
     public GameObject CelestialBodyMenu;
     public GameObject CelestialBodyBuildInfo;
@@ -96,8 +97,9 @@ public class GUIManager : MonoBehaviour
         if (this.selectedCelestialBody == null)
         {
             //Select Celestial Body (primary)
-            this.selectedCelestialBody = selectedCelestialBody;
+            this.selectedCelestialBody = selectedCelestialBody;            
             selectedCelestialBodyScript = selectedCelestialBody.GetComponent<CelestialBody>();
+            selectedCelestialBodyScript.DebugHangar();
             ActiveCelestialBodyMarker.transform.position = selectedCelestialBody.transform.position;
             ActiveCelestialBodyMarker.SetActive(true);
             SetActivePlanetarySystem(selectedCelestialBody.transform.parent.gameObject);

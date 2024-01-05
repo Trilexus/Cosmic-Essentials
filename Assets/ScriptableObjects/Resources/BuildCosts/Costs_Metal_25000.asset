@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Costs_Metal_25000
   m_EditorClassIdentifier: 
   Quantity: 25000
-  ResourceType: 0
+  ResourceType: 1

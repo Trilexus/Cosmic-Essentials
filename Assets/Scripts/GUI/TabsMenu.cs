@@ -8,6 +8,8 @@ public class TabsMenu : MonoBehaviour
     [SerializeField]
     List<Button> buttons = new List<Button>();
     private List<GameObject> panels = new List<GameObject>();
+    public delegate void OnTabActivate(GameObject panel);
+    public event OnTabActivate onTabActivate;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,7 @@ public class TabsMenu : MonoBehaviour
 
     public void ActivatePanel(GameObject aktivatePanel)
     {
+        onTabActivate?.Invoke(aktivatePanel);
         CanvasGroup canvasGroup;
         foreach (GameObject panel in panels)
         {

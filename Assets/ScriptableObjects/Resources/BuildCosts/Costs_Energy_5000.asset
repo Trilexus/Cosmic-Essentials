@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Costs_Energy_5000
   m_EditorClassIdentifier: 
   Quantity: 5000
-  ResourceType: 0
+  ResourceType: 2

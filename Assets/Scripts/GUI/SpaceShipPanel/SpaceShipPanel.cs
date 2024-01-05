@@ -55,6 +55,12 @@ public class SpaceShipPanel : MonoBehaviour
         GUIManager.Instance.OnDeselectCelestialBody += ResetMenu;
         
     }
+    public void OnDestroy()
+    {
+        SpaceShipEntry.OnClickEvent -= SetActiveSpaceShip;
+        GUIManager.Instance.OnSelectedCelestialBodyTargetChanged -= SetTarget;
+        GUIManager.Instance.OnDeselectCelestialBody -= ResetMenu;
+    }
 
     // Update is called once per frame
     void Update()
@@ -65,6 +71,18 @@ public class SpaceShipPanel : MonoBehaviour
         } else if (LaunchButton.interactable)
         {
             DeActivateGUI();
+        }
+    }
+    public void UnselectSpaceShip()
+    {
+        activeSpaceShip = null;
+        SpaceShipImage.sprite = null;
+        SpaceShipName.text = "";
+        SpaceShipDescription.text = "";
+        foreach (SliderInputFieldPair sliderInputFieldPair in ResourceSliderInputFieldPairs)
+        {
+            sliderInputFieldPair.ResourceSlider.value = 0;
+            sliderInputFieldPair.ResourceInputField.text = "0";
         }
     }
 
@@ -87,15 +105,30 @@ public class SpaceShipPanel : MonoBehaviour
 
     public void LaunchSpaceship()
     {
-        CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBodyScript;
+        Debug.Log("LaunchSpaceship - Button");
+        CelestialBody celestialBodyScript = GUIManager.Instance.selectedCelestialBodyScript;
 
-        if (activeSpaceShip == null) { return; }
-        if (CelestialBodyTarget == null) { return; }
-        SpaceShip spaceShip = celestialBody.PerformHangarOperation(hangar => hangar.GetSpaceShip(activeSpaceShip, true, false));
+        if (activeSpaceShip == null) 
+        { 
+            Debug.Log("activeSpaceShip == null");
+            return; 
+        }
+        if (CelestialBodyTarget == null) 
+        { 
+            Debug.Log("CelestialBodyTarget == null");
+            return; 
+        }
+        SpaceShip spaceShip = celestialBodyScript.PerformHangarOperation(hangar => hangar.GetSpaceShip(activeSpaceShip, true, false));
+        if (spaceShip == null)
+        {
+            Debug.Log("spaceShip == null");
+            return;
+        }
         ResourceTransferDispatcher resourceTransferDispatcher = new ResourceTransferDispatcher();
         resourceTransferDispatcher.LoadSpaceShip(spaceShip, activeSpaceShip.ResourceStorage);
-        spaceShip.StartJourneyFlyToTarget(celestialBody, CelestialBodyTarget);
-        ResetMenu();
+        spaceShip.StartJourneyFlyToTarget(celestialBodyScript, CelestialBodyTarget);
+        //ResetMenu();
+        UnselectSpaceShip();
     }
 
     public void SetActiveSpaceShip(SpacefleetScriptableObject spacefleetScriptableObject)
@@ -120,7 +153,7 @@ public class SpaceShipPanel : MonoBehaviour
             sliderInputFieldPair.ResourceInputField.interactable = true;
             sliderInputFieldPair.ResourceSlider.interactable = true;
         }
-        LaunchButton.interactable = true;
+        //LaunchButton.interactable = true;
         
     }
     public void DeActivateGUI()
@@ -130,7 +163,7 @@ public class SpaceShipPanel : MonoBehaviour
             sliderInputFieldPair.ResourceInputField.interactable = false;
             sliderInputFieldPair.ResourceSlider.interactable = false;
         }
-        LaunchButton.interactable = false;
+        //LaunchButton.interactable = false;
 
     }
 
@@ -226,7 +259,7 @@ public class SpaceShipPanel : MonoBehaviour
     {
         CelestialBody celestialBody = GUIManager.Instance.selectedCelestialBodyScript;
         int storrageInShip = activeSpaceShip.ResourceStorage[resourceType].StorageQuantity;
-        Debug.Log("Storrage in Ship: " + storrageInShip);
+        //Debug.Log("Storrage in Ship: " + storrageInShip);
         amount -= storrageInShip;
         int availableAmount = celestialBody.ResourceStorageCelestialBody[resourceType].StorageQuantity;
         if (availableAmount >= amount)

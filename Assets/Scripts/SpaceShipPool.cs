@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class SpaceShipPool : MonoBehaviour
 {
     public static SpaceShipPool Instance;
     public int amountToPool;
-
+    [SerializeField]
     private List<GameObject> pooledSpaceShip;
     private Dictionary<SpacefleetScriptableObject, List<GameObject>> SpaceFleetShips = new Dictionary<SpacefleetScriptableObject, List<GameObject>>();
 
@@ -18,6 +19,15 @@ public class SpaceShipPool : MonoBehaviour
 
     void Start()
     {
+    }
+    public void DebugRessources(SpacefleetScriptableObject spacefleetScriptableObject)
+    {
+        TextMeshProUGUI debugTXT = GUIManager.Instance.DebugText;
+        debugTXT.text += "Pool:\n";
+        foreach (var resource in spacefleetScriptableObject.ResourceStorage)
+        {
+            debugTXT.text += resource.Key + " - " + resource.Value.StorageQuantity + "\n";
+        }
     }
 
     public SpaceShip GetPooledSpaceShip(SpacefleetScriptableObject spacefleetScriptableObject)
@@ -30,9 +40,9 @@ public class SpaceShipPool : MonoBehaviour
         {
             if (!spaceship.activeInHierarchy)
             {
-                SpaceShip ship = spaceship.GetComponent<SpaceShip>();
-                ship.InitializedSpaceShip(spacefleetScriptableObject);
-                return ship;
+                SpaceShip shipScript = spaceship.GetComponent<SpaceShip>();
+                shipScript.InitializedSpaceShip(spacefleetScriptableObject);
+                return shipScript;
             }
         }
        return CreateNewObjectInPool(spacefleetScriptableObject, SpaceFleetShips[spacefleetScriptableObject]);
@@ -44,13 +54,15 @@ public class SpaceShipPool : MonoBehaviour
         GameObject spaceShip = Instantiate(spaceShipPrefab);
         spaceShip.SetActive(false);
         spaceShipList.Add(spaceShip);
-        SpaceShip ship = spaceShip.GetComponent<SpaceShip>();
-        ship.InitializedSpaceShip(spacefleetScriptableObject);
-        return ship;
+        SpaceShip shipScript = spaceShip.GetComponent<SpaceShip>();
+        shipScript.InitializedSpaceShip(spacefleetScriptableObject);
+        return shipScript;
     }
 
     public void ReturnSpaceShipToPool(GameObject spaceShip)
     {
+        spaceShip.GetComponent<SpaceShip>().SpacefleetScriptableObject = null;
         spaceShip.SetActive(false);
+
     }
 }

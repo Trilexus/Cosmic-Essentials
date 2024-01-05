@@ -18,12 +18,22 @@ public class Mentat : MonoBehaviour
     public float typingSpeed = 0.002f;
     Coroutine myTypingCoroutine;
     string lastMessage;
+    public delegate void ButtonYesHandler();
+    public event ButtonYesHandler OnButtonYes;
+    public delegate void ButtonNoHandler();
+    public event ButtonNoHandler OnButtonNo;
+    [SerializeField]
+    public GameObject Buttons;
+    private CanvasGroup ButtonsCanvasGroup;
+
+    public delegate void OnNextPressedHandler();
+    public event OnNextPressedHandler OnNextPressed;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ButtonsCanvasGroup = Buttons.GetComponent<CanvasGroup>();
     }
 
     public void SetAlertText(string message)
@@ -39,8 +49,13 @@ public class Mentat : MonoBehaviour
         startTimeAlert = DateTime.Now;
     }
 
-    public void SetTextWithTyping(string message, string localisationTable)
+    public void SetTextWithTyping(string message, string localisationTable, bool clearText)
     {
+        SkipTpyping();
+        if (clearText)
+        {
+            MentatText.text = "";
+        }
         myLocalizedString = new LocalizedString(localisationTable, message);
         Debug.Log(TranslatedValue);
         lastMessage = TranslatedValue;
@@ -53,9 +68,35 @@ public class Mentat : MonoBehaviour
         if (myTypingCoroutine != null)
         {
             StopCoroutine(myTypingCoroutine);
+            myTypingCoroutine = null;
+        } else
+        {
+            OnNextPressed?.Invoke();
         }
         MentatText.text = lastMessage;
+    }
 
+    public void ButtonYes()
+    {
+        OnButtonYes?.Invoke();
+    }
+
+    public void ButtonNo()
+    {
+        OnButtonNo?.Invoke();
+    }
+
+    public void HideButtons()
+    {
+        ButtonsCanvasGroup.alpha = 0;
+        ButtonsCanvasGroup.interactable = false;
+        ButtonsCanvasGroup.blocksRaycasts = false;
+    }
+    public void ShowButtons()
+    {
+        ButtonsCanvasGroup.alpha = 1;
+        ButtonsCanvasGroup.interactable = true;
+        ButtonsCanvasGroup.blocksRaycasts = true;
     }
 
     IEnumerator TypeText(string message)
@@ -71,6 +112,8 @@ public class Mentat : MonoBehaviour
             }
             //yield return new WaitForSeconds(typingSpeed);
         }
+        myTypingCoroutine = null;
+
     }
 
     // Update is called once per frame

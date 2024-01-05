@@ -72,7 +72,24 @@ abstract public class CelestialBody : MonoBehaviour
     public event StartStructureBuildHandler OnStartStructureBuild;
     public delegate void TickDone(CelestialBody celestialBody);
     public event TickDone OnTickDone;
+    
+    public bool isPaused = false;
 
+    public void DebugHangar()
+    {
+        TextMeshProUGUI debugTXT = GUIManager.Instance.DebugText;
+        debugTXT.text = "Test";
+        List<HangarSlot> slots = hangarManager.GetHangarSlots();
+        foreach(HangarSlot slot in slots)
+        {
+            Debug.Log("ForEach");
+            debugTXT.text += slot.spacefleetScriptableObject.Name + " - " + slot.constructionProgress + "\n";
+            foreach(var resource in slot.spacefleetScriptableObject.ResourceStorage)
+            {
+                debugTXT.text += resource.Key + " - " + resource.Value.StorageQuantity + "\n";
+            }
+        } 
+    }
 
     public virtual void Start()
     {
@@ -132,10 +149,16 @@ abstract public class CelestialBody : MonoBehaviour
     }
     protected virtual void Update()
     {
-        // Aktualisiere die verbleibende Zeit
-        timeUntilNextTick = nextTickTime - Time.time;
-        // Aktualisiere die Anzeige
-        TimeToTick.SetText(timeUntilNextTick.ToString("0.0") + "/" + interval);
+        if (!isPaused)
+        {
+            // Aktualisiere die verbleibende Zeit
+            timeUntilNextTick = nextTickTime - Time.time;
+            // Aktualisiere die Anzeige
+            TimeToTick.SetText(timeUntilNextTick.ToString("0.0") + "/" + interval);
+        } else
+        {
+            TimeToTick.SetText("freeze");
+        }
     }
 
     public void AddResourceTransferOrder(ResourceTransferOrder order)
@@ -161,9 +184,15 @@ abstract public class CelestialBody : MonoBehaviour
     {
         while (true)
         {
-            nextTickTime = Time.time + interval; // Setze den Zeitpunkt des nächsten Ticks           
-            yield return new WaitForSeconds(interval);
-            Tick();
+            if (!isPaused)
+            {             
+                nextTickTime = Time.time + interval; // Setze den Zeitpunkt des nächsten Ticks           
+                yield return new WaitForSeconds(interval);
+                Tick();
+            }else
+            {
+                yield return new WaitForSeconds(0.01f);
+            }
         }
     }
 

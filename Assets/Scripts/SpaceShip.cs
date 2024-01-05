@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 
 public class SpaceShip : SpaceFleet
@@ -24,6 +25,7 @@ public class SpaceShip : SpaceFleet
     public int LaunchSpacePointsCosts;
     public SpacefleetScriptableObject SpacefleetScriptableObject;
 
+
     public Flymodes Flymode = Flymodes.FreeFlight;
 
 
@@ -33,7 +35,26 @@ public class SpaceShip : SpaceFleet
         { ResourceType.Energy, new ResourceStorage(ResourceType.Energy, 100, 0, 0, 0) },
     };
 
-    
+    public void DebugRessources(string message)
+    {
+        TextMeshProUGUI debugTXT = GUIManager.Instance.DebugText;
+        if (ResourceStorage == null)
+        {
+            debugTXT.text += "NULL:\n";
+            return;
+        }
+        debugTXT.text += message + "#############SpaceShip:\n";        
+        foreach (var resource in ResourceStorage)
+        {
+            debugTXT.text += resource.Key + " - " + resource.Value.StorageQuantity + "\n";
+        }
+        debugTXT.text += "ScripableObject:\n";
+        foreach(var resource in SpacefleetScriptableObject.ResourceStorage)
+        {
+            debugTXT.text += resource.Key + " - " + resource.Value.StorageQuantity + "\n";
+        }
+    }
+
     public void ResetResources()
     {
         ResourceStorage.Clear();        
@@ -45,14 +66,24 @@ public class SpaceShip : SpaceFleet
 
     public void InitializedSpaceShip(SpacefleetScriptableObject spacefleetScriptableObject)
     {
-        ResetResources();
         CargoSpace = spacefleetScriptableObject.CargoSpace;        
         speed = spacefleetScriptableObject.Speed / 100f;
         MaxRange = spacefleetScriptableObject.Range;
         MaxFuel = spacefleetScriptableObject.MaxFuel;
         Fuel = spacefleetScriptableObject.Fuel;
         FreeSpace = CargoSpace;
+
+        Flymode = Flymodes.FreeFlight;
+        ResourceStorage = new Dictionary<ResourceType, ResourceStorage>();
+        ReturnToOrigin = false;
+        isStarted = false;
+        isArrived = false;
+        isArrivedDistance = 0.001f;
+        rotationSpeed = 150f;
+
+        ResetResources();
         SpacefleetScriptableObject = spacefleetScriptableObject;
+        DebugRessources("InitializedSpaceShip");
     }
 
 
@@ -71,7 +102,7 @@ public class SpaceShip : SpaceFleet
             OrderFlymode();
         } else if (isStarted && Flymode == Flymodes.FlyToTarget)
         {
-            Debug.Log("FlyToTarget");
+        //  Debug.Log("FlyToTarget");
             FlyToTarget();
         }
     }
@@ -93,6 +124,7 @@ public class SpaceShip : SpaceFleet
         if (Vector2.Distance(transform.position, target.transform.position) < isArrivedDistance)
         {
             Debug.Log("Arrived");
+            DebugRessources("Arrived");
             isArrived = true;
             isStarted = false;
             target.PerformHangarOperation(hangar => hangar.AddSpaceShip(this));
@@ -118,6 +150,8 @@ public class SpaceShip : SpaceFleet
 
     public void StartJourneyFlyToTarget(CelestialBody origin, CelestialBody target)
     {
+        
+        Debug.Log("StartJourneyFlyToTarget");
         this.target = target;
         this.origin = target;
         Fuel -= LaunchSpacePointsCosts;
@@ -127,6 +161,7 @@ public class SpaceShip : SpaceFleet
         gameObject.SetActive(true);
         isArrived = false;
         isStarted = true;
+        DebugRessources("StartJourneyFlyToTarget");
         ReturnToOrigin = false;
         Flymode = Flymodes.FlyToTarget;
     }

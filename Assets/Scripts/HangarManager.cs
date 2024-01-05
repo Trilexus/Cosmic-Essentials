@@ -185,9 +185,11 @@ public class HangarManager
         {
             return null;
         }
-        SpacefleetScriptableObject AvailableShip = slot.spacefleetScriptableObject;
+        SpacefleetScriptableObject AvailableShipScriptableObject = slot.spacefleetScriptableObject;
         SpaceShip spaceShip = SpaceShipPool.Instance.GetPooledSpaceShip(slot.spacefleetScriptableObject).GetComponent<SpaceShip>(); //SpaceShip aus dem Pool holen.
-        spaceShip.InitializedSpaceShip(AvailableShip);
+        Debug.Log("GetSpaceShip" + spaceShip.SpacefleetScriptableObject.Name);
+        //spaceShip.InitializedSpaceShip(AvailableShipScriptableObject);
+        
         RemoveHangarSlot(slot);
         return spaceShip;
     }

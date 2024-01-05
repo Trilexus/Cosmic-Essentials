@@ -95,6 +95,8 @@ MonoBehaviour:
   Messages: {fileID: 0}
   CurrentMessage: 0
   LastMessages: 0
+  useLocalisaztion: 0
+  LocalisatzionTableName: 
 --- !u!1 &7121080427944784669
 GameObject:
   m_ObjectHideFlags: 0
