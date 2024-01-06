@@ -19,6 +19,13 @@ public class HangarManager
 
     public bool AddSpaceShip(SpaceShip spaceShip)
     {
+        Debug.Log("AddSpaceShip: " + spaceShip.name);
+        if (spaceShip.SpacefleetScriptableObject == null)
+        {
+            Debug.Log("AddSpaceShip: " + spaceShip.SpacefleetScriptableObject);
+        }
+        Debug.Log("AddSpaceShip: " + spaceShip.SpacefleetScriptableObject.Name);
+        Debug.Log("AddSpaceShip: " + spaceShip.SpacefleetScriptableObject.Type);
         AddHangarSlot(new HangarSlot(spaceShip.SpacefleetScriptableObject, 100));
         return true;
     }

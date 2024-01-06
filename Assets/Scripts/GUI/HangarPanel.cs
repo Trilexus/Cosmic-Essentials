@@ -57,7 +57,14 @@ public class HangarPanel : MonoBehaviour
         List<HangarSlot> hangar = selectedCelestialBodyScript.PerformHangarOperation(manager => manager.GetHangarSlots());
         foreach (HangarSlot slot in hangar)
         {
-            GameObject SpaceShip = Instantiate(spaceShipEntryPrefab, scrollViewHangarOverviewContent.transform);
+            if (slot == null)
+            {
+                Debug.Log("FillHangarOverview  Slot is null");
+            }else
+            {           
+                Debug.Log("FillHangarOverview  Slot is not null");
+            }
+                GameObject SpaceShip = Instantiate(spaceShipEntryPrefab, scrollViewHangarOverviewContent.transform);
             SpaceShip.GetComponent<SpaceShipEntry>().Initialize(slot);
             SpaceShip.transform.SetParent(scrollViewHangarOverviewContent.transform);
         }

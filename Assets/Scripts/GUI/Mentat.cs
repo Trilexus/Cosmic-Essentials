@@ -100,8 +100,7 @@ public class Mentat : MonoBehaviour
     }
 
     IEnumerator TypeText(string message)
-    {
-        Debug.Log("Typing");
+    {        
         foreach (char letter in message.ToCharArray())
         {
             MentatText.text += letter;

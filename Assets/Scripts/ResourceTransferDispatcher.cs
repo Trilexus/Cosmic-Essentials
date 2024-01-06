@@ -117,8 +117,8 @@ public class ResourceTransferDispatcher : MonoBehaviour
             bool canFulfillOrder = CheckResourcesForOrder(order); // Überprüfen, ob die Order erfüllt werden kann.
             if (canFulfillOrder)
             {
-                Debug.Log("Order kann erfüllt werden");
-                Debug.Log("Order AutoChooseShip: " + order.AutoChooseShip);
+                //Debug.Log("Order kann erfüllt werden");
+                //Debug.Log("Order AutoChooseShip: " + order.AutoChooseShip);
                 SpaceShip AvailableShip = SelectSpaceShip(order, CelestialBody);
                 if (AvailableShip != null) { 
                     LoadSpaceShip(AvailableShip); // SpaceShip beladen.

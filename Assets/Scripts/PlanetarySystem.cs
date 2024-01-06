@@ -105,14 +105,14 @@ public class PlanetarySystem : MonoBehaviour
             // Jetzt können Sie mit spacestationTransform arbeiten
             spacestationTransform.gameObject.SetActive(true);
             spacestation.setPositionNearCelestialObject(GUIManager.Instance.selectedCelestialBody);
-            //spacestationTransform.SetParent(GUIManager.Instance.selectedCelestialBody.transform,false);
+            spacestationTransform.SetParent(GUIManager.Instance.selectedCelestialBody.transform,false);            
             spacestation.StartBuilding();
         } else if (spacestation != null && spacestation.isActiveAndEnabled)
         {
             GUIManager.Instance.MentatScript.SetAlertText("Only one station per star system!");
         }else if (spacestation == null)
         {
-            GameObject spaceStationGameObject = Instantiate(SpaceStationPrefab, GUIManager.Instance.selectedCelestialBody.transform.position, Quaternion.identity, GUIManager.Instance.selectedCelestialBody.transform);
+            GameObject spaceStationGameObject = Instantiate(SpaceStationPrefab, GUIManager.Instance.selectedCelestialBody.transform.position, Quaternion.identity, this.transform);
             spacestation = spaceStationGameObject.GetComponent<SpaceStation>();
             spacestation.name = "SpaceStation";
             celestialBodies.Add(spacestation);

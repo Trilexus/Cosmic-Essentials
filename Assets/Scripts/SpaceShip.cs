@@ -127,8 +127,8 @@ public class SpaceShip : SpaceFleet
             DebugRessources("Arrived");
             isArrived = true;
             isStarted = false;
-            target.PerformHangarOperation(hangar => hangar.AddSpaceShip(this));
             Debug.Log("ArrivedAddSpaceshipToTarget");
+            target.PerformHangarOperation(hangar => hangar.AddSpaceShip(this));
             SpaceShipPool.Instance.ReturnSpaceShipToPool(this.gameObject);
         }
     }

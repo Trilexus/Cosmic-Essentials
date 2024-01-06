@@ -65,7 +65,8 @@ public class SpaceShipPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (activeSpaceShip != null && !LaunchButton.interactable)
+        bool SliderDisabled = ResourceSliderInputFieldPairs.Where(x => x.ResourceSlider.interactable == false).Count() >= 0;
+        if (activeSpaceShip != null && SliderDisabled)
         {
             ActivateGUI();
         } else if (LaunchButton.interactable)

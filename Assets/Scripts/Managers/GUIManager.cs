@@ -132,7 +132,9 @@ public class GUIManager : MonoBehaviour
         {
             //Select Celestial Body (secondary)
             bool isSamePlanetarySystem = selectedCelestialBody.transform.parent.gameObject == selectedPlanetarySystem;
+            Debug.Log("isSamePlanetarySystem: " + isSamePlanetarySystem);
             bool isSelectedCelestialBodySpaceStation = selectedCelestialBodyScript is SpaceStation;
+            Debug.Log("isSelectedCelestialBodySpaceStation: " + isSelectedCelestialBodySpaceStation);
             if (!isSamePlanetarySystem && !isSelectedCelestialBodySpaceStation)
             {
                 MentatScript.SetAlertText("InterstellarTravelRestriction");

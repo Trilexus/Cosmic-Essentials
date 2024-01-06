@@ -290,9 +290,9 @@ abstract public class CelestialBody : MonoBehaviour
                 spaceship.StartJourneyOrder(this, spaceship.origin, false);
             }else
             {
+                hangarManager.AddSpaceShip(spaceship);
                 SpaceShipPool.Instance.ReturnSpaceShipToPool(spaceship.gameObject);
                 //SpaceShipTransporterAvailable += 1; //SpaceShip ist nun auf diesem CelestialBody verfügbar.
-                hangarManager.AddSpaceShip(spaceship);
             }
         }
         SpacecraftReadyForUnloading.Clear();

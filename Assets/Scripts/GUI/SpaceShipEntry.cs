@@ -29,6 +29,11 @@ public class SpaceShipEntry : MonoBehaviour, IPointerClickHandler
 
     private void UpdateInfoText(HangarSlot slot)
     {
+        if (slot == null)
+        {
+            Debug.Log("Slot is null");
+            return;
+        }
         sprite.sprite = slot.spacefleetScriptableObject.Sprite;
         string constructionProgress = "";
         if (slot.constructionProgress < 100)
