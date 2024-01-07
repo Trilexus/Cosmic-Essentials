@@ -24,7 +24,8 @@ public class SpaceShip : SpaceFleet
     public int Fuel;
     public int LaunchSpacePointsCosts;
     public SpacefleetScriptableObject SpacefleetScriptableObject;
-
+    public delegate void OnReachedCelestialBody(GameObject gameObject, SpaceShip spaceShip);
+    public static event OnReachedCelestialBody OnReachedCelestialBodyEvent;
 
     public Flymodes Flymode = Flymodes.FreeFlight;
 
@@ -115,6 +116,7 @@ public class SpaceShip : SpaceFleet
             isArrived = true;
             isStarted = false;
             target.RegisterTheSpaceship(this);
+            OnReachedCelestialBodyEvent?.Invoke(target.gameObject, this);
         }
     }
 
@@ -130,6 +132,7 @@ public class SpaceShip : SpaceFleet
             Debug.Log("ArrivedAddSpaceshipToTarget");
             target.PerformHangarOperation(hangar => hangar.AddSpaceShip(this));
             SpaceShipPool.Instance.ReturnSpaceShipToPool(this.gameObject);
+            OnReachedCelestialBodyEvent?.Invoke(target.gameObject, this);
         }
     }
 

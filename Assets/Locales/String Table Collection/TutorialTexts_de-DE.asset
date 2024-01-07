@@ -145,6 +145,12 @@ MonoBehaviour:
       die Unannehmlichkeiten! ;-)\n<color=red>Klicke auf '>>>', um fortzufahren.</color>"
     m_Metadata:
       m_Items: []
+  - m_Id: 7107700012507136
+    m_Localized: "Gl\xFCckwunsch, du hast den Zielplaneten erreicht und gewonnen.
+      Juhu! Da der Entwickler jetzt ins Bett gehen muss, ist das alles, was Du im
+      Moment bekommst. Vielen Dank f\xFCrs Testen!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

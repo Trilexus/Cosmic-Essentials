@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public delegate void ChangeLanguageDelegate();
     public static event ChangeLanguageDelegate ChangeLanguageEvent;
-
+    public Button SpeedButton;
     public void ToggleWelcomeBox()
     {
         WelcomeMesageBox.SetActive(!WelcomeMesageBox.activeSelf);
@@ -35,6 +36,18 @@ public class GameManager : MonoBehaviour
         } else
         {
             Time.timeScale = 0;
+        }
+    }
+    public void ChangeSpeed()
+    {
+        if (Time.timeScale == 0 || Time.timeScale == 2)
+        {
+            SpeedButton.image.color = Color.white;
+            Time.timeScale = 1;
+        } else if (Time.timeScale == 1)
+        {
+            SpeedButton.image.color = Color.green;
+            Time.timeScale = 2;
         }
     }
 

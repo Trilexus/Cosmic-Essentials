@@ -162,6 +162,12 @@ MonoBehaviour:
       to continue</color>.'
     m_Metadata:
       m_Items: []
+  - m_Id: 7107700012507136
+    m_Localized: Congratulations, you've reached the target planet and won. Yay!
+      Since the developer now needs to go to bed, this is all you're getting for
+      the moment. Thanks for testing!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -75,6 +75,10 @@ MonoBehaviour:
     m_Key: Story04
     m_Metadata:
       m_Items: []
+  - m_Id: 7107700012507136
+    m_Key: YouWin
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

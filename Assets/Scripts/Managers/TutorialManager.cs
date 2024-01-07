@@ -24,6 +24,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField]
     Canvas canvas;
     int tutorialStep = 0;
+    int storyStep = 0;
     private bool yesPressed = false;
     private bool noPressed = false;
     private bool nextPressed = false;
@@ -33,12 +34,14 @@ public class TutorialManager : MonoBehaviour
     private Animator MainPlanetAnimator;
     private TabsMenu PanelTabsMenuTopScript;
     private float timer = 0.0f;
-    private float interval = 0.6f; 
-
+    private float interval = 0.6f;
+    public GameObject CelestialBodyToReachWithSpaceShip;
+    
 
 
     void Start()
     {
+        SpaceShip.OnReachedCelestialBodyEvent += WinConditionsFulfilled;
         MainPlanetScript = MainPlanet.GetComponent<Planet>();
         MainPlanetAnimator = MainPlanet.GetComponentInChildren<Animator>();
         GUIMarkerRectTransform = GUIMarker.GetComponent<RectTransform>();
@@ -57,6 +60,7 @@ public class TutorialManager : MonoBehaviour
         mentat.OnButtonYes -= OnButtonYes;
         mentat.OnButtonNo -= OnButtonNo;
         mentat.OnNextPressed -= NextPressed;
+        SpaceShip.OnReachedCelestialBodyEvent -= WinConditionsFulfilled;
     }
 
     private void LogTutorialStep()
@@ -71,13 +75,38 @@ public class TutorialManager : MonoBehaviour
             timer = 0.0f; // Timer zurücksetzen
         }
     }
+    
+    public void WinConditionsFulfilled(GameObject planet, SpaceShip spaceShip)
+    {
+        if (CelestialBodyToReachWithSpaceShip == planet && storyStep < 500)
+        {
+            storyStep = 500;
+        }
+    }
 
     public void Update()
+    {
+        TutorialSteps();
+        StorySteps();
+    }
+
+    private void StorySteps()
+    {
+        switch (storyStep)
+        {
+            case 500:
+                SetMenatText("YouWin", true);
+                storyStep++;
+                BlinkGUIElement("MentatImage");
+                break;
+        }
+    }
+    void TutorialSteps()
     {
         //LogTutorialStep();
         switch (tutorialStep)
         {
-            case 0 :
+            case 0:
                 if (!WelcomePanelInstance.activeSelf)
                 {
                     Time.timeScale = 1;
@@ -86,7 +115,7 @@ public class TutorialManager : MonoBehaviour
                     tutorialStep++;
                 }
                 break;
-            case 1 :
+            case 1:
                 if (yesPressed)
                 {
                     FreezTimeOnMainPlanet();
@@ -96,18 +125,18 @@ public class TutorialManager : MonoBehaviour
                     resetButtons();
                     GUIManager.Instance.OnSelectedCelestialBodyChanged += NextTutorialStep_SelectedCelestialBodyChanged;
                 }
-                else if (noPressed)                
+                else if (noPressed)
                 {
                     tutorialStep = 900;
                     resetButtons();
-                }                
+                }
                 break;
-            case 2 :
-                    SetTutorialText(true);
-                    tutorialStep++;
-                    //mentat.ShowButtons();
-                    resetButtons();                
-                break;            
+            case 2:
+                SetTutorialText(true);
+                tutorialStep++;
+                //mentat.ShowButtons();
+                resetButtons();
+                break;
             case 3:
                 if (nextPressed)
                 {
@@ -177,9 +206,9 @@ public class TutorialManager : MonoBehaviour
                 UnFreezTimeOnMainPlanet();
                 tutorialStep++;
                 break;
-
         }
     }
+
     public void NextTutorialStep_SelectedCelestialBodyChanged(CelestialBody celestialBody)
     {
         if (celestialBody.gameObject == MainPlanet) 
